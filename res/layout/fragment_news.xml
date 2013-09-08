@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="@drawable/background_pattern2"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical" >
+
+	<TextView
+	    android:id="@+id/newsAuthor"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_marginLeft="21dp"
+	    android:autoLink="web"
+	    android:text="Small Text"
+	    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+	<WebView
+		android:id="@+id/webview"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/newsAuthor"
+		android:layout_marginTop="15dp" />
+
+	<WebView
+	    android:id="@+id/webview2"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_below="@id/webview"
+	    android:layout_marginTop="15dp" />
+
+</RelativeLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/GrayTheme"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
+	<TextView
+		android:id="@+id/frag_Gnews_TView"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:text="@string/emptyNewsListString"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:textColor="@color/background_gradient" />
+	<ListView
+		android:id="@+id/mainList"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentTop="true"
+		android:divider="#b5b5b5"
+		android:dividerHeight="1dp"
+		android:listSelector="@drawable/list_selector" >
+	</ListView>
+</RelativeLayout>
