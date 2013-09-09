@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black_overlay">#000000</color>
+    <color name="white_overlay">#FFFFFF</color>
     <color name="background">#4F4A4A</color>
     <color name="main_fontColor">#9C9C9C</color>
     <color name="background_gradient">#CFCFCF</color>

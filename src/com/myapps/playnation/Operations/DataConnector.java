@@ -656,7 +656,7 @@ public class DataConnector extends SQLiteOpenHelper {
 	public Bundle getItem(String itemName, String tableName)
 	{		
 		Bundle bundle = new Bundle();
-		String selectQuery = "Select * from "+ tableName+" where GameName="+itemName+";";
+		String selectQuery = "SELECT * FROM "+ tableName+" WHERE GameName="+itemName+";";
 		
 		SQLiteDatabase sql = this.getReadableDatabase();
 		Cursor cursor = sql.rawQuery(selectQuery, null);
@@ -669,7 +669,7 @@ public class DataConnector extends SQLiteOpenHelper {
 					{
 						bundle =putGameInBundle(cursor);
 					}	
-					if(tableName.equalsIgnoreCase(Keys.gamesTable))
+					if(tableName.equalsIgnoreCase(Keys.groupsTable))
 					{
 						bundle = putGroupInBundle(cursor);
 					}
@@ -678,7 +678,7 @@ public class DataConnector extends SQLiteOpenHelper {
 			cursor.close();
 		}
 		
-		return null;
+		return bundle;
 	}
 	
 	public Bundle putGameInBundle(Cursor cursor)
@@ -770,7 +770,6 @@ public class DataConnector extends SQLiteOpenHelper {
 			}
 			cursor.close();
 		}
-
 		return list;
 	}
 
@@ -1327,11 +1326,6 @@ public class DataConnector extends SQLiteOpenHelper {
 	 * @return Database table
 	 */
 	public ArrayList<Bundle> getTable(String tableName, String sepateID) {
-
-		if (lilDb.get(tableName) == null) {
-			if (!checkDBTableExits(tableName)) {
-				getQuerry(tableName);
-			} else {
 				if (tableName.equals(Keys.HomeWallTable)) {
 					return getSQLitePWall(tableName, sepateID);
 				} else if (tableName.equals(Keys.newsTable)) {
@@ -1361,9 +1355,7 @@ public class DataConnector extends SQLiteOpenHelper {
 				} else if (tableName.equals(Keys.whoIsPlayingTable)) {
 					return getSQLiteWhoIsPlaying(tableName, sepateID);
 				}
-			}
-		}
-		return lilDb.get(tableName);
+				return null;
 	}
 
 	/**

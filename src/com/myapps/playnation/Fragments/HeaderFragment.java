@@ -26,7 +26,7 @@ import com.myapps.playnation.Operations.LoadImage;
 import com.myapps.playnation.main.ISectionAdapter;
 import com.myapps.playnation.main.MainActivity;
 
-public class HeaderFragment extends BaseFragment {
+public class HeaderFragment extends Fragment implements BaseFragment {
 	private TabHostDesc mTabFrag;
 	private View mView;
 	private TextView gName;
@@ -170,18 +170,11 @@ public class HeaderFragment extends BaseFragment {
 			mTabFrag.switchToTab(tabIndex);
 	}
 	
-	@Override
 	public void searchFunction(String args)
 	{
 		
 	}
 	
-	@Override
-	public BaseFragment getThis()
-	{
-		return this;
-	}
-
 	@Override
 	public void onDestroy() {
 		mView = null;

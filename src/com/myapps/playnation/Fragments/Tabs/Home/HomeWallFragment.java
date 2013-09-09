@@ -21,14 +21,14 @@ import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Fragments.BaseFragment;
 import com.myapps.playnation.Operations.DataConnector;
 
-public class HomeWallFragment extends BaseFragment {
+public class HomeWallFragment extends Fragment {
 	private DataConnector con;
 	private ArrayList<ExpandbleParent> listParents = new ArrayList<ExpandbleParent>();
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_template_wall,
+		View view = inflater.inflate(R.layout.component_homewall_layout,
 				container, false);
 		con = DataConnector.getInst(getActivity());
 		Context context = getActivity();
@@ -49,7 +49,7 @@ public class HomeWallFragment extends BaseFragment {
 			}
 
 		ExpandableListView eListView = (ExpandableListView) view
-				.findViewById(R.id.fragMsgAndWallTemp_expList);
+				.findViewById(R.id.listView);
 		HomExpandableAdapter expAdapter = new HomExpandableAdapter(context,
 				listParents, eListView, this);
 

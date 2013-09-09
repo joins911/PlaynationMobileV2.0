@@ -19,6 +19,7 @@ package com.myapps.playnation.main;
 import java.security.spec.MGF1ParameterSpec;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Timer;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
@@ -27,10 +28,12 @@ import com.myapps.playnation.Classes.Menu.MyMenuItem;
 import com.myapps.playnation.Classes.Menu.SubMenuItem;
 import com.myapps.playnation.Fragments.BaseFragment;
 import com.myapps.playnation.Fragments.HeaderFragment;
-import com.myapps.playnation.Fragments.ListsFragment;
+import com.myapps.playnation.Fragments.WrapperFragment;
+import com.myapps.playnation.Fragments.Lists.ListsFragment;
 import com.myapps.playnation.Fragments.Main.MessagesFragment;
 import com.myapps.playnation.Fragments.Tabs.Home.HomeWallFragment;
 import com.myapps.playnation.Fragments.Tabs.Home.XHomeMessagesFragment;
+import com.myapps.playnation.Operations.BackTimer;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 
@@ -83,10 +86,9 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	private boolean finished = false;
 	public static Configurations configs;
 	private boolean isTablet;
-	private boolean noGames;
-	private boolean noGroups;
-	private BaseFragment currFragment;
+	private Fragment currFragment;
 	private BrowserFragment mBrowserFragment;
+	private BackTimer mBackTimer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -97,12 +99,14 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		mPagesTitles = getResources().getStringArray(R.array.main_array);
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (ExpandableListView) findViewById(R.id.left_drawer);
-	
+		mBackTimer = new BackTimer();
 		// set a custom shadow that overlays the main content when the drawer
 		// opens
-		//mDrawerLayout.setDrawerShadow(R.drawable.myshadow, GravityCompat.START);
+		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
+		 GravityCompat.START);
 		// set up the drawer's list view with items and click listener
-		MainMenuAdapter mMenuAdapter = new MainMenuAdapter(getApplicationContext(),buildMenu());
+		MainMenuAdapter mMenuAdapter = new MainMenuAdapter(
+				getApplicationContext(), buildMenu());
 		mDrawerList.setAdapter(mMenuAdapter);
 		/*
 		 * DrawerItemClickListener mListener = new DrawerItemClickListener();
@@ -130,13 +134,11 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 
 			public void onDrawerOpened(View drawerView) {
 				getSupportActionBar().setTitle(mDrawerTitle);
-				if(!mDrawerList.isGroupExpanded(0))
-				{
-					mDrawerList.expandGroup(0);					
+				if (!mDrawerList.isGroupExpanded(0)) {
+					mDrawerList.expandGroup(0);
 				}
-				if(!mDrawerList.isGroupExpanded(1))
-				{
-					mDrawerList.expandGroup(1);					
+				if (!mDrawerList.isGroupExpanded(1)) {
+					mDrawerList.expandGroup(1);
 				}
 				supportInvalidateOptionsMenu(); // creates call to
 				// onPrepareOptionsMenu()
@@ -145,38 +147,51 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
 
 		if (savedInstanceState == null) {
-			selectGroup(1,0);
+			selectGroup(1, 0);
 		}
 	}
-	
-	private ArrayList<MyMenuItem> buildMenu()
-	{
+
+	private ArrayList<MyMenuItem> buildMenu() {
 		ArrayList<MyMenuItem> menu = new ArrayList<MyMenuItem>();
 		String[] mainArr = getResources().getStringArray(R.array.main_array);
 		String[] menuArr = getResources().getStringArray(R.array.menu_array);
-		String[] topArr = {"header"};
+		String[] topArr = { "header" };
 		mGamesTitles = con.getMyGames("12");
 		mGroupsTitles = con.getMyGroups("12");
-		mGamesTitles.add("Show More...");
-		mGroupsTitles.add("Show More...");
-		
-		//String[] gamesArr = {"Crysis","World of Warcraft","League of Legends", "Show More..."};
-		//String[] groupsArr = {"Crysis Legion","Playnation","Sons Of Durotar", "Show More..."};
-		//DataConnector con = DataConnector.getInst();
-		for(int i=0;i<menuArr.length;i++)
-		{
+		String showMore= getApplicationContext().getResources().getString(R.string.showMore);
+		mGamesTitles.add(showMore);
+		mGroupsTitles.add(showMore);
+
+		// String[] gamesArr =
+		// {"Crysis","World of Warcraft","League of Legends", "Show More..."};
+		// String[] groupsArr = {"Crysis Legion","Playnation","Sons Of Durotar",
+		// "Show More..."};
+		// DataConnector con = DataConnector.getInst();
+		for (int i = 0; i < menuArr.length; i++) {
 			MyMenuItem temp = new MyMenuItem(menuArr[i]);
-			switch(i){
-			case (0) :{ temp.buildSubItems(topArr); break; }
-			case (1) :{	temp.buildSubItems(mainArr); break; }
-			case (2) :{ temp.buildSubItems(mGamesTitles); break;}
-			case (3) :{ temp.buildSubItems(mGroupsTitles); break;}
+			switch (i) {
+			case (0): {
+				temp.buildSubItems(topArr);
+				break;
+			}
+			case (1): {
+				temp.buildSubItems(mainArr);
+				break;
+			}
+			case (2): {
+				temp.buildSubItems(mGamesTitles);
+				break;
+			}
+			case (3): {
+				temp.buildSubItems(mGroupsTitles);
+				break;
+			}
 			}
 			menu.add(temp);
 		}
 		return menu;
 	}
-	
+
 	@SuppressLint("NewApi")
 	private void miniSetup() {
 		if (android.os.Build.VERSION.SDK_INT > 10) {
@@ -184,7 +199,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 					.permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 		}
-		//requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+		// requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
 		supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		getSupportActionBar().setTitle("Playnation Mobile");
@@ -213,15 +228,12 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 
 			@Override
 			public boolean onQueryTextChange(String arg0) {
-				
-				Toast.makeText(getApplicationContext(), arg0,
-						Toast.LENGTH_SHORT).show();
 				return false;
 			}
 
 			@Override
 			public boolean onQueryTextSubmit(String arg0) {
-				currFragment.searchFunction(arg0);
+				((BaseFragment) currFragment).searchFunction(arg0);
 				return false;
 
 			}
@@ -249,45 +261,6 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-		
-	private void selectGroup(int groupPos, int childPos) {
-		switch (groupPos)
-		{
-		case mMainMenu : selectChildHome(childPos); break;
-		case mGamesMenu : selectChildGames(childPos); break;
-		case mGroupsMenu : initGroupPage(childPos); break;
-		}
-		mDrawerLayout.closeDrawer(mDrawerList);
-	}
-	
-	private void selectChildHome(int childPos) {
-		switch (childPos) {
-		case HomePage: initHome(); break;		
-		case WallPage: initWall(); break;		
-		case MessagesPage: initMessages(); break;		
-		}
-		setTitle(mPagesTitles[childPos]);				
-	}
-	
-	private void selectChildGames(int childPos)
-	{
-		if(mGamesTitles.size()==0 && childPos==0) initGamesPage();
-		else if(childPos==3) initGamesPage();
-		else initGamePage(childPos);
-	}
-	
-	private void selectChildGroups(int childPos)
-	{
-		if(mGroupsTitles.size()==0 && childPos==0) initGroupsPage();
-		else if(childPos==3) initGroupsPage();
-		else initGroupPage(childPos);		
-	}
-
-	@Override
-	public void setTitle(CharSequence title) {
-		mTitle = title;
-		getSupportActionBar().setTitle(mTitle);
-	}
 
 	/**
 	 * When using the ActionBarDrawerToggle, you must call it during
@@ -310,10 +283,21 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 
 	@Override
 	public void onBackPressed() {
-		if (currFragment instanceof BrowserFragment)
-			{if (!((BrowserFragment) currFragment).onBackButtonPressed())
-				super.onBackPressed();}
-		else finish();
+		if (currFragment instanceof BrowserFragment) {
+			if (!((BrowserFragment) currFragment).onBackButtonPressed())				
+				finishActivity();
+		}
+		else finishActivity();
+	}
+	
+	private void finishActivity()
+	{
+		if (!mBackTimer.canBack()) {
+			mBackTimer.setTimer(2);
+			Toast.makeText(getApplicationContext(), "Press back again to exit",
+					Toast.LENGTH_SHORT).show();
+		} else
+			super.onBackPressed();
 	}
 
 	@Override
@@ -328,7 +312,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	}
 
 	public void setPage(int pageIndex, Bundle args) {
-		mBrowserFragment.mSectionAdapter.switchTo(pageIndex,args);
+		mBrowserFragment.mSectionAdapter.switchTo(pageIndex, args);
 	}
 
 	@Override
@@ -350,103 +334,151 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		total = total - viewPagerState;
 		setSupportProgressBarIndeterminateVisibility(true);
 	}
-	
-	private void initHome()
-	{
+
+	@Override
+	public void setTitle(CharSequence title) {
+		mTitle = title;
+		getSupportActionBar().setTitle(mTitle);
+	}
+
+	private void selectGroup(int groupPos, int childPos) {
+		switch (groupPos) {
+		case mMainMenu:
+			selectChildHome(childPos);
+			break;
+		case mGamesMenu:
+			selectChildGames(childPos);
+			break;
+		case mGroupsMenu:
+			selectChildGroups(childPos);
+			break;
+		}
+		mDrawerLayout.closeDrawer(mDrawerList);
+	}
+
+	private void selectChildHome(int childPos) {
+		switch (childPos) {
+		case HomePage:
+			initHome();
+			break;
+		case WallPage:
+			initWall();
+			break;
+		case MessagesPage:
+			initMessages();
+			break;
+		}
+		setTitle(mPagesTitles[childPos]);
+	}
+
+	private void selectChildGames(int childPos) {
+		if (mGamesTitles.size() == 1 && childPos == 0)
+			initGamesPage();
+		else if (childPos == 3)
+			initGamesPage();
+		else
+			initGamePage(childPos);
+	}
+
+	private void selectChildGroups(int childPos) {
+		if (mGroupsTitles.size() == 1 && childPos == 0)
+			initGroupsPage();
+		else if (childPos == 3)
+			initGroupsPage();
+		else
+			initGroupPage(childPos);
+	}
+
+	private void initHome() {
 		if (!(currFragment instanceof BrowserFragment))
 			if (currFragment == null) {
 				currFragment = mBrowserFragment = new BrowserFragment();
 				getSupportFragmentManager().beginTransaction()
-				.add(R.id.content_frame, currFragment)
-				.commit();
+						.add(R.id.content_frame, currFragment).commit();
 			} else {
 				FragmentManager fragmentManager = getSupportFragmentManager();
 				fragmentManager.beginTransaction().remove(currFragment)
-				.commit();
+						.commit();
 				mBrowserFragment.setVisible();
 				currFragment = mBrowserFragment;
 			}
 	}
-	
-	private void initWall()
-	{
+
+	private void initWall() {
 		HomeWallFragment temp = new HomeWallFragment();
 		putOnTop(temp);
-		
+
 	}
-	
-	private void initMessages()
-	{
-		//MessagesFragment temp = new MessagesFragment();
+
+	private void initMessages() {
+		// MessagesFragment temp = new MessagesFragment();
 		XHomeMessagesFragment temp = new XHomeMessagesFragment();
 		Bundle args = new Bundle();
 		args.putInt(Keys.ARG_POSITION, 2);
 		temp.setArguments(args);
 		putOnTop(temp);
 	}
-	
-	private void initGamesPage()
-	{
-		ListsFragment frag = new ListsFragment();
+
+	private void initGamesPage() {
+		WrapperFragment frag = new WrapperFragment();
 		Bundle args = new Bundle();
 		args.putInt(Keys.ARG_POSITION, Configurations.GamesSTATE);
 		frag.setArguments(args);
-		putOnTop(frag);		
+		putOnTop(frag);
 	}
-	
-	private void initGamePage(int childPos)
-	{
-		
+
+	private void initGamePage(int childPos) {
+		// ToDo Show SelectedGame in a HeaderFragment
+		HeaderFragment temp = new HeaderFragment();
+		Bundle args = new Bundle();
+		args.putInt(Keys.ARG_POSITION, Configurations.GamesSTATE);
+		args.putAll(con.getItem("'" + mGamesTitles.get(childPos) + "'",
+				Keys.gamesTable));
+		// args.putAll();
+		temp.setArguments(args);
+		putOnTop(temp);
 	}
-	
-	private void initGroupsPage()
-	{
-		ListsFragment frag = new ListsFragment();
+
+	private void initGroupsPage() {
+		WrapperFragment frag = new WrapperFragment();
 		Bundle args = new Bundle();
 		args.putInt(Keys.ARG_POSITION, Configurations.GroupsSTATE);
 		frag.setArguments(args);
 		putOnTop(frag);
 	}
-	
-	private void initGroupPage(int childPos)
-	{
+
+	private void initGroupPage(int childPos) {
+		// ToDo Show SelectedGroup in a HeaderFragment
 		HeaderFragment temp = new HeaderFragment();
 		Bundle args = new Bundle();
 		args.putInt(Keys.ARG_POSITION, Configurations.GroupsSTATE);
-		//args.putAll();
+		// args.putAll();
 		temp.setArguments(args);
 		putOnTop(temp);
 	}
-	
-	private void putOnTop(BaseFragment frag)
-	{
-		if(!(currFragment instanceof BrowserFragment)) 
-		{
+
+	private void putOnTop(Fragment frag) {
+		if (!(currFragment instanceof BrowserFragment)) {
+			getSupportFragmentManager().beginTransaction().remove(currFragment)
+					.add(R.id.content_frame, frag).commit();
+		} else {
 			getSupportFragmentManager().beginTransaction()
-			.remove(currFragment)
-			.add(R.id.content_frame, frag)
-			.commit();			
-		}
-		else {
-			getSupportFragmentManager().beginTransaction()
-			.add(R.id.content_frame, frag)
-			.commit();			
+					.add(R.id.content_frame, frag).commit();
 		}
 		currFragment = frag;
 		mBrowserFragment.setInvisible();
 	}
-	
 
-	private final int HomePage = 0;	
+	private final int HomePage = 0;
 	private final int WallPage = 1;
 	private final int MessagesPage = 2;
-	//private final int mEventsPage = 3;
-	//private final int mMediaPage =4;
-	private final int mHeaderMenu = 0;
+	// private final int mEventsPage = 3;
+	// private final int mMediaPage =4;
+	//private final int mHeaderMenu = 0;
 	private final int mMainMenu = 1;
 	private final int mGamesMenu = 2;
 	private final int mGroupsMenu = 3;
-	
+
 	// private
 	/* The click listner for ListView in the navigation drawer */
 	private class DrawerItemClickListener implements
@@ -455,7 +487,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		@Override
 		public boolean onChildClick(ExpandableListView parent, View v,
 				int groupPosition, int childPosition, long id) {
-			 selectGroup(groupPosition,childPosition);
+			selectGroup(groupPosition, childPosition);
 			return false;
 		}
 	}

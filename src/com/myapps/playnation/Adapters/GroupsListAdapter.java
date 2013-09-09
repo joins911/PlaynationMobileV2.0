@@ -16,9 +16,11 @@ import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.Classes.ListsHelper;
 import com.myapps.playnation.Operations.LoadImage;
+import com.myapps.playnation.main.MainActivity;
 
-public class GroupsListAdapter extends BaseAdapter implements MyBaseAdapter {
+public class GroupsListAdapter extends ListsHelper implements MyBaseAdapter {
 	LayoutInflater inflater;
 	ImageView thumb_image;
 	ArrayList<Bundle> groupsDataCollection;
@@ -27,12 +29,9 @@ public class GroupsListAdapter extends BaseAdapter implements MyBaseAdapter {
 	int count;
 	boolean showMore = true;
 
-	public GroupsListAdapter() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public GroupsListAdapter(Activity act, ArrayList<Bundle> map) {
-		this.groupsDataCollection = map;
+		super(map,MainActivity.configs.getListsIncrement());
+		this.groupsDataCollection = getNewList(MainActivity.configs.getInitialListCount());
 		inflater = (LayoutInflater) act
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		count = 10;
@@ -44,9 +43,9 @@ public class GroupsListAdapter extends BaseAdapter implements MyBaseAdapter {
 
 	@Override
 	public int getCount() {
-		if (groupsDataCollection.size() >= count)
+	/*	if (groupsDataCollection.size() >= count)
 			return count;
-		else
+		else*/
 			return groupsDataCollection.size();
 	}
 
@@ -62,18 +61,19 @@ public class GroupsListAdapter extends BaseAdapter implements MyBaseAdapter {
 
 	@Override
 	public void showMore() {
-		if (showMore)
+		groupsDataCollection.addAll(getNextItems());
+		/*	if (showMore)
 			if (count + 5 <= groupsDataCollection.size())
 				count = count + 5;
 			else {
 				count = groupsDataCollection.size();
 				showMore = false;
-			}
+			}*/
 	}
 
 	@Override
 	public boolean canShowMore() {
-		return showMore;
+		return super.canShowMore();
 	}
 
 	@Override

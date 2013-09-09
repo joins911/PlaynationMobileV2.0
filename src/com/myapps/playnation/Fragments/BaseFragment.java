@@ -6,26 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class BaseFragment extends Fragment{
+public interface BaseFragment{
 	
-	public BaseFragment()
-	{
-		
-	}
-	
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState)
-	{
-		return null;
-	}
 
-	public BaseFragment getThis()
-	{
-		return null;
-	}
-	public void searchFunction(String args)
-	{
-		
-	}
+	public void searchFunction(String args);
+
 }

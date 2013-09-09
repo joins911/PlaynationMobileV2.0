@@ -1,4 +1,4 @@
-package com.myapps.playnation.Fragments;
+package com.myapps.playnation.Fragments.Lists;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -31,6 +31,7 @@ import com.myapps.playnation.Adapters.MyBaseAdapter;
 import com.myapps.playnation.Adapters.NewsListAdapter;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Classes.NewsFeed;
+import com.myapps.playnation.Fragments.BaseFragment;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.HelperClass;
@@ -38,7 +39,7 @@ import com.myapps.playnation.main.ISectionAdapter;
 import com.myapps.playnation.main.BrowserFragment;
 import com.myapps.playnation.main.MainActivity;
 
-public class ListsFragment extends BaseFragment {
+public class ListsFragment extends Fragment implements BaseFragment{
 
 	private DataConnector con;
 	private View rootView;
@@ -111,9 +112,7 @@ public class ListsFragment extends BaseFragment {
 
 			}
 
-			private void isScrollCompleted() {
-				Toast.makeText(getActivity(), "currVisCount="+visibleItemCount+
-						" firstVis="+firstVisible+" total="+totalItemCount, Toast.LENGTH_SHORT).show();
+			private void isScrollCompleted() {				
 				if (firstVisible+visibleItemCount == totalItemCount && totalItemCount!=0
 						&& this.currentScrollState == SCROLL_STATE_IDLE) {
 					/***
@@ -363,6 +362,12 @@ public class ListsFragment extends BaseFragment {
 	}
 
 	public void stopList() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void searchFunction(String args) {
 		// TODO Auto-generated method stub
 		
 	}

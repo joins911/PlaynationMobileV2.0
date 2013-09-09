@@ -17,14 +17,16 @@ import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.Classes.ListsHelper;
 import com.myapps.playnation.Operations.LoadImage;
+import com.myapps.playnation.main.MainActivity;
 
 /**
  * 
  * @author viperime Adapter for the Games ListView which sets up all the items
  *         in the list
  */
-public class GamesListAdapter extends BaseAdapter implements MyBaseAdapter {
+public class GamesListAdapter extends ListsHelper implements MyBaseAdapter {
 	LayoutInflater inflater;
 	ImageView thumb_image;
 	ArrayList<Bundle> gamesDataCollection;
@@ -34,10 +36,11 @@ public class GamesListAdapter extends BaseAdapter implements MyBaseAdapter {
 	boolean showMore = true;
 
 	public GamesListAdapter(Activity act, ArrayList<Bundle> map) {
-		this.gamesDataCollection = map;
+		super(map,7);
+		this.gamesDataCollection = getNewList(MainActivity.configs.getInitialListCount());
 		inflater = (LayoutInflater) act
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		count = 10;
+//		count = 10;
 	}
 
 	@Override
@@ -47,9 +50,9 @@ public class GamesListAdapter extends BaseAdapter implements MyBaseAdapter {
 
 	@Override
 	public int getCount() {
-		if (gamesDataCollection.size() >= count)
+	/*	if (gamesDataCollection.size() >= count)
 			return count;
-		else
+		else*/
 			return gamesDataCollection.size();
 	}
 
@@ -65,18 +68,19 @@ public class GamesListAdapter extends BaseAdapter implements MyBaseAdapter {
 
 	@Override
 	public boolean canShowMore() {
-		return showMore;
+		return super.canShowMore();
 	}
 
 	@Override
 	public void showMore() {
-		if (showMore)
+		gamesDataCollection.addAll(getNextItems());
+	/*	if (showMore)
 			if (count + 5 <= gamesDataCollection.size())
 				count = count + 5;
 			else {
 				count = gamesDataCollection.size();
 				showMore = false;
-			}
+			}*/
 	}
 
 	/**

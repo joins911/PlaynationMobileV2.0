@@ -27,12 +27,12 @@ import android.widget.Toast;
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Fragments.BaseFragment;
-import com.myapps.playnation.Fragments.ListsFragment;
+import com.myapps.playnation.Fragments.Lists.ListsFragment;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.FlyOutContainer;
 
-public class BrowserFragment extends BaseFragment {
+public class BrowserFragment extends Fragment implements BaseFragment{
 	public SectionAdapter mSectionAdapter;
 	DataConnector con;
 	View root;
@@ -47,6 +47,7 @@ public class BrowserFragment extends BaseFragment {
 		root = inflater.inflate(
 				R.layout.fragment_browser, null);
 		initializePager(root);
+		con = DataConnector.getInst();
 		return root;
 	}	
 	
@@ -57,12 +58,6 @@ public class BrowserFragment extends BaseFragment {
 		super.onDestroyView();
 	}
 	
-	@Override
-	public BaseFragment getThis()
-	{
-		return this;
-	}
-
 	private void initializePager(View root) {
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) root.findViewById(R.id.pager);
@@ -74,7 +69,6 @@ public class BrowserFragment extends BaseFragment {
 		mViewPager.setOffscreenPageLimit(6);
 	}
 	
-	@Override
 	public void searchFunction(String args) {
 		ListsFragment frag = mSectionAdapter.getFragments()
 				.get(mViewPager.getCurrentItem()).getListFragment();

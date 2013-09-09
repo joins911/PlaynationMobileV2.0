@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:background="@color/background_gradient">
+    android:background="@color/white_overlay">
 
-<ListView
+<ExpandableListView
     android:id="@+id/listView"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:cacheColorHint="#00000000"
+    android:groupIndicator="@null"
     android:divider="@drawable/wall_list_separator"
     android:dividerHeight="10.0px"/>
 </LinearLayout>

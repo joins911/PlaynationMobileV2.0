@@ -20,19 +20,19 @@ import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Fragments.BaseFragment;
 import com.myapps.playnation.Operations.DataConnector;
 
-public class XHomeMessagesFragment extends BaseFragment {
+public class XHomeMessagesFragment extends Fragment implements BaseFragment {
 	private DataConnector con;
 	private ArrayList<ExpandbleParent> listParents = new ArrayList<ExpandbleParent>();
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_template_wall,
+		View view = inflater.inflate(R.layout.component_homewall_layout,
 				container, false);
 		con = DataConnector.getInst(getActivity());
 
 		ExpandableListView eListView = (ExpandableListView) view
-				.findViewById(R.id.fragMsgAndWallTemp_expList);
+				.findViewById(R.id.listView);
 
 		if (!con.checkDBTableExits(Keys.HomeMsgTable))
 			con.queryPlayerMessages(Keys.TEMPLAYERID);
@@ -63,5 +63,11 @@ public class XHomeMessagesFragment extends BaseFragment {
 		}
 		eListView.setAdapter(expAdapter);
 		return view;
+	}
+
+	@Override
+	public void searchFunction(String args) {
+		// TODO Auto-generated method stub
+		
 	}
 }

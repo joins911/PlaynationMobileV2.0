@@ -801,20 +801,21 @@ containing a value of this type.
         public static final int isTablet=0x7f060006;
     }
     public static final class color {
-        public static final int TextViewColor=0x7f07000b;
-        public static final int abc_search_url_text_holo=0x7f07000d;
+        public static final int TextViewColor=0x7f07000c;
+        public static final int abc_search_url_text_holo=0x7f07000e;
         public static final int abc_search_url_text_normal=0x7f070000;
         public static final int abc_search_url_text_pressed=0x7f070002;
         public static final int abc_search_url_text_selected=0x7f070001;
-        public static final int actionbar_text=0x7f07000c;
-        public static final int background=0x7f070004;
-        public static final int background_gradient=0x7f070006;
+        public static final int actionbar_text=0x7f07000d;
+        public static final int background=0x7f070005;
+        public static final int background_gradient=0x7f070007;
         public static final int black_overlay=0x7f070003;
-        public static final int headerColor=0x7f070009;
-        public static final int headlineColor=0x7f070008;
-        public static final int listTitleColor=0x7f07000a;
-        public static final int main_fontColor=0x7f070005;
-        public static final int transparent=0x7f070007;
+        public static final int headerColor=0x7f07000a;
+        public static final int headlineColor=0x7f070009;
+        public static final int listTitleColor=0x7f07000b;
+        public static final int main_fontColor=0x7f070006;
+        public static final int transparent=0x7f070008;
+        public static final int white_overlay=0x7f070004;
     }
     public static final class dimen {
         public static final int MenuButtonHeight=0x7f080016;
@@ -1013,62 +1014,63 @@ containing a value of this type.
         public static final int chess=0x7f02005c;
         public static final int cover=0x7f02005d;
         public static final int crysis_cover=0x7f02005e;
-        public static final int event=0x7f02005f;
-        public static final int footer_button_gradient_active=0x7f020060;
-        public static final int footer_button_gradient_bg=0x7f020061;
-        public static final int footer_button_gradient_bg_click=0x7f020062;
-        public static final int footer_button_gradient_bg_hover=0x7f020063;
-        public static final int footer_button_selector=0x7f020064;
-        public static final int footer_repeat=0x7f020065;
-        public static final int game=0x7f020066;
-        public static final int gradient_bg=0x7f020067;
-        public static final int gradient_bg_hover=0x7f020068;
-        public static final int header_bg=0x7f020069;
-        public static final int header_bg_hover=0x7f02006a;
-        public static final int header_gradient=0x7f02006b;
-        public static final int header_selector=0x7f02006c;
-        public static final int ic_action_name=0x7f02006d;
-        public static final int ic_drawer=0x7f02006e;
-        public static final int ic_launcher=0x7f02006f;
-        public static final int like=0x7f020070;
-        public static final int list_gradient_bg=0x7f020071;
-        public static final int list_gradient_bg_hover=0x7f020072;
-        public static final int list_item=0x7f020073;
-        public static final int list_selector=0x7f020074;
-        public static final int listviewborder=0x7f020075;
-        public static final int login_logo=0x7f020076;
-        public static final int logo_big=0x7f020077;
-        public static final int logo_equal=0x7f020078;
-        public static final int msgclose=0x7f020079;
-        public static final int msgopen=0x7f02007a;
-        public static final int myshadow=0x7f02007b;
-        public static final int no_company_100x100=0x7f02007c;
-        public static final int no_events_100x100=0x7f02007d;
-        public static final int no_forum_100x100=0x7f02007e;
-        public static final int no_game_100x100=0x7f02007f;
-        public static final int no_group_100x100=0x7f020080;
-        public static final int no_news_100x100=0x7f020081;
-        public static final int no_player_100x100=0x7f020082;
-        public static final int person=0x7f020083;
-        public static final int picdown=0x7f020084;
-        public static final int playnation=0x7f020085;
-        public static final int rating_bar_full=0x7f020086;
-        public static final int repeat_bg=0x7f020087;
-        public static final int reviewlist_background=0x7f020088;
-        public static final int rsz_crysis_cover=0x7f020089;
-        public static final int star_empty=0x7f02008a;
-        public static final int star_filled=0x7f02008b;
-        public static final int submenu_gradient=0x7f02008c;
-        public static final int subscription=0x7f02008d;
-        public static final int tab_bg_selected=0x7f02008e;
-        public static final int tab_bg_selector=0x7f02008f;
-        public static final int tab_bg_unselected=0x7f020090;
-        public static final int tab_text_selector=0x7f020091;
-        public static final int tabs_my_back=0x7f020092;
-        public static final int tabs_my_back2=0x7f020093;
-        public static final int textview_layout=0x7f020094;
-        public static final int wall_item_shape=0x7f020095;
-        public static final int wall_list_separator=0x7f020096;
+        public static final int drawer_shadow=0x7f02005f;
+        public static final int event=0x7f020060;
+        public static final int footer_button_gradient_active=0x7f020061;
+        public static final int footer_button_gradient_bg=0x7f020062;
+        public static final int footer_button_gradient_bg_click=0x7f020063;
+        public static final int footer_button_gradient_bg_hover=0x7f020064;
+        public static final int footer_button_selector=0x7f020065;
+        public static final int footer_repeat=0x7f020066;
+        public static final int game=0x7f020067;
+        public static final int gradient_bg=0x7f020068;
+        public static final int gradient_bg_hover=0x7f020069;
+        public static final int header_bg=0x7f02006a;
+        public static final int header_bg_hover=0x7f02006b;
+        public static final int header_gradient=0x7f02006c;
+        public static final int header_selector=0x7f02006d;
+        public static final int ic_action_name=0x7f02006e;
+        public static final int ic_drawer=0x7f02006f;
+        public static final int ic_launcher=0x7f020070;
+        public static final int like=0x7f020071;
+        public static final int list_gradient_bg=0x7f020072;
+        public static final int list_gradient_bg_hover=0x7f020073;
+        public static final int list_item=0x7f020074;
+        public static final int list_selector=0x7f020075;
+        public static final int listviewborder=0x7f020076;
+        public static final int login_logo=0x7f020077;
+        public static final int logo_big=0x7f020078;
+        public static final int logo_equal=0x7f020079;
+        public static final int msgclose=0x7f02007a;
+        public static final int msgopen=0x7f02007b;
+        public static final int myshadow=0x7f02007c;
+        public static final int no_company_100x100=0x7f02007d;
+        public static final int no_events_100x100=0x7f02007e;
+        public static final int no_forum_100x100=0x7f02007f;
+        public static final int no_game_100x100=0x7f020080;
+        public static final int no_group_100x100=0x7f020081;
+        public static final int no_news_100x100=0x7f020082;
+        public static final int no_player_100x100=0x7f020083;
+        public static final int person=0x7f020084;
+        public static final int picdown=0x7f020085;
+        public static final int playnation=0x7f020086;
+        public static final int rating_bar_full=0x7f020087;
+        public static final int repeat_bg=0x7f020088;
+        public static final int reviewlist_background=0x7f020089;
+        public static final int rsz_crysis_cover=0x7f02008a;
+        public static final int star_empty=0x7f02008b;
+        public static final int star_filled=0x7f02008c;
+        public static final int submenu_gradient=0x7f02008d;
+        public static final int subscription=0x7f02008e;
+        public static final int tab_bg_selected=0x7f02008f;
+        public static final int tab_bg_selector=0x7f020090;
+        public static final int tab_bg_unselected=0x7f020091;
+        public static final int tab_text_selector=0x7f020092;
+        public static final int tabs_my_back=0x7f020093;
+        public static final int tabs_my_back2=0x7f020094;
+        public static final int textview_layout=0x7f020095;
+        public static final int wall_item_shape=0x7f020096;
+        public static final int wall_list_separator=0x7f020097;
     }
     public static final class id {
         public static final int GamesButt=0x7f0500f4;
@@ -1099,7 +1101,7 @@ containing a value of this type.
         public static final int action_mode_close_button=0x7f050022;
         public static final int activity_chooser_view_content=0x7f050023;
         public static final int always=0x7f05000b;
-        public static final int background=0x7f05009e;
+        public static final int background=0x7f05009f;
         public static final int beginning=0x7f050011;
         public static final int btnGuestLogin=0x7f050048;
         public static final int btnLogin=0x7f050047;
@@ -1108,7 +1110,7 @@ containing a value of this type.
         public static final int collapseActionView=0x7f05000d;
         public static final int comment_img=0x7f05007e;
         public static final int comment_text=0x7f05007f;
-        public static final int component_spinner_TV=0x7f05009c;
+        public static final int component_spinner_TV=0x7f05009d;
         public static final int container_games=0x7f0500ef;
         public static final int container_home=0x7f0500f1;
         public static final int container_wrapper=0x7f0500ed;
@@ -1134,30 +1136,30 @@ containing a value of this type.
         public static final int frag_GrEvents_TView=0x7f0500cc;
         public static final int frag_GrMedia_TView=0x7f0500ce;
         public static final int frag_reviewTemp_reviewList=0x7f0500cb;
-        public static final int fragment1=0x7f050088;
+        public static final int fragment1=0x7f050089;
         public static final int gameCLH_All_LLayout=0x7f050066;
         public static final int gameCLH_friendListArrow_pic=0x7f0500e1;
         public static final int gameCLH_friendListLayout_LLayout=0x7f0500e2;
         public static final int gameCLH_friendListLayout_RLayout=0x7f0500e0;
         public static final int gameCLH_friendPic01=0x7f0500e4;
         public static final int gameCLH_friendPic07=0x7f0500e3;
-        public static final int gameList_All_RLayout=0x7f050089;
-        public static final int gameList_GameDate_TView=0x7f05008e;
-        public static final int gameList_GameImage=0x7f05008b;
-        public static final int gameList_GameName_TView=0x7f05008d;
-        public static final int gameList_GameType_TView=0x7f05008f;
-        public static final int gameList_LLayout=0x7f050086;
-        public static final int gameList_listArrowPic=0x7f05008c;
+        public static final int gameList_All_RLayout=0x7f05008a;
+        public static final int gameList_GameDate_TView=0x7f05008f;
+        public static final int gameList_GameImage=0x7f05008c;
+        public static final int gameList_GameName_TView=0x7f05008e;
+        public static final int gameList_GameType_TView=0x7f050090;
+        public static final int gameList_LLayout=0x7f050087;
+        public static final int gameList_listArrowPic=0x7f05008d;
         public static final int gameM_Header_RLayout=0x7f050060;
         public static final int gameM_NameText_TView=0x7f050062;
         public static final int gameM_RatingsNr_TView=0x7f050065;
         public static final int gameM_TypeText_TView=0x7f050063;
         public static final int gameM_headerPic=0x7f050061;
-        public static final int gameR_listArrow_pic=0x7f050098;
-        public static final int gameR_listContent_TV=0x7f05009a;
-        public static final int gameR_listDate_TV=0x7f050099;
-        public static final int gameR_listTitle_TV=0x7f050097;
-        public static final int gameR_listUser_TV=0x7f05009b;
+        public static final int gameR_listArrow_pic=0x7f050099;
+        public static final int gameR_listContent_TV=0x7f05009b;
+        public static final int gameR_listDate_TV=0x7f05009a;
+        public static final int gameR_listTitle_TV=0x7f050098;
+        public static final int gameR_listUser_TV=0x7f05009c;
         public static final int gamesCI_All_RLayout=0x7f050052;
         public static final int gamesCI_replyImage_pic=0x7f050053;
         public static final int gamesCI_replyText_TView=0x7f050055;
@@ -1181,10 +1183,10 @@ containing a value of this type.
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050025;
         public static final int imageView1=0x7f050077;
-        public static final int imageView3=0x7f05009d;
-        public static final int imgArrow=0x7f050096;
+        public static final int imageView3=0x7f05009e;
+        public static final int imgArrow=0x7f050097;
         public static final int imgEvent=0x7f050073;
-        public static final int imgPlayerAvatarLog=0x7f050094;
+        public static final int imgPlayerAvatarLog=0x7f050095;
         public static final int include_TabHolder_Games=0x7f0500ee;
         public static final int include_TabHolder_Home=0x7f0500f0;
         public static final int infoSubContent=0x7f050072;
@@ -1197,7 +1199,7 @@ containing a value of this type.
         public static final int link_to_login=0x7f050051;
         public static final int link_to_register=0x7f050049;
         public static final int listMode=0x7f050001;
-        public static final int listView=0x7f0500a1;
+        public static final int listView=0x7f050083;
         public static final int list_child_layout=0x7f0500cf;
         public static final int list_item=0x7f050027;
         public static final int list_item_text_childCity=0x7f0500d6;
@@ -1207,10 +1209,10 @@ containing a value of this type.
         public static final int list_item_text_childFirstName=0x7f0500d1;
         public static final int list_item_text_childLastName=0x7f0500d2;
         public static final int mainLayoutPlayer=0x7f050070;
-        public static final int mainList=0x7f050085;
-        public static final int mainList_LLayout=0x7f050083;
+        public static final int mainList=0x7f050086;
+        public static final int mainList_LLayout=0x7f050084;
         public static final int menu_search=0x7f0500f2;
-        public static final int menu_title=0x7f050090;
+        public static final int menu_title=0x7f050091;
         public static final int middle=0x7f050012;
         public static final int name_TV=0x7f050078;
         public static final int never=0x7f050009;
@@ -1227,7 +1229,7 @@ containing a value of this type.
         public static final int newsGroupInfo=0x7f0500b5;
         public static final int newsImg=0x7f0500a6;
         public static final int newsTitle=0x7f0500a4;
-        public static final int noFriendsText=0x7f050084;
+        public static final int noFriendsText=0x7f050085;
         public static final int none=0x7f050010;
         public static final int normal=0x7f050000;
         public static final int pager=0x7f0500a2;
@@ -1260,11 +1262,11 @@ containing a value of this type.
         public static final int showHome=0x7f050004;
         public static final int showTitle=0x7f050006;
         public static final int split_action_bar=0x7f05001c;
-        public static final int subitem_title=0x7f050091;
+        public static final int subitem_title=0x7f050092;
         public static final int submit_area=0x7f05003f;
         public static final int tabMode=0x7f050002;
-        public static final int tabsLayout=0x7f05009f;
-        public static final int tabsText=0x7f0500a0;
+        public static final int tabsLayout=0x7f0500a0;
+        public static final int tabsText=0x7f0500a1;
         public static final int textView1=0x7f0500e9;
         public static final int textView2=0x7f0500a8;
         public static final int textView3=0x7f0500aa;
@@ -1272,7 +1274,7 @@ containing a value of this type.
         public static final int textView5=0x7f0500b0;
         public static final int textView7=0x7f0500de;
         public static final int textView9=0x7f0500af;
-        public static final int thumbnail=0x7f05008a;
+        public static final int thumbnail=0x7f05008b;
         public static final int time_TV=0x7f050079;
         public static final int title=0x7f050029;
         public static final int title_container=0x7f050030;
@@ -1294,9 +1296,9 @@ containing a value of this type.
         public static final int txtChiledItemFirstName=0x7f0500d0;
         public static final int txtChiledItemLastName=0x7f0500d3;
         public static final int txtEdit=0x7f050069;
-        public static final int txtNewsDate=0x7f050092;
-        public static final int txtNickNameText=0x7f050095;
-        public static final int txtTitle=0x7f050093;
+        public static final int txtNewsDate=0x7f050093;
+        public static final int txtNickNameText=0x7f050096;
+        public static final int txtTitle=0x7f050094;
         public static final int txtgameInfoDevelopers=0x7f0500bf;
         public static final int txtgameinfoDistributors=0x7f0500c2;
         public static final int txtgameinfoEsrb=0x7f0500bb;
@@ -1309,7 +1311,7 @@ containing a value of this type.
         public static final int up=0x7f05001f;
         public static final int useLogo=0x7f050003;
         public static final int username_logIn=0x7f050045;
-        public static final int viewFlipper1=0x7f050087;
+        public static final int viewFlipper1=0x7f050088;
         public static final int wallsF_commBut=0x7f05005f;
         public static final int wallsF_comment_EBox=0x7f05005e;
         public static final int wallsF_comment_TView=0x7f05005d;
@@ -1383,17 +1385,17 @@ containing a value of this type.
         public static final int component_homemsg_elist_layout=0x7f030023;
         public static final int component_homewall_eitem_layout=0x7f030024;
         public static final int component_homewall_elist_layout=0x7f030025;
-        public static final int component_mainlist=0x7f030026;
-        public static final int component_mainlist_itemlayout=0x7f030027;
-        public static final int component_menu_item_layout=0x7f030028;
-        public static final int component_menu_subitem_layout=0x7f030029;
-        public static final int component_newslist_dateselected=0x7f03002a;
-        public static final int component_newslist_itemlayout=0x7f03002b;
-        public static final int component_reviewlist_item=0x7f03002c;
-        public static final int component_spinner=0x7f03002d;
-        public static final int component_tabholder=0x7f03002e;
-        public static final int component_tabs_bg=0x7f03002f;
-        public static final int component_walllist_layout=0x7f030030;
+        public static final int component_homewall_layout=0x7f030026;
+        public static final int component_mainlist=0x7f030027;
+        public static final int component_mainlist_itemlayout=0x7f030028;
+        public static final int component_menu_item_layout=0x7f030029;
+        public static final int component_menu_subitem_layout=0x7f03002a;
+        public static final int component_newslist_dateselected=0x7f03002b;
+        public static final int component_newslist_itemlayout=0x7f03002c;
+        public static final int component_reviewlist_item=0x7f03002d;
+        public static final int component_spinner=0x7f03002e;
+        public static final int component_tabholder=0x7f03002f;
+        public static final int component_tabs_bg=0x7f030030;
         public static final int fragment_browser=0x7f030031;
         public static final int fragment_company_info=0x7f030032;
         public static final int fragment_game_info=0x7f030033;
@@ -1424,32 +1426,34 @@ containing a value of this type.
         public static final int main=0x7f0d0001;
     }
     public static final class string {
-        public static final int Age=0x7f0a001d;
-        public static final int City=0x7f0a003c;
-        public static final int Country=0x7f0a0040;
-        public static final int Date=0x7f0a003a;
-        public static final int DayEvent=0x7f0a0042;
-        public static final int DisplayName=0x7f0a003d;
-        public static final int Duration=0x7f0a0041;
+        public static final int AddGame=0x7f0a0010;
+        public static final int AddGroup=0x7f0a0011;
+        public static final int Age=0x7f0a0020;
+        public static final int City=0x7f0a003f;
+        public static final int Country=0x7f0a0043;
+        public static final int Date=0x7f0a003d;
+        public static final int DayEvent=0x7f0a0045;
+        public static final int DisplayName=0x7f0a0040;
+        public static final int Duration=0x7f0a0044;
         /**  Strings that dont need translation 
  Strings that dont need translation 
  Strings that dont need translation 
          */
-        public static final int Email=0x7f0a0052;
-        public static final int FirstName=0x7f0a003e;
-        public static final int GameName=0x7f0a005c;
-        public static final int Invitations=0x7f0a004b;
-        public static final int LastName=0x7f0a003f;
-        public static final int Leader=0x7f0a0044;
-        public static final int Location=0x7f0a003b;
-        public static final int Members=0x7f0a0043;
-        public static final int NewsMembers=0x7f0a0045;
-        public static final int Nick=0x7f0a0057;
-        public static final int Participants=0x7f0a0049;
-        public static final int Privacy=0x7f0a004a;
-        public static final int Type=0x7f0a0055;
-        public static final int Type1=0x7f0a0053;
-        public static final int Type2=0x7f0a0054;
+        public static final int Email=0x7f0a0055;
+        public static final int FirstName=0x7f0a0041;
+        public static final int GameName=0x7f0a005f;
+        public static final int Invitations=0x7f0a004e;
+        public static final int LastName=0x7f0a0042;
+        public static final int Leader=0x7f0a0047;
+        public static final int Location=0x7f0a003e;
+        public static final int Members=0x7f0a0046;
+        public static final int NewsMembers=0x7f0a0048;
+        public static final int Nick=0x7f0a005a;
+        public static final int Participants=0x7f0a004c;
+        public static final int Privacy=0x7f0a004d;
+        public static final int Type=0x7f0a0058;
+        public static final int Type1=0x7f0a0056;
+        public static final int Type2=0x7f0a0057;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abc_action_bar_home_description=0x7f0a0001;
@@ -1491,90 +1495,91 @@ containing a value of this type.
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
         public static final int action_settings=0x7f0a000e;
-        public static final int action_websearch=0x7f0a0011;
+        public static final int action_websearch=0x7f0a0014;
         public static final int app_name=0x7f0a000d;
-        public static final int btnEdit=0x7f0a0051;
-        public static final int btnSave=0x7f0a0039;
-        public static final int buttonString_comment=0x7f0a0018;
+        public static final int btnEdit=0x7f0a0054;
+        public static final int btnSave=0x7f0a003c;
+        public static final int buttonString_comment=0x7f0a001b;
         /**  Text View Strings 
  Text View Strings 
  Text View Strings 
          */
-        public static final int commentString=0x7f0a0028;
-        public static final int commentsString=0x7f0a002b;
-        public static final int companiesString=0x7f0a0016;
-        public static final int create=0x7f0a0046;
-        public static final int descString=0x7f0a002f;
-        public static final int developers=0x7f0a0060;
-        public static final int distributors=0x7f0a0061;
-        public static final int drawer_close=0x7f0a0010;
-        public static final int drawer_open=0x7f0a000f;
-        public static final int emailString=0x7f0a0056;
-        public static final int employees=0x7f0a004e;
-        public static final int emptyFriendsListString=0x7f0a0034;
+        public static final int commentString=0x7f0a002b;
+        public static final int commentsString=0x7f0a002e;
+        public static final int companiesString=0x7f0a0019;
+        public static final int create=0x7f0a0049;
+        public static final int descString=0x7f0a0032;
+        public static final int developers=0x7f0a0063;
+        public static final int distributors=0x7f0a0064;
+        public static final int drawer_close=0x7f0a0013;
+        public static final int drawer_open=0x7f0a0012;
+        public static final int emailString=0x7f0a0059;
+        public static final int employees=0x7f0a0051;
+        public static final int emptyFriendsListString=0x7f0a0037;
         /**  Empty lists String 
          */
-        public static final int emptyGameListString=0x7f0a0032;
-        public static final int emptyGroupListString=0x7f0a0036;
-        public static final int emptyListString=0x7f0a001b;
-        public static final int emptyMsgListString=0x7f0a0035;
-        public static final int emptyNewsListString=0x7f0a001c;
-        public static final int emptyPlayerListString=0x7f0a0033;
-        public static final int endDate=0x7f0a0048;
-        public static final int esrbRating=0x7f0a005f;
+        public static final int emptyGameListString=0x7f0a0035;
+        public static final int emptyGroupListString=0x7f0a0039;
+        public static final int emptyListString=0x7f0a001e;
+        public static final int emptyMsgListString=0x7f0a0038;
+        public static final int emptyNewsListString=0x7f0a001f;
+        public static final int emptyPlayerListString=0x7f0a0036;
+        public static final int endDate=0x7f0a004b;
+        public static final int esrbRating=0x7f0a0062;
         /**  Extras New 
  Extras New 
  Extras New 
          */
-        public static final int fontFamilyTextView=0x7f0a0038;
-        public static final int founded=0x7f0a004d;
-        public static final int friendsString=0x7f0a002e;
-        public static final int gamedate=0x7f0a005a;
+        public static final int fontFamilyTextView=0x7f0a003b;
+        public static final int founded=0x7f0a0050;
+        public static final int friendsString=0x7f0a0031;
+        public static final int gamedate=0x7f0a005d;
         /**  Base strings for coding purposes will be replaced at runtime with Database values 
  Base strings for coding purposes will be replaced at runtime with Database values 
  Base strings for coding purposes will be replaced at runtime with Database values 
          */
-        public static final int gamename=0x7f0a0058;
-        public static final int gamesString=0x7f0a0015;
-        public static final int gametype=0x7f0a0059;
-        public static final int groupString=0x7f0a0014;
-        public static final int guestFriendListString=0x7f0a0030;
-        public static final int headquarters=0x7f0a004c;
-        public static final int homeString=0x7f0a0017;
-        public static final int joined=0x7f0a004f;
-        public static final int loginButtonString=0x7f0a0027;
-        public static final int loginGuestString=0x7f0a001f;
-        public static final int loginOfflineString=0x7f0a0020;
+        public static final int gamename=0x7f0a005b;
+        public static final int gamesString=0x7f0a0018;
+        public static final int gametype=0x7f0a005c;
+        public static final int groupString=0x7f0a0017;
+        public static final int guestFriendListString=0x7f0a0033;
+        public static final int headquarters=0x7f0a004f;
+        public static final int homeString=0x7f0a001a;
+        public static final int joined=0x7f0a0052;
+        public static final int loginButtonString=0x7f0a002a;
+        public static final int loginGuestString=0x7f0a0022;
+        public static final int loginOfflineString=0x7f0a0023;
         /**  Login+Register 
  Login+Register 
  Login+Register 
          */
-        public static final int loginString=0x7f0a001e;
-        public static final int nameString=0x7f0a0025;
+        public static final int loginString=0x7f0a0021;
+        public static final int nameString=0x7f0a0028;
         /**  Buttons Strings 
  Buttons Strings 
  Buttons Strings 
          */
-        public static final int newsString=0x7f0a0012;
-        public static final int noFriendsString=0x7f0a0031;
-        public static final int nothing=0x7f0a0019;
-        public static final int passwordString=0x7f0a0021;
-        public static final int platforms=0x7f0a005e;
-        public static final int playerString=0x7f0a0013;
-        public static final int ratingString=0x7f0a002d;
-        public static final int ratings=0x7f0a005b;
-        public static final int registerButtonString=0x7f0a0026;
-        public static final int registerDesc=0x7f0a0023;
-        public static final int registerOfflineDesc=0x7f0a0024;
-        public static final int registerString=0x7f0a0022;
-        public static final int released=0x7f0a005d;
-        public static final int reviewString=0x7f0a002c;
-        public static final int searchString=0x7f0a001a;
-        public static final int startdate=0x7f0a0047;
-        public static final int subViewText=0x7f0a0037;
-        public static final int title_activity_game_description=0x7f0a002a;
-        public static final int usernameString=0x7f0a0029;
-        public static final int website=0x7f0a0050;
+        public static final int newsString=0x7f0a0015;
+        public static final int noFriendsString=0x7f0a0034;
+        public static final int nothing=0x7f0a001c;
+        public static final int passwordString=0x7f0a0024;
+        public static final int platforms=0x7f0a0061;
+        public static final int playerString=0x7f0a0016;
+        public static final int ratingString=0x7f0a0030;
+        public static final int ratings=0x7f0a005e;
+        public static final int registerButtonString=0x7f0a0029;
+        public static final int registerDesc=0x7f0a0026;
+        public static final int registerOfflineDesc=0x7f0a0027;
+        public static final int registerString=0x7f0a0025;
+        public static final int released=0x7f0a0060;
+        public static final int reviewString=0x7f0a002f;
+        public static final int searchString=0x7f0a001d;
+        public static final int showMore=0x7f0a000f;
+        public static final int startdate=0x7f0a004a;
+        public static final int subViewText=0x7f0a003a;
+        public static final int title_activity_game_description=0x7f0a002d;
+        public static final int usernameString=0x7f0a002c;
+        public static final int website=0x7f0a0053;
     }
     public static final class style {
         /**  Application theme. 

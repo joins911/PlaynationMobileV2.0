@@ -23,14 +23,25 @@ public class MainMenuAdapter extends BaseExpandableListAdapter {
 	private LayoutInflater inflater;
 	private Context context;
 	private DataConnector con;
+	private String showMoreString;
+	private String addGame;
+	private String addGroup;
 
 	public MainMenuAdapter(Context context, ArrayList<MyMenuItem> items) {
 		this.context = context;
 		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mMenuItems = items;
+		getStrings();		
 		con = DataConnector.getInst();
 	}
 
+	private void getStrings()
+	{
+		showMoreString = context.getResources().getString(R.string.showMore);
+		addGame = context.getResources().getString(R.string.AddGame);
+		addGroup = context.getResources().getString(R.string.AddGroup);
+	}
+	
 	@Override
 	public View getGroupView(int groupPosition, boolean isExpanded,
 			View convertView, ViewGroup parent) {
@@ -56,7 +67,10 @@ public class MainMenuAdapter extends BaseExpandableListAdapter {
 		}else {
 			view = inflater.inflate(R.layout.component_menu_subitem_layout, null);
 			text = (TextView) view.findViewById(R.id.subitem_title);
-			text.setText(mMenuItems.get(groupPosition).getSubItems().get(childPosition).getTitle());
+			String title = mMenuItems.get(groupPosition).getSubItems().get(childPosition).getTitle();
+			text.setText(title);
+			if(groupPosition==2 && childPosition==0 && title.equalsIgnoreCase(showMoreString))text.setText(addGame);
+			if(groupPosition==3 && childPosition==0 && title.equalsIgnoreCase(showMoreString))text.setText(addGroup);			
 		}
 		if((groupPosition==2 || groupPosition==3)&&(childPosition==3))
 		{			

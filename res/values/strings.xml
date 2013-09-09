@@ -16,6 +16,9 @@
         <item>My Games</item>
         <item>My Groups</item>
     </string-array>
+    <string name="showMore">Show More&#8230;</string>
+    <string name="AddGame">Add a Game</string>
+    <string name="AddGroup">Add a Group</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="action_websearch">Web search</string>
