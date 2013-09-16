@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Classes.ListsHelper;
+import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.LoadImage;
 import com.myapps.playnation.main.MainActivity;
 
@@ -30,8 +31,9 @@ public class GroupsListAdapter extends ListsHelper implements MyBaseAdapter {
 	boolean showMore = true;
 
 	public GroupsListAdapter(Activity act, ArrayList<Bundle> map) {
-		super(map,MainActivity.configs.getListsIncrement());
-		this.groupsDataCollection = getNewList(MainActivity.configs.getInitialListCount());
+		super(map, Configurations.getConfigs().getListsIncrement());
+		this.groupsDataCollection = getNewList(Configurations.getConfigs()
+				.getInitialListCount());
 		inflater = (LayoutInflater) act
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		count = 10;
@@ -43,10 +45,10 @@ public class GroupsListAdapter extends ListsHelper implements MyBaseAdapter {
 
 	@Override
 	public int getCount() {
-	/*	if (groupsDataCollection.size() >= count)
-			return count;
-		else*/
-			return groupsDataCollection.size();
+		/*
+		 * if (groupsDataCollection.size() >= count) return count; else
+		 */
+		return groupsDataCollection.size();
 	}
 
 	@Override
@@ -62,13 +64,11 @@ public class GroupsListAdapter extends ListsHelper implements MyBaseAdapter {
 	@Override
 	public void showMore() {
 		groupsDataCollection.addAll(getNextItems());
-		/*	if (showMore)
-			if (count + 5 <= groupsDataCollection.size())
-				count = count + 5;
-			else {
-				count = groupsDataCollection.size();
-				showMore = false;
-			}*/
+		/*
+		 * if (showMore) if (count + 5 <= groupsDataCollection.size()) count =
+		 * count + 5; else { count = groupsDataCollection.size(); showMore =
+		 * false; }
+		 */
 	}
 
 	@Override
@@ -98,16 +98,6 @@ public class GroupsListAdapter extends ListsHelper implements MyBaseAdapter {
 			holder = (ViewHolder) vi.getTag();
 		}
 
-		// Setting all values in listview
-		/*
-		 * long seconds =
-		 * Integer.valueOf(groupsDataCollection.get(position).get(
-		 * Keys.GROUPDATE)); long millis = seconds * 1000; Date date = new
-		 * Date(millis); SimpleDateFormat sdf = new
-		 * SimpleDateFormat("EEEE,MMMM d,yyyy h:mm,a", Locale.ENGLISH);
-		 * sdf.setTimeZone(TimeZone.getTimeZone("UTC")); String formattedDate =
-		 * sdf.format(date);
-		 */
 		if (groupsDataCollection != null) {
 			holder.tvGameName.setText(groupsDataCollection.get(position)
 					.getString(Keys.GROUPNAME));
@@ -121,19 +111,14 @@ public class GroupsListAdapter extends ListsHelper implements MyBaseAdapter {
 			String imageUrl = groupsDataCollection.get(position).getString(
 					Keys.EventIMAGEURL);
 			holder.tvImage.setTag(imageUrl);
-		//	new LoadImage(imageUrl, holder.tvImage, "groups")
-		//			.execute(holder.tvImage);
+			new LoadImage(groupsDataCollection.get(position).getString(
+					Keys.ID_GROUP), "group", Keys.groupsTable, imageUrl,
+					holder.tvImage, "groups").execute(holder.tvImage);
+			holder.tvImage.setMaxWidth(Keys.globalMaxandMinImageSize);
+			holder.tvImage.setMinimumWidth(Keys.globalMaxandMinImageSize);
+			holder.tvImage.setMaxHeight(Keys.globalMaxandMinImageSize);
+			holder.tvImage.setMinimumHeight(Keys.globalMaxandMinImageSize);
 		}
-		// Setting an image
-		// String uri = "drawable/"+
-		// gamesDataCollection.get(position).get(KEY_ICON);
-		// int imageResource =
-		// vi.getContext().getApplicationContext().getResources().getIdentifier(uri,
-		// null, vi.getContext().getApplicationContext().getPackageName());
-		// Drawable image =
-		// vi.getContext().getResources().getDrawable(imageResource);
-		// holder.tvImage.setImageDrawable(image);
-
 		return vi;
 	}
 

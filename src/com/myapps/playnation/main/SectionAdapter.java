@@ -3,12 +3,14 @@ package com.myapps.playnation.main;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Fragments.WrapperFragment;
 import com.myapps.playnation.Operations.Configurations;
@@ -38,12 +40,13 @@ public class SectionAdapter extends FragmentPagerAdapter {
 		this.fm = fm;
 		this.act = act;
 		this.mContainer = pager;
+		Resources res = act.getResources();
 		titles = new ArrayList<String>();
-		titles.add("Games");
-		titles.add("Groups");
-		titles.add("News");
-		titles.add("Players");
-		titles.add("Companies");
+		titles.add(res.getString(R.string.newsString));
+		titles.add(res.getString(R.string.gamesString));
+		titles.add(res.getString(R.string.playerString));
+		titles.add(res.getString(R.string.groupString));
+		titles.add(res.getString(R.string.companiesString));
 		currFragments = new ArrayList<WrapperFragment>();
 		con = DataConnector.getInst(act);
 		for (int i = 0; i < titles.size(); i++)

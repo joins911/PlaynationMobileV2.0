@@ -147,16 +147,33 @@ public final class Keys {
 	public final static String NEWSCOLPOSTINGTIME = "PostingTime";
 	// TODO ADD IMAGE REFERENCE
 	public final static String NEWSCOLIMAGE = "Image";
-
-	/*
-	 * Who is Playing json and map identifiers
-	 */
-
+	public final static String ID_CREATOR = "ID_CREATOR";
+	public static int globalMaxandMinImageSize = 100;
+	public final static String NotificationPlayerCount = "PlayerCount";
+	public final static String Mutual = "Mutual";
+	public final static String POSTFUNCOMMANTACCEPT = "Accept";
+	public final static String POSTFUNCOMMANTDecline = "Decline";
+	public final static String POSTFUNCOMMANTLike = "Like";
+	public final static String POSTFUNCOMMANTUnLike = "UnLike";
+	public final static String POSTFUNCOMMANTAddGame = "AddGame";
+	public final static String POSTFUNCOMMANTSend = "Send";
+	public final static String POSTFUNCOMMANTSendPerson = "SendPerson";
+	public final static String POSTFUNCOMMANTSendInvite = "SendInvite";
+	  public final static String functionAnotherID = "AnotherID";
+	  public final static String functionPhpName = "phpName";
+	  public final static String functionAction = "Action";
+	
 	public static String TEMPLAYERID = "12";
+	
+	public static int tempLimitGame = 10;
+	public static boolean internetStatus;
+	
+	
 	public final static String ID_PLAYER = "ID_PLAYER";
 	public final static String PLAYERNICKNAME = "DisplayName";
 	public final static String PLAYERAVATAR = "Avatar";
 	public final static String FirstName = "FirstName";
+	public final static String GameIsLiked = "isLiked";
 	public final static String LastName = "LastName";
 	public final static String CITY = "City";
 	public final static String COUNTRY = "Country";

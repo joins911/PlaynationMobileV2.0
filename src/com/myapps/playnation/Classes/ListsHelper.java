@@ -2,6 +2,9 @@ package com.myapps.playnation.Classes;
 
 import java.util.ArrayList;
 
+import com.myapps.playnation.Operations.Configurations;
+import com.myapps.playnation.main.MainActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +20,7 @@ public abstract class ListsHelper extends BaseAdapter{
 	{		
 		this.list = list;
 		this.increment = increment;
+		this.counter = 0;
 	}
 	
 	public void getListSection(int posStart,int posEnd)
@@ -35,7 +39,7 @@ public abstract class ListsHelper extends BaseAdapter{
 		int max;
 		if(initialCount>list.size()) max = list.size();
 		else max = initialCount;
-		for(int i=0;i<=max;i++)
+		for(int i=0;i<max;i++)
 		{
 			temp.add(list.get(i));
 		}
@@ -48,11 +52,23 @@ public abstract class ListsHelper extends BaseAdapter{
 		int max;
 		if(counter+increment>list.size()) max = list.size();
 		else max = counter+increment;
-		for(int i=counter;i<=max;i++)
+		for(int i=counter;i<max;i++)
 		{
 			temp.add(list.get(i));
 		}
 		counter = counter + increment;
+		return temp;
+	}
+	
+	public ArrayList<Bundle> getNextItems(int fromIndex)
+	{
+		ArrayList<Bundle> temp = new ArrayList<Bundle>();
+		int initial =Configurations.getConfigs().getInitialListCount();
+		for(int i=fromIndex;i<fromIndex + initial;i++)
+		{
+			temp.add(list.get(i));
+		}
+		counter = counter + fromIndex + initial;
 		return temp;
 	}
 

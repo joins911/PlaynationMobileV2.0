@@ -21,15 +21,19 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.DataSection;
@@ -68,7 +72,11 @@ public class HelperClass {
 			connection.connect();
 			InputStream inputStream = connection.getInputStream();
 
-			bitmap = BitmapFactory.decodeStream(inputStream);
+			BitmapFactory.Options options = new BitmapFactory.Options();
+			options.inPurgeable = true;
+			options.inJustDecodeBounds = false;
+			options.outHeight = 150;
+			bitmap = BitmapFactory.decodeStream(inputStream, null, options);
 
 		} catch (IOException e) {
 		}
@@ -91,9 +99,37 @@ public class HelperClass {
 				}
 			}
 		} else {
-			bitmap = Bitmap.createScaledBitmap(bitmap, 100, 100, true);
+			bitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), 150,
+					true);
 			tvImage.setImageBitmap(bitmap);
 
+		}
+	}
+
+	public static boolean isNetworkAvailable(ConnectivityManager cm) {
+		boolean haveConnectedWifi = false;
+		boolean haveConnectedMobile = false;
+
+		NetworkInfo[] mNetInfo = cm.getAllNetworkInfo();
+		for (NetworkInfo ni : mNetInfo) {
+			if (ni.getTypeName().equalsIgnoreCase("WIFI"))
+				if (ni.isConnected())
+					haveConnectedWifi = true;
+			if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
+				if (ni.isConnected())
+					haveConnectedMobile = true;
+		}
+		return haveConnectedWifi || haveConnectedMobile;
+	}
+
+	public static void disableAddComments(View footer, TextView commentText,
+			Button commentBut) {
+		if (Configurations.getConfigs().getApplicationState() != 0) {
+			TextView lbl = (TextView) footer
+					.findViewById(R.id.wallsF_comment_TView);
+			lbl.setVisibility(View.GONE);
+			commentText.setVisibility(View.GONE);
+			commentBut.setVisibility(View.GONE);
 		}
 	}
 
@@ -157,13 +193,13 @@ public class HelperClass {
 				|| tableName.equals(Keys.gamesTable)
 				|| tableName.equals(Keys.companyTable)
 				|| tableName.equals(Keys.HomeSubscriptionTable)) {
-			return "SELECT * FROM " + tableName + ";";
+			return "SELECT * FROM " + tableName + " Limit 0," + limit + ";";
 		} else if (tableName.equals(Keys.HomeMsgTable)) {
 			return "SELECT * FROM " + tableName + " Where " + Keys.ID_PLAYER
 					+ "=" + separeteID + ";";
 		} else if (tableName.equals(Keys.HomeEventTable)) {
 			return "SELECT * FROM " + tableName + " Where ID_PLAYER="
-					+ Keys.TEMPLAYERID + ";";
+					+ Configurations.CurrentPlayerID + ";";
 		} else if (tableName.equals(Keys.HomeFriendsTable)) {
 			return "SELECT * FROM " + tableName + " Where ID_OWNER=?;";
 		} else if (tableName.equals(Keys.HomeGamesTable)) {
@@ -209,10 +245,10 @@ public class HelperClass {
 			returns = "SELECT * FROM " + tableName + " Where ID_GROUP=?;";
 		} else if (tableName.equals(Keys.HomeMsgTable)) {
 			returns = "SELECT * FROM " + tableName + " Where ID_MESSAGE=? and "
-					+ Keys.ID_PLAYER + "=" + Keys.TEMPLAYERID + ";";
+					+ Keys.ID_PLAYER + "=" + Configurations.CurrentPlayerID + ";";
 		} else if (tableName.equals(Keys.HomeEventTable)) {
 			returns = "SELECT * FROM " + tableName
-					+ " Where ID_EVENT=? and ID_PLAYER=" + Keys.TEMPLAYERID
+					+ " Where ID_EVENT=? and ID_PLAYER=" + Configurations.CurrentPlayerID
 					+ ";";
 		} else if (tableName.equals(Keys.HomeFriendsTable)) {
 			returns = "SELECT * FROM " + tableName

@@ -84,7 +84,6 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	DataConnector con;
 	private int total;
 	private boolean finished = false;
-	public static Configurations configs;
 	private boolean isTablet;
 	private Fragment currFragment;
 	private BrowserFragment mBrowserFragment;
@@ -205,9 +204,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		getSupportActionBar().setTitle("Playnation Mobile");
 		getSupportActionBar().setBackgroundDrawable(
 				getResources().getDrawable(R.color.background_gradient));
-		con = DataConnector.getInst(getApplicationContext());
-		configs = new Configurations(getIntent().getExtras().getInt(
-				Keys.AppState));
+		con = DataConnector.getInst(getApplicationContext());		
 		Log.i("MainActiv", "intent.getInt() = "
 				+ getIntent().getExtras().getInt(Keys.AppState));
 		isTablet = getResources().getBoolean(R.bool.isTablet);
@@ -302,6 +299,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 
 	@Override
 	public void onDestroy() {
+		java.lang.System.gc();
 		super.onDestroy();
 	}
 

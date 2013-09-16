@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.myapps.playnation.R;
 import com.myapps.playnation.Adapters.PlayerHomeInfoAdapter;
 import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.main.ISectionAdapter;
 import com.myapps.playnation.main.BrowserFragment;
@@ -73,7 +74,7 @@ public class GamePlayersFragment extends Fragment {
 					int position, long id) {
 				Bundle args = (Bundle) parent.getItemAtPosition(position);
 
-				mCallback.setPageAndTab(MainActivity.configs.PlayersSTATE, 5,
+				mCallback.setPageAndTab(Configurations.PlayersSTATE, 5,
 						args);
 			}
 		});

@@ -37,10 +37,10 @@
     <!-- Extras New -->
     <string name="fontFamilyTextView">Ariel</string>
     <string name="btnSave">Gem</string>
-    <string name="Date">Dato: \ u0020</string>
-    <string name="Location">Placering: \ u0020</string>
-    <string name="Age">Alder: \ u0020</string>
-    <string name="Country">Land: \ u0020</string>
+    <string name="Date">Dato: \u0020</string>
+    <string name="Location">Placering: \u0020</string>
+    <string name="Age">Alder: \u0020</string>
+    <string name="Country">Land: \u0020</string>
     <string name="City">By: \u0020</string>
     <string name="DisplayName">DisplayName: \u0020</string>
     <string name="FirstName">ForNavn: \u0020</string>
@@ -69,12 +69,12 @@
     <string name="emptyGroupListString">Ingen grupper præsentere ...</string>
     <string name="nothing"></string>
     <!-- Strings that dont need translation -->
-    <string name="Email">EMail: \ u0020</string>
-    <string name="Type1">Type \ u00201:</string>
-    <string name="Type2">Type \ u00202:</string>
+    <string name="Email">EMail: \u0020</string>
+    <string name="Type1">Type \u00201:</string>
+    <string name="Type2">Type \u00202:</string>
     <string name="Type">Type </string>
     <string name="emailString">E-mail</string>
-    <string name="Nick">Nick: \ u0020 </string>
+    <string name="Nick">Nick: \u0020 </string>
     <!-- Base strings for coding purposes will be replaced at runtime with Database values -->
     <string name="gamename">Crysis 3</string>
     <string name="gametype">FPS (First Person Shooter)</string>

@@ -36,17 +36,17 @@
 	<!-- Extras New -->
 	<string name="fontFamilyTextView">"Ariel"</string>
 	<string name="btnSave">"Speichern"</string>
-	<string name="Date">"Datum: \ u0020"</string>
-	<string name="Location">"Ort: \ u0020"</string>
-	<string name="Age">"Alter: \ u0020"</string>
-	<string name="Country">"Land: \ u0020"</string>
-	<string name="City">"Stadt: \ u0020"</string>
-	<string name="DisplayName">"DisplayName: \ u0020"</string>
-	<string name="FirstName">"Vorname: \ u0020"</string>
-	<string name="LastName">"Nachname: \ u0020"</string>
-	<string name="Duration">"Dauer: \ u0020"</string>
+	<string name="Date">"Datum: \u0020"</string>
+	<string name="Location">"Ort: \u0020"</string>
+	<string name="Age">"Alter: \u0020"</string>
+	<string name="Country">"Land: \u0020"</string>
+	<string name="City">"Stadt: \u0020"</string>
+	<string name="DisplayName">"DisplayName: \u0020"</string>
+	<string name="FirstName">"Vorname: \u0020"</string>
+	<string name="LastName">"Nachname: \u0020"</string>
+	<string name="Duration">"Dauer: \u0020"</string>
 	<string name="DayEvent">"Tag Ereignis"</string>
-	<string name="Members">"\ u0020 Mitglieder"</string>
+	<string name="Members">"\u0020 Mitglieder"</string>
 	<string name="Leader">"LEADER"</string>
 	<string name="NewsMembers">"Mitglieder"</string>
 	<string name="create">"Erstellt:"</string>
@@ -68,12 +68,12 @@
 	<string name="emptyGroupListString">Keine Gruppen präsentieren ...</string>
 	<string name="nothing"></string>
 	 <!-- Strings that dont need translation -->
-    <string name="Email">"EMail: \ u0020"</string>
-    <string name="Type1">"Typ \ u00201:"</string>
-    <string name="Type2">"Typ \ u00202:"</string>
+    <string name="Email">"EMail: \u0020"</string>
+    <string name="Type1">"Typ \u00201:"</string>
+    <string name="Type2">"Typ \u00202:"</string>
     <string name="Type">"Type:"</string>
     <string name="emailString">"Email "</string>
-    <string name="Nick">"Nick: \ u0020 "</string>
+    <string name="Nick">"Nick: \u0020 "</string>
 	<!-- Base strings for coding purposes will be replaced at runtime with Database values -->
 	<string name="gamename">"Crysis 3"</string>
 	<string name="gametype">"FPS (First Person Shooter)"</string>

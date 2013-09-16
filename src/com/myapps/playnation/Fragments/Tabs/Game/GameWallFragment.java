@@ -28,6 +28,7 @@ import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Classes.UserComment;
 import com.myapps.playnation.Fragments.IWallFragment;
 import com.myapps.playnation.Operations.DataConnector;
+import com.myapps.playnation.Operations.HelperClass;
 import com.myapps.playnation.Workers.LoadCommentsTask;
 
 public class GameWallFragment extends Fragment implements IWallFragment {
@@ -64,6 +65,7 @@ public class GameWallFragment extends Fragment implements IWallFragment {
 						Keys.PLAYERNAME);
 				String time = DateFormat.getDateTimeInstance().format(
 						new Date());
+				
 				/*
 				 * mListData.add(new UserComment(new CommentInfo(playerName,
 				 * commentText.getText().toString(), time), new
@@ -74,6 +76,7 @@ public class GameWallFragment extends Fragment implements IWallFragment {
 						+ commentText.getText().toString());
 			}
 		});
+		HelperClass.disableAddComments(footer, commentText, commentBut);
 		mCommentsTask = new LoadCommentsTask(this, getArguments().getString(
 				Keys.ID_GAME), "game").execute();
 		// Inflate the layout for this fragment

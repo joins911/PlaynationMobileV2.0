@@ -30,9 +30,8 @@ import com.myapps.playnation.Fragments.BaseFragment;
 import com.myapps.playnation.Fragments.Lists.ListsFragment;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
-import com.myapps.playnation.Operations.FlyOutContainer;
 
-public class BrowserFragment extends Fragment implements BaseFragment{
+public class BrowserFragment extends Fragment implements BaseFragment {
 	public SectionAdapter mSectionAdapter;
 	DataConnector con;
 	View root;
@@ -42,22 +41,21 @@ public class BrowserFragment extends Fragment implements BaseFragment{
 	ViewPager mViewPager;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {		
-		super.onCreate(savedInstanceState);				
-		root = inflater.inflate(
-				R.layout.fragment_browser, null);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		root = inflater.inflate(R.layout.fragment_browser, null);
 		initializePager(root);
 		con = DataConnector.getInst();
 		return root;
-	}	
-	
+	}
+
 	@Override
-	public void onDestroyView()
-	{
-		//mSectionAdapter.stopLists();
+	public void onDestroyView() {
+		// mSectionAdapter.stopLists();
 		super.onDestroyView();
 	}
-	
+
 	private void initializePager(View root) {
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) root.findViewById(R.id.pager);
@@ -65,26 +63,33 @@ public class BrowserFragment extends Fragment implements BaseFragment{
 		// primary sections of the app.
 		this.mSectionAdapter = new SectionAdapter(getFragmentManager(),
 				getActivity(), mViewPager);
-		mViewPager.setAdapter(mSectionAdapter);		
+		mViewPager.setAdapter(mSectionAdapter);
 		mViewPager.setOffscreenPageLimit(6);
 	}
-	
+
 	public void searchFunction(String args) {
 		ListsFragment frag = mSectionAdapter.getFragments()
 				.get(mViewPager.getCurrentItem()).getListFragment();
 		ArrayList<Bundle> temp = null;
-		if (frag != null) {
-			if (mViewPager.getCurrentItem() == MainActivity.configs.GamesSTATE)
+		if (frag != null && args.length()>2) {
+			if (mViewPager.getCurrentItem() == Configurations.GamesSTATE)
 				temp = searchListGames(args);
-			else if (mViewPager.getCurrentItem() == MainActivity.configs.GroupsSTATE)
-				temp = searchListGroups(args);
-			else if (mViewPager.getCurrentItem() == MainActivity.configs.NewsSTATE)
-				Log.i("NewsSearch", "To Do");
-			// else if (mViewPager.getCurrentItem() == Keys.PlayersSTATE)
-			// temp = searchListPlayers(args);
-			else if (mViewPager.getCurrentItem() == MainActivity.configs.CompaniesSTATE)
-				temp = searchListCompanies(args);
-			if (temp != null)
+			else {
+				Configurations.getConfigs();
+				if (mViewPager.getCurrentItem() == Configurations.GroupsSTATE)
+					temp = searchListGroups(args);
+				else {
+					Configurations.getConfigs();
+					if (mViewPager.getCurrentItem() == Configurations.NewsSTATE)
+						Log.i("NewsSearch", "To Do");
+					else {
+						Configurations.getConfigs();
+						if (mViewPager.getCurrentItem() == Configurations.CompaniesSTATE)
+							temp = searchListCompanies(args);
+					}
+				}
+			}
+			if (!temp.isEmpty() || temp != null)
 				frag.setListBundle(temp);
 		}
 	}
@@ -117,41 +122,40 @@ public class BrowserFragment extends Fragment implements BaseFragment{
 	}
 
 	public ArrayList<Bundle> searchListPlayers(String args) {
-		ArrayList<Bundle> list = con.queryPlayerFriendsSearch("");
+		ArrayList<Bundle> list = con.queryPlayerFriendsSearch(args);
 		ArrayList<Bundle> results = new ArrayList<Bundle>();
-		for (int i = 0; i < list.size(); i++)
-			if (list.get(i).getString(Keys.PLAYERNAME).contains(args))
+		if (list != null) {			
+			for (int i = 0; i < list.size(); i++)
 				results.add(list.get(i));
+		}
 		return results;
 	}
-	
+
 	public void setPageAndTab(int pageIndex, int tabIndex, Bundle args) {
 		mViewPager.setCurrentItem(pageIndex);
 		mSectionAdapter.setPageAndTab(pageIndex, tabIndex, args);
 	}
-	
+
 	public boolean onBackButtonPressed() {
-		if (mSectionAdapter.canBack(mViewPager.getCurrentItem()))
-			{
+		if (mSectionAdapter.canBack(mViewPager.getCurrentItem())) {
 			mSectionAdapter.onBackBtnPressed();
 			return true;
-			}
+		}
 		return false;
 	}
-	
-	public void setVisible()
-	{
+
+	public void setVisible() {
 		root.setVisibility(View.VISIBLE);
 		mViewPager.invalidate();
 	}
-	public void setInvisible()		
-	{
-		root.setVisibility(View.GONE);		
+
+	public void setInvisible() {
+		root.setVisibility(View.GONE);
 	}
-	
+
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
 	}
-	
+
 }

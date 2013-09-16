@@ -42,6 +42,8 @@ public class LoginActivity extends Activity {
 	@SuppressLint("NewApi")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		Keys.internetStatus = HelperClass
+				.isNetworkAvailable((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE));
 		stopService(new Intent(this, ServiceClass.class));
 		startService(new Intent(this, ServiceClass.class));
 		if (android.os.Build.VERSION.SDK_INT > 10) {
@@ -54,19 +56,11 @@ public class LoginActivity extends Activity {
 		// UserLoginPreferences
 		prefrence = PreferenceManager
 				.getDefaultSharedPreferences(getApplicationContext());
+
+		clearPreviewsLoginInformation(prefrence);
+		Configurations.CurrentPlayerID = prefrence.getString(Keys.ID_PLAYER,
+				"12");
 		Keys.TEMPLAYERID = prefrence.getString(Keys.ID_PLAYER, "12");
-
-		// Setting the activesession to be true so that it wont wait for button
-		// press on login
-		// SharedPreferences.Editor edit = prefrence.edit();
-		// edit.putBoolean(Keys.ActiveSession, true);
-		// edit.clear();
-		// edit.commit();
-		// To unset sharepref. comment the activesession line and put
-
-		// if (prefrence.getBoolean(Keys.ActiveSession, false) == true) {
-		// logOnlineUser();
-		// }
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
@@ -83,7 +77,7 @@ public class LoginActivity extends Activity {
 			public void onClick(View v) {
 				logButton.setError(null);
 				if (HelperClass.EmailPassNickCheck(password, username, null)) {
-					if (checkServerStatus()) {
+					if (Keys.internetStatus) {
 						if (checkCredentials()) {
 							logOnlineUser();
 						} else {
@@ -131,7 +125,7 @@ public class LoginActivity extends Activity {
 			}
 		});
 
-		if (!isNetworkAvailable()) {
+		if (!Keys.internetStatus) {
 			Toast.makeText(
 					getApplicationContext(),
 					"There is no internet connection available. Offline Mode(Ignore login).",
@@ -143,6 +137,12 @@ public class LoginActivity extends Activity {
 			logGuestButton.setVisibility(View.GONE);
 		}
 
+	}
+
+	private void clearPreviewsLoginInformation(SharedPreferences pref) {
+		SharedPreferences.Editor edit = pref.edit();
+		edit.clear();
+		edit.commit();
 	}
 
 	private void logOnlineAdmin() {
@@ -181,7 +181,7 @@ public class LoginActivity extends Activity {
 
 		private LoadMainActivityTask(int appState) {
 			con = DataConnector.getInst(getApplicationContext());
-			this.appState = appState;
+			Configurations.getConfigs().loadDefault(appState);
 		}
 
 		// Before running code in separate thread
@@ -208,28 +208,28 @@ public class LoginActivity extends Activity {
 					progressbarStatus += 0;
 					progressDialog.setProgress(progressbarStatus);
 					if (!con.checkDBTableExits(Keys.gamesTable)) {
-						con.getArrayFromQuerryWithPostVariable("",
+						con.getArrayFromQuerryWithPostVariable(Configurations.CurrentPlayerID,
 								Keys.gamesTable, "", con.getLastIDGames());
 					}
 					progressbarStatus += 40;
 					progressDialog.setProgress(progressbarStatus);
 
 					if (!con.checkDBTableExits(Keys.companyTable)) {
-						con.getArrayFromQuerryWithPostVariable("",
+						con.getArrayFromQuerryWithPostVariable(Configurations.CurrentPlayerID,
 								Keys.companyTable, "", con.getLastIDCompanies());
 					}
 					progressbarStatus += 20;
 					progressDialog.setProgress(progressbarStatus);
 
 					if (!con.checkDBTableExits(Keys.groupsTable)) {
-						con.getArrayFromQuerryWithPostVariable("",
+						con.getArrayFromQuerryWithPostVariable(Configurations.CurrentPlayerID,
 								Keys.groupsTable, "", con.getLastIDGroups());
 					}
 					progressbarStatus += 20;
 					progressDialog.setProgress(progressbarStatus);
 
 					if (!con.checkDBTableExits(Keys.newsTable)) {
-						con.getArrayFromQuerryWithPostVariable("",
+						con.getArrayFromQuerryWithPostVariable(Configurations.CurrentPlayerID,
 								Keys.newsTable, "", con.getLastIDNews());
 						con.queryMiniIds();
 					}
@@ -264,30 +264,6 @@ public class LoginActivity extends Activity {
 	public void proceed(Intent mInt) {
 		startActivity(mInt);
 		finish();
-	}
-
-	private boolean checkServerStatus() {
-		if (isNetworkAvailable()) {
-			return con.checkConnection();
-		}
-		return false;
-	}
-
-	private boolean isNetworkAvailable() {
-		boolean haveConnectedWifi = false;
-		boolean haveConnectedMobile = false;
-
-		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo[] mNetInfo = cm.getAllNetworkInfo();
-		for (NetworkInfo ni : mNetInfo) {
-			if (ni.getTypeName().equalsIgnoreCase("WIFI"))
-				if (ni.isConnected())
-					haveConnectedWifi = true;
-			if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
-				if (ni.isConnected())
-					haveConnectedMobile = true;
-		}
-		return haveConnectedWifi || haveConnectedMobile;
 	}
 
 	@SuppressLint("NewApi")

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.myapps.playnation.R;
 import com.myapps.playnation.Adapters.PlayerHomeInfoAdapter;
 import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.main.ISectionAdapter;
 import com.myapps.playnation.main.BrowserFragment;
@@ -59,7 +60,7 @@ public class XHomeFriendsFragment extends Fragment {
 					int position, long id) {
 				Bundle results = (Bundle) parent.getItemAtPosition(position);
 
-				mCall.setPageAndTab(MainActivity.configs.PlayersSTATE, 4,
+				mCall.setPageAndTab(Configurations.PlayersSTATE, 4,
 						results);
 			}
 		});

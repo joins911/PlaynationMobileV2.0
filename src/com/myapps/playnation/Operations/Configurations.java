@@ -1,5 +1,7 @@
 package com.myapps.playnation.Operations;
 
+import com.myapps.playnation.Classes.Keys;
+
 public class Configurations {
 
 	public final static int appStateOffUser = 2;
@@ -7,28 +9,48 @@ public class Configurations {
 	public final static int appStateOnUser = 0;
 	public final static boolean isLoginEnabled = true;
 
-	public static int GamesSTATE = 0;
-	public static int GroupsSTATE = 1;
-	public static int NewsSTATE = 2;
-	public static int PlayersSTATE = 3;
+	public static int NewsSTATE = 0;
+	public static int PlayersSTATE = 2;
+	public static int GamesSTATE = 1;
+	public static int GroupsSTATE = 3;
 	public static int CompaniesSTATE = 4;
 	public static int Total;
+	
+	public static String CurrentPlayerID = Keys.TEMPLAYERID;
+	
+	private static Configurations configs;
 	
 	private int appState;
 	private int listsIncrement;
 	private int backTimer;
 	private int initialListCount;
+	private boolean internetStatus;
 	
-	public Configurations(int appState) {
-		this.appState = appState;
-		loadDefault();
+	private Configurations() {		
 	}
 	
-	public void loadDefault()
+	public static Configurations getConfigs()	
 	{
+		if(configs==null) configs = new Configurations();
+		return configs;
+	}
+	
+	public void loadDefault(int appState)
+	{
+		this.appState = appState;
 		listsIncrement = 7;
-		backTimer = 2;
-		initialListCount=14;
+		backTimer = 2; //Wait x seconds for 2nd back button pressed to finishActivity
+		initialListCount=14; //
+	}
+	
+	public boolean getInternetStatus()
+	{
+		return internetStatus;
+	}
+	
+	public void setInternetStatus(boolean connected)
+	{
+		internetStatus = connected;
 	}
 	
 	public int getApplicationState() {

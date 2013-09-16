@@ -123,7 +123,9 @@ public class HeaderFragment extends Fragment implements BaseFragment {
 				String imageUrl = getArguments().getString(Keys.EventIMAGEURL);
 
 				gImage.setTag(imageUrl);
-				new LoadImage(imageUrl, gImage, "games").execute(gImage);
+				 new LoadImage(getArguments().getString(Keys.ID_GAME), "game",
+						             Keys.gamesTable, imageUrl, gImage, "games")
+						             .execute(gImage);
 
 			}
 			if (state == Configurations.GroupsSTATE) {
@@ -136,7 +138,9 @@ public class HeaderFragment extends Fragment implements BaseFragment {
 				String imageUrl = getArguments().getString(Keys.EventIMAGEURL);
 
 				gImage.setTag(imageUrl);
-				new LoadImage(imageUrl, gImage, "groups").execute(gImage);
+				new LoadImage(getArguments().getString(Keys.ID_GROUP), "group",
+						            Keys.groupsTable, imageUrl, gImage, "groups")
+						            .execute(gImage);
 			}
 			if (state == Configurations.PlayersSTATE) {
 				mView = inflater.inflate(R.layout.wrapper_header_home,
@@ -145,9 +149,9 @@ public class HeaderFragment extends Fragment implements BaseFragment {
 				TextView edit = (TextView) mView.findViewById(R.id.txtEdit);
 				edit.setVisibility(View.GONE);
 
-				con.queryPlayerInfo(getArguments().getString(Keys.ID_PLAYER));
+				con.queryPlayerInfo(Configurations.CurrentPlayerID);
 				header = con.populatePlayerGeneralInfo(header, "Wall",
-						getArguments().getString(Keys.ID_PLAYER));
+						Configurations.CurrentPlayerID);
 
 			}
 			if (state == Configurations.CompaniesSTATE) {
@@ -159,7 +163,9 @@ public class HeaderFragment extends Fragment implements BaseFragment {
 						.getString(Keys.CompanyImageURL);
 
 				gImage.setTag(imageUrl);
-				new LoadImage(imageUrl, gImage, "companies").execute(gImage);
+				new LoadImage(getArguments().getString(Keys.EventID_COMPANY),
+						            "company", Keys.companyTable, imageUrl, gImage,
+						            "companies").execute(gImage);
 				ratingTV.setText("");
 			}		
 		return mView;

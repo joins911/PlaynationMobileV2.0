@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Classes.ListsHelper;
+import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.LoadImage;
 import com.myapps.playnation.main.MainActivity;
 
@@ -36,11 +37,12 @@ public class GamesListAdapter extends ListsHelper implements MyBaseAdapter {
 	boolean showMore = true;
 
 	public GamesListAdapter(Activity act, ArrayList<Bundle> map) {
-		super(map,7);
-		this.gamesDataCollection = getNewList(MainActivity.configs.getInitialListCount());
+		super(map, 7);
+		this.gamesDataCollection = getNewList(Configurations.getConfigs()
+				.getInitialListCount());
 		inflater = (LayoutInflater) act
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//		count = 10;
+		// count = 10;
 	}
 
 	@Override
@@ -50,10 +52,10 @@ public class GamesListAdapter extends ListsHelper implements MyBaseAdapter {
 
 	@Override
 	public int getCount() {
-	/*	if (gamesDataCollection.size() >= count)
-			return count;
-		else*/
-			return gamesDataCollection.size();
+		/*
+		 * if (gamesDataCollection.size() >= count) return count; else
+		 */
+		return gamesDataCollection.size();
 	}
 
 	@Override
@@ -74,13 +76,11 @@ public class GamesListAdapter extends ListsHelper implements MyBaseAdapter {
 	@Override
 	public void showMore() {
 		gamesDataCollection.addAll(getNextItems());
-	/*	if (showMore)
-			if (count + 5 <= gamesDataCollection.size())
-				count = count + 5;
-			else {
-				count = gamesDataCollection.size();
-				showMore = false;
-			}*/
+		/*
+		 * if (showMore) if (count + 5 <= gamesDataCollection.size()) count =
+		 * count + 5; else { count = gamesDataCollection.size(); showMore =
+		 * false; }
+		 */
 	}
 
 	/**
@@ -124,9 +124,13 @@ public class GamesListAdapter extends ListsHelper implements MyBaseAdapter {
 					Keys.EventIMAGEURL);
 
 			holder.tvImage.setTag(imageUrl);
-			new LoadImage(imageUrl, holder.tvImage, "games")
-					.execute(holder.tvImage);
-
+			new LoadImage(gamesDataCollection.get(position).getString(
+					Keys.ID_GAME), "game", Keys.gamesTable, imageUrl,
+					holder.tvImage, "games").execute(holder.tvImage);
+			holder.tvImage.setMaxWidth(Keys.globalMaxandMinImageSize);
+			holder.tvImage.setMinimumWidth(Keys.globalMaxandMinImageSize);
+			holder.tvImage.setMaxHeight(Keys.globalMaxandMinImageSize);
+			holder.tvImage.setMinimumHeight(Keys.globalMaxandMinImageSize);
 		}
 
 		return vi;

@@ -53,7 +53,7 @@ public class SelectedNewsFeed extends Fragment {
 		mView.setBackgroundColor(getResources().getColor(
 				R.color.background_gradient));
 		mView.getSettings().setLoadWithOverviewMode(true);
-		mView.getSettings().setUseWideViewPort(true);
+		//mView.getSettings().setUseWideViewPort(true);
 	}
 
 	@Override

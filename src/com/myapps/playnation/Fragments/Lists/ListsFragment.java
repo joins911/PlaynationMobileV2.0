@@ -69,7 +69,7 @@ public class ListsFragment extends Fragment implements BaseFragment{
 			throw new ClassCastException(activity.toString()
 					+ " must implement OnHeadlineSelectedListener");
 		}
-		configs = MainActivity.configs;
+		configs = Configurations.getConfigs();
 	}
 
 	@Override

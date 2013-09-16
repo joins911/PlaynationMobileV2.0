@@ -51,8 +51,7 @@ public class HomeWallFragment extends Fragment {
 		ExpandableListView eListView = (ExpandableListView) view
 				.findViewById(R.id.listView);
 		HomExpandableAdapter expAdapter = new HomExpandableAdapter(context,
-				listParents, eListView, this);
-
+				listParents, eListView, this);		
 		if (expAdapter.isEmpty()) {
 			TextView msgText = new TextView(getActivity());
 			msgText.setText(R.string.emptyListString);

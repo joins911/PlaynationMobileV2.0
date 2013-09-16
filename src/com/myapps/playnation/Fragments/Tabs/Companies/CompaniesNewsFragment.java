@@ -19,6 +19,7 @@ import com.myapps.playnation.R;
 import com.myapps.playnation.Adapters.NewsListAdapter;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Classes.NewsFeed;
+import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.HelperClass;
 import com.myapps.playnation.main.ISectionAdapter;
@@ -88,7 +89,7 @@ public class CompaniesNewsFragment extends Fragment {
 						edit.putString(Keys.Author, feed.getKey_Author());
 						edit.putString(Keys.NEWSCOLPOSTINGTIME,
 								format.format(feed.getKey_NewsDate().getTime()));
-						mCallback.setPageAndTab(MainActivity.configs.NewsSTATE,
+						mCallback.setPageAndTab(Configurations.NewsSTATE,
 								2, edit);
 					}
 				}

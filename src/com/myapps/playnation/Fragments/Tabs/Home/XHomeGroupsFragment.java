@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.myapps.playnation.R;
 import com.myapps.playnation.Adapters.HomeListViewAdapter;
 import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.main.ISectionAdapter;
 import com.myapps.playnation.main.MainActivity;
@@ -71,7 +72,7 @@ public class XHomeGroupsFragment extends Fragment {
 
 				Bundle args = (Bundle) arg0.getItemAtPosition(arg2);
 
-				mCallback.setPageAndTab(MainActivity.configs.GroupsSTATE, 2,
+				mCallback.setPageAndTab(Configurations.GroupsSTATE, 2,
 						args);
 			}
 		});

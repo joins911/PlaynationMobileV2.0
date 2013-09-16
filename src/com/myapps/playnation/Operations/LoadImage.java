@@ -12,23 +12,34 @@ import android.os.AsyncTask;
 import android.widget.ImageView;
 
 import com.myapps.playnation.R;
+import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.main.MainActivity;
 
 public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 	private ImageView img;
 	private String url;
 	private String folderName;
 	private String path = "";
+	private String initalmageUrl = "";
+	private DataConnector con = DataConnector.getInst();
 
-	public LoadImage() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public LoadImage(String url, ImageView img, String folderName) {
+	public LoadImage(String ownerID, String ownerType, String tableName,
+			String url, ImageView img, String folderName) {
 		this.img = img;
 		this.url = url;
 		this.folderName = folderName;
 		if (img.getTag() != null)
 			path = img.getTag().toString();
+
+		String tempUrl = "";
+		//tempUrl =con.queryNewImageURL(ownerID, ownerType, tableName);
+		if (!tempUrl.equalsIgnoreCase("")) {
+			url = tempUrl;
+		}
+	}
+
+	public LoadImage(String url, ImageView img, String folderName) {
+		this("","","",url,img,folderName);
 
 	}
 
@@ -36,15 +47,34 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 	protected Bitmap doInBackground(Object... params) {
 		String finals = "";
 		String main = folderName + "/";
-		//url sometimes null???
+		Bitmap returnBitmap = null;
+		// url sometimes null???
 		if (!url.equalsIgnoreCase("")) {
-			String dic1 = url.substring(0, 1);
-			String dic2 = url.substring(1, 2);
-			finals = main + dic1 + "/" + dic2 + "/" + url;
+			String dir1 = url.substring(0, 1);
+			String dir2 = url.substring(1, 2);
+			initalmageUrl = main + dir1 + "/" + dir2 + "/" + url;
+			String[] temp = new String[1];
+			if (url.contains(".jpg")) {
+				temp = url.split(".jpg");
+				url = temp[0] + "_100x100.jpg";
+			} else if (url.contains(".png")) {
+				temp = url.split(".png");
+				url = temp[0] + "_100x100.png";
+			}
+			finals = main + dir1 + "/" + dir2 + "/" + url;
 		} else {
 			finals = main;
 		}
-		return getImage(finals, img);
+		if (Keys.internetStatus) {
+			returnBitmap = getImage(finals, img, true);
+			if (returnBitmap != null) {
+				return returnBitmap;
+			} else {
+				return getImage(initalmageUrl, img, true);
+			}
+		} else {
+			return returnBitmap;
+		}
 	}
 
 	@Override
@@ -84,44 +114,49 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 		}
 	}
 
+	public Bitmap getImage(String imageLoc, ImageView tvImage, boolean attempt) {
+		Bitmap bitmap = getImage(imageLoc, tvImage);
+		if (attempt)
+			if (bitmap != null)
+				return Bitmap.createScaledBitmap(bitmap, 100, 100, true);
+		return bitmap;
+
+	}
+
 	public Bitmap getImage(String imageLoc, ImageView tvImage) {
 		URL imageURL = null;
 		Bitmap bitmap = null;
+
 		try {
 			imageURL = new URL("http://playnation.eu/beta/global/pub_img/"
 					+ imageLoc);
-		} catch (MalformedURLException e) {
-		}
-		try {
+
 			HttpURLConnection connection = (HttpURLConnection) imageURL
 					.openConnection();
 			connection.setDoInput(true);
 			connection.connect();
 			InputStream inputStream = connection.getInputStream();
-
-			bitmap = BitmapFactory.decodeStream(inputStream);
-
+			BitmapFactory.Options options = new BitmapFactory.Options();
+			options.inPurgeable = true;
+			bitmap = BitmapFactory.decodeStream(inputStream, null, options);
 		} catch (IOException e) {
 		}
 		if (bitmap == null) {
 			try {
 				imageURL = new URL("http://playnation.eu/global/pub_img/"
 						+ imageLoc);
-			} catch (MalformedURLException e) {
-			}
-			try {
+
 				HttpURLConnection connection = (HttpURLConnection) imageURL
 						.openConnection();
 				connection.setDoInput(true);
 				connection.connect();
 				InputStream inputStream = connection.getInputStream();
-
-				bitmap = BitmapFactory.decodeStream(inputStream);
-
+				BitmapFactory.Options options = new BitmapFactory.Options();
+				options.inPurgeable = true;
+				bitmap = BitmapFactory.decodeStream(inputStream, null, options);
 			} catch (IOException e) {
 			}
 		}
-
 		return bitmap;
 	}
 }

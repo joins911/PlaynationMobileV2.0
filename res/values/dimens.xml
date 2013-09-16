@@ -14,4 +14,6 @@
 	<dimen name="specialTextSize">10sp</dimen>
 	<dimen name="wall_padding_left">25dp</dimen>
 	<dimen name="wall_padding_top">10dp</dimen>
+	<dimen name="maxImageSize">100dp</dimen>
+    <dimen name="minImageSize">100dp</dimen>
 </resources>

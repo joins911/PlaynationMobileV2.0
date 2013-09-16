@@ -11,6 +11,7 @@ import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Fragments.Lists.ListsFragment;
 import com.myapps.playnation.Fragments.Tabs.News.SelectedNewsFeed;
+import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.HelperClass;
 import com.myapps.playnation.main.MainActivity;
 
@@ -49,7 +50,7 @@ public class WrapperFragment extends Fragment {
 	}
 
 	public void switchToHeader(Bundle args) {
-		if (mViewPagerState == MainActivity.configs.NewsSTATE) {
+		if (mViewPagerState == Configurations.NewsSTATE) {
 			mHeaderFragment = new SelectedNewsFeed();
 			mHeaderFragment.setArguments(args);
 			canBack = true;
@@ -99,7 +100,7 @@ public class WrapperFragment extends Fragment {
 	 */
 	public void switchToTab(int tabIndex, Bundle args) {
 		if (mFragments instanceof ListsFragment)
-			if (mViewPagerState == MainActivity.configs.NewsSTATE) {
+			if (mViewPagerState == Configurations.NewsSTATE) {
 				this.switchToHeader(args);
 			} else {
 				this.switchToHeader(args);
