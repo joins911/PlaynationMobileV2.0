@@ -48,7 +48,7 @@ public class SectionAdapter extends FragmentPagerAdapter {
 		titles.add(res.getString(R.string.groupString));
 		titles.add(res.getString(R.string.companiesString));
 		currFragments = new ArrayList<WrapperFragment>();
-		con = DataConnector.getInst(act);
+		con = DataConnector.getInst();
 		for (int i = 0; i < titles.size(); i++)
 			currFragments.add(null);
 	}

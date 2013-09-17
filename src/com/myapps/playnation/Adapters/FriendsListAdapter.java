@@ -78,7 +78,7 @@ public class FriendsListAdapter extends BaseAdapter implements MyBaseAdapter {
 		final Bundle mapEntry = generalList.get(position);
 		if (mapEntry != null) {
 
-			if (mapEntry.getString(Keys.Mutual).equals("1"))
+			if (mapEntry.getString(Keys.Mutual,"").equals("1"))
 				txEdit.setVisibility(View.GONE);
 			else {
 				txEdit.setText(addText);

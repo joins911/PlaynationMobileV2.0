@@ -48,10 +48,10 @@ public class CompaniesNewsFragment extends Fragment {
 	}
 
 	public void initCompanyNews() {
-		con = DataConnector.getInst(getActivity());
+		con = DataConnector.getInst();
 		Bundle myIntent = getArguments();
 		String id = myIntent.getString(Keys.EventID_COMPANY);
-		final ArrayList<Bundle> results = con.getTempNewsTab(id, "company");
+		final ArrayList<Bundle> results = con.getLinker().getTempNewsTab(id, "company");
 
 		if (results != null) {
 			list = (ListView) mView.findViewById(R.id.mainList);
@@ -74,7 +74,7 @@ public class CompaniesNewsFragment extends Fragment {
 						NewsFeed feed = (NewsFeed) parent
 								.getItemAtPosition(position);
 						Bundle edit = new Bundle();
-						SimpleDateFormat format = con.dataTemplate;
+						SimpleDateFormat format = Configurations.dataTemplate;
 
 						edit.putInt(Keys.NEWSCOLID_NEWS,
 								feed.getKey_NewsFeedID());

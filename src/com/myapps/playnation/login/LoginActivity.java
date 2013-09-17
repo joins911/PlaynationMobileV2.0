@@ -25,9 +25,11 @@ import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.HelperClass;
+import com.myapps.playnation.Operations.MySQLinker;
 import com.myapps.playnation.Operations.ServiceClass;
 import com.myapps.playnation.main.BrowserFragment;
 import com.myapps.playnation.main.MainActivity;
+import com.myapps.playnation.main.PlaynationMobile;
 
 public class LoginActivity extends Activity {
 	private ProgressDialog progressDialog;
@@ -64,7 +66,8 @@ public class LoginActivity extends Activity {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		con = DataConnector.getInst(getApplicationContext());
+		con = DataConnector.getInst();
+		con.setSQLLinker(PlaynationMobile.getContext());
 		username = (EditText) findViewById(R.id.password_logIn);
 		password = (EditText) findViewById(R.id.username_logIn);
 		logButton = (Button) findViewById(R.id.btnLogin);
@@ -112,7 +115,7 @@ public class LoginActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// Switching to Register screen
-				if (con.checkConnection()) {
+				if (Keys.internetStatus) {
 					Intent i = new Intent(getApplicationContext(),
 							RegisterActivity.class);
 					startActivity(i);
@@ -178,10 +181,11 @@ public class LoginActivity extends Activity {
 		String tableName;
 		int appState;
 		Intent mInt;
-
-		private LoadMainActivityTask(int appState) {
-			con = DataConnector.getInst(getApplicationContext());
+		MySQLinker linker;
+		
+		private LoadMainActivityTask(int appState) {		
 			Configurations.getConfigs().loadDefault(appState);
+		linker = con.getLinker();
 		}
 
 		// Before running code in separate thread
@@ -207,30 +211,30 @@ public class LoginActivity extends Activity {
 				try {
 					progressbarStatus += 0;
 					progressDialog.setProgress(progressbarStatus);
-					if (!con.checkDBTableExits(Keys.gamesTable)) {
+					if (!linker.checkDBTableExits(Keys.gamesTable)) {
 						con.getArrayFromQuerryWithPostVariable(Configurations.CurrentPlayerID,
-								Keys.gamesTable, "", con.getLastIDGames());
+								Keys.gamesTable, "", linker.getLastIDGames());
 					}
 					progressbarStatus += 40;
 					progressDialog.setProgress(progressbarStatus);
 
-					if (!con.checkDBTableExits(Keys.companyTable)) {
+					if (!linker.checkDBTableExits(Keys.companyTable)) {
 						con.getArrayFromQuerryWithPostVariable(Configurations.CurrentPlayerID,
-								Keys.companyTable, "", con.getLastIDCompanies());
+								Keys.companyTable, "", linker.getLastIDCompanies());
 					}
 					progressbarStatus += 20;
 					progressDialog.setProgress(progressbarStatus);
 
-					if (!con.checkDBTableExits(Keys.groupsTable)) {
+					if (!linker.checkDBTableExits(Keys.groupsTable)) {
 						con.getArrayFromQuerryWithPostVariable(Configurations.CurrentPlayerID,
-								Keys.groupsTable, "", con.getLastIDGroups());
+								Keys.groupsTable, "", linker.getLastIDGroups());
 					}
 					progressbarStatus += 20;
 					progressDialog.setProgress(progressbarStatus);
 
-					if (!con.checkDBTableExits(Keys.newsTable)) {
+					if (!linker.checkDBTableExits(Keys.newsTable)) {
 						con.getArrayFromQuerryWithPostVariable(Configurations.CurrentPlayerID,
-								Keys.newsTable, "", con.getLastIDNews());
+								Keys.newsTable, "", linker.getLastIDNews());
 						con.queryMiniIds();
 					}
 					progressbarStatus += 20;

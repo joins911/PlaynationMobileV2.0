@@ -66,7 +66,7 @@ public class HeaderFragment extends Fragment implements BaseFragment {
 		super.onCreate(savedInstanceState);
 
 		state = getArguments().getInt(Keys.ARG_POSITION);
-		con = DataConnector.getInst(getActivity());
+		con = DataConnector.getInst();
 		if (state == Configurations.GamesSTATE) {
 			mTabFrag = new GameTabHostDesc();
 			mTabFrag.setArguments(getArguments());

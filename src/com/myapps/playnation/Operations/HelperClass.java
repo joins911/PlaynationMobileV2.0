@@ -11,8 +11,12 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
 import java.util.TimeZone;
+import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -158,9 +162,41 @@ public class HelperClass {
 		Log.i("height of listItem:", String.valueOf(totalHeight));
 	}
 
+	public static String returnEventPrivacy(int index) {
+		if (index == 0) {
+			return "Private";
+		} else {
+			return "Public";
+		}
+	}
+	
 	public static ArrayList<UserComment> modifyDataSet(String id, String owner) {
 		DataConnector con = DataConnector.getInst();
 		return con.getComments(id, owner);
+	}
+
+
+	public static String returnUnserializedText(String text) {
+		String result = "";
+		SerializedPhpParser spp = new SerializedPhpParser(text);
+		Object obj = spp.parse();
+
+		if (!obj.toString().contains("content=")) {
+			return obj.toString();
+		} else {
+			@SuppressWarnings("unchecked")
+			Map<Object, Object> map = (Map<Object, Object>) obj;
+			Set<Entry<Object, Object>> set = map.entrySet();
+			Iterator<Entry<Object, Object>> itr = set.iterator();
+			while (itr.hasNext()) {
+				Map.Entry<Object, Object> ent = itr.next();
+				if (ent.getKey().toString().equals("content")) {
+					result = ent.getValue().toString();
+				}
+
+			}
+		}
+		return result;
 	}
 
 	/**
@@ -245,11 +281,12 @@ public class HelperClass {
 			returns = "SELECT * FROM " + tableName + " Where ID_GROUP=?;";
 		} else if (tableName.equals(Keys.HomeMsgTable)) {
 			returns = "SELECT * FROM " + tableName + " Where ID_MESSAGE=? and "
-					+ Keys.ID_PLAYER + "=" + Configurations.CurrentPlayerID + ";";
+					+ Keys.ID_PLAYER + "=" + Configurations.CurrentPlayerID
+					+ ";";
 		} else if (tableName.equals(Keys.HomeEventTable)) {
 			returns = "SELECT * FROM " + tableName
-					+ " Where ID_EVENT=? and ID_PLAYER=" + Configurations.CurrentPlayerID
-					+ ";";
+					+ " Where ID_EVENT=? and ID_PLAYER="
+					+ Configurations.CurrentPlayerID + ";";
 		} else if (tableName.equals(Keys.HomeFriendsTable)) {
 			returns = "SELECT * FROM " + tableName
 					+ " Where ID_PLAYER=? and ID_OWNER=" + anotherID + ";";

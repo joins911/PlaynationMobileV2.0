@@ -43,13 +43,13 @@ public class XHomeEventsFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_template_tabslistview,
 				container, false);
 
-		con = DataConnector.getInst(getActivity());
+		con = DataConnector.getInst();
 
 		ListView mListView = (ListView) view
 				.findViewById(R.id.generalPlayerListView);
 
-		if (!con.checkDBTableExits(Keys.HomeEventTable))
-			con.queryPlayerEvents(Keys.TEMPLAYERID, getActivity());
+		if (!con.getLinker().checkDBTableExits(Keys.HomeEventTable))
+			con.queryPlayerEvents(Keys.TEMPLAYERID);
 
 		mListView.setAdapter(new HomeListViewAdapter(getActivity(), con
 				.getTable(Keys.HomeEventTable, ""), this));

@@ -22,6 +22,7 @@ import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Fragments.NotificationActivity;
 
 public class ServiceClass extends Service {
+	private MySQLinker linker;
 	private DataConnector con;
 	private Timer timer;
 	private ArrayList<Bundle> playersNotificationList;
@@ -35,7 +36,8 @@ public class ServiceClass extends Service {
 
 	@Override
 	public void onCreate() {
-		con = DataConnector.getInst(this);
+		linker = DataConnector.getInst().getLinker();
+		con = DataConnector.getInst();
 		playersNotificationList = con
 				.queryNotification(Configurations.CurrentPlayerID);
 		super.onCreate();
@@ -82,33 +84,33 @@ public class ServiceClass extends Service {
 			Keys.internetStatus = HelperClass
 					.isNetworkAvailable((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE));
 			try {
-				if (con.getMinGameID() == con.getLastIDGames()) {
-					con.setLastIDGames(0);
+				if (linker.getMinGameID() == linker.getLastIDGames()) {
+					linker.setLastIDGames(0);
 				}
-				if (con.getMinGroupID() == con.getLastIDGroups()) {
-					con.setLastIDGroups(0);
+				if (linker.getMinGroupID() == linker.getLastIDGroups()) {
+					linker.setLastIDGroups(0);
 				}
-				if (con.getMinCompanyID() == con.getLastIDCompanies()) {
-					con.setLastIDCompanies(0);
+				if (linker.getMinCompanyID() == linker.getLastIDCompanies()) {
+					linker.setLastIDCompanies(0);
 				}
 
 				con.getArrayFromQuerryWithPostVariable("", Keys.gamesTable, "",
-						con.getLastIDGames());
+						linker.getLastIDGames());
 
 				con.getArrayFromQuerryWithPostVariable("", Keys.companyTable,
-						"", con.getLastIDCompanies());
+						"", linker.getLastIDCompanies());
 
 				con.getArrayFromQuerryWithPostVariable("", Keys.groupsTable,
-						"", con.getLastIDGroups());
+						"", linker.getLastIDGroups());
 
-				if (con.getLastIDNews() == con.getMinNewsID()) {
-					con.setLastIDNews(0);
+				if (linker.getLastIDNews() == linker.getMinNewsID()) {
+					linker.setLastIDNews(0);
 					con.getArrayFromQuerryWithPostVariable("", Keys.newsTable,
-							"", con.getLastIDNews());
+							"", linker.getLastIDNews());
 				} else {
-					if (con.getLastIDNews() > 0) {
+					if (linker.getLastIDNews() > 0) {
 						con.getArrayFromQuerryWithPostVariable("",
-								Keys.newsServiceTable, "", con.getLastIDNews());
+								Keys.newsServiceTable, "", linker.getLastIDNews());
 					}
 				}
 

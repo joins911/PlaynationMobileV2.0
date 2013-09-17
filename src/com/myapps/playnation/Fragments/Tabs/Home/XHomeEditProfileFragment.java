@@ -29,7 +29,7 @@ public class XHomeEditProfileFragment extends Fragment {
 	Bundle map;
 
 	public void initPlayer() {
-		con = DataConnector.getInst(getActivity());
+		con = DataConnector.getInst();
 
 		editFirst = (EditText) mView.findViewById(R.id.txtChiledItemFirstName);
 
@@ -51,7 +51,7 @@ public class XHomeEditProfileFragment extends Fragment {
 				saveData();
 			}
 		});
-		map = con.getPlayer(Keys.TEMPLAYERID);
+		map = con.getLinker().getPlayer(Keys.TEMPLAYERID);
 		// Bundle args = getArguments();
 		if (map != null) {
 			editFirst.setText(map.getString(Keys.FirstName));

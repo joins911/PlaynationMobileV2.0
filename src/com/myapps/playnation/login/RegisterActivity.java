@@ -26,7 +26,7 @@ public class RegisterActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		// Set View to register.xml
 		setContentView(R.layout.activity_register);
-		con = DataConnector.getInst(getApplicationContext());
+		con = DataConnector.getInst();
 		registerName = (EditText) findViewById(R.id.reg_fullname);
 		registerEmail = (EditText) findViewById(R.id.reg_email);
 		registerPassword = (EditText) findViewById(R.id.reg_password);
@@ -37,7 +37,7 @@ public class RegisterActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				if (checkServerStatus()) {
+				if (isNetworkAvailable()) {
 					String nickname = registerName.getText().toString();
 					// String email = registerEmail.getText().toString();
 					String password = registerPassword.getText().toString();
@@ -59,13 +59,6 @@ public class RegisterActivity extends Activity {
 				finish();
 			}
 		});
-	}
-
-	private boolean checkServerStatus() {
-		if (isNetworkAvailable()) {
-			return con.checkConnection();
-		}
-		return false;
 	}
 
 	private boolean isNetworkAvailable() {

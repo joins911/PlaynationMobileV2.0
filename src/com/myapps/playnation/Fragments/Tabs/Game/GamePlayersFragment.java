@@ -46,7 +46,7 @@ public class GamePlayersFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_template_tabslistview,
 				container, false);
-		con = DataConnector.getInst(getActivity());
+		con = DataConnector.getInst();
 
 		ListView mListView = (ListView) view
 				.findViewById(R.id.generalPlayerListView);

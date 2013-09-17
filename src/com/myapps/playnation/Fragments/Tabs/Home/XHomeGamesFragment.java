@@ -45,12 +45,12 @@ public class XHomeGamesFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_template_tabslistview,
 				container, false);
-		con = DataConnector.getInst(getActivity());
+		con = DataConnector.getInst();
 
 		ListView mListView = (ListView) view
 				.findViewById(R.id.generalPlayerListView);
 
-		if (!con.checkDBTableExits(Keys.HomeGamesTable))
+		if (!con.getLinker().checkDBTableExits(Keys.HomeGamesTable))
 			con.queryPlayerGames(Keys.TEMPLAYERID);
 		HomeListViewAdapter expAdapter = new HomeListViewAdapter(getActivity(),
 				con.getTable(Keys.HomeGamesTable, Keys.TEMPLAYERID), this);

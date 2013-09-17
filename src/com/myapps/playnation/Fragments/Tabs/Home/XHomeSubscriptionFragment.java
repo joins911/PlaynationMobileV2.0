@@ -24,11 +24,11 @@ public class XHomeSubscriptionFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_template_tabslistview,
 				container, false);
 		context = getActivity();
-		con = DataConnector.getInst(getActivity());
+		con = DataConnector.getInst();
 
 		ListView mListView = (ListView) view
 				.findViewById(R.id.generalPlayerListView);
-		if (!con.checkDBTableExits(Keys.HomeSubscriptionTable)) {
+		if (!con.getLinker().checkDBTableExits(Keys.HomeSubscriptionTable)) {
 			con.queryPlayerSubscription(Keys.TEMPLAYERID);
 		}
 		mListView.setAdapter(new HomeListViewAdapter(context, con.getTable(

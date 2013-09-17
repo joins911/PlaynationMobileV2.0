@@ -53,7 +53,7 @@ public class ListsFragment extends Fragment implements BaseFragment{
 	public Configurations configs;
 
 	public ListsFragment() {
-		con = DataConnector.getInst(getActivity());
+		con = DataConnector.getInst();
 		// setRetainInstance(true);
 	}
 
@@ -210,7 +210,7 @@ public class ListsFragment extends Fragment implements BaseFragment{
 					NewsFeed feed = (NewsFeed) parent
 							.getItemAtPosition(position);
 					Bundle edit = new Bundle();
-					SimpleDateFormat format = con.dataTemplate;
+					SimpleDateFormat format = Configurations.dataTemplate;
 					edit.putInt(Keys.NEWSCOLID_NEWS, feed.getKey_NewsFeedID());
 					edit.putString(Keys.NEWSCOLIMAGE, feed.getKey_NewsImage());
 					edit.putString(Keys.NEWSCOLHEADLINE,

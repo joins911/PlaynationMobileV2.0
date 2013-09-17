@@ -25,7 +25,7 @@ public class GameReviewFragment extends Fragment {
 	ReviewListAdapter reviewsAdapter;
 
 	public GameReviewFragment() {
-		con = DataConnector.getInst(getActivity());
+		con = DataConnector.getInst();
 	}
 
 	@Override

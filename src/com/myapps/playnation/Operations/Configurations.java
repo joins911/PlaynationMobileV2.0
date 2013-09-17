@@ -1,5 +1,8 @@
 package com.myapps.playnation.Operations;
 
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 import com.myapps.playnation.Classes.Keys;
 
 public class Configurations {
@@ -15,6 +18,9 @@ public class Configurations {
 	public static int GroupsSTATE = 3;
 	public static int CompaniesSTATE = 4;
 	public static int Total;
+
+	public final static SimpleDateFormat dataTemplate = new SimpleDateFormat(
+			"MMM dd,yyyy HH:mm", Locale.getDefault());
 	
 	public static String CurrentPlayerID = Keys.TEMPLAYERID;
 	

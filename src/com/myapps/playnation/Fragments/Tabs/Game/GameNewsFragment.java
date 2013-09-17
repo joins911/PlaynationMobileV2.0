@@ -48,10 +48,10 @@ public class GameNewsFragment extends Fragment {
 	}
 
 	public void initGameNews() {
-		con = DataConnector.getInst(getActivity());
+		con = DataConnector.getInst();
 		Bundle myIntent = getArguments();
 		String id = myIntent.getString(Keys.ID_GAME);
-		final ArrayList<Bundle> results = con.getTempNewsTab(id, "game");
+		final ArrayList<Bundle> results = con.getLinker().getTempNewsTab(id, "game");
 		if (results != null) {
 			list = (ListView) mView.findViewById(R.id.mainList);
 			txtMessage = (TextView) mView.findViewById(R.id.frag_Gnews_TView);
@@ -73,7 +73,7 @@ public class GameNewsFragment extends Fragment {
 						NewsFeed feed = (NewsFeed) parent
 								.getItemAtPosition(position);
 						Bundle edit = new Bundle();
-						SimpleDateFormat format = con.dataTemplate;
+						SimpleDateFormat format = Configurations.dataTemplate;
 
 						edit.putInt(Keys.NEWSCOLID_NEWS,
 								feed.getKey_NewsFeedID());

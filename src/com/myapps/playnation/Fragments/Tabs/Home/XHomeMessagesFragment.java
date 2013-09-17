@@ -29,12 +29,12 @@ public class XHomeMessagesFragment extends Fragment implements BaseFragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.component_homewall_layout,
 				container, false);
-		con = DataConnector.getInst(getActivity());
+		con = DataConnector.getInst();
 
 		ExpandableListView eListView = (ExpandableListView) view
 				.findViewById(R.id.listView);
 
-		if (!con.checkDBTableExits(Keys.HomeMsgTable))
+		if (!con.getLinker().checkDBTableExits(Keys.HomeMsgTable))
 			con.queryPlayerMessages(Keys.TEMPLAYERID);
 
 		listParents.clear();

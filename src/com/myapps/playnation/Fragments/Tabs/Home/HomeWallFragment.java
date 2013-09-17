@@ -30,9 +30,9 @@ public class HomeWallFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.component_homewall_layout,
 				container, false);
-		con = DataConnector.getInst(getActivity());
+		con = DataConnector.getInst();
 		Context context = getActivity();
-		if (!con.checkDBTableExits(Keys.HomeWallTable)) {
+		if (!con.getLinker().checkDBTableExits(Keys.HomeWallTable)) {
 			con.queryPlayerWall(Keys.TEMPLAYERID, "player");
 		}
 

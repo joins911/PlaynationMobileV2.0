@@ -44,7 +44,7 @@ public class HomExpandableAdapter extends BaseExpandableListAdapter {
 			Object currentFragment) {
 		mParent = parent;
 		inflater = LayoutInflater.from(context);
-		con = DataConnector.getInst(context);
+		con = DataConnector.getInst();
 		this.mExpandableList = exp;
 		this.currentFragment = currentFragment;
 		this.context = context;
@@ -127,7 +127,7 @@ public class HomExpandableAdapter extends BaseExpandableListAdapter {
 					+ Html.fromHtml(mapEntry.getString(Keys.WallMessage)));
 			txEDate.setText("Date: "
 					+ HelperClass.convertTime(Integer.parseInt(mapEntry
-							.getString(Keys.WallPostingTime)), con.dataTemplate));
+							.getString(Keys.WallPostingTime)), Configurations.dataTemplate));
 		} else if (currentFragment instanceof XHomeMessagesFragment) {
 			view = inflater.inflate(R.layout.component_homemsg_elist_layout,
 					viewGroup, false);

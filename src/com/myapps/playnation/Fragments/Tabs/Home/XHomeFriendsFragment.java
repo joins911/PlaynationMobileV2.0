@@ -31,13 +31,13 @@ public class XHomeFriendsFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_template_tabslistview,
 				container, false);
-		con = DataConnector.getInst(getActivity());
+		con = DataConnector.getInst();
 		mCall = (ISectionAdapter) getActivity();
 
 		ListView mListView = (ListView) view
 				.findViewById(R.id.generalPlayerListView);
 
-		if (!con.checkDBTableExits(Keys.HomeFriendsTable))
+		if (!con.getLinker().checkDBTableExits(Keys.HomeFriendsTable))
 			con.queryPlayerFriends(Keys.TEMPLAYERID);
 
 		PlayerHomeInfoAdapter expAdapter = new PlayerHomeInfoAdapter(

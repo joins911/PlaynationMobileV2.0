@@ -28,7 +28,7 @@ public class GroupWallFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		con = DataConnector.getInst(getActivity());
+		con = DataConnector.getInst();
 		View mView = inflater.inflate(R.layout.fragment_template_wall,
 				container, false);
 		ExpandableListView expList = (ExpandableListView) mView

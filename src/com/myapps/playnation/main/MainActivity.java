@@ -155,8 +155,8 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		String[] mainArr = getResources().getStringArray(R.array.main_array);
 		String[] menuArr = getResources().getStringArray(R.array.menu_array);
 		String[] topArr = { "header" };
-		mGamesTitles = con.getMyGames("12");
-		mGroupsTitles = con.getMyGroups("12");
+		mGamesTitles = con.getLinker().getMyGames("12");
+		mGroupsTitles = con.getLinker().getMyGroups("12");
 		String showMore= getApplicationContext().getResources().getString(R.string.showMore);
 		mGamesTitles.add(showMore);
 		mGroupsTitles.add(showMore);
@@ -204,7 +204,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		getSupportActionBar().setTitle("Playnation Mobile");
 		getSupportActionBar().setBackgroundDrawable(
 				getResources().getDrawable(R.color.background_gradient));
-		con = DataConnector.getInst(getApplicationContext());		
+		con = DataConnector.getInst();		
 		Log.i("MainActiv", "intent.getInt() = "
 				+ getIntent().getExtras().getInt(Keys.AppState));
 		isTablet = getResources().getBoolean(R.bool.isTablet);
@@ -430,7 +430,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		HeaderFragment temp = new HeaderFragment();
 		Bundle args = new Bundle();
 		args.putInt(Keys.ARG_POSITION, Configurations.GamesSTATE);
-		args.putAll(con.getItem("'" + mGamesTitles.get(childPos) + "'",
+		args.putAll(con.getLinker().getItem("'" + mGamesTitles.get(childPos) + "'",
 				Keys.gamesTable));
 		// args.putAll();
 		temp.setArguments(args);
