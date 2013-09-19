@@ -1,29 +1,25 @@
 package com.myapps.playnation.Operations;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Set;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import com.myapps.playnation.Classes.Keys;
-
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.myapps.playnation.Classes.Keys;
+
 public class MySQLinker extends SQLinker {
 
-	private static String DATABASE_NAME = "cdcol.db";
-	private static int DATABASE_VERSION = 2;
+	private static String DATABASE_NAME = "playnation.db";
+	private static int DATABASE_VERSION = 1;
 
 	public MySQLinker(Context con) {
 		super(con, DATABASE_NAME, DATABASE_VERSION);
@@ -542,6 +538,8 @@ public class MySQLinker extends SQLinker {
 					Bundle bundle = BundleBuilder.putPlayerInBundle(cursor);
 					bundle.putString(Keys.ID_FRIEND, cursor.getString(cursor
 							.getColumnIndex(Keys.ID_FRIEND)));
+					bundle.putString(Keys.Mutual, cursor.getString(cursor
+							.getColumnIndex(Keys.Mutual)));
 					list.add(bundle);
 				} while (cursor.moveToNext());
 			}
@@ -586,6 +584,10 @@ public class MySQLinker extends SQLinker {
 								.putPlayerInContentV(json.getJSONObject(i));
 						map.put(Keys.ID_OWNER,
 								json.getJSONObject(i).getString(Keys.ID_OWNER));
+						map.put(Keys.Mutual,
+								json.getJSONObject(i).optString(Keys.Mutual));
+						map.put(Keys.ID_FRIEND, json.getJSONObject(i)
+								.optString(Keys.ID_FRIEND));
 						sql.insertWithOnConflict(Keys.HomeFriendsTable, null,
 								map, SQLiteDatabase.CONFLICT_REPLACE);
 					}
@@ -703,8 +705,8 @@ public class MySQLinker extends SQLinker {
 				}
 			}
 	}
-	
-	public void insertPMessages(JSONArray json,String playerID) {
+
+	public void insertPMessages(JSONArray json, String playerID) {
 		SQLiteDatabase sql = this.getWritableDatabase();
 		if (json != null)
 			for (int i = 0; i < json.length(); i++) {
@@ -715,18 +717,19 @@ public class MySQLinker extends SQLinker {
 						ContentValues map = new ContentValues();
 						int id = Integer.parseInt(ID);
 						if (id > getLastIDHomeMSg())
-							setLastIDHomeMSg(id);						
-						sql.insertWithOnConflict(Keys.HomeMsgTable, null, map,
-								SQLiteDatabase.CONFLICT_REPLACE);
+							setLastIDHomeMSg(id);
+						if (map != null)
+							sql.insertWithOnConflict(Keys.HomeMsgTable, null,
+									map, SQLiteDatabase.CONFLICT_REPLACE);
 					}
 				} catch (Exception e) {
 					Log.e("Fetching Msg", "Error Msg" + e);
 				}
 			}
 	}
-	
-	public void insertPMessagesReplies(JSONArray json,String playerID,String wallitem)
-	{
+
+	public void insertPMessagesReplies(JSONArray json, String playerID,
+			String wallitem) {
 		SQLiteDatabase sql = this.getWritableDatabase();
 		if (json != null)
 			for (int i = 0; i < json.length(); i++) {
@@ -736,9 +739,11 @@ public class MySQLinker extends SQLinker {
 							+ "";
 					if (!checkRowExist(Keys.HomeMsgRepliesTable, wallitem,
 							playerID)) {
-						ContentValues map = ContentVBuilder.putMessageInContentV(json.getJSONObject(i));
-						sql.insertWithOnConflict(Keys.HomeMsgRepliesTable,
-								null, map, SQLiteDatabase.CONFLICT_REPLACE);
+						ContentValues map = ContentVBuilder
+								.putMessageInContentV(json.getJSONObject(i));
+						if (map != null)
+							sql.insertWithOnConflict(Keys.HomeMsgRepliesTable,
+									null, map, SQLiteDatabase.CONFLICT_REPLACE);
 					}
 				} catch (Exception e) {
 					Log.e("Fetching MSG Replies", "Fetching MSGReplies Error"
@@ -746,9 +751,8 @@ public class MySQLinker extends SQLinker {
 				}
 			}
 	}
-	
-	public void insertPSubscription(JSONArray json,String playerID)
-	{
+
+	public void insertPSubscription(JSONArray json, String playerID) {
 		SQLiteDatabase sql = this.getWritableDatabase();
 		if (json != null)
 			for (int i = 0; i < json.length(); i++) {
@@ -781,9 +785,8 @@ public class MySQLinker extends SQLinker {
 				}
 			}
 	}
-	
-	public void insertPWall(JSONArray json,String playerID)
-	{
+
+	public void insertPWall(JSONArray json, String playerID) {
 		SQLiteDatabase sql = this.getWritableDatabase();
 		if (json != null)
 			for (int i = 0; i < json.length(); i++) {
@@ -791,7 +794,8 @@ public class MySQLinker extends SQLinker {
 				try {
 					String ID = json.getJSONObject(i).getInt(Keys.ID_WALLITEM)
 							+ "";
-					ContentValues map = ContentVBuilder.putPWallInContentV(json.getJSONObject(i));
+					ContentValues map = ContentVBuilder.putPWallInContentV(json
+							.getJSONObject(i));
 					sql.insertWithOnConflict(Keys.HomeWallTable, null, map,
 							SQLiteDatabase.CONFLICT_REPLACE);
 				} catch (Exception e) {
@@ -799,16 +803,16 @@ public class MySQLinker extends SQLinker {
 				}
 			}
 	}
-	
-	public void insertPWallReplies(JSONArray json,String playerID)
-	{
+
+	public void insertPWallReplies(JSONArray json, String playerID) {
 		SQLiteDatabase sql = this.getWritableDatabase();
 		if (json != null) {
 			for (int i = 0; i < json.length(); i++) {
 				try {
 					String ID = json.getJSONObject(i).getInt(Keys.ID_WALLITEM)
 							+ "";
-					ContentValues map = ContentVBuilder.putPWallRepInContentV(json.getJSONObject(i));
+					ContentValues map = ContentVBuilder
+							.putPWallRepInContentV(json.getJSONObject(i));
 					sql.insertWithOnConflict(Keys.HomeWallRepliesTable, null,
 							map, SQLiteDatabase.CONFLICT_REPLACE);
 				} catch (Exception e) {
@@ -818,15 +822,15 @@ public class MySQLinker extends SQLinker {
 			}
 		}
 	}
-	
-	public void insertPlayerInfo(JSONArray json,String playerID)
-	{
+
+	public void insertPlayerInfo(JSONArray json, String playerID) {
 		SQLiteDatabase sql = this.getWritableDatabase();
 		if (json != null)
 			for (int i = 0; i < json.length(); i++) {
 				try {
 					String ID = json.getJSONObject(i).getString(Keys.ID_PLAYER);
-					ContentValues map = ContentVBuilder.putPlayerInContentV(json.getJSONObject(i));					
+					ContentValues map = ContentVBuilder
+							.putPlayerInContentV(json.getJSONObject(i));
 					if (!checkRowExist(Keys.PlayerTable, ID, "")) {
 						map.put(Keys.ID_PLAYER, ID);
 						sql.insertWithOnConflict(Keys.PlayerTable, null, map,
@@ -835,7 +839,8 @@ public class MySQLinker extends SQLinker {
 						sql.updateWithOnConflict(Keys.PlayerTable, map,
 								"ID_PLAYER=" + ID, null,
 								SQLiteDatabase.CONFLICT_REPLACE);
-						DataConnector.getInst().queryNewImageURL(ID, "player", Keys.PlayerTable);
+						DataConnector.getInst().queryNewImageURL(ID, "player",
+								Keys.PlayerTable);
 					}
 
 				} catch (Exception e) {
@@ -843,7 +848,7 @@ public class MySQLinker extends SQLinker {
 				}
 			}
 	}
-	
+
 	public boolean checkDBTableExits(String tableName) {
 		String selectQuery = "SELECT  * FROM " + tableName;
 		SQLiteDatabase db = this.getReadableDatabase();
@@ -858,7 +863,7 @@ public class MySQLinker extends SQLinker {
 		cursor.close();
 		return false;
 	}
-	
+
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 
@@ -912,11 +917,12 @@ public class MySQLinker extends SQLinker {
 		db.execSQL(cREATE_groupsTable);
 
 		String cREATE_newsTable = "CREATE TABLE " + Keys.newsTable + " ("
-				+ Keys.NEWSCOLID_NEWS + " INTEGER PRIMARY KEY,"
-				+ Keys.NEWSCOLNEWSTEXT + " TEXT," + Keys.NEWSCOLINTROTEXT
-				+ " TEXT," + Keys.NEWSCOLPOSTINGTIME + " TEXT,"
-				+ Keys.NEWSCOLHEADLINE + " TEXT," + Keys.NEWSCOLIMAGE
-				+ " TEXT," + Keys.Author + " TEXT);";
+				+ Keys.NEWSCOLID_NEWS + " INTEGER PRIMARY KEY," + Keys.ID_GAME
+				+ " TEXT," + Keys.ID_OWNER + " TEXT," + Keys.OWNERTYPE
+				+ " TEXT," + Keys.NEWSCOLNEWSTEXT + " TEXT,"
+				+ Keys.NEWSCOLINTROTEXT + " TEXT," + Keys.NEWSCOLPOSTINGTIME
+				+ " TEXT," + Keys.NEWSCOLHEADLINE + " TEXT,"
+				+ Keys.NEWSCOLIMAGE + " TEXT," + Keys.Author + " TEXT);";
 		db.execSQL(cREATE_newsTable);
 
 		String cREATE_newsTempTable = "CREATE TABLE " + Keys.newsTempTable
@@ -1019,10 +1025,11 @@ public class MySQLinker extends SQLinker {
 				+ " INTEGER," + Keys.CompanyImageURL + " TEXT,"
 				+ Keys.CompanyAddress + " TEXT," + Keys.CompanyDesc + " TEXT,"
 				+ Keys.CompanyFounded + " TEXT," + Keys.CompanyURL + " TEXT,"
-				+ Keys.CompanyCreatedTime + " TEXT," + Keys.CompanyOwnership
-				+ " TEXT," + Keys.CompanyType + " TEXT,"
-				+ Keys.CompanyNewsCount + " INTEGER," + Keys.CompanyEventCount
-				+ " INTEGER," + Keys.CompanyGameCount + " INTEGER,"
+				+ Keys.CompanyCreatedTime + " TEXT," + Keys.GameIsLiked
+				+ " TEXT," + Keys.CompanyOwnership + " TEXT,"
+				+ Keys.CompanyType + " TEXT," + Keys.CompanyNewsCount
+				+ " INTEGER," + Keys.CompanyEventCount + " INTEGER,"
+				+ Keys.CompanyGameCount + " INTEGER,"
 				+ Keys.CompanySocialRating + " TEXT);";
 		db.execSQL(cREATE_companyTable);
 

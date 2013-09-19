@@ -54,17 +54,6 @@
 			android:textSize="@dimen/textviewInfoTempSize"
 			android:textStyle="bold" />
 		<TextView
-			android:id="@+id/newsEventType"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignParentLeft="true"
-			android:layout_below="@+id/txtEdit"
-			android:layout_marginLeft="19dp"
-			android:text="@string/Age"
-			android:textAppearance="?android:attr/textAppearanceSmall"
-			android:textColor="@color/background_gradient"
-			android:textSize="@dimen/textviewInfoTempSize" />
-		<TextView
 			android:id="@+id/newsEventStartDate"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -96,24 +85,11 @@
 			android:textColor="@color/background_gradient"
 			android:textSize="@dimen/textviewInfoTempSize" />
 		<TextView
-			android:id="@+id/textView9"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignLeft="@+id/textView5"
-			android:layout_below="@+id/newsEventPartcipants"
-			android:layout_centerHorizontal="true"
-			android:autoLink="web"
-			android:text="@string/website"
-			android:textAppearance="?android:attr/textAppearanceSmall"
-			android:textColor="@color/background_gradient"
-			android:textSize="@dimen/textviewInfoTempSize"
-			android:textStyle="bold" />
-		<TextView
 			android:id="@+id/newsEventInvetation"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_alignLeft="@+id/textView4"
-			android:layout_below="@id/textView9"
+			android:layout_below="@+id/textView9"
 			android:autoLink="web"
 			android:linksClickable="true"
 			android:text="@string/Age"
@@ -124,8 +100,8 @@
 			android:id="@+id/newsEventPartcipants"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_alignLeft="@id/textView5"
-			android:layout_below="@id/textView5"
+			android:layout_alignLeft="@+id/textView5"
+			android:layout_below="@+id/textView5"
 			android:text="@string/Age"
 			android:textAppearance="?android:attr/textAppearanceSmall"
 			android:textColor="@color/background_gradient"
@@ -149,6 +125,36 @@
 			android:layout_alignParentRight="true"
 			android:layout_marginRight="99dp"
 			android:text="@string/joined"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:textColor="@color/background_gradient"
+			android:textSize="@dimen/textviewInfoTempSize"
+			android:textStyle="bold" />
+		<TextView
+			android:id="@+id/btnCompanyLike"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+			android:layout_toLeftOf="@+id/newsEventLocation"
+			android:text="@string/btnLike"
+			android:textColor="@color/btnLikeColor" />
+		<TextView
+			android:id="@+id/newsEventType"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_above="@+id/newsEventEndDate"
+			android:layout_toRightOf="@+id/textView3"
+			android:text="@string/Age"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:textColor="@color/background_gradient"
+			android:textSize="@dimen/textviewInfoTempSize" />
+		<TextView
+			android:id="@+id/textView9"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_above="@+id/newsEventEndDate"
+			android:layout_alignRight="@+id/btnCompanyLike"
+			android:autoLink="web"
+			android:text="@string/website"
 			android:textAppearance="?android:attr/textAppearanceSmall"
 			android:textColor="@color/background_gradient"
 			android:textSize="@dimen/textviewInfoTempSize"

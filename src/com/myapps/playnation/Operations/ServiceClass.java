@@ -38,49 +38,53 @@ public class ServiceClass extends Service {
 	public void onCreate() {
 		linker = DataConnector.getInst().getLinker();
 		con = DataConnector.getInst();
-		playersNotificationList = con
-				.queryNotification(Configurations.CurrentPlayerID);
 		super.onCreate();
 	}
 
-	public void createNotification() {		
-		    // Creates an explicit intent for an Activity in your app
-		    Intent resultIntent = new Intent(this, NotificationActivity.class);
-		
-		    // The stack builder object will contain an artificial back stack for
-		    // the
-		    // started Activity.
-		    // This ensures that navigating backward from the Activity leads out of
-		    // your application to the Home screen.
-		    TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-		    // Adds the back stack for the Intent (but not the Intent itself)
-		    stackBuilder.addParentStack(NotificationActivity.class);
-		    // Adds the Intent that starts the Activity to the top of the stack
-		    stackBuilder.addNextIntent(resultIntent);
-		
-		    PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0,
-		        PendingIntent.FLAG_UPDATE_CURRENT);
-		    if (playersNotificationList != null)
-		      for (Bundle bund : playersNotificationList) {
-		        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-		            this).setSmallIcon(R.drawable.ic_launcher)
-		            .setContentTitle(bund.getString(Keys.NotificationType))
-		            .setDefaults(Notification.DEFAULT_ALL)
-		            .setContentIntent(resultPendingIntent)
-		            .setContentText(bund.getString(Keys.PLAYERNICKNAME))
-		            .setAutoCancel(true);
-		        mBuilder.setContentIntent(resultPendingIntent);
-		        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-		        // mId allows you to update the notification later on.
-		        mNotificationManager.notify(
-		            Integer.parseInt(bund.getString(Keys.ID_NOTIFICATION)),
-		            mBuilder.build());
-		      }
-		  }
+	public void createNotification() {
+		// Creates an explicit intent for an Activity in your app
+		Intent resultIntent = new Intent(this, NotificationActivity.class);
+
+		// The stack builder object will contain an artificial back stack for
+		// the
+		// started Activity.
+		// This ensures that navigating backward from the Activity leads out of
+		// your application to the Home screen.
+		TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+		// Adds the back stack for the Intent (but not the Intent itself)
+		stackBuilder.addParentStack(NotificationActivity.class);
+		// Adds the Intent that starts the Activity to the top of the stack
+		stackBuilder.addNextIntent(resultIntent);
+
+		PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0,
+				PendingIntent.FLAG_UPDATE_CURRENT);
+		if (playersNotificationList != null)
+			for (Bundle bund : playersNotificationList) {
+				NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
+						this).setSmallIcon(R.drawable.ic_launcher)
+						.setContentTitle(bund.getString(Keys.NotificationType))
+						.setDefaults(Notification.DEFAULT_ALL)
+						.setContentIntent(resultPendingIntent)
+						.setContentText(bund.getString(Keys.PLAYERNICKNAME))
+						.setAutoCancel(true);
+				mBuilder.setContentIntent(resultPendingIntent);
+				NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+				// mId allows you to update the notification later on.
+				mNotificationManager.notify(
+						Integer.parseInt(bund.getString(Keys.ID_NOTIFICATION)),
+						mBuilder.build());
+			}
+	}
 
 	TimerTask serviceStarterTask = new TimerTask() {
 		@Override
 		public void run() {
+			if (Configurations.getConfigs().getApplicationState() == 0) {
+				playersNotificationList = con
+						.queryNotification(Configurations.CurrentPlayerID);
+				createNotification();
+			}
+
 			Keys.internetStatus = HelperClass
 					.isNetworkAvailable((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE));
 			try {
@@ -110,7 +114,8 @@ public class ServiceClass extends Service {
 				} else {
 					if (linker.getLastIDNews() > 0) {
 						con.getArrayFromQuerryWithPostVariable("",
-								Keys.newsServiceTable, "", linker.getLastIDNews());
+								Keys.newsServiceTable, "",
+								linker.getLastIDNews());
 					}
 				}
 
@@ -120,7 +125,7 @@ public class ServiceClass extends Service {
 		}
 	};
 
-	static int MINUTES = 3;
+	static int MINUTES = 1;
 
 	private void showNotification() {
 		stopTimer();

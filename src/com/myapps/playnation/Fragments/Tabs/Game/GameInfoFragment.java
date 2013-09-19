@@ -67,59 +67,66 @@ public class GameInfoFragment extends Fragment {
 					.getString(Keys.GAMECompanyDistributor);
 			String gameFounded = myIntent.getString(Keys.CompanyFounded);
 			String gameDeveloper = myIntent.getString(Keys.CompanyName);
-			
-			 final String id_game = myIntent.getString(Keys.ID_GAME);
-			       String isLiked = myIntent.getString(Keys.GameIsLiked);
-			       String isPlaying = myIntent.getString(Keys.GameisPlaying);
-			 
-			       TextView tx = (TextView) view.findViewById(R.id.btnAddGame);
-			 
-			       if (isPlaying.equals("1"))
-			         tx.setVisibility(View.GONE);
-			 
-			       tx.setOnClickListener(new OnClickListener() {
-			 
-			         @Override
-			         public void onClick(View v) {
-			           DialogFragment dialog = new DialogSendCommentFragment();
-			           dialog.show(getChildFragmentManager(), "Game");
-			           Bundle argss = new Bundle();
-			           argss.putString(Keys.ID_PLAYER, Configurations.CurrentPlayerID);
-			           argss.putString(Keys.functionAnotherID, id_game);
-			           argss.putString(Keys.functionAction,
-			               Keys.POSTFUNCOMMANTAddGame);
-			           argss.putString(Keys.functionPhpName, "gameFunction.php");
-			           dialog.setArguments(argss);
-			         }
-			       });
-			 
-			       final TextView txlike = (TextView) view
-			           .findViewById(R.id.btnGameLike);
-			       if (isLiked.equals("1")) {
-			         txlike.setText(getActivity().getResources().getString(
-			             R.string.btnUnlike));
-			       } else {
-			         txlike.setText(getActivity().getResources().getString(
-			             R.string.btnLike));
-			 
-			       }
-			       txlike.setOnClickListener(new OnClickListener() {
-			 
-			         @Override
-			         public void onClick(View v) {
-			           if (txlike.getText().equals("Like"))
-			             con.functionQuery(Configurations.CurrentPlayerID, id_game,
-			                 "gameFunction.php", Keys.POSTFUNCOMMANTLike, "");
-			           else
-			             con.functionQuery(Configurations.CurrentPlayerID, id_game,
-			                 "gameFunction.php", Keys.POSTFUNCOMMANTUnLike,
-			                 "");
-			         }
-			       });
-			       if (Configurations.getConfigs().getApplicationState() != 0) {
-			         tx.setVisibility(View.GONE);
-			         txlike.setVisibility(View.GONE);
-			       }
+
+			final String id_game = myIntent.getString(Keys.ID_GAME);
+			String isLiked = myIntent.getString(Keys.GameIsLiked);
+			String isPlaying = myIntent.getString(Keys.GameisPlaying);
+
+			TextView tx = (TextView) view.findViewById(R.id.btnAddGame);
+
+			if (isPlaying.equals("1"))
+				tx.setVisibility(View.GONE);
+
+			tx.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					DialogFragment dialog = new DialogSendCommentFragment();
+					dialog.show(getChildFragmentManager(), "Game");
+					Bundle argss = new Bundle();
+					argss.putString(Keys.ID_PLAYER,
+							Configurations.CurrentPlayerID);
+					argss.putString(Keys.functionAnotherID, id_game);
+					argss.putString(Keys.functionAction,
+							Keys.POSTFUNCOMMANTAddGame);
+					argss.putString(Keys.functionPhpName, "gameFunction.php");
+					dialog.setArguments(argss);
+				}
+			});
+
+			final TextView txlike = (TextView) view
+					.findViewById(R.id.btnGameLike);
+			if (isLiked.equals("1")) {
+				txlike.setText(getActivity().getResources().getString(
+						R.string.btnUnlike));
+			} else {
+				txlike.setText(getActivity().getResources().getString(
+						R.string.btnLike));
+
+			}
+			txlike.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					if (txlike.getText().equals("Like")) {
+						con.functionQuery(Configurations.CurrentPlayerID,
+								id_game, "gameFunction.php",
+								Keys.POSTFUNCOMMANTLike, "");
+						txlike.setText(getActivity().getResources().getString(
+								R.string.btnUnlike));
+					} else {
+						con.functionQuery(Configurations.CurrentPlayerID,
+								id_game, "gameFunction.php",
+								Keys.POSTFUNCOMMANTUnLike, "");
+						txlike.setText(getActivity().getResources().getString(
+								R.string.btnLike));
+					}
+				}
+			});
+			if (Configurations.getConfigs().getApplicationState() != 0) {
+				tx.setVisibility(View.GONE);
+				txlike.setVisibility(View.GONE);
+			}
 
 			txtNewsTitle.loadData(gameName, "text/html", null);
 			// newsImage.setImageResource(myIntent.getIntExtra(Keys.NEWSCOLIMAGE,

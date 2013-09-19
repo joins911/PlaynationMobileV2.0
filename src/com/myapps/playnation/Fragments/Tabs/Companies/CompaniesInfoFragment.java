@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ImageView;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.Operations.Configurations;
+import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.HelperClass;
 
 public class CompaniesInfoFragment extends Fragment {
@@ -18,8 +21,10 @@ public class CompaniesInfoFragment extends Fragment {
 	private WebView txtNewsText;
 	private ImageView newsImage;
 	private View view;
+	private DataConnector con;
 
 	public void initCompany() {
+		con = DataConnector.getInst();
 		txtNewsText = (WebView) view.findViewById(R.id.webView2);
 		txtNewsTitle = (WebView) view.findViewById(R.id.webView1);
 		setupWebView(txtNewsText);
@@ -84,7 +89,42 @@ public class CompaniesInfoFragment extends Fragment {
 				finals = main;
 			}
 			HelperClass.getImage(finals, newsImage);
+			String isLiked = myIntent.getString(Keys.GameIsLiked);
+			final String company = myIntent.getString(Keys.EventID_COMPANY);
 
+			final TextView txlike = (TextView) view
+					.findViewById(R.id.btnCompanyLike);
+			if (isLiked.equals("1")) {
+				txlike.setText(getActivity().getResources().getString(
+						R.string.btnUnlike));
+			} else {
+				txlike.setText(getActivity().getResources().getString(
+						R.string.btnLike));
+
+			}
+			txlike.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					if (txlike.getText().equals("Like")) {
+						con.functionQuery(Configurations.CurrentPlayerID,
+								company, "companyFunction.php",
+								Keys.POSTFUNCOMMANTLike, "");
+						txlike.setText(getActivity().getResources().getString(
+								R.string.btnUnlike));
+					} else {
+						con.functionQuery(Configurations.CurrentPlayerID,
+								company, "companyFunction.php",
+								Keys.POSTFUNCOMMANTUnLike, "");
+						txlike.setText(getActivity().getResources().getString(
+								R.string.btnLike));
+					}
+				}
+			});
+
+			if (Configurations.getConfigs().getApplicationState() != 0) {
+				txlike.setVisibility(View.GONE);
+			}
 		}
 	}
 
