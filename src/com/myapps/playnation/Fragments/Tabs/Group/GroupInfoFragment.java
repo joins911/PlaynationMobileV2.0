@@ -59,52 +59,65 @@ public class GroupInfoFragment extends Fragment {
 		txtNewsLeader.setText(ID_CREATOR);
 		mView.setFocusable(false);
 		txtNewsCreated.setText(args.getString(Keys.GROUPDATE));
-		 final String id_groupcreator = args.getString(Keys.ID_GROUP);
-		     TextView tx = (TextView) mView.findViewById(R.id.btnAddGroup);
-		 
-		     String isLiked = args.getString(Keys.GameIsLiked);
-		     String isMember = args.getString(Keys.isMember);
-		     if (isMember.equals("1"))
-		       tx.setVisibility(View.GONE);
-		 
-		     tx.setOnClickListener(new OnClickListener() {
-		 
-		       @Override
-		       public void onClick(View v) {
-		 
-		         DialogFragment dialog = new DialogSendCommentFragment();
-		         dialog.show(getChildFragmentManager(), "Group");
-		         Bundle argss = new Bundle();
-		         argss.putString(Keys.ID_PLAYER, Configurations.CurrentPlayerID);
-		         argss.putString(Keys.functionAnotherID, id_groupcreator);
-		         argss.putString(Keys.functionAction,
-		             Keys.POSTFUNCOMMANTSendPerson);
-		         argss.putString(Keys.functionPhpName, "groupFunction.php");
-		         dialog.setArguments(argss);
-		       }
-		     });
-		 
-		     TextView txlike = (TextView) mView.findViewById(R.id.btnGroupLike);
-		     if (isLiked.equals("1")) {
-		       txlike.setText(getActivity().getResources().getString(
-		           R.string.btnUnlike));
-		     } else {
-		       txlike.setText(getActivity().getResources().getString(
-		           R.string.btnLike));
-		     }
-		 
-		     txlike.setOnClickListener(new OnClickListener() {
-		 
-		       @Override
-		       public void onClick(View v) {
-		         con.functionQuery(Configurations.CurrentPlayerID, id_groupcreator,
-		             "groupFunction.php", Keys.POSTFUNCOMMANTLike, "");
-		       }
-		     });
-		     if (Configurations.getConfigs().getApplicationState() != 0) {
-		       tx.setVisibility(View.GONE);
-		       txlike.setVisibility(View.GONE);
-		     }
+		final String id_groupcreator = args.getString(Keys.ID_GROUP);
+		TextView tx = (TextView) mView.findViewById(R.id.btnAddGroup);
+
+		String isLiked = args.getString(Keys.GameIsLiked);
+		String isMember = args.getString(Keys.isMember);
+		if (isMember.equals("1"))
+			tx.setVisibility(View.GONE);
+
+		tx.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				DialogFragment dialog = new DialogSendCommentFragment();
+				dialog.show(getChildFragmentManager(), "Group");
+				Bundle argss = new Bundle();
+				argss.putString(Keys.ID_PLAYER, Configurations.CurrentPlayerID);
+				argss.putString(Keys.functionAnotherID, id_groupcreator);
+				argss.putString(Keys.functionAction,
+						Keys.POSTFUNCOMMANTSendPerson);
+				argss.putString(Keys.functionPhpName, "groupFunction.php");
+				dialog.setArguments(argss);
+				v.setVisibility(View.GONE);
+			}
+		});
+
+		final TextView txlike = (TextView) mView
+				.findViewById(R.id.btnGroupLike);
+		if (isLiked.equals("1")) {
+			txlike.setText(getActivity().getResources().getString(
+					R.string.btnUnlike));
+		} else {
+			txlike.setText(getActivity().getResources().getString(
+					R.string.btnLike));
+		}
+
+		txlike.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if (txlike.getText().equals("Like")) {
+					con.functionQuery(Configurations.CurrentPlayerID,
+							id_groupcreator, "groupFunction.php",
+							Keys.POSTFUNCOMMANTLike, "");
+					txlike.setText(getActivity().getResources().getString(
+							R.string.btnUnlike));
+				} else {
+					con.functionQuery(Configurations.CurrentPlayerID,
+							id_groupcreator, "groupFunction.php",
+							Keys.POSTFUNCOMMANTUnLike, "");
+					txlike.setText(getActivity().getResources().getString(
+							R.string.btnLike));
+				}
+			}
+		});
+		if (Configurations.getConfigs().getApplicationState() != 0) {
+			tx.setVisibility(View.GONE);
+			txlike.setVisibility(View.GONE);
+		}
 	}
 
 	@Override

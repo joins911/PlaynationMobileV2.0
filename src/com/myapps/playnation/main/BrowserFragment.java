@@ -2,27 +2,13 @@ package com.myapps.playnation.main;
 
 import java.util.ArrayList;
 
-import android.annotation.SuppressLint;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.SearchView.OnQueryTextListener;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.Toast;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
@@ -71,7 +57,7 @@ public class BrowserFragment extends Fragment implements BaseFragment {
 		ListsFragment frag = mSectionAdapter.getFragments()
 				.get(mViewPager.getCurrentItem()).getListFragment();
 		ArrayList<Bundle> temp = null;
-		if (frag != null && args.length()>2) {
+		if (frag != null && args.length() > 2) {
 			if (mViewPager.getCurrentItem() == Configurations.GamesSTATE)
 				temp = searchListGames(args);
 			else {
@@ -86,6 +72,11 @@ public class BrowserFragment extends Fragment implements BaseFragment {
 						Configurations.getConfigs();
 						if (mViewPager.getCurrentItem() == Configurations.CompaniesSTATE)
 							temp = searchListCompanies(args);
+						else {
+							Configurations.getConfigs();
+							if (mViewPager.getCurrentItem() == Configurations.PlayersSTATE)
+								temp = searchListPlayers(args);
+						}
 					}
 				}
 			}
@@ -124,7 +115,7 @@ public class BrowserFragment extends Fragment implements BaseFragment {
 	public ArrayList<Bundle> searchListPlayers(String args) {
 		ArrayList<Bundle> list = con.queryPlayerFriendsSearch(args);
 		ArrayList<Bundle> results = new ArrayList<Bundle>();
-		if (list != null) {			
+		if (list != null) {
 			for (int i = 0; i < list.size(); i++)
 				results.add(list.get(i));
 		}

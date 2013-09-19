@@ -26,7 +26,6 @@ public class FriendsListAdapter extends BaseAdapter implements MyBaseAdapter {
 	private boolean showMore = true;
 	String addText = "";
 	int color;
-	private Context context;
 	private DataConnector con;
 
 	public FriendsListAdapter(Context context, ArrayList<Bundle> list) {
@@ -36,7 +35,7 @@ public class FriendsListAdapter extends BaseAdapter implements MyBaseAdapter {
 		addText = context.getResources().getString(
 				R.string.btnSendFriendRequest);
 		color = context.getResources().getColor(R.color.btnLikeColor);
-		this.context = context;
+
 		con = DataConnector.getInst();
 		count = 10;
 	}
@@ -78,7 +77,8 @@ public class FriendsListAdapter extends BaseAdapter implements MyBaseAdapter {
 		final Bundle mapEntry = generalList.get(position);
 		if (mapEntry != null) {
 
-			if (mapEntry.getString(Keys.Mutual,"").equals("1"))
+			String mutual = mapEntry.getString(Keys.Mutual);
+			if (mutual.equals("1") || mutual.equals("null"))
 				txEdit.setVisibility(View.GONE);
 			else {
 				txEdit.setText(addText);
@@ -88,11 +88,11 @@ public class FriendsListAdapter extends BaseAdapter implements MyBaseAdapter {
 
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
+					con.functionQuery(Configurations.CurrentPlayerID,
+							mapEntry.get(Keys.ID_PLAYER) + "",
+							"friendFunctions.php", Keys.POSTFUNCOMMANTSend, "");
 
-					con.functionQuery(Configurations.CurrentPlayerID, mapEntry
-							.get(Keys.ID_PLAYER).toString(),
-							"friendFuncions.php", Keys.POSTFUNCOMMANTSend, "");
+					v.setVisibility(View.GONE);
 				}
 			});
 			if (Configurations.getConfigs().getApplicationState() != 0) {

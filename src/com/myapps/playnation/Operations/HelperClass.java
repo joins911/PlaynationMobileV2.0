@@ -14,9 +14,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TimeZone;
-import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -169,12 +169,11 @@ public class HelperClass {
 			return "Public";
 		}
 	}
-	
+
 	public static ArrayList<UserComment> modifyDataSet(String id, String owner) {
 		DataConnector con = DataConnector.getInst();
 		return con.getComments(id, owner);
 	}
-
 
 	public static String returnUnserializedText(String text) {
 		String result = "";
@@ -229,7 +228,7 @@ public class HelperClass {
 				|| tableName.equals(Keys.gamesTable)
 				|| tableName.equals(Keys.companyTable)
 				|| tableName.equals(Keys.HomeSubscriptionTable)) {
-			return "SELECT * FROM " + tableName + " Limit 0," + limit + ";";
+			return "SELECT * FROM " + tableName + ";";
 		} else if (tableName.equals(Keys.HomeMsgTable)) {
 			return "SELECT * FROM " + tableName + " Where " + Keys.ID_PLAYER
 					+ "=" + separeteID + ";";

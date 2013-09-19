@@ -1076,19 +1076,19 @@ containing a value of this type.
         public static final int wall_list_separator=0x7f020097;
     }
     public static final class id {
-        public static final int GamesButt=0x7f0500fd;
-        public static final int GroupsButt=0x7f0500fe;
-        public static final int HomeButt=0x7f0500fc;
-        public static final int NewsButt=0x7f0500ff;
-        public static final int TextView01=0x7f0500bd;
-        public static final int TextView02=0x7f0500cd;
-        public static final int TextView03=0x7f0500bf;
-        public static final int TextView04=0x7f0500c4;
-        public static final int TextView05=0x7f0500c1;
-        public static final int TextView06=0x7f0500c8;
-        public static final int TextView07=0x7f0500c7;
-        public static final int TextView08=0x7f0500c3;
-        public static final int TextView09=0x7f0500cb;
+        public static final int GamesButt=0x7f0500fe;
+        public static final int GroupsButt=0x7f0500ff;
+        public static final int HomeButt=0x7f0500fd;
+        public static final int NewsButt=0x7f050100;
+        public static final int TextView01=0x7f0500be;
+        public static final int TextView02=0x7f0500ce;
+        public static final int TextView03=0x7f0500c0;
+        public static final int TextView04=0x7f0500c5;
+        public static final int TextView05=0x7f0500c2;
+        public static final int TextView06=0x7f0500c9;
+        public static final int TextView07=0x7f0500c8;
+        public static final int TextView08=0x7f0500c4;
+        public static final int TextView09=0x7f0500cc;
         public static final int action_bar=0x7f05001a;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f050019;
@@ -1106,10 +1106,11 @@ containing a value of this type.
         public static final int always=0x7f05000b;
         public static final int background=0x7f0500a5;
         public static final int beginning=0x7f050011;
-        public static final int btnAddGame=0x7f0500cf;
-        public static final int btnAddGroup=0x7f0500d7;
+        public static final int btnAddGame=0x7f0500d0;
+        public static final int btnAddGroup=0x7f0500d8;
         public static final int btnCancel=0x7f0500a1;
-        public static final int btnGameLike=0x7f0500d0;
+        public static final int btnCompanyLike=0x7f0500ba;
+        public static final int btnGameLike=0x7f0500d1;
         public static final int btnGroupLike=0x7f0500ae;
         public static final int btnGuestLogin=0x7f050048;
         public static final int btnLogin=0x7f050047;
@@ -1122,9 +1123,9 @@ containing a value of this type.
         public static final int comment_img=0x7f05007e;
         public static final int comment_text=0x7f05007f;
         public static final int component_spinner_TV=0x7f0500a3;
-        public static final int container_games=0x7f0500f8;
-        public static final int container_home=0x7f0500fa;
-        public static final int container_wrapper=0x7f0500f6;
+        public static final int container_games=0x7f0500f9;
+        public static final int container_home=0x7f0500fb;
+        public static final int container_wrapper=0x7f0500f7;
         public static final int content=0x7f0500ab;
         public static final int contentPlayer=0x7f050071;
         public static final int content_TV=0x7f05007a;
@@ -1139,21 +1140,21 @@ containing a value of this type.
         public static final int expand_activities_button=0x7f050024;
         public static final int expanded_menu=0x7f05002a;
         public static final int footer=0x7f050044;
-        public static final int footherPlayer=0x7f0500ef;
-        public static final int fragMsgAndWallTemp=0x7f0500f5;
-        public static final int fragMsgAndWallTemp_expList=0x7f0500f1;
-        public static final int frag_Gmedia_TView=0x7f0500d3;
-        public static final int frag_Gnews_TView=0x7f0500f3;
-        public static final int frag_GrEvents_TView=0x7f0500d5;
-        public static final int frag_GrMedia_TView=0x7f0500d8;
-        public static final int frag_reviewTemp_reviewList=0x7f0500d4;
+        public static final int footherPlayer=0x7f0500f0;
+        public static final int fragMsgAndWallTemp=0x7f0500f6;
+        public static final int fragMsgAndWallTemp_expList=0x7f0500f2;
+        public static final int frag_Gmedia_TView=0x7f0500d4;
+        public static final int frag_Gnews_TView=0x7f0500f4;
+        public static final int frag_GrEvents_TView=0x7f0500d6;
+        public static final int frag_GrMedia_TView=0x7f0500d9;
+        public static final int frag_reviewTemp_reviewList=0x7f0500d5;
         public static final int fragment1=0x7f050089;
         public static final int gameCLH_All_LLayout=0x7f050066;
-        public static final int gameCLH_friendListArrow_pic=0x7f0500eb;
-        public static final int gameCLH_friendListLayout_LLayout=0x7f0500ec;
-        public static final int gameCLH_friendListLayout_RLayout=0x7f0500ea;
-        public static final int gameCLH_friendPic01=0x7f0500ee;
-        public static final int gameCLH_friendPic07=0x7f0500ed;
+        public static final int gameCLH_friendListArrow_pic=0x7f0500ec;
+        public static final int gameCLH_friendListLayout_LLayout=0x7f0500ed;
+        public static final int gameCLH_friendListLayout_RLayout=0x7f0500eb;
+        public static final int gameCLH_friendPic01=0x7f0500ef;
+        public static final int gameCLH_friendPic07=0x7f0500ee;
         public static final int gameList_All_RLayout=0x7f05008a;
         public static final int gameList_GameDate_TView=0x7f05008f;
         public static final int gameList_GameImage=0x7f05008c;
@@ -1183,8 +1184,8 @@ containing a value of this type.
         public static final int gamesCL_commentUsername_TView=0x7f050059;
         public static final int gamesF_All_RLayout=0x7f05005c;
         public static final int gamesM_ratingString_TView=0x7f050064;
-        public static final int generalPlayerListView=0x7f0500f0;
-        public static final int generalPlayerListViewLayout=0x7f0500f4;
+        public static final int generalPlayerListView=0x7f0500f1;
+        public static final int generalPlayerListViewLayout=0x7f0500f5;
         public static final int header=0x7f050043;
         public static final int headerInfoPlayer=0x7f05006a;
         public static final int headerPlayer=0x7f050067;
@@ -1198,8 +1199,8 @@ containing a value of this type.
         public static final int imgArrow=0x7f050097;
         public static final int imgEvent=0x7f050073;
         public static final int imgPlayerAvatarLog=0x7f050095;
-        public static final int include_TabHolder_Games=0x7f0500f7;
-        public static final int include_TabHolder_Home=0x7f0500f9;
+        public static final int include_TabHolder_Games=0x7f0500f8;
+        public static final int include_TabHolder_Home=0x7f0500fa;
         public static final int infoSubContent=0x7f050072;
         public static final int item_detail_container=0x7f050042;
         public static final int left_drawer=0x7f05004c;
@@ -1211,33 +1212,33 @@ containing a value of this type.
         public static final int link_to_register=0x7f050049;
         public static final int listMode=0x7f050001;
         public static final int listView=0x7f050083;
-        public static final int list_child_layout=0x7f0500d9;
+        public static final int list_child_layout=0x7f0500da;
         public static final int list_item=0x7f050027;
-        public static final int list_item_text_childCity=0x7f0500e0;
-        public static final int list_item_text_childCountry=0x7f0500e2;
-        public static final int list_item_text_childDisplayName=0x7f0500de;
-        public static final int list_item_text_childEmail=0x7f0500e4;
-        public static final int list_item_text_childFirstName=0x7f0500db;
-        public static final int list_item_text_childLastName=0x7f0500dc;
+        public static final int list_item_text_childCity=0x7f0500e1;
+        public static final int list_item_text_childCountry=0x7f0500e3;
+        public static final int list_item_text_childDisplayName=0x7f0500df;
+        public static final int list_item_text_childEmail=0x7f0500e5;
+        public static final int list_item_text_childFirstName=0x7f0500dc;
+        public static final int list_item_text_childLastName=0x7f0500dd;
         public static final int mainLayoutPlayer=0x7f050070;
         public static final int mainList=0x7f050086;
         public static final int mainList_LLayout=0x7f050084;
-        public static final int menu_search=0x7f0500fb;
+        public static final int menu_search=0x7f0500fc;
         public static final int menu_title=0x7f050091;
         public static final int middle=0x7f050012;
         public static final int name_TV=0x7f050078;
         public static final int never=0x7f050009;
-        public static final int newsAuthor=0x7f0500f2;
+        public static final int newsAuthor=0x7f0500f3;
         public static final int newsEventEndDate=0x7f0500b3;
         public static final int newsEventInfo=0x7f0500ad;
-        public static final int newsEventInvetation=0x7f0500b9;
+        public static final int newsEventInvetation=0x7f0500b6;
         public static final int newsEventLocation=0x7f0500b4;
         public static final int newsEventPartcipants=0x7f0500b8;
-        public static final int newsEventPrivacy=0x7f0500e9;
+        public static final int newsEventPrivacy=0x7f0500ea;
         public static final int newsEventStartDate=0x7f0500b1;
         public static final int newsEventType=0x7f0500af;
-        public static final int newsGroupCreated=0x7f0500d6;
-        public static final int newsGroupInfo=0x7f0500bc;
+        public static final int newsGroupCreated=0x7f0500d7;
+        public static final int newsGroupInfo=0x7f0500bd;
         public static final int newsImg=0x7f0500ac;
         public static final int newsTitle=0x7f0500aa;
         public static final int noFriendsText=0x7f050085;
@@ -1255,7 +1256,7 @@ containing a value of this type.
         public static final int reg_password=0x7f05004f;
         public static final int right_container=0x7f050032;
         public static final int right_icon=0x7f050033;
-        public static final int saveProfileButton=0x7f0500e6;
+        public static final int saveProfileButton=0x7f0500e7;
         public static final int search_badge=0x7f050038;
         public static final int search_bar=0x7f050037;
         public static final int search_button=0x7f050039;
@@ -1281,16 +1282,16 @@ containing a value of this type.
         public static final int textView2=0x7f0500b2;
         public static final int textView3=0x7f0500b0;
         public static final int textView4=0x7f0500b5;
-        public static final int textView5=0x7f0500b7;
-        public static final int textView7=0x7f0500e8;
-        public static final int textView9=0x7f0500b6;
+        public static final int textView5=0x7f0500b9;
+        public static final int textView7=0x7f0500e9;
+        public static final int textView9=0x7f0500b7;
         public static final int thumbnail=0x7f05008b;
         public static final int time_TV=0x7f050079;
         public static final int title=0x7f050029;
         public static final int title_container=0x7f050030;
         public static final int top_action_bar=0x7f05001e;
         public static final int txEDate=0x7f050082;
-        public static final int txEDuration=0x7f0500e7;
+        public static final int txEDuration=0x7f0500e8;
         public static final int txEHeadline=0x7f050074;
         public static final int txELocation=0x7f050075;
         public static final int txPlAge=0x7f05006e;
@@ -1299,27 +1300,27 @@ containing a value of this type.
         public static final int txPlNick=0x7f05006d;
         public static final int txPlUser=0x7f05006c;
         public static final int txText=0x7f050076;
-        public static final int txtChiledItemCity=0x7f0500e1;
-        public static final int txtChiledItemCountry=0x7f0500e3;
-        public static final int txtChiledItemDisplayName=0x7f0500df;
-        public static final int txtChiledItemEmail=0x7f0500e5;
-        public static final int txtChiledItemFirstName=0x7f0500da;
-        public static final int txtChiledItemLastName=0x7f0500dd;
+        public static final int txtChiledItemCity=0x7f0500e2;
+        public static final int txtChiledItemCountry=0x7f0500e4;
+        public static final int txtChiledItemDisplayName=0x7f0500e0;
+        public static final int txtChiledItemEmail=0x7f0500e6;
+        public static final int txtChiledItemFirstName=0x7f0500db;
+        public static final int txtChiledItemLastName=0x7f0500de;
         public static final int txtComment=0x7f0500a0;
         public static final int txtEdit=0x7f050069;
         public static final int txtNewsDate=0x7f050093;
         public static final int txtNickNameText=0x7f050096;
         public static final int txtNotificationMsg=0x7f050098;
         public static final int txtTitle=0x7f050094;
-        public static final int txtgameInfoDevelopers=0x7f0500c6;
-        public static final int txtgameinfoDistributors=0x7f0500c9;
-        public static final int txtgameinfoEsrb=0x7f0500c2;
-        public static final int txtgameinfoJoined=0x7f0500ca;
-        public static final int txtgameinfoPlatforms=0x7f0500c5;
-        public static final int txtgameinfoPlayers=0x7f0500c0;
-        public static final int txtgameinfoReleased=0x7f0500be;
-        public static final int txtgameinfoType=0x7f0500ce;
-        public static final int txtgameinfoWebsite=0x7f0500cc;
+        public static final int txtgameInfoDevelopers=0x7f0500c7;
+        public static final int txtgameinfoDistributors=0x7f0500ca;
+        public static final int txtgameinfoEsrb=0x7f0500c3;
+        public static final int txtgameinfoJoined=0x7f0500cb;
+        public static final int txtgameinfoPlatforms=0x7f0500c6;
+        public static final int txtgameinfoPlayers=0x7f0500c1;
+        public static final int txtgameinfoReleased=0x7f0500bf;
+        public static final int txtgameinfoType=0x7f0500cf;
+        public static final int txtgameinfoWebsite=0x7f0500cd;
         public static final int up=0x7f05001f;
         public static final int useLogo=0x7f050003;
         public static final int username_logIn=0x7f050045;
@@ -1327,10 +1328,10 @@ containing a value of this type.
         public static final int wallsF_commBut=0x7f05005f;
         public static final int wallsF_comment_EBox=0x7f05005e;
         public static final int wallsF_comment_TView=0x7f05005d;
-        public static final int webView1=0x7f0500ba;
-        public static final int webView2=0x7f0500bb;
-        public static final int webview=0x7f0500d1;
-        public static final int webview2=0x7f0500d2;
+        public static final int webView1=0x7f0500bb;
+        public static final int webView2=0x7f0500bc;
+        public static final int webview=0x7f0500d2;
+        public static final int webview2=0x7f0500d3;
         public static final int withText=0x7f05000c;
     }
     public static final class integer {
@@ -1897,7 +1898,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:background
+          @attr name com.myapps.playnation:background
         */
         public static final int ActionBar_background = 10;
         /**
@@ -1911,7 +1912,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name android:backgroundSplit
+          @attr name com.myapps.playnation:backgroundSplit
         */
         public static final int ActionBar_backgroundSplit = 12;
         /**
@@ -1925,7 +1926,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name android:backgroundStacked
+          @attr name com.myapps.playnation:backgroundStacked
         */
         public static final int ActionBar_backgroundStacked = 11;
         /**
@@ -1937,7 +1938,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:customNavigationLayout
+          @attr name com.myapps.playnation:customNavigationLayout
         */
         public static final int ActionBar_customNavigationLayout = 13;
         /**
@@ -1960,7 +1961,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>disableHome</code></td><td>0x20</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name android:displayOptions
+          @attr name com.myapps.playnation:displayOptions
         */
         public static final int ActionBar_displayOptions = 3;
         /**
@@ -1972,7 +1973,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:divider
+          @attr name com.myapps.playnation:divider
         */
         public static final int ActionBar_divider = 9;
         /**
@@ -1990,7 +1991,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:height
+          @attr name com.myapps.playnation:height
         */
         public static final int ActionBar_height = 1;
         /**
@@ -2002,7 +2003,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:homeLayout
+          @attr name com.myapps.playnation:homeLayout
         */
         public static final int ActionBar_homeLayout = 14;
         /**
@@ -2014,7 +2015,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:icon
+          @attr name com.myapps.playnation:icon
         */
         public static final int ActionBar_icon = 7;
         /**
@@ -2026,7 +2027,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:indeterminateProgressStyle
+          @attr name com.myapps.playnation:indeterminateProgressStyle
         */
         public static final int ActionBar_indeterminateProgressStyle = 16;
         /**
@@ -2045,7 +2046,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:itemPadding
+          @attr name com.myapps.playnation:itemPadding
         */
         public static final int ActionBar_itemPadding = 18;
         /**
@@ -2057,7 +2058,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:logo
+          @attr name com.myapps.playnation:logo
         */
         public static final int ActionBar_logo = 8;
         /**
@@ -2077,7 +2078,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>tabMode</code></td><td>2</td><td> The action bar will use a series of horizontal tabs for navigation. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name android:navigationMode
+          @attr name com.myapps.playnation:navigationMode
         */
         public static final int ActionBar_navigationMode = 2;
         /**
@@ -2095,7 +2096,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:progressBarPadding
+          @attr name com.myapps.playnation:progressBarPadding
         */
         public static final int ActionBar_progressBarPadding = 17;
         /**
@@ -2107,7 +2108,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:progressBarStyle
+          @attr name com.myapps.playnation:progressBarStyle
         */
         public static final int ActionBar_progressBarStyle = 15;
         /**
@@ -2123,7 +2124,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:subtitle
+          @attr name com.myapps.playnation:subtitle
         */
         public static final int ActionBar_subtitle = 4;
         /**
@@ -2135,7 +2136,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:subtitleTextStyle
+          @attr name com.myapps.playnation:subtitleTextStyle
         */
         public static final int ActionBar_subtitleTextStyle = 6;
         /**
@@ -2151,7 +2152,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:title
+          @attr name com.myapps.playnation:title
         */
         public static final int ActionBar_title = 0;
         /**
@@ -2163,7 +2164,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:titleTextStyle
+          @attr name com.myapps.playnation:titleTextStyle
         */
         public static final int ActionBar_titleTextStyle = 5;
         /**  Valid LayoutParams for views placed in the action bar as custom views. 
@@ -2172,7 +2173,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ActionBarLayout_android_layout_gravity com.myapps.playnation:android_layout_gravity}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBarLayout_android_layout_gravity android:layout_gravity}</code></td><td></td></tr>
            </table>
            @see #ActionBarLayout_android_layout_gravity
          */
@@ -2180,9 +2181,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x010100b3
         };
         /**
-          <p>This symbol is the offset where the {@link com.myapps.playnation.R.attr#android_layout_gravity}
+          <p>This symbol is the offset where the {@link android.R.attr#layout_gravity}
           attribute's value can be found in the {@link #ActionBarLayout} array.
-          @attr name android:android_layout_gravity
+          @attr name android:layout_gravity
         */
         public static final int ActionBarLayout_android_layout_gravity = 0;
         /**  These attributes are meant to be specified and customized by the app.
@@ -2216,7 +2217,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:windowActionBar
+          @attr name com.myapps.playnation:windowActionBar
         */
         public static final int ActionBarWindow_windowActionBar = 0;
         /**
@@ -2230,7 +2231,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:windowActionBarOverlay
+          @attr name com.myapps.playnation:windowActionBarOverlay
         */
         public static final int ActionBarWindow_windowActionBarOverlay = 1;
         /**
@@ -2244,7 +2245,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:windowSplitActionBar
+          @attr name com.myapps.playnation:windowSplitActionBar
         */
         public static final int ActionBarWindow_windowSplitActionBar = 2;
         /** Attributes that can be used with a ActionMenuItemView.
@@ -2253,7 +2254,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ActionMenuItemView_android_minWidth com.myapps.playnation:android_minWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionMenuItemView_android_minWidth android:minWidth}</code></td><td></td></tr>
            </table>
            @see #ActionMenuItemView_android_minWidth
          */
@@ -2261,9 +2262,9 @@ containing a value of this type.
             0x0101013f
         };
         /**
-          <p>This symbol is the offset where the {@link com.myapps.playnation.R.attr#android_minWidth}
+          <p>This symbol is the offset where the {@link android.R.attr#minWidth}
           attribute's value can be found in the {@link #ActionMenuItemView} array.
-          @attr name android:android_minWidth
+          @attr name android:minWidth
         */
         public static final int ActionMenuItemView_android_minWidth = 0;
         /**  Size of padding on either end of a divider. 
@@ -2302,7 +2303,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:background
+          @attr name com.myapps.playnation:background
         */
         public static final int ActionMode_background = 3;
         /**
@@ -2316,7 +2317,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name android:backgroundSplit
+          @attr name com.myapps.playnation:backgroundSplit
         */
         public static final int ActionMode_backgroundSplit = 4;
         /**
@@ -2334,7 +2335,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:height
+          @attr name com.myapps.playnation:height
         */
         public static final int ActionMode_height = 0;
         /**
@@ -2346,7 +2347,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:subtitleTextStyle
+          @attr name com.myapps.playnation:subtitleTextStyle
         */
         public static final int ActionMode_subtitleTextStyle = 2;
         /**
@@ -2358,7 +2359,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:titleTextStyle
+          @attr name com.myapps.playnation:titleTextStyle
         */
         public static final int ActionMode_titleTextStyle = 1;
         /**  Attrbitutes for a ActivityChooserView. 
@@ -2390,7 +2391,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:expandActivityOverflowButtonDrawable
+          @attr name com.myapps.playnation:expandActivityOverflowButtonDrawable
         */
         public static final int ActivityChooserView_expandActivityOverflowButtonDrawable = 1;
         /**
@@ -2406,7 +2407,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:initialActivityCount
+          @attr name com.myapps.playnation:initialActivityCount
         */
         public static final int ActivityChooserView_initialActivityCount = 0;
         /** Attributes that can be used with a CompatTextView.
@@ -2432,7 +2433,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
           <p>This is a private symbol.
-          @attr name android:textAllCaps
+          @attr name com.myapps.playnation:textAllCaps
         */
         public static final int CompatTextView_textAllCaps = 0;
         /** Attributes that can be used with a LinearLayoutICS.
@@ -2461,7 +2462,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:divider
+          @attr name com.myapps.playnation:divider
         */
         public static final int LinearLayoutICS_divider = 0;
         /**
@@ -2479,7 +2480,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:dividerPadding
+          @attr name com.myapps.playnation:dividerPadding
         */
         public static final int LinearLayoutICS_dividerPadding = 2;
         /**
@@ -2500,7 +2501,7 @@ containing a value of this type.
 <tr><td><code>end</code></td><td>4</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name android:showDividers
+          @attr name com.myapps.playnation:showDividers
         */
         public static final int LinearLayoutICS_showDividers = 1;
         /**  Base attributes that are available to all groups. 
@@ -2509,12 +2510,12 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #MenuGroup_android_checkableBehavior com.myapps.playnation:android_checkableBehavior}</code></td><td> Whether the items are capable of displaying a check mark.</td></tr>
-           <tr><td><code>{@link #MenuGroup_android_enabled com.myapps.playnation:android_enabled}</code></td><td> Whether the items are enabled.</td></tr>
-           <tr><td><code>{@link #MenuGroup_android_id com.myapps.playnation:android_id}</code></td><td> The ID of the group.</td></tr>
-           <tr><td><code>{@link #MenuGroup_android_menuCategory com.myapps.playnation:android_menuCategory}</code></td><td> The category applied to all items within this group.</td></tr>
-           <tr><td><code>{@link #MenuGroup_android_orderInCategory com.myapps.playnation:android_orderInCategory}</code></td><td> The order within the category applied to all items within this group.</td></tr>
-           <tr><td><code>{@link #MenuGroup_android_visible com.myapps.playnation:android_visible}</code></td><td> Whether the items are shown/visible.</td></tr>
+           <tr><td><code>{@link #MenuGroup_android_checkableBehavior android:checkableBehavior}</code></td><td> Whether the items are capable of displaying a check mark.</td></tr>
+           <tr><td><code>{@link #MenuGroup_android_enabled android:enabled}</code></td><td> Whether the items are enabled.</td></tr>
+           <tr><td><code>{@link #MenuGroup_android_id android:id}</code></td><td> The ID of the group.</td></tr>
+           <tr><td><code>{@link #MenuGroup_android_menuCategory android:menuCategory}</code></td><td> The category applied to all items within this group.</td></tr>
+           <tr><td><code>{@link #MenuGroup_android_orderInCategory android:orderInCategory}</code></td><td> The order within the category applied to all items within this group.</td></tr>
+           <tr><td><code>{@link #MenuGroup_android_visible android:visible}</code></td><td> Whether the items are shown/visible.</td></tr>
            </table>
            @see #MenuGroup_android_checkableBehavior
            @see #MenuGroup_android_enabled
@@ -2531,24 +2532,27 @@ containing a value of this type.
           <p>
           @attr description
            Whether the items are capable of displaying a check mark. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_checkableBehavior}.
-          @attr name android:android_checkableBehavior
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#checkableBehavior}.
+          @attr name android:checkableBehavior
         */
         public static final int MenuGroup_android_checkableBehavior = 5;
         /**
           <p>
           @attr description
            Whether the items are enabled. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_enabled}.
-          @attr name android:android_enabled
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#enabled}.
+          @attr name android:enabled
         */
         public static final int MenuGroup_android_enabled = 0;
         /**
           <p>
           @attr description
            The ID of the group. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_id}.
-          @attr name android:android_id
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#id}.
+          @attr name android:id
         */
         public static final int MenuGroup_android_id = 1;
         /**
@@ -2556,8 +2560,9 @@ containing a value of this type.
           @attr description
            The category applied to all items within this group.
              (This will be or'ed with the orderInCategory attribute.) 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_menuCategory}.
-          @attr name android:android_menuCategory
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#menuCategory}.
+          @attr name android:menuCategory
         */
         public static final int MenuGroup_android_menuCategory = 3;
         /**
@@ -2565,16 +2570,18 @@ containing a value of this type.
           @attr description
            The order within the category applied to all items within this group.
              (This will be or'ed with the category attribute.) 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_orderInCategory}.
-          @attr name android:android_orderInCategory
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#orderInCategory}.
+          @attr name android:orderInCategory
         */
         public static final int MenuGroup_android_orderInCategory = 4;
         /**
           <p>
           @attr description
            Whether the items are shown/visible. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_visible}.
-          @attr name android:android_visible
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#visible}.
+          @attr name android:visible
         */
         public static final int MenuGroup_android_visible = 2;
         /**  Base attributes that are available to all Item objects. 
@@ -2588,20 +2595,20 @@ containing a value of this type.
              and perform operations such as default action for that menu item.</td></tr>
            <tr><td><code>{@link #MenuItem_actionViewClass com.myapps.playnation:actionViewClass}</code></td><td> The name of an optional View class to instantiate and use as an
              action view.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_alphabeticShortcut com.myapps.playnation:android_alphabeticShortcut}</code></td><td> The alphabetic shortcut key.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_checkable com.myapps.playnation:android_checkable}</code></td><td> Whether the item is capable of displaying a check mark.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_checked com.myapps.playnation:android_checked}</code></td><td> Whether the item is checked.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_enabled com.myapps.playnation:android_enabled}</code></td><td> Whether the item is enabled.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_icon com.myapps.playnation:android_icon}</code></td><td> The icon associated with this item.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_id com.myapps.playnation:android_id}</code></td><td> The ID of the item.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_menuCategory com.myapps.playnation:android_menuCategory}</code></td><td> The category applied to the item.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_numericShortcut com.myapps.playnation:android_numericShortcut}</code></td><td> The numeric shortcut key.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_onClick com.myapps.playnation:android_onClick}</code></td><td> Name of a method on the Context used to inflate the menu that will be
+           <tr><td><code>{@link #MenuItem_android_alphabeticShortcut android:alphabeticShortcut}</code></td><td> The alphabetic shortcut key.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_checkable android:checkable}</code></td><td> Whether the item is capable of displaying a check mark.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_checked android:checked}</code></td><td> Whether the item is checked.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_enabled android:enabled}</code></td><td> Whether the item is enabled.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_icon android:icon}</code></td><td> The icon associated with this item.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_id android:id}</code></td><td> The ID of the item.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_menuCategory android:menuCategory}</code></td><td> The category applied to the item.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_numericShortcut android:numericShortcut}</code></td><td> The numeric shortcut key.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_onClick android:onClick}</code></td><td> Name of a method on the Context used to inflate the menu that will be
              called when the item is clicked.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_orderInCategory com.myapps.playnation:android_orderInCategory}</code></td><td> The order within the category applied to the item.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_title com.myapps.playnation:android_title}</code></td><td> The title associated with the item.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_titleCondensed com.myapps.playnation:android_titleCondensed}</code></td><td> The condensed title associated with the item.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_visible com.myapps.playnation:android_visible}</code></td><td> Whether the item is shown/visible.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_orderInCategory android:orderInCategory}</code></td><td> The order within the category applied to the item.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_title android:title}</code></td><td> The title associated with the item.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_titleCondensed android:titleCondensed}</code></td><td> The condensed title associated with the item.</td></tr>
+           <tr><td><code>{@link #MenuItem_android_visible android:visible}</code></td><td> Whether the item is shown/visible.</td></tr>
            <tr><td><code>{@link #MenuItem_showAsAction com.myapps.playnation:showAsAction}</code></td><td> How this item should display in the Action Bar, if present.</td></tr>
            </table>
            @see #MenuItem_actionLayout
@@ -2640,7 +2647,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:actionLayout
+          @attr name com.myapps.playnation:actionLayout
         */
         public static final int MenuItem_actionLayout = 14;
         /**
@@ -2659,7 +2666,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:actionProviderClass
+          @attr name com.myapps.playnation:actionProviderClass
         */
         public static final int MenuItem_actionProviderClass = 16;
         /**
@@ -2677,7 +2684,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:actionViewClass
+          @attr name com.myapps.playnation:actionViewClass
         */
         public static final int MenuItem_actionViewClass = 15;
         /**
@@ -2685,16 +2692,18 @@ containing a value of this type.
           @attr description
            The alphabetic shortcut key.  This is the shortcut when using a keyboard
              with alphabetic keys. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_alphabeticShortcut}.
-          @attr name android:android_alphabeticShortcut
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#alphabeticShortcut}.
+          @attr name android:alphabeticShortcut
         */
         public static final int MenuItem_android_alphabeticShortcut = 9;
         /**
           <p>
           @attr description
            Whether the item is capable of displaying a check mark. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_checkable}.
-          @attr name android:android_checkable
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#checkable}.
+          @attr name android:checkable
         */
         public static final int MenuItem_android_checkable = 11;
         /**
@@ -2702,16 +2711,18 @@ containing a value of this type.
           @attr description
            Whether the item is checked.  Note that you must first have enabled checking with
              the checkable attribute or else the check mark will not appear. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_checked}.
-          @attr name android:android_checked
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#checked}.
+          @attr name android:checked
         */
         public static final int MenuItem_android_checked = 3;
         /**
           <p>
           @attr description
            Whether the item is enabled. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_enabled}.
-          @attr name android:android_enabled
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#enabled}.
+          @attr name android:enabled
         */
         public static final int MenuItem_android_enabled = 1;
         /**
@@ -2719,16 +2730,18 @@ containing a value of this type.
           @attr description
            The icon associated with this item.  This icon will not always be shown, so
              the title should be sufficient in describing this item. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_icon}.
-          @attr name android:android_icon
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#icon}.
+          @attr name android:icon
         */
         public static final int MenuItem_android_icon = 0;
         /**
           <p>
           @attr description
            The ID of the item. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_id}.
-          @attr name android:android_id
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#id}.
+          @attr name android:id
         */
         public static final int MenuItem_android_id = 2;
         /**
@@ -2736,8 +2749,9 @@ containing a value of this type.
           @attr description
            The category applied to the item.
              (This will be or'ed with the orderInCategory attribute.) 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_menuCategory}.
-          @attr name android:android_menuCategory
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#menuCategory}.
+          @attr name android:menuCategory
         */
         public static final int MenuItem_android_menuCategory = 5;
         /**
@@ -2745,8 +2759,9 @@ containing a value of this type.
           @attr description
            The numeric shortcut key.  This is the shortcut when using a numeric (e.g., 12-key)
              keyboard. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_numericShortcut}.
-          @attr name android:android_numericShortcut
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#numericShortcut}.
+          @attr name android:numericShortcut
         */
         public static final int MenuItem_android_numericShortcut = 10;
         /**
@@ -2754,8 +2769,9 @@ containing a value of this type.
           @attr description
            Name of a method on the Context used to inflate the menu that will be
              called when the item is clicked. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_onClick}.
-          @attr name android:android_onClick
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#onClick}.
+          @attr name android:onClick
         */
         public static final int MenuItem_android_onClick = 12;
         /**
@@ -2763,16 +2779,18 @@ containing a value of this type.
           @attr description
            The order within the category applied to the item.
              (This will be or'ed with the category attribute.) 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_orderInCategory}.
-          @attr name android:android_orderInCategory
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#orderInCategory}.
+          @attr name android:orderInCategory
         */
         public static final int MenuItem_android_orderInCategory = 6;
         /**
           <p>
           @attr description
            The title associated with the item. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_title}.
-          @attr name android:android_title
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#title}.
+          @attr name android:title
         */
         public static final int MenuItem_android_title = 7;
         /**
@@ -2780,16 +2798,18 @@ containing a value of this type.
           @attr description
            The condensed title associated with the item.  This is used in situations where the
              normal title may be too long to be displayed. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_titleCondensed}.
-          @attr name android:android_titleCondensed
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#titleCondensed}.
+          @attr name android:titleCondensed
         */
         public static final int MenuItem_android_titleCondensed = 8;
         /**
           <p>
           @attr description
            Whether the item is shown/visible. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_visible}.
-          @attr name android:android_visible
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#visible}.
+          @attr name android:visible
         */
         public static final int MenuItem_android_visible = 4;
         /**
@@ -2820,7 +2840,7 @@ containing a value of this type.
                  larger segment of its container. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name android:showAsAction
+          @attr name com.myapps.playnation:showAsAction
         */
         public static final int MenuItem_showAsAction = 13;
         /** Attributes that can be used with a MenuView.
@@ -2829,14 +2849,14 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #MenuView_android_headerBackground com.myapps.playnation:android_headerBackground}</code></td><td> Default background for the menu header.</td></tr>
-           <tr><td><code>{@link #MenuView_android_horizontalDivider com.myapps.playnation:android_horizontalDivider}</code></td><td> Default horizontal divider between rows of menu items.</td></tr>
-           <tr><td><code>{@link #MenuView_android_itemBackground com.myapps.playnation:android_itemBackground}</code></td><td> Default background for each menu item.</td></tr>
-           <tr><td><code>{@link #MenuView_android_itemIconDisabledAlpha com.myapps.playnation:android_itemIconDisabledAlpha}</code></td><td> Default disabled icon alpha for each menu item that shows an icon.</td></tr>
-           <tr><td><code>{@link #MenuView_android_itemTextAppearance com.myapps.playnation:android_itemTextAppearance}</code></td><td> Default appearance of menu item text.</td></tr>
-           <tr><td><code>{@link #MenuView_android_preserveIconSpacing com.myapps.playnation:android_preserveIconSpacing}</code></td><td> Whether space should be reserved in layout when an icon is missing.</td></tr>
-           <tr><td><code>{@link #MenuView_android_verticalDivider com.myapps.playnation:android_verticalDivider}</code></td><td> Default vertical divider between menu items.</td></tr>
-           <tr><td><code>{@link #MenuView_android_windowAnimationStyle com.myapps.playnation:android_windowAnimationStyle}</code></td><td> Default animations for the menu.</td></tr>
+           <tr><td><code>{@link #MenuView_android_headerBackground android:headerBackground}</code></td><td> Default background for the menu header.</td></tr>
+           <tr><td><code>{@link #MenuView_android_horizontalDivider android:horizontalDivider}</code></td><td> Default horizontal divider between rows of menu items.</td></tr>
+           <tr><td><code>{@link #MenuView_android_itemBackground android:itemBackground}</code></td><td> Default background for each menu item.</td></tr>
+           <tr><td><code>{@link #MenuView_android_itemIconDisabledAlpha android:itemIconDisabledAlpha}</code></td><td> Default disabled icon alpha for each menu item that shows an icon.</td></tr>
+           <tr><td><code>{@link #MenuView_android_itemTextAppearance android:itemTextAppearance}</code></td><td> Default appearance of menu item text.</td></tr>
+           <tr><td><code>{@link #MenuView_android_preserveIconSpacing android:preserveIconSpacing}</code></td><td> Whether space should be reserved in layout when an icon is missing.</td></tr>
+           <tr><td><code>{@link #MenuView_android_verticalDivider android:verticalDivider}</code></td><td> Default vertical divider between menu items.</td></tr>
+           <tr><td><code>{@link #MenuView_android_windowAnimationStyle android:windowAnimationStyle}</code></td><td> Default animations for the menu.</td></tr>
            </table>
            @see #MenuView_android_headerBackground
            @see #MenuView_android_horizontalDivider
@@ -2855,40 +2875,45 @@ containing a value of this type.
           <p>
           @attr description
            Default background for the menu header. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_headerBackground}.
-          @attr name android:android_headerBackground
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#headerBackground}.
+          @attr name android:headerBackground
         */
         public static final int MenuView_android_headerBackground = 4;
         /**
           <p>
           @attr description
            Default horizontal divider between rows of menu items. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_horizontalDivider}.
-          @attr name android:android_horizontalDivider
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#horizontalDivider}.
+          @attr name android:horizontalDivider
         */
         public static final int MenuView_android_horizontalDivider = 2;
         /**
           <p>
           @attr description
            Default background for each menu item. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_itemBackground}.
-          @attr name android:android_itemBackground
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#itemBackground}.
+          @attr name android:itemBackground
         */
         public static final int MenuView_android_itemBackground = 5;
         /**
           <p>
           @attr description
            Default disabled icon alpha for each menu item that shows an icon. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_itemIconDisabledAlpha}.
-          @attr name android:android_itemIconDisabledAlpha
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#itemIconDisabledAlpha}.
+          @attr name android:itemIconDisabledAlpha
         */
         public static final int MenuView_android_itemIconDisabledAlpha = 6;
         /**
           <p>
           @attr description
            Default appearance of menu item text. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_itemTextAppearance}.
-          @attr name android:android_itemTextAppearance
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#itemTextAppearance}.
+          @attr name android:itemTextAppearance
         */
         public static final int MenuView_android_itemTextAppearance = 1;
         /**
@@ -2896,23 +2921,25 @@ containing a value of this type.
           @attr description
            Whether space should be reserved in layout when an icon is missing. 
           <p>This is a private symbol.
-          @attr name android:android_preserveIconSpacing
+          @attr name android:preserveIconSpacing
         */
         public static final int MenuView_android_preserveIconSpacing = 7;
         /**
           <p>
           @attr description
            Default vertical divider between menu items. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_verticalDivider}.
-          @attr name android:android_verticalDivider
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#verticalDivider}.
+          @attr name android:verticalDivider
         */
         public static final int MenuView_android_verticalDivider = 3;
         /**
           <p>
           @attr description
            Default animations for the menu. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_windowAnimationStyle}.
-          @attr name android:android_windowAnimationStyle
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#windowAnimationStyle}.
+          @attr name android:windowAnimationStyle
         */
         public static final int MenuView_android_windowAnimationStyle = 0;
         /** Attributes that can be used with a SearchView.
@@ -2921,9 +2948,9 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SearchView_android_imeOptions com.myapps.playnation:android_imeOptions}</code></td><td> The IME options to set on the query text field.</td></tr>
-           <tr><td><code>{@link #SearchView_android_inputType com.myapps.playnation:android_inputType}</code></td><td> The input type to set on the query text field.</td></tr>
-           <tr><td><code>{@link #SearchView_android_maxWidth com.myapps.playnation:android_maxWidth}</code></td><td> An optional maximum width of the SearchView.</td></tr>
+           <tr><td><code>{@link #SearchView_android_imeOptions android:imeOptions}</code></td><td> The IME options to set on the query text field.</td></tr>
+           <tr><td><code>{@link #SearchView_android_inputType android:inputType}</code></td><td> The input type to set on the query text field.</td></tr>
+           <tr><td><code>{@link #SearchView_android_maxWidth android:maxWidth}</code></td><td> An optional maximum width of the SearchView.</td></tr>
            <tr><td><code>{@link #SearchView_iconifiedByDefault com.myapps.playnation:iconifiedByDefault}</code></td><td> The default state of the SearchView.</td></tr>
            <tr><td><code>{@link #SearchView_queryHint com.myapps.playnation:queryHint}</code></td><td> An optional query hint string to be displayed in the empty query field.</td></tr>
            </table>
@@ -2941,24 +2968,27 @@ containing a value of this type.
           <p>
           @attr description
            The IME options to set on the query text field. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_imeOptions}.
-          @attr name android:android_imeOptions
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#imeOptions}.
+          @attr name android:imeOptions
         */
         public static final int SearchView_android_imeOptions = 2;
         /**
           <p>
           @attr description
            The input type to set on the query text field. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_inputType}.
-          @attr name android:android_inputType
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#inputType}.
+          @attr name android:inputType
         */
         public static final int SearchView_android_inputType = 1;
         /**
           <p>
           @attr description
            An optional maximum width of the SearchView. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_maxWidth}.
-          @attr name android:android_maxWidth
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#maxWidth}.
+          @attr name android:maxWidth
         */
         public static final int SearchView_android_maxWidth = 0;
         /**
@@ -2975,7 +3005,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:iconifiedByDefault
+          @attr name com.myapps.playnation:iconifiedByDefault
         */
         public static final int SearchView_iconifiedByDefault = 3;
         /**
@@ -2991,7 +3021,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:queryHint
+          @attr name com.myapps.playnation:queryHint
         */
         public static final int SearchView_queryHint = 4;
         /** Attributes that can be used with a Spinner.
@@ -3000,14 +3030,14 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #Spinner_android_dropDownHorizontalOffset com.myapps.playnation:android_dropDownHorizontalOffset}</code></td><td> Horizontal offset from the spinner widget for positioning the dropdown
+           <tr><td><code>{@link #Spinner_android_dropDownHorizontalOffset android:dropDownHorizontalOffset}</code></td><td> Horizontal offset from the spinner widget for positioning the dropdown
              in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #Spinner_android_dropDownSelector com.myapps.playnation:android_dropDownSelector}</code></td><td> List selector to use for spinnerMode="dropdown" display.</td></tr>
-           <tr><td><code>{@link #Spinner_android_dropDownVerticalOffset com.myapps.playnation:android_dropDownVerticalOffset}</code></td><td> Vertical offset from the spinner widget for positioning the dropdown in
+           <tr><td><code>{@link #Spinner_android_dropDownSelector android:dropDownSelector}</code></td><td> List selector to use for spinnerMode="dropdown" display.</td></tr>
+           <tr><td><code>{@link #Spinner_android_dropDownVerticalOffset android:dropDownVerticalOffset}</code></td><td> Vertical offset from the spinner widget for positioning the dropdown in
              spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #Spinner_android_dropDownWidth com.myapps.playnation:android_dropDownWidth}</code></td><td> Width of the dropdown in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #Spinner_android_gravity com.myapps.playnation:android_gravity}</code></td><td> Gravity setting for positioning the currently selected item.</td></tr>
-           <tr><td><code>{@link #Spinner_android_popupBackground com.myapps.playnation:android_popupBackground}</code></td><td> Background drawable to use for the dropdown in spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #Spinner_android_dropDownWidth android:dropDownWidth}</code></td><td> Width of the dropdown in spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #Spinner_android_gravity android:gravity}</code></td><td> Gravity setting for positioning the currently selected item.</td></tr>
+           <tr><td><code>{@link #Spinner_android_popupBackground android:popupBackground}</code></td><td> Background drawable to use for the dropdown in spinnerMode="dropdown".</td></tr>
            <tr><td><code>{@link #Spinner_disableChildrenWhenDisabled com.myapps.playnation:disableChildrenWhenDisabled}</code></td><td> Whether this spinner should mark child views as enabled/disabled when
              the spinner itself is enabled/disabled.</td></tr>
            <tr><td><code>{@link #Spinner_popupPromptView com.myapps.playnation:popupPromptView}</code></td><td> Reference to a layout to use for displaying a prompt in the dropdown for
@@ -3036,16 +3066,18 @@ containing a value of this type.
           @attr description
            Horizontal offset from the spinner widget for positioning the dropdown
              in spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_dropDownHorizontalOffset}.
-          @attr name android:android_dropDownHorizontalOffset
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#dropDownHorizontalOffset}.
+          @attr name android:dropDownHorizontalOffset
         */
         public static final int Spinner_android_dropDownHorizontalOffset = 4;
         /**
           <p>
           @attr description
            List selector to use for spinnerMode="dropdown" display. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_dropDownSelector}.
-          @attr name android:android_dropDownSelector
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#dropDownSelector}.
+          @attr name android:dropDownSelector
         */
         public static final int Spinner_android_dropDownSelector = 1;
         /**
@@ -3053,32 +3085,36 @@ containing a value of this type.
           @attr description
            Vertical offset from the spinner widget for positioning the dropdown in
              spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_dropDownVerticalOffset}.
-          @attr name android:android_dropDownVerticalOffset
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#dropDownVerticalOffset}.
+          @attr name android:dropDownVerticalOffset
         */
         public static final int Spinner_android_dropDownVerticalOffset = 5;
         /**
           <p>
           @attr description
            Width of the dropdown in spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_dropDownWidth}.
-          @attr name android:android_dropDownWidth
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#dropDownWidth}.
+          @attr name android:dropDownWidth
         */
         public static final int Spinner_android_dropDownWidth = 3;
         /**
           <p>
           @attr description
            Gravity setting for positioning the currently selected item. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_gravity}.
-          @attr name android:android_gravity
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#gravity}.
+          @attr name android:gravity
         */
         public static final int Spinner_android_gravity = 0;
         /**
           <p>
           @attr description
            Background drawable to use for the dropdown in spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_popupBackground}.
-          @attr name android:android_popupBackground
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#popupBackground}.
+          @attr name android:popupBackground
         */
         public static final int Spinner_android_popupBackground = 2;
         /**
@@ -3095,7 +3131,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:disableChildrenWhenDisabled
+          @attr name com.myapps.playnation:disableChildrenWhenDisabled
         */
         public static final int Spinner_disableChildrenWhenDisabled = 9;
         /**
@@ -3109,7 +3145,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:popupPromptView
+          @attr name com.myapps.playnation:popupPromptView
         */
         public static final int Spinner_popupPromptView = 8;
         /**
@@ -3121,7 +3157,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:prompt
+          @attr name com.myapps.playnation:prompt
         */
         public static final int Spinner_prompt = 6;
         /**
@@ -3141,7 +3177,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
                  anchored to the spinner widget itself. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name android:spinnerMode
+          @attr name com.myapps.playnation:spinnerMode
         */
         public static final int Spinner_spinnerMode = 7;
         /**  These are the standard attributes that make up a complete theme. 
@@ -3177,7 +3213,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:actionDropDownStyle
+          @attr name com.myapps.playnation:actionDropDownStyle
         */
         public static final int Theme_actionDropDownStyle = 0;
         /**
@@ -3195,7 +3231,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:dropdownListPreferredItemHeight
+          @attr name com.myapps.playnation:dropdownListPreferredItemHeight
         */
         public static final int Theme_dropdownListPreferredItemHeight = 1;
         /**
@@ -3207,7 +3243,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:listChoiceBackgroundIndicator
+          @attr name com.myapps.playnation:listChoiceBackgroundIndicator
         */
         public static final int Theme_listChoiceBackgroundIndicator = 5;
         /**
@@ -3219,7 +3255,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:panelMenuListTheme
+          @attr name com.myapps.playnation:panelMenuListTheme
         */
         public static final int Theme_panelMenuListTheme = 4;
         /**
@@ -3237,7 +3273,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:panelMenuListWidth
+          @attr name com.myapps.playnation:panelMenuListWidth
         */
         public static final int Theme_panelMenuListWidth = 3;
         /**
@@ -3249,7 +3285,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name android:popupMenuStyle
+          @attr name com.myapps.playnation:popupMenuStyle
         */
         public static final int Theme_popupMenuStyle = 2;
         /** Attributes that can be used with a View.
@@ -3258,7 +3294,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #View_android_focusable com.myapps.playnation:android_focusable}</code></td><td> Boolean that controls whether a view can take focus.</td></tr>
+           <tr><td><code>{@link #View_android_focusable android:focusable}</code></td><td> Boolean that controls whether a view can take focus.</td></tr>
            <tr><td><code>{@link #View_paddingEnd com.myapps.playnation:paddingEnd}</code></td><td> Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}.</td></tr>
            <tr><td><code>{@link #View_paddingStart com.myapps.playnation:paddingStart}</code></td><td> Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}.</td></tr>
            </table>
@@ -3278,8 +3314,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
              directly calling {@link android.view.View#requestFocus}, which will
              always request focus regardless of this view.  It only impacts where
              focus navigation will try to move focus. 
-          <p>This corresponds to the global attribute          resource symbol {@link com.myapps.playnation.R.attr#android_focusable}.
-          @attr name android:android_focusable
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#focusable}.
+          @attr name android:focusable
         */
         public static final int View_android_focusable = 0;
         /**
@@ -3297,7 +3334,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:paddingEnd
+          @attr name com.myapps.playnation:paddingEnd
         */
         public static final int View_paddingEnd = 2;
         /**
@@ -3315,7 +3352,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name android:paddingStart
+          @attr name com.myapps.playnation:paddingStart
         */
         public static final int View_paddingStart = 1;
     };

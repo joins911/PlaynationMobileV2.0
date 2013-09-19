@@ -1,23 +1,12 @@
 package com.myapps.playnation.Operations;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -31,16 +20,10 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -67,13 +50,13 @@ public class DataConnector {
 	HttpClient httpclient;
 	String url;
 	final String ServerIp = "85.17.176.83";
-	
+
 	private static JSONArray json;
 	private boolean connStatus = false;
 	private static ArrayList<Bundle> searchArray;
 	private static ArrayList<Bundle> arrayChildren = new ArrayList<Bundle>();
 	private Bundle currentPlayer;
-	
+
 	private MySQLinker sqlLinker;
 
 	public Bundle getCurrentPlayer() {
@@ -85,9 +68,10 @@ public class DataConnector {
 	}
 
 	private DataConnector() {
-		url = "http://playnation.eu/beta/hacks/";		
-		// url = "http://" + ServerIp + "/test/";	
+		url = "http://playnation.eu/beta/hacks/";
+		// url = "http://" + ServerIp + "/test/";
 	}
+
 	/**
 	 * Single ton pattern
 	 * 
@@ -99,16 +83,14 @@ public class DataConnector {
 		return inst;
 	}
 
-	public void setSQLLinker(Context con)
-	{
+	public void setSQLLinker(Context con) {
 		sqlLinker = new MySQLinker(con);
 	}
-	
-	public MySQLinker getLinker()
-	{
+
+	public MySQLinker getLinker() {
 		return sqlLinker;
 	}
-	
+
 	/**
 	 * Takes the data out of the JSON response and adds it to a Map for holding
 	 * until destroyed
@@ -120,7 +102,7 @@ public class DataConnector {
 	public void jsonToArray(JSONArray jsonArray, String table)
 			throws JSONException {
 		if (jsonArray != null && table.equals(Keys.gamesTable)) {
-			sqlLinker.addGames(jsonArray);		
+			sqlLinker.addGames(jsonArray);
 		} else if (jsonArray != null && table.equals(Keys.groupsTable)) {
 			sqlLinker.addGroups(jsonArray);
 		} else if (jsonArray != null && table.equals(Keys.newsTable)) {
@@ -130,8 +112,7 @@ public class DataConnector {
 		} else if (jsonArray != null && table.equals(Keys.companyTable)) {
 			sqlLinker.addCompany(jsonArray);
 		}
-	}	
-
+	}
 
 	/**
 	 * Gets the required Table from the DatabaseMAP
@@ -193,50 +174,50 @@ public class DataConnector {
 
 	public void getQuerry(String tableName) {
 		String result = "";
-			String temp = url;
-			url += getScriptString(tableName);
-			JSONArray jArray = null;
-			// http post
-			try {
-				httpclient = new DefaultHttpClient();
-				HttpPost httppost = new HttpPost(url);
-				HttpResponse response = httpclient.execute(httppost);
-				HttpEntity entity = response.getEntity();
-				is = entity.getContent();
+		String temp = url;
+		url += getScriptString(tableName);
+		JSONArray jArray = null;
+		// http post
+		try {
+			httpclient = new DefaultHttpClient();
+			HttpPost httppost = new HttpPost(url);
+			HttpResponse response = httpclient.execute(httppost);
+			HttpEntity entity = response.getEntity();
+			is = entity.getContent();
 
-			} catch (Exception e) {
-				Log.e("DataConnector ",
-						" getQuerry() Error in http connection " + e.toString());
+		} catch (Exception e) {
+			Log.e("DataConnector ", " getQuerry() Error in http connection "
+					+ e.toString());
+		}
+		// convert response to string
+		try {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					is, "iso-8859-1"), 8);
+			StringBuilder sb = new StringBuilder();
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				sb.append(line + "\n");
 			}
-			// convert response to string
-			try {
-				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(is, "iso-8859-1"), 8);
-				StringBuilder sb = new StringBuilder();
-				String line = null;
-				while ((line = reader.readLine()) != null) {
-					sb.append(line + "\n");
+			is.close();
+			result = sb.toString();
+
+		} catch (Exception e) {
+			Log.e("DataConnector ",
+					"getQuerry() Error converting result " + e.toString());
+		}
+
+		try {
+			if (result != null) {
+				if (result.endsWith("]")) {
+					jArray = new JSONArray(result);
+					jsonToArray(jArray, tableName);
 				}
-				is.close();
-				result = sb.toString();
-
-			} catch (Exception e) {
-				Log.e("DataConnector ", "getQuerry() Error converting result "
-						+ e.toString());
 			}
-
-			try {
-				if (result != null) {
-					if (result.endsWith("]")) {
-						jArray = new JSONArray(result);
-						jsonToArray(jArray, tableName);
-					}
-				}
-			} catch (JSONException e) {
-				Log.e("DataConnector " + tableName + " ", "Error parsing data "
-						+ e.toString());
-			}
-			url = temp;		
+		} catch (JSONException e) {
+			Log.e("DataConnector " + tableName + " ",
+					"Error parsing data " + e.toString());
+		}
+		url = temp;
 	}
 
 	public JSONArray getArrayFromQuerryWithPostVariable(String id,
@@ -292,45 +273,49 @@ public class DataConnector {
 	}
 
 	public void queryPlayerEvents(String playerID) {
-	
+
 		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
 				Keys.HomeEventTable, "0", sqlLinker.getLastHomeIDEvents());
-		sqlLinker.insertPEvents(json,playerID);
+		sqlLinker.insertPEvents(json, playerID);
 	}
 
 	public void queryPlayerFriends(String playerID) {
 		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
 				Keys.HomeFriendsTable, "0", 0);
-		sqlLinker.insertPFriends(json,playerID);
+		sqlLinker.insertPFriends(json, playerID);
 		// sql.close();
 	}
 
 	public String queryNewImageURL(String ids, String ownerType,
 			String mainTable) {
-		
+
 		JSONArray json = getArrayFromQuerryWithPostVariable(ids, "newImageUrl",
-				ownerType, 0);		
-		return sqlLinker.insertNewImgURL(json,mainTable,ids);
-		
+				ownerType, 0);
+		return sqlLinker.insertNewImgURL(json, mainTable, ids);
+
 	}
-	
+
 	public void queryWhoIsPlaying(String playerID) {
-		
+
 		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
 				Keys.whoIsPlayingTable, "0", 0);
-		sqlLinker.insertWhoIsPlaying(json,playerID);
+		sqlLinker.insertWhoIsPlaying(json, playerID);
 	}
 
 	public void functionQuery(String ID_PLAYER, String Another, String phpName,
 			String action, String Comments) {
-		String result = "http://" + ServerIp + "/test/";
-		 String temp = result;
+
+		SQLiteDatabase sql = sqlLinker.getReadableDatabase();
+		sql = sqlLinker.getReadableDatabase();
+		String temp = url;
 		if (phpName.startsWith("game")) {
-			temp += "gameFuncion.php";
+			url += "gameFunction.php";
 		} else if (phpName.startsWith("group")) {
-			temp += "groupFuncion.php";
+			url += "groupFunction.php";
 		} else if (phpName.startsWith("friend")) {
-			temp += "friendFuncions.php";
+			url += "friendFunctions.php";
+		} else if (phpName.startsWith("company")) {
+			url += "companyFunctions.php";
 		}
 
 		// http post
@@ -338,44 +323,92 @@ public class DataConnector {
 			httpclient = new DefaultHttpClient();
 			HttpPost httppost = new HttpPost(temp);
 			List<NameValuePair> pairs = new ArrayList<NameValuePair>();
-			// url = temp;
+			url = temp;
 			pairs.add(new BasicNameValuePair("function", action));
 			pairs.add(new BasicNameValuePair("ID_PLAYER", ID_PLAYER));
 			if (phpName.startsWith("game")) {
 				pairs.add(new BasicNameValuePair("ID_GAME", Another));
 				pairs.add(new BasicNameValuePair("Comments", Comments));
+				ContentValues values = new ContentValues();
+				if (action.equals(Keys.POSTFUNCOMMANTAddGame)) {
+					values.put(Keys.GameisPlaying, "1");
+					sql.updateWithOnConflict(Keys.gamesTable, values,
+							Keys.ID_GAME + "=" + Another, null,
+							SQLiteDatabase.CONFLICT_REPLACE);
+				} else if (action.equals(Keys.POSTFUNCOMMANTLike)) {
+					values.put(Keys.GameIsLiked, "1");
+					sql.updateWithOnConflict(Keys.gamesTable, values,
+							Keys.ID_GAME + "=" + Another, null,
+							SQLiteDatabase.CONFLICT_REPLACE);
+				} else {
+					values.put(Keys.GameIsLiked, "-1");
+					sql.updateWithOnConflict(Keys.gamesTable, values,
+							Keys.ID_GAME + "=" + Another, null,
+							SQLiteDatabase.CONFLICT_REPLACE);
+				}
 			} else if (phpName.startsWith("group")) {
 				pairs.add(new BasicNameValuePair("ID_GROUP", Another));
 				pairs.add(new BasicNameValuePair("Comments", Comments));
+				ContentValues values = new ContentValues();
+				if (action.equals(Keys.POSTFUNCOMMANTSendPerson)) {
+					values.put(Keys.isMember, "1");
+					sql.updateWithOnConflict(Keys.groupsTable, values,
+							Keys.ID_GROUP + "=" + Another, null,
+							SQLiteDatabase.CONFLICT_REPLACE);
+				} else if (action.equals(Keys.POSTFUNCOMMANTLike)) {
+					values.put(Keys.GameIsLiked, "1");
+					sql.updateWithOnConflict(Keys.groupsTable, values,
+							Keys.ID_GROUP + "=" + Another, null,
+							SQLiteDatabase.CONFLICT_REPLACE);
+				} else {
+					values.put(Keys.GameIsLiked, "-1");
+					sql.updateWithOnConflict(Keys.groupsTable, values,
+							Keys.ID_GROUP + "=" + Another, null,
+							SQLiteDatabase.CONFLICT_REPLACE);
+				}
 			} else if (phpName.startsWith("friend")) {
 				pairs.add(new BasicNameValuePair("ID_FRIEND", Another));
+			} else if (phpName.startsWith("company")) {
+				pairs.add(new BasicNameValuePair(Keys.EventID_COMPANY, Another));
+				ContentValues values = new ContentValues();
+				if (action.equals(Keys.POSTFUNCOMMANTLike)) {
+					values.put(Keys.GameIsLiked, "1");
+					sql.updateWithOnConflict(Keys.companyTable, values,
+							Keys.EventID_COMPANY + "=" + Another, null,
+							SQLiteDatabase.CONFLICT_REPLACE);
+				} else {
+					values.put(Keys.GameIsLiked, "-1");
+					sql.updateWithOnConflict(Keys.companyTable, values,
+							Keys.EventID_COMPANY + "=" + Another, null,
+							SQLiteDatabase.CONFLICT_REPLACE);
+				}
 			}
 
 			httppost.setEntity(new UrlEncodedFormEntity(pairs));
 			HttpResponse response = httpclient.execute(httppost);
-			HttpEntity entity = response.getEntity();
+			response.getEntity();
 		} catch (Exception e) {
 			Log.e("log_tag HTML Conn",
 					"Error in functionQuery http connection " + e.toString());
 		}
 	}
 
-	public void queryPlayerGames(String playerID) {		
+	public void queryPlayerGames(String playerID) {
 		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
-				Keys.HomeGamesTable, "0", 0);		
-		sqlLinker.insertPGames(json,playerID);
+				Keys.HomeGamesTable, "0", 0);
+		sqlLinker.insertPGames(json, playerID);
 	}
 
-	public void queryPlayerGroup(String playerID) {		
+	public void queryPlayerGroup(String playerID) {
 		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
 				Keys.HomeGroupTable, "0", 0);
-		sqlLinker.insertPGroups(json,playerID);
+		sqlLinker.insertPGroups(json, playerID);
 	}
 
-	public void queryPlayerMessages(String playerID) {		
+	public void queryPlayerMessages(String playerID) {
 		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
-				Keys.HomeMsgTable, "0", sqlLinker.getLastIDHomeMSg());		
-		sqlLinker.insertPMessages(json,playerID);
+				Keys.HomeMsgTable, "0", sqlLinker.getLastIDHomeMSg());
+		sqlLinker.insertPMessages(json, playerID);
 	}
 
 	public void queryMiniIds() {
@@ -386,46 +419,48 @@ public class DataConnector {
 		if (json != null)
 			for (int i = 0; i < json.length(); i++) {
 				try {
-					sqlLinker.setMinNewsID(json.getJSONObject(i).getInt(Keys.newsTable));
+					sqlLinker.setMinNewsID(json.getJSONObject(i).getInt(
+							Keys.newsTable));
 					sqlLinker.setMinCompanyID(json.getJSONObject(i).getInt(
 							Keys.companyTable));
-					sqlLinker.setMinGameID(json.getJSONObject(i).getInt(Keys.gamesTable));
-					sqlLinker.setMinGroupID(json.getJSONObject(i)
-							.getInt(Keys.groupsTable));
+					sqlLinker.setMinGameID(json.getJSONObject(i).getInt(
+							Keys.gamesTable));
+					sqlLinker.setMinGroupID(json.getJSONObject(i).getInt(
+							Keys.groupsTable));
 				} catch (Exception e) {
 				}
 			}
 	}
 
-	public void queryPlayerSubscription(String playerID) {		
+	public void queryPlayerSubscription(String playerID) {
 		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
-				Keys.HomeSubscriptionTable, "0", sqlLinker.getLastIDHomeSubs());		
+				Keys.HomeSubscriptionTable, "0", sqlLinker.getLastIDHomeSubs());
 		sqlLinker.insertPSubscription(json, playerID);
 	}
 
 	public void queryPlayerWall(String playerID, String ownerType) {
 		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
 				Keys.HomeWallTable, ownerType, 0);
-		sqlLinker.insertPWall(json,playerID);
+		sqlLinker.insertPWall(json, playerID);
 	}
 
 	public void queryPlayerWallReplices(String wallitem, String playerID) {
 		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
 				Keys.HomeWallRepliesTable, wallitem, 0);
-		sqlLinker.insertPWallReplies(json,playerID);
+		sqlLinker.insertPWallReplies(json, playerID);
 	}
 
 	public void queryPlayerMSGReplices(String wallitem, String playerID) {
-		
+
 		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
 				Keys.HomeMsgRepliesTable, wallitem, 0);
-		sqlLinker.insertPMessagesReplies(json,playerID,wallitem);
+		sqlLinker.insertPMessagesReplies(json, playerID, wallitem);
 	}
 
-	public void queryPlayerInfo(String playerID) {		
-		JSONArray json = getArrayFromQuerryWithPostVariable(playerID, Keys.PlayerTable,
-				"0", 0);
-		sqlLinker.insertPlayerInfo(json,playerID);
+	public void queryPlayerInfo(String playerID) {
+		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
+				Keys.PlayerTable, "0", 0);
+		sqlLinker.insertPlayerInfo(json, playerID);
 	}
 
 	public View populatePlayerGeneralInfo(View v, String nameT, String playerID) {
@@ -509,7 +544,8 @@ public class DataConnector {
 	public ArrayList<UserComment> getComments(String ownerId, String ownerType) {
 		queryPlayerWall(ownerId, ownerType);
 		ArrayList<UserComment> comments = new ArrayList<UserComment>();
-		ArrayList<Bundle> list = sqlLinker.getSQLitePWall(Keys.HomeWallTable, ownerId);		
+		ArrayList<Bundle> list = sqlLinker.getSQLitePWall(Keys.HomeWallTable,
+				ownerId);
 		for (Bundle bundle : list) {
 			String date = HelperClass.convertTime(
 					Integer.parseInt(bundle.getString(Keys.WallPostingTime)),
@@ -522,7 +558,7 @@ public class DataConnector {
 		}
 		return comments;
 	}
-	
+
 	/**
 	 * 
 	 * @param msg
@@ -580,24 +616,31 @@ public class DataConnector {
 				try {
 					Bundle map = new Bundle();
 					map.putString(Keys.ID_PLAYER, json.getJSONObject(i)
-							.getString(Keys.ID_PLAYER));
+							.optString(Keys.ID_PLAYER));
 					map.putString(Keys.CITY,
-							json.getJSONObject(i).getString(Keys.CITY));
+							json.getJSONObject(i).optString(Keys.CITY));
 					map.putString(Keys.COUNTRY, json.getJSONObject(i)
-							.getString(Keys.COUNTRY));
+							.optString(Keys.COUNTRY));
 					map.putString(Keys.PLAYERNICKNAME, json.getJSONObject(i)
-							.getString(Keys.PLAYERNICKNAME));
+							.optString(Keys.PLAYERNICKNAME));
 					map.putString(Keys.Email,
-							json.getJSONObject(i).getString(Keys.Email));
+							json.getJSONObject(i).optString(Keys.Email));
 					map.putString(Keys.PLAYERAVATAR, json.getJSONObject(i)
-							.getString(Keys.PLAYERAVATAR));
+							.optString(Keys.PLAYERAVATAR));
 					map.putString(Keys.FirstName, json.getJSONObject(i)
-							.getString(Keys.FirstName));
+							.optString(Keys.FirstName));
 					map.putString(Keys.LastName, json.getJSONObject(i)
-							.getString(Keys.LastName));
-					
+							.optString(Keys.LastName));
+					map.putString(Keys.Mutual,
+							json.getJSONObject(i).optString(Keys.Mutual));
 					map.putString(Keys.Age,
-							json.getJSONObject(i).getString(Keys.Age));
+							json.getJSONObject(i).optString(Keys.Age));
+					// Not sure before was needed
+					String firstName = json.getJSONObject(i).optString(
+							Keys.FirstName);
+					String lastName = json.getJSONObject(i).optString(
+							Keys.LastName);
+					map.putString(Keys.PLAYERNAME, firstName + "," + lastName);
 
 					searchArray.add(map);
 				} catch (Exception e) {
@@ -618,7 +661,8 @@ public class DataConnector {
 		if (json != null) {
 			for (int i = 0; i < json.length(); i++) {
 				try {
-					notifications.add(BundleBuilder.putNotificInBundle(json.getJSONObject(i)));
+					notifications.add(BundleBuilder.putNotificInBundle(json
+							.getJSONObject(i)));
 				} catch (Exception e) {
 					Log.e("Fetching queryNotification",
 							"Error queryNotification" + e);
@@ -682,7 +726,7 @@ public class DataConnector {
 	public boolean checkLogin(String email, String pass, SharedPreferences pref) {
 		String result = "";
 		String temp = url;
-        temp =temp+ "chekRegisterLogin.php";
+		temp = temp + "chekRegisterLogin.php";
 		HttpEntity entity = null;
 		JSONArray jArray = null;
 		boolean results = false;
@@ -696,7 +740,7 @@ public class DataConnector {
 			pairs.add(new BasicNameValuePair("LastName", ""));
 			pairs.add(new BasicNameValuePair("password", pass));
 			pairs.add(new BasicNameValuePair("email", email));
-			Log.e("DataCon","checkLogin "+temp);
+			Log.e("DataCon", "checkLogin " + temp);
 			httppost.setEntity(new UrlEncodedFormEntity(pairs));
 			HttpResponse response = httpclient.execute(httppost);
 			entity = response.getEntity();
@@ -720,8 +764,8 @@ public class DataConnector {
 
 		if (jArray != null) {
 			try {
-				Configurations.CurrentPlayerID = Keys.TEMPLAYERID = jArray.getJSONObject(0).getString(
-						Keys.ID_PLAYER);
+				Configurations.CurrentPlayerID = Keys.TEMPLAYERID = jArray
+						.getJSONObject(0).getString(Keys.ID_PLAYER);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
@@ -738,5 +782,4 @@ public class DataConnector {
 		return results;
 	}
 
-	
 }
