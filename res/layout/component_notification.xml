@@ -1,30 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content" >
-  <TextView
-    android:id="@+id/txtNotificationMsg"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:text="Large Text"
-    android:textAppearance="?android:attr/textAppearanceLarge" />
-    <Button
-      android:id="@+id/btnNotDecline"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/txtNotificationMsg"
-      android:layout_alignParentRight="true"
-      android:text="@string/btnDecline" />
-  
-  <Button
-    android:id="@+id/btnNotAccept"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/txtNotificationMsg"
-    android:layout_toLeftOf="@id/btnNotDecline"
-    android:text="@string/btnAccept" />
-
-
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content" >
+	<TextView
+		android:id="@+id/txtNotificationMsg"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentTop="true"
+		android:text="Large Text"
+		android:textAppearance="?android:attr/textAppearanceSmall" />
+	<Button
+		android:id="@+id/btnNotDecline"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_below="@+id/txtNotificationDate"
+		android:text="@string/btnDecline" />
+	<Button
+		android:id="@+id/btnNotAccept"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/txtNotificationDate"
+		android:layout_toLeftOf="@id/btnNotDecline"
+		android:text="@string/btnAccept" />
+	<TextView
+		android:id="@+id/txtNotificationDate"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/txtNotificationMsgCon"
+		android:gravity="right"
+		android:text="TextView" />
+	<TextView
+		android:id="@+id/txtNotificationMsgCon"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/txtNotificationMsg"
+		android:layout_marginLeft="10dp"
+		android:text="Small Text"
+		android:textAppearance="?android:attr/textAppearanceSmall" />
 </RelativeLayout>

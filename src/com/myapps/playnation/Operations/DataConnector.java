@@ -50,6 +50,7 @@ public class DataConnector {
 	HttpClient httpclient;
 	String url;
 	final String ServerIp = "85.17.176.83";
+	// final String ServerIp = "10.0.2.2";
 
 	private static JSONArray json;
 	private boolean connStatus = false;
@@ -150,6 +151,8 @@ public class DataConnector {
 			return sqlLinker.getSQLitePMsgReplies(tableName, sepateID);
 		} else if (tableName.equals(Keys.whoIsPlayingTable)) {
 			return sqlLinker.getSQLiteWhoIsPlaying(tableName, sepateID);
+		} else if (tableName.equals(Keys.HomeNotificationTable)) {
+			return sqlLinker.getSQLiteNotification(tableName, sepateID);
 		}
 		return null;
 	}
@@ -652,24 +655,10 @@ public class DataConnector {
 			return null;
 	}
 
-	public ArrayList<Bundle> queryNotification(String PlayerID) {
-		ArrayList<Bundle> notifications = new ArrayList<Bundle>();
+	public void queryNotification(String PlayerID) {
 		JSONArray json = getArrayFromQuerryWithPostVariable(PlayerID,
 				Keys.HomeNotificationTable, "", 0);
-
-		// // Print the data to the console
-		if (json != null) {
-			for (int i = 0; i < json.length(); i++) {
-				try {
-					notifications.add(BundleBuilder.putNotificInBundle(json
-							.getJSONObject(i)));
-				} catch (Exception e) {
-					Log.e("Fetching queryNotification",
-							"Error queryNotification" + e);
-				}
-			}
-		}
-		return notifications;
+		sqlLinker.insertPNotification(json, PlayerID);
 	}
 
 	public boolean registerPlayerMobileQuery(String nickname, EditText email,

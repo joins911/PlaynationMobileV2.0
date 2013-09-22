@@ -16,31 +16,9 @@
 
 package com.myapps.playnation.main;
 
-import java.security.spec.MGF1ParameterSpec;
 import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Timer;
-
-import com.myapps.playnation.R;
-import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Classes.Menu.MainMenuAdapter;
-import com.myapps.playnation.Classes.Menu.MyMenuItem;
-import com.myapps.playnation.Classes.Menu.SubMenuItem;
-import com.myapps.playnation.Fragments.BaseFragment;
-import com.myapps.playnation.Fragments.HeaderFragment;
-import com.myapps.playnation.Fragments.WrapperFragment;
-import com.myapps.playnation.Fragments.Lists.ListsFragment;
-import com.myapps.playnation.Fragments.Main.MessagesFragment;
-import com.myapps.playnation.Fragments.Tabs.Home.HomeWallFragment;
-import com.myapps.playnation.Fragments.Tabs.Home.XHomeMessagesFragment;
-import com.myapps.playnation.Operations.BackTimer;
-import com.myapps.playnation.Operations.Configurations;
-import com.myapps.playnation.Operations.DataConnector;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.SearchManager;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -55,20 +33,26 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.SearchView.OnQueryTextListener;
 import android.util.Log;
-import android.view.Display;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Toast;
+
+import com.myapps.playnation.R;
+import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.Classes.Menu.MainMenuAdapter;
+import com.myapps.playnation.Classes.Menu.MyMenuItem;
+import com.myapps.playnation.Fragments.BaseFragment;
+import com.myapps.playnation.Fragments.HeaderFragment;
+import com.myapps.playnation.Fragments.WrapperFragment;
+import com.myapps.playnation.Fragments.Tabs.Home.HomeWallFragment;
+import com.myapps.playnation.Fragments.Tabs.Home.XHomeMessagesFragment;
+import com.myapps.playnation.Fragments.Tabs.Home.XHomeNotificationFragment;
+import com.myapps.playnation.Operations.BackTimer;
+import com.myapps.playnation.Operations.Configurations;
+import com.myapps.playnation.Operations.DataConnector;
 
 public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	private DrawerLayout mDrawerLayout;
@@ -102,7 +86,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		// set a custom shadow that overlays the main content when the drawer
 		// opens
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
-		 GravityCompat.START);
+				GravityCompat.START);
 		// set up the drawer's list view with items and click listener
 		MainMenuAdapter mMenuAdapter = new MainMenuAdapter(
 				getApplicationContext(), buildMenu());
@@ -157,7 +141,8 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		String[] topArr = { "header" };
 		mGamesTitles = con.getLinker().getMyGames("12");
 		mGroupsTitles = con.getLinker().getMyGroups("12");
-		String showMore= getApplicationContext().getResources().getString(R.string.showMore);
+		String showMore = getApplicationContext().getResources().getString(
+				R.string.showMore);
 		mGamesTitles.add(showMore);
 		mGroupsTitles.add(showMore);
 
@@ -204,7 +189,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		getSupportActionBar().setTitle("Playnation Mobile");
 		getSupportActionBar().setBackgroundDrawable(
 				getResources().getDrawable(R.color.background_gradient));
-		con = DataConnector.getInst();		
+		con = DataConnector.getInst();
 		Log.i("MainActiv", "intent.getInt() = "
 				+ getIntent().getExtras().getInt(Keys.AppState));
 		isTablet = getResources().getBoolean(R.bool.isTablet);
@@ -281,14 +266,13 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	@Override
 	public void onBackPressed() {
 		if (currFragment instanceof BrowserFragment) {
-			if (!((BrowserFragment) currFragment).onBackButtonPressed())				
+			if (!((BrowserFragment) currFragment).onBackButtonPressed())
 				finishActivity();
-		}
-		else finishActivity();
+		} else
+			finishActivity();
 	}
-	
-	private void finishActivity()
-	{
+
+	private void finishActivity() {
 		if (!mBackTimer.canBack()) {
 			mBackTimer.setTimer(2);
 			Toast.makeText(getApplicationContext(), "Press back again to exit",
@@ -365,6 +349,9 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		case MessagesPage:
 			initMessages();
 			break;
+		case NotificationPage:
+			initNotification();
+			break;
 		}
 		setTitle(mPagesTitles[childPos]);
 	}
@@ -417,6 +404,14 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		putOnTop(temp);
 	}
 
+	private void initNotification() {
+		XHomeNotificationFragment temp = new XHomeNotificationFragment();
+		Bundle args = new Bundle();
+		args.putInt(Keys.ARG_POSITION, 3);
+		temp.setArguments(args);
+		putOnTop(temp);
+	}
+
 	private void initGamesPage() {
 		WrapperFragment frag = new WrapperFragment();
 		Bundle args = new Bundle();
@@ -430,8 +425,8 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		HeaderFragment temp = new HeaderFragment();
 		Bundle args = new Bundle();
 		args.putInt(Keys.ARG_POSITION, Configurations.GamesSTATE);
-		args.putAll(con.getLinker().getItem("'" + mGamesTitles.get(childPos) + "'",
-				Keys.gamesTable));
+		args.putAll(con.getLinker().getItem(
+				"'" + mGamesTitles.get(childPos) + "'", Keys.gamesTable));
 		// args.putAll();
 		temp.setArguments(args);
 		putOnTop(temp);
@@ -470,9 +465,10 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	private final int HomePage = 0;
 	private final int WallPage = 1;
 	private final int MessagesPage = 2;
+	private final int NotificationPage = 3;
 	// private final int mEventsPage = 3;
 	// private final int mMediaPage =4;
-	//private final int mHeaderMenu = 0;
+	// private final int mHeaderMenu = 0;
 	private final int mMainMenu = 1;
 	private final int mGamesMenu = 2;
 	private final int mGroupsMenu = 3;
