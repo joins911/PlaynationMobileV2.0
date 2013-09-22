@@ -19,10 +19,19 @@ import com.myapps.playnation.Classes.Keys;
 public class MySQLinker extends SQLinker {
 
 	private static String DATABASE_NAME = "playnation.db";
-	private static int DATABASE_VERSION = 1;
+	private static int DATABASE_VERSION = 3;
 
 	public MySQLinker(Context con) {
 		super(con, DATABASE_NAME, DATABASE_VERSION);
+	}
+
+	public void updateRecord(String table, String condition, String key,
+			String value) {
+		SQLiteDatabase sql = this.getReadableDatabase();
+		ContentValues values = new ContentValues();
+		values.put(key, value);
+		sql.updateWithOnConflict(table, values, condition, null,
+				SQLiteDatabase.CONFLICT_REPLACE);
 	}
 
 	public Bundle getItem(String itemName, String tableName) {
@@ -89,40 +98,6 @@ public class MySQLinker extends SQLinker {
 			cursor.close();
 		}
 		return list;
-	}
-
-	public void writeTempNewsTab(String id_game, String gameType, JSONArray json) {
-		SQLiteDatabase sql = this.getWritableDatabase();
-
-		if (json != null) {
-			for (int i = 0; i < json.length(); i++) {
-				try {
-					String id = json.getJSONObject(i).getString(
-							Keys.NEWSCOLID_NEWS);
-					if (gameType.toLowerCase().equals("game")) {
-						if (!checkRowExist(Keys.newsTempTable, id, id_game)) {
-							ContentValues temp = ContentVBuilder
-									.putTempNewsInContentV(
-											json.getJSONObject(i), id, id_game);
-							sql.insertWithOnConflict(Keys.newsTempTable, null,
-									temp, SQLiteDatabase.CONFLICT_REPLACE);
-
-						}
-					} else {
-						if (!checkRowExist(Keys.companyTempTable, id, id_game)) {
-							ContentValues temp = ContentVBuilder
-									.putTempNewsInContentV(
-											json.getJSONObject(i), id, id_game);
-							sql.insertWithOnConflict(Keys.companyTempTable,
-									null, temp, SQLiteDatabase.CONFLICT_REPLACE);
-						}
-					}
-				} catch (Exception e) {
-					Log.e("Fetching writeTempNewsTab", "Error writeTempNewsTab"
-							+ e);
-				}
-			}
-		}
 	}
 
 	public void addGames(JSONArray jsonArray) throws JSONException {
@@ -228,12 +203,13 @@ public class MySQLinker extends SQLinker {
 		SQLiteDatabase sql = null;
 		Cursor cursor = null;
 		String selectQuery = "";
+
 		if (gameType.equals("game")) {
-			selectQuery = "Select * from " + Keys.newsTempTable
-					+ " Where ID_GAME=" + id;
+			selectQuery = "Select * from " + Keys.newsTable + " Where ID_GAME="
+					+ id + " and OwnerType='game';";
 		} else {
-			selectQuery = "Select * from " + Keys.companyTempTable
-					+ " Where ID_GAME=" + id + "";
+			selectQuery = "Select * from " + Keys.newsTable
+					+ " Where ID_COMPANY=" + id + " and OwnerType='company';";
 		}
 
 		sql = getReadableDatabase();
@@ -246,6 +222,7 @@ public class MySQLinker extends SQLinker {
 					Bundle bundle = BundleBuilder.putTempNewsInBundle(cursor);
 					bundle.putString(Keys.ID_OWNER, cursor.getString(cursor
 							.getColumnIndex(Keys.ID_OWNER)));
+
 					arrayList.add(bundle);
 				} while (cursor.moveToNext());
 			}
@@ -387,6 +364,26 @@ public class MySQLinker extends SQLinker {
 					Bundle bundle = BundleBuilder.putPlayerInBundle(cursor);
 					bundle.putString(Keys.ID_GAME, cursor.getString(cursor
 							.getColumnIndex(Keys.ID_GAME)));
+					list.add(bundle);
+				} while (cursor.moveToNext());
+			}
+			cursor.close();
+		}
+		return list;
+	}
+
+	public ArrayList<Bundle> getSQLiteNotification(String tableName,
+			String iD_Game) {
+		ArrayList<Bundle> list = new ArrayList<Bundle>();
+		String selectQuery = HelperClass.sqliteQueryStrings(tableName, iD_Game,
+				"", 0 + "");
+		SQLiteDatabase sql = getReadableDatabase();
+		Cursor cursor = sql.rawQuery(selectQuery, null);
+		if (cursor != null) {
+			cursor.moveToFirst();
+			if (!cursor.isAfterLast()) {
+				do {
+					Bundle bundle = BundleBuilder.putNotificInBundle(cursor);
 					list.add(bundle);
 				} while (cursor.moveToNext());
 			}
@@ -682,6 +679,25 @@ public class MySQLinker extends SQLinker {
 			}
 	}
 
+	public void insertPNotification(JSONArray json, String playerID) {
+		SQLiteDatabase sql = this.getWritableDatabase();
+		if (json != null)
+			for (int i = 0; i < json.length(); i++) {
+				try {
+					String ID = json.getJSONObject(i).getInt(Keys.ID_PLAYER)
+							+ "";
+					if (!checkRowExist(Keys.HomeNotificationTable, ID, playerID)) {
+						ContentValues m = ContentVBuilder
+								.putPNotificationContentV(json.getJSONObject(i));
+						sql.insertWithOnConflict(Keys.HomeNotificationTable,
+								null, m, SQLiteDatabase.CONFLICT_REPLACE);
+					}
+				} catch (Exception e) {
+					Log.e("Fetching Notification", "Error Notification" + e);
+				}
+			}
+	}
+
 	public void insertPGroups(JSONArray json, String playerID) {
 		SQLiteDatabase sql = this.getWritableDatabase();
 		if (json != null)
@@ -870,12 +886,24 @@ public class MySQLinker extends SQLinker {
 		String cREATE_PWall = "CREATE TABLE " + Keys.HomeWallTable + " ("
 				+ Keys.ID_WALLITEM + " INTEGER PRIMARY KEY, "
 				+ Keys.WallPosterDisplayName + " TEXT, " + Keys.ID_OWNER
-				+ " INTEGER, " + Keys.ItemType + " TEXT, "
+				+ " TEXT, " + Keys.ItemType + " TEXT, "
 				+ Keys.WallLastActivityTime + " TEXT, " + Keys.WallMessage
 				+ " TEXT, " + Keys.WallOwnerType + " TEXT, "
 				+ Keys.PLAYERAVATAR + " TEXT, " + Keys.WallPostingTime
 				+ " TEXT" + ");";
 		db.execSQL(cREATE_PWall);
+
+		String cREATE_PNotification = "CREATE TABLE "
+				+ Keys.HomeNotificationTable + " (" + Keys.ID_NOTIFICATION
+				+ " INTEGER PRIMARY KEY, " + Keys.NotificationID_FROM
+				+ " TEXT, " + Keys.ID_PLAYER + " TEXT, "
+				+ Keys.NotificationType + " TEXT, " + Keys.NotificationTime
+				+ " TEXT, " + Keys.NotificationFromType + " TEXT, "
+				+ Keys.NotificationisRead + " TEXT, " + Keys.GAMENAME
+				+ " TEXT, " + Keys.GROUPNAME + " TEXT, " + Keys.CompanyName
+				+ " TEXT, " + Keys.PLAYERNICKNAME + " TEXT, "
+				+ Keys.NotificationPlayerCount + " TEXT" + ");";
+		db.execSQL(cREATE_PNotification);
 
 		String cREATE_gamesTable = "CREATE TABLE " + Keys.gamesTable + " ("
 				+ Keys.ID_GAME + " INTEGER PRIMARY KEY, " + Keys.GAMENAME
@@ -918,30 +946,13 @@ public class MySQLinker extends SQLinker {
 
 		String cREATE_newsTable = "CREATE TABLE " + Keys.newsTable + " ("
 				+ Keys.NEWSCOLID_NEWS + " INTEGER PRIMARY KEY," + Keys.ID_GAME
-				+ " TEXT," + Keys.ID_OWNER + " TEXT," + Keys.OWNERTYPE
-				+ " TEXT," + Keys.NEWSCOLNEWSTEXT + " TEXT,"
-				+ Keys.NEWSCOLINTROTEXT + " TEXT," + Keys.NEWSCOLPOSTINGTIME
-				+ " TEXT," + Keys.NEWSCOLHEADLINE + " TEXT,"
-				+ Keys.NEWSCOLIMAGE + " TEXT," + Keys.Author + " TEXT);";
+				+ " TEXT," + Keys.EventID_COMPANY + " TEXT," + Keys.ID_OWNER
+				+ " TEXT," + Keys.OWNERTYPE + " TEXT," + Keys.NEWSCOLNEWSTEXT
+				+ " TEXT," + Keys.NEWSCOLINTROTEXT + " TEXT,"
+				+ Keys.NEWSCOLPOSTINGTIME + " TEXT," + Keys.NEWSCOLHEADLINE
+				+ " TEXT," + Keys.NEWSCOLIMAGE + " TEXT," + Keys.Author
+				+ " TEXT);";
 		db.execSQL(cREATE_newsTable);
-
-		String cREATE_newsTempTable = "CREATE TABLE " + Keys.newsTempTable
-				+ " (" + Keys.NEWSCOLID_NEWS + " INTEGER PRIMARY KEY,"
-				+ Keys.ID_GAME + " INTEGER," + Keys.ID_OWNER + " TEXT,"
-				+ Keys.NEWSCOLNEWSTEXT + " TEXT," + Keys.NEWSCOLINTROTEXT
-				+ " TEXT," + Keys.NEWSCOLPOSTINGTIME + " TEXT,"
-				+ Keys.NEWSCOLHEADLINE + " TEXT," + Keys.NEWSCOLIMAGE
-				+ " TEXT," + Keys.Author + " TEXT);";
-		db.execSQL(cREATE_newsTempTable);
-
-		String cREATE_companyTempTable = "CREATE TABLE "
-				+ Keys.companyTempTable + " (" + Keys.NEWSCOLID_NEWS
-				+ " INTEGER PRIMARY KEY," + Keys.ID_GAME + " INTEGER,"
-				+ Keys.ID_OWNER + " TEXT," + Keys.NEWSCOLNEWSTEXT + " TEXT,"
-				+ Keys.NEWSCOLINTROTEXT + " TEXT," + Keys.NEWSCOLPOSTINGTIME
-				+ " TEXT," + Keys.NEWSCOLHEADLINE + " TEXT,"
-				+ Keys.NEWSCOLIMAGE + " TEXT," + Keys.Author + " TEXT);";
-		db.execSQL(cREATE_companyTempTable);
 
 		String cREATE_HomeMsgTable = "CREATE TABLE " + Keys.HomeMsgTable + " ("
 				+ Keys.ID_MESSAGE + " INTEGER PRIMARY KEY,"
@@ -1105,6 +1116,7 @@ public class MySQLinker extends SQLinker {
 		db.execSQL("DROP TABLE IF EXISTS " + Keys.HomeMsgTable);
 		db.execSQL("DROP TABLE IF EXISTS " + Keys.HomeGamesTable);
 		db.execSQL("DROP TABLE IF EXISTS " + Keys.HomeSubscriptionTable);
+		db.execSQL("DROP TABLE IF EXISTS " + Keys.HomeNotificationTable);
 		onCreate(db);
 	}
 }

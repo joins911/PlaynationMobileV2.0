@@ -23,8 +23,6 @@ import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.HelperClass;
 import com.myapps.playnation.main.ISectionAdapter;
-import com.myapps.playnation.main.BrowserFragment;
-import com.myapps.playnation.main.MainActivity;
 
 public class GameNewsFragment extends Fragment {
 	private View mView;
@@ -51,13 +49,14 @@ public class GameNewsFragment extends Fragment {
 		con = DataConnector.getInst();
 		Bundle myIntent = getArguments();
 		String id = myIntent.getString(Keys.ID_GAME);
-		final ArrayList<Bundle> results = con.getLinker().getTempNewsTab(id, "game");
+		final ArrayList<Bundle> results = con.getLinker().getTempNewsTab(id,
+				"game");
 		if (results != null) {
 			list = (ListView) mView.findViewById(R.id.mainList);
 			txtMessage = (TextView) mView.findViewById(R.id.frag_Gnews_TView);
 			if (results.size() != 0)
 				txtMessage.setVisibility(View.GONE);
-
+			System.out.println(results.size());
 			NewsListAdapter bindingData = new NewsListAdapter(getActivity(),
 					HelperClass.createHeaderListView(HelperClass
 							.queryNewsList(results)));
@@ -89,8 +88,8 @@ public class GameNewsFragment extends Fragment {
 						edit.putString(Keys.NEWSCOLPOSTINGTIME,
 								format.format(feed.getKey_NewsDate().getTime()));
 
-						mCallback.setPageAndTab(Configurations.NewsSTATE,
-								2, edit);
+						mCallback.setPageAndTab(Configurations.NewsSTATE, 2,
+								edit);
 					}
 				}
 			});

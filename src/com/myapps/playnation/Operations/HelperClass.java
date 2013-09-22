@@ -60,6 +60,26 @@ public class HelperClass {
 		return (large || xlarge);
 	}
 
+	public static String returnNotificationMessage(Bundle arg) {
+		String returns = "";
+		if (arg.getString(Keys.NotificationType).equals("FriendReplay")) {
+			returns = "Player " + arg.getString(Keys.PLAYERNICKNAME)
+					+ " has accepted your friend request.";
+		} else if (arg.getString(Keys.NotificationType).equals("FriendRequest")) {
+			returns = "Player " + arg.getString(Keys.PLAYERNICKNAME)
+					+ " has send you friend request.";
+		} else if (arg.getString(Keys.NotificationType).equals("CompanyNews")) {
+			returns = "News from company" + arg.getString(Keys.CompanyName)
+					+ " .";
+		} else if (arg.getString(Keys.NotificationType).equals("GameNews")) {
+			returns = " News from " + arg.getString(Keys.GAMENAME) + ".";
+		} else if (arg.getString(Keys.NotificationType).equals("GroupNews")) {
+			returns = " News from " + arg.getString(Keys.GROUPNAME) + ".";
+		}
+
+		return returns;
+	}
+
 	public static void getImage(String imageLoc, ImageView tvImage) {
 		URL imageURL = null;
 		Bitmap bitmap = null;
@@ -254,6 +274,9 @@ public class HelperClass {
 		} else if (tableName.equals(Keys.whoIsPlayingTable)) {
 			return "SELECT * FROM " + tableName + " Where ID_GAME="
 					+ separeteID + ";";
+		} else if (tableName.equals(Keys.HomeNotificationTable)) {
+			return "SELECT * FROM " + tableName + " Where ID_PLAYER="
+					+ separeteID + ";";
 		}
 		return "SELECT * FROM " + tableName + ";";
 	}
@@ -312,6 +335,8 @@ public class HelperClass {
 			returns = "SELECT * FROM " + tableName
 					+ " Where ID_GAME=? and ID_PLAYER=" + anotherID + ";";
 		} else if (tableName.equals(Keys.PlayerTable)) {
+			returns = "SELECT * FROM " + tableName + " Where ID_PLAYER=?;";
+		} else if (tableName.equals(Keys.HomeNotificationTable)) {
 			returns = "SELECT * FROM " + tableName + " Where ID_PLAYER=?;";
 		}
 		return returns;

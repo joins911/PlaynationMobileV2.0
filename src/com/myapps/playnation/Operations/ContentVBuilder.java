@@ -90,7 +90,8 @@ public class ContentVBuilder {
 		temp.put(Keys.NEWSCOLID_NEWS, obj.optString(Keys.NEWSCOLID_NEWS));
 		temp.put(Keys.ID_OWNER, obj.optString(Keys.ID_OWNER));
 		temp.put(Keys.OWNERTYPE, obj.optString(Keys.OWNERTYPE));
-		temp.put(Keys.ID_GAME, id_game);
+		temp.put(Keys.ID_GAME, obj.optString(Keys.ID_GAME));
+		temp.put(Keys.EventID_COMPANY, obj.optString(Keys.EventID_COMPANY));
 		temp.put(Keys.NEWSCOLNEWSTEXT, obj.getString(Keys.NEWSCOLNEWSTEXT));
 		temp.put(Keys.NEWSCOLINTROTEXT, obj.getString(Keys.NEWSCOLINTROTEXT));
 		temp.put(Keys.NEWSCOLPOSTINGTIME,
@@ -211,6 +212,30 @@ public class ContentVBuilder {
 		map.put(Keys.WallPostingTime, obj.getString(Keys.WallPostingTime));
 		String imageUrl = obj.getString(Keys.PLAYERAVATAR);
 		map.put(Keys.PLAYERAVATAR, imageUrl);
+		return map;
+	}
+
+	public static ContentValues putPNotificationContentV(JSONObject obj)
+			throws JSONException {
+		ContentValues map = new ContentValues();
+
+		map.put(Keys.ID_NOTIFICATION, obj.optString(Keys.ID_NOTIFICATION) + "");
+		map.put(Keys.NotificationType, obj.optString(Keys.NotificationType));
+		map.put(Keys.NotificationID_FROM,
+				obj.optString(Keys.NotificationID_FROM));
+		map.put(Keys.ID_PLAYER, obj.optString(Keys.ID_PLAYER));
+		map.put(Keys.NotificationTime, obj.optString(Keys.NotificationTime)
+				+ "");
+		map.put(Keys.NotificationFromType,
+				obj.optString(Keys.NotificationFromType));
+		map.put(Keys.CompanyName, obj.optString(Keys.CompanyName));
+		map.put(Keys.GROUPNAME, obj.optString(Keys.GROUPNAME));
+		map.put(Keys.GAMENAME, obj.optString(Keys.GAMENAME));
+		map.put(Keys.NotificationisRead, obj.optString(Keys.NotificationisRead));
+		map.put(Keys.PLAYERNICKNAME, obj.optString(Keys.PLAYERNICKNAME));
+		map.put(Keys.NotificationPlayerCount,
+				obj.optString(Keys.NotificationPlayerCount));
+
 		return map;
 	}
 

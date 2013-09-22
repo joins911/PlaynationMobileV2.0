@@ -1,8 +1,5 @@
 package com.myapps.playnation.Operations;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -19,6 +16,8 @@ public class BundleBuilder {
 		bundle.putString(Keys.GAMETYPE, gameType);
 		bundle.putString(Keys.GAMEDESC,
 				cursor.getString(cursor.getColumnIndex(Keys.GAMEDESC)));
+		bundle.putString(Keys.CompanyName,
+				cursor.getString(cursor.getColumnIndex(Keys.CompanyName)));
 		bundle.putString(Keys.GAMEDATE,
 				cursor.getString(cursor.getColumnIndex(Keys.GAMEDATE)));
 		bundle.putString(Keys.RATING,
@@ -104,12 +103,11 @@ public class BundleBuilder {
 
 	public static Bundle putPWallInBundle(Cursor cursor) {
 		Bundle bundle = new Bundle();
+
 		bundle.putString(
 				Keys.WallPosterDisplayName,
 				cursor.getString(cursor
 						.getColumnIndex(Keys.WallPosterDisplayName)) + "");
-		bundle.putString(Keys.ID_ORGOWNER,
-				cursor.getInt(cursor.getColumnIndex(Keys.ID_ORGOWNER)) + "");
 		bundle.putString(Keys.ID_WALLITEM,
 				cursor.getInt(cursor.getColumnIndex(Keys.ID_WALLITEM)) + "");
 		bundle.putString(Keys.ItemType,
@@ -159,6 +157,10 @@ public class BundleBuilder {
 				.getColumnIndex(Keys.NEWSCOLPOSTINGTIME)));
 		bundle.putString(Keys.ID_OWNER,
 				cursor.getString(cursor.getColumnIndex(Keys.ID_OWNER)));
+		bundle.putString(Keys.ID_GAME,
+				cursor.getString(cursor.getColumnIndex(Keys.ID_GAME)));
+		bundle.putString(Keys.EventID_COMPANY,
+				cursor.getString(cursor.getColumnIndex(Keys.EventID_COMPANY)));
 		bundle.putString(Keys.OWNERTYPE,
 				cursor.getString(cursor.getColumnIndex(Keys.OWNERTYPE)));
 		bundle.putString(Keys.NEWSCOLHEADLINE,
@@ -170,25 +172,33 @@ public class BundleBuilder {
 		return bundle;
 	}
 
-	public static Bundle putNotificInBundle(JSONObject obj)
-			throws JSONException {
+	public static Bundle putNotificInBundle(Cursor cursor) {
 		Bundle bundle = new Bundle();
 		bundle.putString(Keys.ID_NOTIFICATION,
-				obj.getString(Keys.ID_NOTIFICATION));
+				cursor.getString(cursor.getColumnIndex(Keys.ID_NOTIFICATION)));
 		bundle.putString(Keys.NotificationType,
-				obj.getString(Keys.NotificationType));
-		int date = Integer.parseInt(obj.getString(Keys.NotificationTime));
+				cursor.getString(cursor.getColumnIndex(Keys.NotificationType)));
+		int date = Integer.parseInt(cursor.getString(cursor
+				.getColumnIndex(Keys.NotificationTime)));
 		String returnDate = HelperClass.convertTime(date,
 				Configurations.dataTemplate);
 		bundle.putString(Keys.NotificationTime, returnDate);
-		bundle.putString(Keys.NotificationFromType,
-				obj.getString(Keys.NotificationFromType));
-		bundle.putString(Keys.NotificationisRead,
-				obj.getString(Keys.NotificationisRead));
+		bundle.putString(Keys.NotificationFromType, cursor.getString(cursor
+				.getColumnIndex(Keys.NotificationFromType)));
+		bundle.putString(Keys.NotificationisRead, cursor.getString(cursor
+				.getColumnIndex(Keys.NotificationisRead)));
 		bundle.putString(Keys.PLAYERNICKNAME,
-				obj.optString(Keys.PLAYERNICKNAME));
-		bundle.putString(Keys.NotificationPlayerCount,
-				obj.getString(Keys.NotificationPlayerCount));
+				cursor.getString(cursor.getColumnIndex(Keys.PLAYERNICKNAME)));
+		bundle.putString(Keys.ID_PLAYER,
+				cursor.getString(cursor.getColumnIndex(Keys.ID_PLAYER)));
+		bundle.putString(Keys.NotificationID_FROM, cursor.getString(cursor
+				.getColumnIndex(Keys.NotificationID_FROM)));
+		bundle.putString(Keys.GAMENAME,
+				cursor.getString(cursor.getColumnIndex(Keys.GAMENAME)));
+		bundle.putString(Keys.GROUPNAME,
+				cursor.getString(cursor.getColumnIndex(Keys.GROUPNAME)));
+		bundle.putString(Keys.NotificationPlayerCount, cursor.getString(cursor
+				.getColumnIndex(Keys.NotificationPlayerCount)));
 		return bundle;
 	}
 

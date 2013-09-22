@@ -19,7 +19,7 @@ import android.util.Log;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Fragments.NotificationActivity;
+import com.myapps.playnation.main.MainActivity;
 
 public class ServiceClass extends Service {
 	private MySQLinker linker;
@@ -38,12 +38,13 @@ public class ServiceClass extends Service {
 	public void onCreate() {
 		linker = DataConnector.getInst().getLinker();
 		con = DataConnector.getInst();
+		playersNotificationList = new ArrayList<Bundle>();
 		super.onCreate();
 	}
 
 	public void createNotification() {
 		// Creates an explicit intent for an Activity in your app
-		Intent resultIntent = new Intent(this, NotificationActivity.class);
+		Intent resultIntent = new Intent();
 
 		// The stack builder object will contain an artificial back stack for
 		// the
@@ -52,7 +53,7 @@ public class ServiceClass extends Service {
 		// your application to the Home screen.
 		TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
 		// Adds the back stack for the Intent (but not the Intent itself)
-		stackBuilder.addParentStack(NotificationActivity.class);
+		stackBuilder.addParentStack(MainActivity.class);
 		// Adds the Intent that starts the Activity to the top of the stack
 		stackBuilder.addNextIntent(resultIntent);
 
@@ -61,11 +62,12 @@ public class ServiceClass extends Service {
 		if (playersNotificationList != null)
 			for (Bundle bund : playersNotificationList) {
 				NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-						this).setSmallIcon(R.drawable.ic_launcher)
+						this)
+						.setSmallIcon(R.drawable.ic_launcher)
 						.setContentTitle(bund.getString(Keys.NotificationType))
 						.setDefaults(Notification.DEFAULT_ALL)
-						.setContentIntent(resultPendingIntent)
-						.setContentText(bund.getString(Keys.PLAYERNICKNAME))
+						.setContentText(
+								"From " + bund.getString(Keys.PLAYERNICKNAME))
 						.setAutoCancel(true);
 				mBuilder.setContentIntent(resultPendingIntent);
 				NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -73,6 +75,7 @@ public class ServiceClass extends Service {
 				mNotificationManager.notify(
 						Integer.parseInt(bund.getString(Keys.ID_NOTIFICATION)),
 						mBuilder.build());
+
 			}
 	}
 
@@ -80,8 +83,19 @@ public class ServiceClass extends Service {
 		@Override
 		public void run() {
 			if (Configurations.getConfigs().getApplicationState() == 0) {
-				playersNotificationList = con
-						.queryNotification(Configurations.CurrentPlayerID);
+				con.queryNotification(Configurations.CurrentPlayerID);
+				for (Bundle el : linker.getSQLiteNotification(
+						Keys.HomeNotificationTable,
+						Configurations.CurrentPlayerID)) {
+					if (el.getString(Keys.NotificationisRead).equalsIgnoreCase(
+							"0")) {
+						linker.updateRecord(Keys.HomeNotificationTable,
+								"ID_PLAYER=" + Configurations.CurrentPlayerID,
+								Keys.NotificationisRead, "1");
+						playersNotificationList.add(el);
+					}
+				}
+
 				createNotification();
 			}
 
@@ -144,7 +158,6 @@ public class ServiceClass extends Service {
 
 	@Override
 	public void onDestroy() {
-		stopTimer();
 		super.onDestroy();
 	}
 

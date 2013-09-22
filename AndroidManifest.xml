@@ -46,5 +46,7 @@
 		</activity>
 		<service android:name="com.myapps.playnation.Operations.ServiceClass" >
 		</service>
+		<activity android:name="com.myapps.playnation.Fragments.NotificationActivity" >
+		</activity>
 	</application>
 </manifest>

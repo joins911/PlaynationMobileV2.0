@@ -19,7 +19,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.myapps.playnation.R;
@@ -36,10 +35,8 @@ import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.HelperClass;
 import com.myapps.playnation.main.ISectionAdapter;
-import com.myapps.playnation.main.BrowserFragment;
-import com.myapps.playnation.main.MainActivity;
 
-public class ListsFragment extends Fragment implements BaseFragment{
+public class ListsFragment extends Fragment implements BaseFragment {
 
 	private DataConnector con;
 	private View rootView;
@@ -112,8 +109,9 @@ public class ListsFragment extends Fragment implements BaseFragment{
 
 			}
 
-			private void isScrollCompleted() {				
-				if (firstVisible+visibleItemCount == totalItemCount && totalItemCount!=0
+			private void isScrollCompleted() {
+				if (firstVisible + visibleItemCount == totalItemCount
+						&& totalItemCount != 0
 						&& this.currentScrollState == SCROLL_STATE_IDLE) {
 					/***
 					 * In this way I detect if there's been a scroll which has
@@ -124,7 +122,7 @@ public class ListsFragment extends Fragment implements BaseFragment{
 						((MyBaseAdapter) mList.getAdapter()).showMore();
 						((BaseAdapter) mList.getAdapter())
 								.notifyDataSetChanged();
-						
+
 					}
 				}
 			}
@@ -144,10 +142,9 @@ public class ListsFragment extends Fragment implements BaseFragment{
 		mListTask.cancel(true);
 		super.onDestroy();
 	}
-	
+
 	@Override
-	public void onStop()
-	{
+	public void onStop() {
 		mListTask.cancel(true);
 		super.onStop();
 	}
@@ -163,10 +160,6 @@ public class ListsFragment extends Fragment implements BaseFragment{
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-
-				/*con.writeTempNewsTab(
-						results.get(position).getString(Keys.ID_GAME),
-						Keys.gamesubNewsTAB);*/
 
 				tabletOrPhoneControll(configs.GamesSTATE, results.get(position));
 			}
@@ -278,9 +271,11 @@ public class ListsFragment extends Fragment implements BaseFragment{
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				/*con.writeTempNewsTab(
-						results.get(position).getString(Keys.EventID_COMPANY),
-						Keys.companysubNewsTAB);*/
+				/*
+				 * con.writeTempNewsTab(
+				 * results.get(position).getString(Keys.EventID_COMPANY),
+				 * Keys.companysubNewsTAB);
+				 */
 
 				tabletOrPhoneControll(configs.CompaniesSTATE,
 						mListBundle.get(position));
@@ -355,20 +350,19 @@ public class ListsFragment extends Fragment implements BaseFragment{
 			finishTask();
 		}
 	}
-	
-	public BaseFragment getThis()
-	{
+
+	public BaseFragment getThis() {
 		return this;
 	}
 
 	public void stopList() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void searchFunction(String args) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
