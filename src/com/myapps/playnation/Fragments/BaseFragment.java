@@ -10,5 +10,7 @@ public interface BaseFragment{
 	
 
 	public void searchFunction(String args);
+	
+	public boolean onBackButtonPressed();
 
 }

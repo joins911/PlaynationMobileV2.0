@@ -15,7 +15,7 @@ public class ContentVBuilder {
 	public static ContentValues putExtraGameInContentV(JSONObject obj)
 			throws JSONException {
 		ContentValues temp = putGameInContentV(obj);
-		temp.put(Keys.ID_GAME, obj.getInt(Keys.ID_GAME));
+		
 		temp.put(Keys.ID_PLAYER, obj.getInt(Keys.ID_PLAYER) + "");
 		temp.put(Keys.GameComments, obj.getString(Keys.GameComments));
 
@@ -24,36 +24,33 @@ public class ContentVBuilder {
 		temp.put(Keys.GamePostCount, obj.getInt(Keys.GamePostCount) + "");
 		temp.put(Keys.GamesSubscriptionTime,
 				obj.getString(Keys.GamesSubscriptionTime));
-		temp.put(Keys.CompanyFounded, obj.getString(Keys.CompanyFounded));
-		temp.put(Keys.CompanyName, obj.getString(Keys.GAMECompanyDeveloper));
-		String imageUrl = obj.getString(Keys.EventIMAGEURL);
-		temp.put(Keys.EventIMAGEURL, imageUrl);
 		return temp;
 	}
 
 	public static ContentValues putGameInContentV(JSONObject obj)
 			throws JSONException {
 		ContentValues temp = new ContentValues();
+		temp.put(Keys.ID_GAME, obj.getInt(Keys.ID_GAME));
 		temp.put(Keys.GAMENAME, obj.getString(Keys.GAMENAME));
 		String gameType = obj.getString(Keys.GAMETYPE);
-		temp.put(Keys.GAMETYPE, gameType);
-		temp.put(Keys.GameIsLiked, obj.getString(Keys.GameIsLiked));
-		temp.put(Keys.GameisPlaying, obj.getString(Keys.GameisPlaying));
+		temp.put(Keys.GAMETYPE, gameType);		
 		temp.put(Keys.CompanyName, obj.getString(Keys.GAMECompanyDeveloper));
 		temp.put(Keys.GAMEDESC, obj.getString(Keys.GAMEDESC));
 		temp.put(Keys.GAMEDATE, obj.getString(Keys.GAMEDATE));
 		temp.put(Keys.RATING, obj.getString(Keys.RATING));
-		temp.put(Keys.GAMEESRB, obj.getString(Keys.GAMEESRB));
-		String imageUrl = obj.getString(Keys.EventIMAGEURL);
-		temp.put(Keys.EventIMAGEURL, imageUrl);
+		temp.put(Keys.GAMEESRB, obj.getString(Keys.GAMEESRB));		
 		temp.put(Keys.GAMEURL, obj.getString(Keys.GAMEURL));
 		temp.put(Keys.GAMEPLAYERSCOUNT, obj.getString(Keys.GAMEPLAYERSCOUNT));
+		temp.put(Keys.GameIsLiked, obj.getString(Keys.GameIsLiked));
+		temp.put(Keys.GameisPlaying, obj.getString(Keys.GameisPlaying));		
 		temp.put(Keys.GAMETYPENAME, obj.getString(Keys.GAMETYPENAME));
 		temp.put(Keys.GAMEPLATFORM, obj.getString(Keys.GAMEPLATFORM));
 		temp.put(Keys.GAMECompanyDistributor,
 				obj.getString(Keys.GAMECompanyDistributor));
 		temp.put(Keys.CompanyFounded, obj.getString(Keys.CompanyFounded));
 		temp.put(Keys.CompanyName, obj.getString(Keys.GAMECompanyDeveloper));
+		String imageUrl = obj.getString(Keys.EventIMAGEURL);
+		temp.put(Keys.EventIMAGEURL, imageUrl);
 		return temp;
 	}
 

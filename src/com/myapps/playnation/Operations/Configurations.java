@@ -3,7 +3,9 @@ package com.myapps.playnation.Operations;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.main.PlaynationMobile;
 
 public class Configurations {
 
@@ -57,6 +59,11 @@ public class Configurations {
 	public void setInternetStatus(boolean connected)
 	{
 		internetStatus = connected;
+	}
+	
+	public boolean isTablet()
+	{
+		return PlaynationMobile.getContext().getResources().getBoolean(R.bool.isTablet);
 	}
 	
 	public int getApplicationState() {

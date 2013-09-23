@@ -12,4 +12,10 @@ public class MessagesFragment extends Fragment implements BaseFragment{
 		
 	}
 
+	@Override
+	public boolean onBackButtonPressed() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

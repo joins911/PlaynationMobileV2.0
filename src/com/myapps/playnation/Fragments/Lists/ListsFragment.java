@@ -19,6 +19,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.myapps.playnation.R;
@@ -31,12 +32,13 @@ import com.myapps.playnation.Adapters.NewsListAdapter;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Classes.NewsFeed;
 import com.myapps.playnation.Fragments.BaseFragment;
+import com.myapps.playnation.Fragments.WrapperFragment;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.HelperClass;
 import com.myapps.playnation.main.ISectionAdapter;
 
-public class ListsFragment extends Fragment implements BaseFragment {
+public class ListsFragment extends Fragment{
 
 	private DataConnector con;
 	private View rootView;
@@ -45,12 +47,15 @@ public class ListsFragment extends Fragment implements BaseFragment {
 	private ViewFlipper flipper = null;
 	private ListView mList;
 	private ArrayList<Bundle> mListBundle;
+	private WrapperFragment mWrapperParrent;
 	TextView friendsString;
 	private AsyncTask mListTask;
 	public Configurations configs;
-
+	private int initialIndex;
+	
+	
 	public ListsFragment() {
-		con = DataConnector.getInst();
+		con = DataConnector.getInst();		
 		// setRetainInstance(true);
 	}
 
@@ -73,7 +78,7 @@ public class ListsFragment extends Fragment implements BaseFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		rootView = inflater.inflate(R.layout.component_mainlist, container,
-				false);
+				false);	
 		mViewPagerState = this.getArguments().getInt(Keys.ARG_POSITION);
 		ListView list = (ListView) rootView.findViewById(R.id.mainList);
 		mList = list;
@@ -136,6 +141,11 @@ public class ListsFragment extends Fragment implements BaseFragment {
 
 		return rootView;
 	}
+	
+	public void setParent(WrapperFragment parrent)
+	{
+		mWrapperParrent = parrent;
+	}
 
 	@Override
 	public void onDestroy() {
@@ -187,9 +197,11 @@ public class ListsFragment extends Fragment implements BaseFragment {
 	private void initializeNews(final ArrayList<Bundle> results) {
 		mListBundle = results;
 		if (mListBundle != null) {
+			initialIndex = getArguments().getInt(Keys.clickedIndex,0);
+			Toast.makeText(getActivity(), initialIndex+"", Toast.LENGTH_SHORT);
 			NewsListAdapter bindingData = new NewsListAdapter(getActivity(),
 					HelperClass.createHeaderListView(HelperClass
-							.queryNewsList(mListBundle)));
+							.queryNewsList(mListBundle)),initialIndex);
 			mList.setAdapter(bindingData);
 		}
 		mList.setOnItemClickListener(new OnItemClickListener() {
@@ -215,7 +227,7 @@ public class ListsFragment extends Fragment implements BaseFragment {
 					edit.putString(Keys.NEWSCOLPOSTINGTIME,
 							format.format(feed.getKey_NewsDate().getTime()));
 
-					tabletOrPhoneControll(configs.NewsSTATE, edit);
+					tabletOrPhoneControll(configs.NewsSTATE, edit,position);
 					view.setSelected(true);
 				}
 			}
@@ -282,14 +294,19 @@ public class ListsFragment extends Fragment implements BaseFragment {
 			}
 		});
 	}
-
+	
+	private void tabletOrPhoneControll(int state,Bundle edit,int index)
+	{
+		mWrapperParrent.switchToHeader(edit,index);
+	}
 	private void tabletOrPhoneControll(int state, Bundle edit) {
 		if (flipper != null) {
 			flipper.setDisplayedChild(2);
 			flipper.showNext();
 			mCallback.setPage(state, edit);
 		} else {
-			mCallback.setPage(state, edit);
+			mWrapperParrent.switchToHeader(edit);
+		//	mCallback.setPage(state, edit);
 		}
 	}
 
@@ -349,20 +366,5 @@ public class ListsFragment extends Fragment implements BaseFragment {
 			}
 			finishTask();
 		}
-	}
-
-	public BaseFragment getThis() {
-		return this;
-	}
-
-	public void stopList() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void searchFunction(String args) {
-		// TODO Auto-generated method stub
-
 	}
 }

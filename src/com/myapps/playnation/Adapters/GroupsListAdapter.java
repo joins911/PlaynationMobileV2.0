@@ -31,9 +31,8 @@ public class GroupsListAdapter extends ListsHelper implements MyBaseAdapter {
 	boolean showMore = true;
 
 	public GroupsListAdapter(Activity act, ArrayList<Bundle> map) {
-		super(map, Configurations.getConfigs().getListsIncrement());
-		this.groupsDataCollection = getNewList(Configurations.getConfigs()
-				.getInitialListCount());
+		super(map);
+		this.groupsDataCollection = getNewList();
 		inflater = (LayoutInflater) act
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		count = 10;

@@ -37,9 +37,16 @@ public class GamesListAdapter extends ListsHelper implements MyBaseAdapter {
 	boolean showMore = true;
 
 	public GamesListAdapter(Activity act, ArrayList<Bundle> map) {
-		super(map, 7);
-		this.gamesDataCollection = getNewList(Configurations.getConfigs()
-				.getInitialListCount());
+		super(map);		
+		this.gamesDataCollection = getNewList();
+		inflater = (LayoutInflater) act
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		// count = 10;
+	}
+	
+	public GamesListAdapter(Activity act, ArrayList<Bundle> map, int initialIndex) {
+		super(map);		
+		this.gamesDataCollection = getNewList(initialIndex);
 		inflater = (LayoutInflater) act
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		// count = 10;

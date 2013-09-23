@@ -1,7 +1,12 @@
 package com.myapps.playnation.Fragments;
 
+import java.io.FileDescriptor;
+
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,21 +20,18 @@ import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.HelperClass;
 import com.myapps.playnation.main.MainActivity;
 
-public class WrapperFragment extends Fragment {
+public class WrapperFragment extends Fragment implements BaseFragment{
 	private Fragment mFragments;
 	private Fragment mHeaderFragment;
 	private boolean canBack = false;
 	private int mViewPagerState;
+	private int clickedIndex = 0;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		mViewPagerState = getArguments().getInt(Keys.ARG_POSITION);
-		Bundle args = new Bundle();
-		args.putInt(Keys.ARG_POSITION, mViewPagerState);
-		mFragments = new ListsFragment();
-		mFragments.setArguments(args);
-
+		createListsFragment();
+		
 		setRetainInstance(true);
 		mFragments.setRetainInstance(true);
 		getChildFragmentManager().beginTransaction()
@@ -48,6 +50,23 @@ public class WrapperFragment extends Fragment {
 	public boolean canBack() {
 		return canBack;
 	}
+	
+	public void createListsFragment()
+	{
+		mViewPagerState = getArguments().getInt(Keys.ARG_POSITION);
+		Bundle args = new Bundle();
+		args.putInt(Keys.ARG_POSITION, mViewPagerState);
+		args.putInt(Keys.clickedIndex, clickedIndex);
+		mFragments = new ListsFragment();
+		((ListsFragment) mFragments).setParent(this);
+		mFragments.setArguments(args);
+	}
+	
+	public void switchToHeader(Bundle args,int index)
+	{
+		clickedIndex = index;
+		switchToHeader(args);
+	}
 
 	public void switchToHeader(Bundle args) {
 		if (mViewPagerState == Configurations.NewsSTATE) {
@@ -60,8 +79,7 @@ public class WrapperFragment extends Fragment {
 			mHeaderFragment.setArguments(args);
 			canBack = true;
 		}
-		if (HelperClass.isTablet(getActivity())
-				&& getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+		if (Configurations.getConfigs().isTablet()) {
 			getChildFragmentManager().beginTransaction()
 					.replace(R.id.fragment1, mHeaderFragment)
 					.addToBackStack(null).commit();
@@ -82,11 +100,7 @@ public class WrapperFragment extends Fragment {
 
 	public void switchBack() {
 		if (mFragments == null) {
-			Bundle args = new Bundle();
-			args.putInt(Keys.ARG_POSITION,
-					getArguments().getInt(Keys.ARG_POSITION));
-			mFragments = new ListsFragment();
-			mFragments.setArguments(args);
+			createListsFragment();
 		}
 		canBack = false;
 		getChildFragmentManager().beginTransaction()
@@ -117,5 +131,16 @@ public class WrapperFragment extends Fragment {
 		}
 
 	}
+
+	@Override
+	public void searchFunction(String args) {		
+	}
+
+	@Override
+	public boolean onBackButtonPressed() {
+		if(canBack) switchBack();
+		return canBack;
+	}
+
 
 }

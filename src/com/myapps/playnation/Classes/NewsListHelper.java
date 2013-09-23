@@ -3,21 +3,16 @@ package com.myapps.playnation.Classes;
 import java.util.ArrayList;
 
 import com.myapps.playnation.Operations.Configurations;
-import com.myapps.playnation.main.MainActivity;
-
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-public abstract class ListsHelper extends BaseAdapter{
+public abstract class NewsListHelper extends BaseAdapter{
 
 	private int counter;
 	private int increment;
 	private int initialCount;
-	ArrayList<Bundle> list;
+	ArrayList<NewsFeedItem> list;
 	
-	public ListsHelper(ArrayList<Bundle> list)
+	public NewsListHelper(ArrayList<NewsFeedItem> list)
 	{		
 		this.list = list;
 		increment = Configurations.getConfigs().getListsIncrement();
@@ -25,7 +20,7 @@ public abstract class ListsHelper extends BaseAdapter{
 		counter = 0;		
 	}
 	
-	public void getListSection(int posStart,int posEnd)
+	public void getArrayListSection(int posStart,int posEnd)
 	{
 		
 	}
@@ -35,9 +30,9 @@ public abstract class ListsHelper extends BaseAdapter{
 		return counter<list.size();
 	}
 	
-	public ArrayList<Bundle> getNewList(int initialIndex)
+	public ArrayList<NewsFeedItem> getNewList(int initialIndex)
 	{
-		ArrayList<Bundle> temp = new ArrayList<Bundle>();
+		ArrayList<NewsFeedItem> temp = new ArrayList<NewsFeedItem>();
 		int max;
 		int tempMax = initialIndex+initialCount;
 		if(tempMax > list.subList(initialIndex, list.size()-1).size()) max = list.size();
@@ -50,9 +45,9 @@ public abstract class ListsHelper extends BaseAdapter{
 		return temp;
 	}
 	
-	public ArrayList<Bundle> getNewList()
+	public ArrayList<NewsFeedItem> getNewList()
 	{
-		ArrayList<Bundle> temp = new ArrayList<Bundle>();
+		ArrayList<NewsFeedItem> temp = new ArrayList<NewsFeedItem>();
 		int max;
 		if(initialCount>list.size()) max = list.size();
 		else max = initialCount;
@@ -63,9 +58,9 @@ public abstract class ListsHelper extends BaseAdapter{
 		counter = max;
 		return temp;
 	}
-	public ArrayList<Bundle> getNextItems()
+	public ArrayList<NewsFeedItem> getNextItems()
 	{
-		ArrayList<Bundle> temp = new ArrayList<Bundle>();
+		ArrayList<NewsFeedItem> temp = new ArrayList<NewsFeedItem>();
 		int max;
 		if(counter+increment>list.size()) max = list.size();
 		else max = counter+increment;
@@ -77,9 +72,9 @@ public abstract class ListsHelper extends BaseAdapter{
 		return temp;
 	}
 	
-	public ArrayList<Bundle> getNextItems(int fromIndex)
+	public ArrayList<NewsFeedItem> getNextItems(int fromIndex)
 	{
-		ArrayList<Bundle> temp = new ArrayList<Bundle>();
+		ArrayList<NewsFeedItem> temp = new ArrayList<NewsFeedItem>();
 		int initial =Configurations.getConfigs().getInitialListCount();
 		for(int i=fromIndex;i<fromIndex + initial;i++)
 		{

@@ -9,11 +9,12 @@ public class BundleBuilder {
 
 	public static Bundle putGameInBundle(Cursor cursor) {
 		Bundle bundle = new Bundle();
+		String id_GAME = cursor.getString(cursor.getColumnIndex(Keys.ID_GAME));
+		bundle.putString(Keys.ID_GAME, id_GAME);
 		bundle.putString(Keys.GAMENAME,
 				cursor.getString(cursor.getColumnIndex(Keys.GAMENAME)));
-		String gameType = cursor
-				.getString(cursor.getColumnIndex(Keys.GAMETYPE));
-		bundle.putString(Keys.GAMETYPE, gameType);
+		bundle.putString(Keys.GAMETYPE,
+				cursor.getString(cursor.getColumnIndex(Keys.GAMETYPE)));
 		bundle.putString(Keys.GAMEDESC,
 				cursor.getString(cursor.getColumnIndex(Keys.GAMEDESC)));
 		bundle.putString(Keys.CompanyName,
@@ -27,17 +28,13 @@ public class BundleBuilder {
 		bundle.putString(Keys.GAMEURL,
 				cursor.getString(cursor.getColumnIndex(Keys.GAMEURL)));
 		bundle.putString(Keys.GAMEPLAYERSCOUNT,
-				cursor.getString(cursor.getColumnIndex(Keys.GAMEPLAYERSCOUNT)));
-		String id_GAME = cursor.getString(cursor.getColumnIndex(Keys.ID_GAME));
-		bundle.putString(Keys.ID_GAME, id_GAME);
+				cursor.getString(cursor.getColumnIndex(Keys.GAMEPLAYERSCOUNT)));		
 		bundle.putString(Keys.GameisPlaying,
 				cursor.getString(cursor.getColumnIndex(Keys.GameisPlaying)));
 		bundle.putString(Keys.GameIsLiked,
 				cursor.getString(cursor.getColumnIndex(Keys.GameIsLiked)));
 		bundle.putString(Keys.GAMETYPENAME,
 				cursor.getString(cursor.getColumnIndex(Keys.GAMETYPENAME)));
-		bundle.putString(Keys.GAMETYPE,
-				cursor.getString(cursor.getColumnIndex(Keys.GAMETYPE)));
 		bundle.putString(Keys.GAMEPLATFORM,
 				cursor.getString(cursor.getColumnIndex(Keys.GAMEPLATFORM)));
 		bundle.putString(Keys.GAMECompanyDistributor, cursor.getString(cursor
@@ -53,12 +50,10 @@ public class BundleBuilder {
 
 	public static Bundle putPGameExtraInBundle(Cursor cursor) {
 		Bundle bundle = putGameInBundle(cursor);
+		bundle.putString(Keys.ID_PLAYER, cursor.getString(cursor.getColumnIndex(Keys.ID_PLAYER)));
 		bundle.putString(Keys.GameComments,
 				cursor.getString(cursor.getColumnIndex(Keys.GameComments)));
-		bundle.putString(Keys.isMember,
-				cursor.getString(cursor.getColumnIndex(Keys.isMember)));
-		bundle.putString(Keys.GameisPlaying,
-				cursor.getInt(cursor.getColumnIndex(Keys.GameisPlaying)) + "");
+
 		bundle.putString(Keys.GamesisSubscribed,
 				cursor.getInt(cursor.getColumnIndex(Keys.GamesisSubscribed))
 						+ "");
@@ -66,8 +61,7 @@ public class BundleBuilder {
 				cursor.getInt(cursor.getColumnIndex(Keys.GamePostCount)) + "");
 		bundle.putString(Keys.GamesSubscriptionTime, cursor.getString(cursor
 				.getColumnIndex(Keys.GamesSubscriptionTime)));
-		bundle.putString(Keys.GAMETYPENAME,
-				cursor.getString(cursor.getColumnIndex(Keys.GAMETYPENAME)));
+
 		return bundle;
 	}
 

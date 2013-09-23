@@ -139,8 +139,11 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		String[] mainArr = getResources().getStringArray(R.array.main_array);
 		String[] menuArr = getResources().getStringArray(R.array.menu_array);
 		String[] topArr = { "header" };
+		con.queryPlayerGames("12");
+		con.queryPlayerGroup("12");
 		mGamesTitles = con.getLinker().getMyGames("12");
 		mGroupsTitles = con.getLinker().getMyGroups("12");
+		Toast.makeText(getApplicationContext(), mGamesTitles.toString(), Toast.LENGTH_SHORT).show();
 		String showMore = getApplicationContext().getResources().getString(
 				R.string.showMore);
 		mGamesTitles.add(showMore);
@@ -192,7 +195,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		con = DataConnector.getInst();
 		Log.i("MainActiv", "intent.getInt() = "
 				+ getIntent().getExtras().getInt(Keys.AppState));
-		isTablet = getResources().getBoolean(R.bool.isTablet);
+		isTablet = Configurations.getConfigs().isTablet();
 		if (!isTablet)
 			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		setSupportProgressBarIndeterminateVisibility(true);
@@ -265,8 +268,8 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 
 	@Override
 	public void onBackPressed() {
-		if (currFragment instanceof BrowserFragment) {
-			if (!((BrowserFragment) currFragment).onBackButtonPressed())
+		if (currFragment instanceof BaseFragment) {
+			if (!((BaseFragment) currFragment).onBackButtonPressed())
 				finishActivity();
 		} else
 			finishActivity();
@@ -357,9 +360,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	}
 
 	private void selectChildGames(int childPos) {
-		if (mGamesTitles.size() == 1 && childPos == 0)
-			initGamesPage();
-		else if (childPos == 3)
+		if ((mGamesTitles.size() == 1 && childPos == 0) || childPos == 3)
 			initGamesPage();
 		else
 			initGamePage(childPos);

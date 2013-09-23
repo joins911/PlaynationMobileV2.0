@@ -26,7 +26,7 @@ import com.myapps.playnation.Operations.LoadImage;
 import com.myapps.playnation.main.ISectionAdapter;
 import com.myapps.playnation.main.MainActivity;
 
-public class HeaderFragment extends Fragment implements BaseFragment {
+public class HeaderFragment extends Fragment{
 	private TabHostDesc mTabFrag;
 	private View mView;
 	private TextView gName;
@@ -92,7 +92,7 @@ public class HeaderFragment extends Fragment implements BaseFragment {
 					.replace(R.id.container_games, mTabFrag).commit();
 		}
 	}
-
+	
 	public void onSavedInstanceState(Bundle outState) {
 		outState.putAll(getArguments());
 		super.onSaveInstanceState(outState);

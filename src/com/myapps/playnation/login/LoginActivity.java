@@ -60,9 +60,9 @@ public class LoginActivity extends Activity {
 				.getDefaultSharedPreferences(getApplicationContext());
 
 		clearPreviewsLoginInformation(prefrence);
-		Configurations.CurrentPlayerID = prefrence.getString(Keys.ID_PLAYER,
-				"12");
-		Keys.TEMPLAYERID = prefrence.getString(Keys.ID_PLAYER, "12");
+		//Configurations.CurrentPlayerID = prefrence.getString(Keys.ID_PLAYER,
+				//"12");
+		//Keys.TEMPLAYERID = prefrence.getString(Keys.ID_PLAYER, "12");
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
@@ -149,7 +149,7 @@ public class LoginActivity extends Activity {
 	}
 
 	private void logOnlineAdmin() {
-		Keys.TEMPLAYERID = "12";
+		Configurations.CurrentPlayerID = "959";
 		startMainActivity(Configurations.appStateOnUser);
 	}
 

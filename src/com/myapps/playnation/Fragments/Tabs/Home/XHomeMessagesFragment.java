@@ -70,4 +70,10 @@ public class XHomeMessagesFragment extends Fragment implements BaseFragment {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public boolean onBackButtonPressed() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

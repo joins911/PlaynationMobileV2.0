@@ -167,6 +167,7 @@ public final class Keys {
 	
 	public static int tempLimitGame = 10;
 	public static boolean internetStatus;
+	public final static String clickedIndex = "clickedIndex";
 	
 	
 	public final static String ID_PLAYER = "ID_PLAYER";
