@@ -19,7 +19,8 @@ import com.myapps.playnation.Classes.Keys;
 public class MySQLinker extends SQLinker {
 
 	private static String DATABASE_NAME = "playnation.db";
-	private static int DATABASE_VERSION = 3;
+	private static int DATABASE_VERSION = 5;
+	ArrayList<Bundle> listNews = new ArrayList<Bundle>();
 
 	public MySQLinker(Context con) {
 		super(con, DATABASE_NAME, DATABASE_VERSION);
@@ -91,7 +92,6 @@ public class MySQLinker extends SQLinker {
 			cursor.moveToFirst();
 			if (!cursor.isAfterLast()) {
 				do {
-
 					list.add(BundleBuilder.putGroupInBundle(cursor));
 				} while (cursor.moveToNext());
 			}
@@ -141,15 +141,17 @@ public class MySQLinker extends SQLinker {
 		SQLiteDatabase sql = this.getWritableDatabase();
 
 		for (int i = 0; i < json.length(); i++) {
-			String ID_News = json.getJSONObject(i).getString(
-					Keys.NEWSCOLID_NEWS);
-			if (!checkRowExist(Keys.newsTable, ID_News, "")) {
-				ContentValues temp = ContentVBuilder.putTempNewsInContentV(
-						json.getJSONObject(i), "", ID_News);
-
-				sql.insertWithOnConflict(Keys.newsTable, null, temp,
-						SQLiteDatabase.CONFLICT_REPLACE);
-			}
+			// String ID_News = json.getJSONObject(i).getString(
+			// Keys.NEWSCOLID_NEWS);
+			// if (!checkRowExist(Keys.newsTable, ID_News, "")) {
+			// ContentValues temp = ContentVBuilder.putTempNewsInContentV(
+			// json.getJSONObject(i), "", ID_News);
+			//
+			// sql.insertWithOnConflict(Keys.newsTable, null, temp,
+			// SQLiteDatabase.CONFLICT_REPLACE);
+			// }
+			listNews.add(BundleBuilder.putTempNewsInBundle(
+					json.getJSONObject(i), null));
 		}
 	}
 
@@ -181,22 +183,23 @@ public class MySQLinker extends SQLinker {
 	}
 
 	public ArrayList<Bundle> getSQLiteNews(String tableName) {
-		ArrayList<Bundle> list = new ArrayList<Bundle>();
-		String selectQuery = HelperClass.sqliteQueryStrings(tableName, "", "",
-				"0");
-		SQLiteDatabase sql = this.getReadableDatabase();
-		Cursor cursor = sql.rawQuery(selectQuery, null);
-		if (cursor != null) {
-			cursor.moveToFirst();
-			if (!cursor.isAfterLast()) {
-				do {
-					list.add(BundleBuilder.putTempNewsInBundle(cursor));
-				} while (cursor.moveToNext());
-			}
-			cursor.close();
-		}
-
-		return list;
+		// ArrayList<Bundle> list = new ArrayList<Bundle>();
+		// String selectQuery = HelperClass.sqliteQueryStrings(tableName, "",
+		// "",
+		// "0");
+		// SQLiteDatabase sql = this.getReadableDatabase();
+		// Cursor cursor = sql.rawQuery(selectQuery, null);
+		// if (cursor != null) {
+		// cursor.moveToFirst();
+		// if (!cursor.isAfterLast()) {
+		// do {
+		// list.add(BundleBuilder.putTempNewsInBundle(cursor));
+		// } while (cursor.moveToNext());
+		// }
+		// cursor.close();
+		// }
+		System.out.println(listNews.size());
+		return listNews;
 	}
 
 	public ArrayList<Bundle> getTempNewsTab(String id, String gameType) {
@@ -219,11 +222,12 @@ public class MySQLinker extends SQLinker {
 			cursor.moveToFirst();
 			if (!cursor.isAfterLast()) {
 				do {
-					Bundle bundle = BundleBuilder.putTempNewsInBundle(cursor);
-					bundle.putString(Keys.ID_OWNER, cursor.getString(cursor
-							.getColumnIndex(Keys.ID_OWNER)));
-
-					arrayList.add(bundle);
+					// Bundle bundle =
+					// BundleBuilder.putTempNewsInBundle(cursor);
+					// bundle.putString(Keys.ID_OWNER, cursor.getString(cursor
+					// .getColumnIndex(Keys.ID_OWNER)));
+					//
+					// arrayList.add(bundle);
 				} while (cursor.moveToNext());
 			}
 			cursor.close();

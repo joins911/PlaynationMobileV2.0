@@ -502,6 +502,7 @@ public class HelperClass {
 
 	public static ArrayList<NewsFeedItem> queryNewsList(ArrayList<Bundle> result) {
 		ArrayList<NewsFeedItem> newsFeedList = new ArrayList<NewsFeedItem>();
+		System.out.println(result.size());
 		for (int i = 0; i < result.size(); i++) {
 			try {
 				NewsFeed feed = new NewsFeed();
@@ -513,9 +514,9 @@ public class HelperClass {
 						Keys.NEWSCOLINTROTEXT));
 				feed.setKey_NewsImage(result.get(i)
 						.getString(Keys.NEWSCOLIMAGE));
-				String s = result.get(i).getString(Keys.Author);
-				if (!s.equalsIgnoreCase(" "))
-					feed.setKey_Author(s);
+				// String s = result.get(i).getString(Keys.Author);
+				// if (s.isEmpty())
+				// feed.setKey_Author(result.get(i).getString(Keys.Author));
 
 				feed.setKey_NewsFeedID(Integer.parseInt(result.get(i)
 						.getString(Keys.NEWSCOLID_NEWS)));

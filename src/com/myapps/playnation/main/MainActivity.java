@@ -139,8 +139,13 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		String[] mainArr = getResources().getStringArray(R.array.main_array);
 		String[] menuArr = getResources().getStringArray(R.array.menu_array);
 		String[] topArr = { "header" };
-		mGamesTitles = con.getLinker().getMyGames("12");
-		mGroupsTitles = con.getLinker().getMyGroups("12");
+		con.queryPlayerGames(Configurations.CurrentPlayerID);
+		con.queryPlayerGroup(Configurations.CurrentPlayerID);
+		mGamesTitles = con.getLinker().getMyGames(
+				Configurations.CurrentPlayerID);
+		mGroupsTitles = con.getLinker().getMyGroups(
+				Configurations.CurrentPlayerID);
+
 		String showMore = getApplicationContext().getResources().getString(
 				R.string.showMore);
 		mGamesTitles.add(showMore);

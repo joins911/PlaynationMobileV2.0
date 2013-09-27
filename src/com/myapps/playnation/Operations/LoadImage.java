@@ -3,7 +3,6 @@ package com.myapps.playnation.Operations;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import android.graphics.Bitmap;
@@ -13,7 +12,6 @@ import android.widget.ImageView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.main.MainActivity;
 
 public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 	private ImageView img;
@@ -32,14 +30,14 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 			path = img.getTag().toString();
 
 		String tempUrl = "";
-		//tempUrl =con.queryNewImageURL(ownerID, ownerType, tableName);
+		// tempUrl =con.queryNewImageURL(ownerID, ownerType, tableName);
 		if (!tempUrl.equalsIgnoreCase("")) {
 			url = tempUrl;
 		}
 	}
 
 	public LoadImage(String url, ImageView img, String folderName) {
-		this("","","",url,img,folderName);
+		this("", "", "", url, img, folderName);
 
 	}
 
@@ -51,8 +49,14 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 		// url sometimes null???
 		if (!url.equalsIgnoreCase("")) {
 			String dir1 = url.substring(0, 1);
-			String dir2 = url.substring(1, 2);
-			initalmageUrl = main + dir1 + "/" + dir2 + "/" + url;
+			// Chc
+			String dir2 = "";
+			if (url.substring(1, 2) != null) {
+				dir2 = url.substring(1, 2);
+				initalmageUrl = main + dir1 + "/" + dir2 + "/" + url;
+			} else {
+				initalmageUrl = main + dir1 + "/" + url;
+			}
 			String[] temp = new String[1];
 			if (url.contains(".jpg")) {
 				temp = url.split(".jpg");
@@ -61,7 +65,11 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 				temp = url.split(".png");
 				url = temp[0] + "_100x100.png";
 			}
-			finals = main + dir1 + "/" + dir2 + "/" + url;
+			if (url.substring(1, 2) != null)
+				finals = main + dir1 + "/" + dir2 + "/" + url;
+			else
+				finals = main + dir1 + "/" + url;
+
 		} else {
 			finals = main;
 		}

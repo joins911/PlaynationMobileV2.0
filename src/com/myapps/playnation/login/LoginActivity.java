@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -16,6 +15,9 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +29,6 @@ import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.HelperClass;
 import com.myapps.playnation.Operations.MySQLinker;
 import com.myapps.playnation.Operations.ServiceClass;
-import com.myapps.playnation.main.BrowserFragment;
 import com.myapps.playnation.main.MainActivity;
 import com.myapps.playnation.main.PlaynationMobile;
 
@@ -38,12 +39,18 @@ public class LoginActivity extends Activity {
 	private EditText username;
 	private EditText password;
 	private Button logButton;
+
+	private CheckBox btnCheckSave;
 	DataConnector con;
 	private SharedPreferences prefrence;
+	private SharedPreferences saveLoginPref;
 
 	@SuppressLint("NewApi")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_login);
+		password = (EditText) findViewById(R.id.username_logIn);
 		Keys.internetStatus = HelperClass
 				.isNetworkAvailable((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE));
 		stopService(new Intent(this, ServiceClass.class));
@@ -58,18 +65,44 @@ public class LoginActivity extends Activity {
 		// UserLoginPreferences
 		prefrence = PreferenceManager
 				.getDefaultSharedPreferences(getApplicationContext());
+		saveLoginPref = PreferenceManager
+				.getDefaultSharedPreferences(getApplicationContext());
+		btnCheckSave = (CheckBox) findViewById(R.id.btnCheckSaveEmail);
+		if (btnCheckSave != null) {
+			btnCheckSave
+					.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+						@Override
+						public void onCheckedChanged(CompoundButton buttonView,
+								boolean isChecked) {
+
+							SharedPreferences.Editor edit = saveLoginPref
+									.edit();
+							edit.putBoolean(Keys.isCheckButton, isChecked);
+							edit.putString(Keys.Email, password.getText()
+									.toString());
+							edit.commit();
+							btnCheckSave.setChecked(saveLoginPref.getBoolean(
+									Keys.isCheckButton, false));
+						}
+					});
+			boolean isChecked = saveLoginPref.getBoolean(Keys.isCheckButton,
+					false);
+			String email = saveLoginPref.getString(Keys.Email, "");
+			btnCheckSave.setChecked(isChecked);
+			if (isChecked)
+				password.setText(email);
+		}
 
 		clearPreviewsLoginInformation(prefrence);
 		Configurations.CurrentPlayerID = prefrence.getString(Keys.ID_PLAYER,
 				"12");
 		Keys.TEMPLAYERID = prefrence.getString(Keys.ID_PLAYER, "12");
 
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
 		con = DataConnector.getInst();
 		con.setSQLLinker(PlaynationMobile.getContext());
 		username = (EditText) findViewById(R.id.password_logIn);
-		password = (EditText) findViewById(R.id.username_logIn);
+
 		logButton = (Button) findViewById(R.id.btnLogin);
 		Button logGuestButton = (Button) findViewById(R.id.btnGuestLogin);
 		TextView registerScreen = (TextView) findViewById(R.id.link_to_register);
@@ -155,6 +188,9 @@ public class LoginActivity extends Activity {
 
 	private void logOnlineUser() {
 		// Login as User XXX
+		SharedPreferences.Editor edit = saveLoginPref.edit();
+		edit.putBoolean(Keys.ActiveSession, false);
+		edit.commit();
 		startMainActivity(Configurations.appStateOnUser);
 	}
 
@@ -182,10 +218,10 @@ public class LoginActivity extends Activity {
 		int appState;
 		Intent mInt;
 		MySQLinker linker;
-		
-		private LoadMainActivityTask(int appState) {		
+
+		private LoadMainActivityTask(int appState) {
 			Configurations.getConfigs().loadDefault(appState);
-		linker = con.getLinker();
+			linker = con.getLinker();
 		}
 
 		// Before running code in separate thread
@@ -212,29 +248,34 @@ public class LoginActivity extends Activity {
 					progressbarStatus += 0;
 					progressDialog.setProgress(progressbarStatus);
 					if (!linker.checkDBTableExits(Keys.gamesTable)) {
-						con.getArrayFromQuerryWithPostVariable(Configurations.CurrentPlayerID,
+						con.getArrayFromQuerryWithPostVariable(
+								Configurations.CurrentPlayerID,
 								Keys.gamesTable, "", linker.getLastIDGames());
 					}
 					progressbarStatus += 40;
 					progressDialog.setProgress(progressbarStatus);
 
 					if (!linker.checkDBTableExits(Keys.companyTable)) {
-						con.getArrayFromQuerryWithPostVariable(Configurations.CurrentPlayerID,
-								Keys.companyTable, "", linker.getLastIDCompanies());
+						con.getArrayFromQuerryWithPostVariable(
+								Configurations.CurrentPlayerID,
+								Keys.companyTable, "",
+								linker.getLastIDCompanies());
 					}
 					progressbarStatus += 20;
 					progressDialog.setProgress(progressbarStatus);
 
 					if (!linker.checkDBTableExits(Keys.groupsTable)) {
-						con.getArrayFromQuerryWithPostVariable(Configurations.CurrentPlayerID,
+						con.getArrayFromQuerryWithPostVariable(
+								Configurations.CurrentPlayerID,
 								Keys.groupsTable, "", linker.getLastIDGroups());
 					}
 					progressbarStatus += 20;
 					progressDialog.setProgress(progressbarStatus);
 
 					if (!linker.checkDBTableExits(Keys.newsTable)) {
-						con.getArrayFromQuerryWithPostVariable(Configurations.CurrentPlayerID,
-								Keys.newsTable, "", linker.getLastIDNews());
+						con.getArrayFromQuerryWithPostVariable(
+								Configurations.CurrentPlayerID, Keys.newsTable,
+								"", linker.getLastIDNews());
 						con.queryMiniIds();
 					}
 					progressbarStatus += 20;
@@ -275,7 +316,7 @@ public class LoginActivity extends Activity {
 		String userName = username.getText().toString();
 		String passWord = password.getText().toString();
 
-		return con.checkLogin(passWord, userName, prefrence);
+		return con.checkLogin(passWord, userName, prefrence, saveLoginPref);
 		// return true;
 	}
 }

@@ -36,6 +36,7 @@ public final class Keys {
 	public static final String GAMELILDBTABLENAME = "GAMEINFOTABLE";
 
 	public static final int commentsID = 2;
+	public static final String isCheckButton = "isCheckButton";
 
 	public static final String commentsTable = "Comments";
 	public static final String USERNAME = "Name";
@@ -159,16 +160,15 @@ public final class Keys {
 	public final static String POSTFUNCOMMANTSend = "Send";
 	public final static String POSTFUNCOMMANTSendPerson = "SendPerson";
 	public final static String POSTFUNCOMMANTSendInvite = "SendInvite";
-	  public final static String functionAnotherID = "AnotherID";
-	  public final static String functionPhpName = "phpName";
-	  public final static String functionAction = "Action";
-	
+	public final static String functionAnotherID = "AnotherID";
+	public final static String functionPhpName = "phpName";
+	public final static String functionAction = "Action";
+
 	public static String TEMPLAYERID = "12";
-	
+
 	public static int tempLimitGame = 10;
 	public static boolean internetStatus;
-	
-	
+
 	public final static String ID_PLAYER = "ID_PLAYER";
 	public final static String PLAYERNICKNAME = "DisplayName";
 	public final static String PLAYERAVATAR = "Avatar";

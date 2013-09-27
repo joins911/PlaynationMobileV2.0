@@ -70,6 +70,7 @@ public class DataConnector {
 
 	private DataConnector() {
 		url = "http://playnation.eu/beta/hacks/";
+
 		// url = "http://" + ServerIp + "/test/";
 	}
 
@@ -712,7 +713,8 @@ public class DataConnector {
 		}
 	}
 
-	public boolean checkLogin(String email, String pass, SharedPreferences pref) {
+	public boolean checkLogin(String email, String pass,
+			SharedPreferences pref, SharedPreferences secoundPref) {
 		String result = "";
 		String temp = url;
 		temp = temp + "chekRegisterLogin.php";
@@ -762,8 +764,10 @@ public class DataConnector {
 			editPref.putString(Keys.USERNAME, email);
 			editPref.putString(Keys.ID_PLAYER, Configurations.CurrentPlayerID);
 			editPref.putString(Keys.Password, pass);
-			editPref.putBoolean(Keys.ActiveSession, true);
 			editPref.commit();
+			SharedPreferences.Editor editSPref = secoundPref.edit();
+			editSPref.putBoolean(Keys.ActiveSession, true);
+			editSPref.commit();
 			results = true;
 		} else {
 			results = false;

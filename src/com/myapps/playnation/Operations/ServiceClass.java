@@ -10,9 +10,11 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
@@ -26,6 +28,8 @@ public class ServiceClass extends Service {
 	private DataConnector con;
 	private Timer timer;
 	private ArrayList<Bundle> playersNotificationList;
+	private SharedPreferences saveLoginPref;
+	private boolean session;
 
 	// private static final String tag = "ServiceClass";
 
@@ -39,6 +43,9 @@ public class ServiceClass extends Service {
 		linker = DataConnector.getInst().getLinker();
 		con = DataConnector.getInst();
 		playersNotificationList = new ArrayList<Bundle>();
+		saveLoginPref = PreferenceManager
+				.getDefaultSharedPreferences(getApplicationContext());
+		session = saveLoginPref.getBoolean(Keys.ActiveSession, false);
 		super.onCreate();
 	}
 
@@ -82,7 +89,8 @@ public class ServiceClass extends Service {
 	TimerTask serviceStarterTask = new TimerTask() {
 		@Override
 		public void run() {
-			if (Configurations.getConfigs().getApplicationState() == 0) {
+			if (Configurations.getConfigs().getApplicationState() == 0
+					|| session) {
 				con.queryNotification(Configurations.CurrentPlayerID);
 				for (Bundle el : linker.getSQLiteNotification(
 						Keys.HomeNotificationTable,
@@ -127,9 +135,12 @@ public class ServiceClass extends Service {
 							"", linker.getLastIDNews());
 				} else {
 					if (linker.getLastIDNews() > 0) {
+						linker.setLastIDNews(linker.getLastIDNews() + 50);
 						con.getArrayFromQuerryWithPostVariable("",
-								Keys.newsServiceTable, "",
-								linker.getLastIDNews());
+								Keys.newsTable, "", linker.getLastIDNews());
+						// con.getArrayFromQuerryWithPostVariable("",
+						// Keys.newsServiceTable, "",
+						// linker.getLastIDNews());
 					}
 				}
 

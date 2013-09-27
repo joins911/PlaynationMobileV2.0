@@ -1,5 +1,7 @@
 package com.myapps.playnation.Operations;
 
+import org.json.JSONObject;
+
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -9,11 +11,12 @@ public class BundleBuilder {
 
 	public static Bundle putGameInBundle(Cursor cursor) {
 		Bundle bundle = new Bundle();
+		String id_GAME = cursor.getString(cursor.getColumnIndex(Keys.ID_GAME));
+		bundle.putString(Keys.ID_GAME, id_GAME);
 		bundle.putString(Keys.GAMENAME,
 				cursor.getString(cursor.getColumnIndex(Keys.GAMENAME)));
-		String gameType = cursor
-				.getString(cursor.getColumnIndex(Keys.GAMETYPE));
-		bundle.putString(Keys.GAMETYPE, gameType);
+		bundle.putString(Keys.GAMETYPE,
+				cursor.getString(cursor.getColumnIndex(Keys.GAMETYPE)));
 		bundle.putString(Keys.GAMEDESC,
 				cursor.getString(cursor.getColumnIndex(Keys.GAMEDESC)));
 		bundle.putString(Keys.CompanyName,
@@ -28,16 +31,12 @@ public class BundleBuilder {
 				cursor.getString(cursor.getColumnIndex(Keys.GAMEURL)));
 		bundle.putString(Keys.GAMEPLAYERSCOUNT,
 				cursor.getString(cursor.getColumnIndex(Keys.GAMEPLAYERSCOUNT)));
-		String id_GAME = cursor.getString(cursor.getColumnIndex(Keys.ID_GAME));
-		bundle.putString(Keys.ID_GAME, id_GAME);
 		bundle.putString(Keys.GameisPlaying,
 				cursor.getString(cursor.getColumnIndex(Keys.GameisPlaying)));
 		bundle.putString(Keys.GameIsLiked,
 				cursor.getString(cursor.getColumnIndex(Keys.GameIsLiked)));
 		bundle.putString(Keys.GAMETYPENAME,
 				cursor.getString(cursor.getColumnIndex(Keys.GAMETYPENAME)));
-		bundle.putString(Keys.GAMETYPE,
-				cursor.getString(cursor.getColumnIndex(Keys.GAMETYPE)));
 		bundle.putString(Keys.GAMEPLATFORM,
 				cursor.getString(cursor.getColumnIndex(Keys.GAMEPLATFORM)));
 		bundle.putString(Keys.GAMECompanyDistributor, cursor.getString(cursor
@@ -53,12 +52,11 @@ public class BundleBuilder {
 
 	public static Bundle putPGameExtraInBundle(Cursor cursor) {
 		Bundle bundle = putGameInBundle(cursor);
+		bundle.putString(Keys.ID_PLAYER,
+				cursor.getString(cursor.getColumnIndex(Keys.ID_PLAYER)));
 		bundle.putString(Keys.GameComments,
 				cursor.getString(cursor.getColumnIndex(Keys.GameComments)));
-		bundle.putString(Keys.isMember,
-				cursor.getString(cursor.getColumnIndex(Keys.isMember)));
-		bundle.putString(Keys.GameisPlaying,
-				cursor.getInt(cursor.getColumnIndex(Keys.GameisPlaying)) + "");
+
 		bundle.putString(Keys.GamesisSubscribed,
 				cursor.getInt(cursor.getColumnIndex(Keys.GamesisSubscribed))
 						+ "");
@@ -66,8 +64,7 @@ public class BundleBuilder {
 				cursor.getInt(cursor.getColumnIndex(Keys.GamePostCount)) + "");
 		bundle.putString(Keys.GamesSubscriptionTime, cursor.getString(cursor
 				.getColumnIndex(Keys.GamesSubscriptionTime)));
-		bundle.putString(Keys.GAMETYPENAME,
-				cursor.getString(cursor.getColumnIndex(Keys.GAMETYPENAME)));
+
 		return bundle;
 	}
 
@@ -145,30 +142,48 @@ public class BundleBuilder {
 		return bundle;
 	}
 
-	public static Bundle putTempNewsInBundle(Cursor cursor) {
+	public static Bundle putTempNewsInBundle(JSONObject obj, Cursor cursor) {
 		Bundle bundle = new Bundle();
+		// bundle.putString(Keys.NEWSCOLID_NEWS,
+		// cursor.getString(cursor.getColumnIndex(Keys.NEWSCOLID_NEWS)));
+		// bundle.putString(Keys.NEWSCOLNEWSTEXT,
+		// cursor.getString(cursor.getColumnIndex(Keys.NEWSCOLNEWSTEXT)));
+		// bundle.putString(Keys.NEWSCOLINTROTEXT,
+		// cursor.getString(cursor.getColumnIndex(Keys.NEWSCOLINTROTEXT)));
+		// bundle.putString(Keys.NEWSCOLPOSTINGTIME, cursor.getString(cursor
+		// .getColumnIndex(Keys.NEWSCOLPOSTINGTIME)));
+		// bundle.putString(Keys.ID_OWNER,
+		// cursor.getString(cursor.getColumnIndex(Keys.ID_OWNER)));
+		// bundle.putString(Keys.ID_GAME,
+		// cursor.getString(cursor.getColumnIndex(Keys.ID_GAME)));
+		// bundle.putString(Keys.EventID_COMPANY,
+		// cursor.getString(cursor.getColumnIndex(Keys.EventID_COMPANY)));
+		// bundle.putString(Keys.OWNERTYPE,
+		// cursor.getString(cursor.getColumnIndex(Keys.OWNERTYPE)));
+		// bundle.putString(Keys.NEWSCOLHEADLINE,
+		// cursor.getString(cursor.getColumnIndex(Keys.NEWSCOLHEADLINE)));
+		// bundle.putString(Keys.Author,
+		// cursor.getString(cursor.getColumnIndex(Keys.Author)));
+		// bundle.putString(Keys.NEWSCOLIMAGE,
+		// cursor.getString(cursor.getColumnIndex(Keys.NEWSCOLIMAGE)));
+
 		bundle.putString(Keys.NEWSCOLID_NEWS,
-				cursor.getString(cursor.getColumnIndex(Keys.NEWSCOLID_NEWS)));
+				obj.optString(Keys.NEWSCOLID_NEWS));
 		bundle.putString(Keys.NEWSCOLNEWSTEXT,
-				cursor.getString(cursor.getColumnIndex(Keys.NEWSCOLNEWSTEXT)));
+				obj.optString(Keys.NEWSCOLNEWSTEXT));
 		bundle.putString(Keys.NEWSCOLINTROTEXT,
-				cursor.getString(cursor.getColumnIndex(Keys.NEWSCOLINTROTEXT)));
-		bundle.putString(Keys.NEWSCOLPOSTINGTIME, cursor.getString(cursor
-				.getColumnIndex(Keys.NEWSCOLPOSTINGTIME)));
-		bundle.putString(Keys.ID_OWNER,
-				cursor.getString(cursor.getColumnIndex(Keys.ID_OWNER)));
-		bundle.putString(Keys.ID_GAME,
-				cursor.getString(cursor.getColumnIndex(Keys.ID_GAME)));
+				obj.optString(Keys.NEWSCOLINTROTEXT));
+		bundle.putString(Keys.NEWSCOLPOSTINGTIME,
+				obj.optString(Keys.NEWSCOLPOSTINGTIME));
+		bundle.putString(Keys.ID_OWNER, obj.optString(Keys.ID_OWNER));
+		bundle.putString(Keys.ID_GAME, obj.optString(Keys.ID_GAME));
 		bundle.putString(Keys.EventID_COMPANY,
-				cursor.getString(cursor.getColumnIndex(Keys.EventID_COMPANY)));
-		bundle.putString(Keys.OWNERTYPE,
-				cursor.getString(cursor.getColumnIndex(Keys.OWNERTYPE)));
+				obj.optString(Keys.EventID_COMPANY));
+		bundle.putString(Keys.OWNERTYPE, obj.optString(Keys.OWNERTYPE));
 		bundle.putString(Keys.NEWSCOLHEADLINE,
-				cursor.getString(cursor.getColumnIndex(Keys.NEWSCOLHEADLINE)));
-		bundle.putString(Keys.Author,
-				cursor.getString(cursor.getColumnIndex(Keys.Author)));
-		bundle.putString(Keys.NEWSCOLIMAGE,
-				cursor.getString(cursor.getColumnIndex(Keys.NEWSCOLIMAGE)));
+				obj.optString(Keys.NEWSCOLHEADLINE));
+		bundle.putString(Keys.Author, obj.optString(Keys.Author));
+		bundle.putString(Keys.NEWSCOLIMAGE, obj.optString(Keys.NEWSCOLIMAGE));
 		return bundle;
 	}
 

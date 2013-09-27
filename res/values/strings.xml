@@ -120,4 +120,5 @@
 	<string name="developers">Developers:</string>
 	<string name="distributors">Distributors:</string>
 	<string name="emptyNotifListString">No Notification ....</string>
+	<string name="btnCheckSave">Save Credentials</string>
 </resources>
