@@ -38,8 +38,8 @@ public class MainMenuAdapter extends BaseExpandableListAdapter {
 	private void getStrings()
 	{
 		showMoreString = context.getResources().getString(R.string.showMore);
-		addGame = context.getResources().getString(R.string.AddGame);
-		addGroup = context.getResources().getString(R.string.AddGroup);
+		addGame = context.getResources().getString(R.string.addAGame);
+		addGroup = context.getResources().getString(R.string.addAGroup);
 	}
 	
 	@Override

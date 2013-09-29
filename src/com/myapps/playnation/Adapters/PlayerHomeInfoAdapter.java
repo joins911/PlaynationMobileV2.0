@@ -16,7 +16,7 @@ import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Operations.LoadImage;
 
-public class PlayerHomeInfoAdapter extends BaseAdapter implements MyBaseAdapter {
+public class PlayerHomeInfoAdapter extends BaseAdapter implements IShowMore {
 	private LayoutInflater inflater;
 	private ArrayList<Bundle> tempList;
 	private int count;
@@ -108,12 +108,6 @@ public class PlayerHomeInfoAdapter extends BaseAdapter implements MyBaseAdapter 
 	@Override
 	public boolean canShowMore() {
 		return showMore;
-	}
-
-	@Override
-	public ArrayList<Bundle> getList() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

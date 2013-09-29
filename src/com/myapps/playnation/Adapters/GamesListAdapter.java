@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Classes.ListsHelper;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.LoadImage;
 import com.myapps.playnation.main.MainActivity;
@@ -27,7 +26,7 @@ import com.myapps.playnation.main.MainActivity;
  * @author viperime Adapter for the Games ListView which sets up all the items
  *         in the list
  */
-public class GamesListAdapter extends ListsHelper implements MyBaseAdapter {
+public class GamesListAdapter extends ListsHelper implements IShowMore {
 	LayoutInflater inflater;
 	ImageView thumb_image;
 	ArrayList<Bundle> gamesDataCollection;
@@ -50,11 +49,6 @@ public class GamesListAdapter extends ListsHelper implements MyBaseAdapter {
 		inflater = (LayoutInflater) act
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		// count = 10;
-	}
-
-	@Override
-	public ArrayList<Bundle> getList() {
-		return gamesDataCollection;
 	}
 
 	@Override

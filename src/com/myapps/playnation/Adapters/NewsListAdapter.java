@@ -18,14 +18,12 @@ import android.widget.TextView;
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.DataSection;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Classes.ListsHelper;
 import com.myapps.playnation.Classes.NewsFeed;
 import com.myapps.playnation.Classes.NewsFeedItem;
-import com.myapps.playnation.Classes.NewsListHelper;
 import com.myapps.playnation.Operations.LoadImage;
 import com.myapps.playnation.main.ISectionAdapter;
 
-public class NewsListAdapter extends NewsListHelper implements MyBaseAdapter {
+public class NewsListAdapter extends NewsListHelper implements IShowMore {
 	private LayoutInflater inflator;
 	private List<NewsFeedItem> newsFeedsLists;
 	ISectionAdapter context;
@@ -129,11 +127,5 @@ public class NewsListAdapter extends NewsListHelper implements MyBaseAdapter {
 	public boolean canShowMore() {
 		// TODO Auto-generated method stub
 		return showMore;
-	}
-
-	@Override
-	public ArrayList<Bundle> getList() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

@@ -3,9 +3,7 @@
     android:id="@+id/mainLayoutPlayer"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/wall_item_shape"
-    android:paddingLeft="@dimen/wall_padding_left"
-    android:paddingTop="@dimen/wall_padding_top" >
+   style="@style/PanelShape" >
 
     <ImageView
         android:id="@+id/imageView1"
@@ -39,7 +37,6 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/imageView1"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="@dimen/wall_padding_left"
         android:text="what we gonna do when this text gets to big i have no idea"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -96,7 +93,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/margin"
-            android:layout_marginRight="10dp"
             android:text="Share"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 

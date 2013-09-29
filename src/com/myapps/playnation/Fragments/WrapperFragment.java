@@ -14,8 +14,7 @@ import android.view.ViewGroup;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Fragments.Lists.ListsFragment;
-import com.myapps.playnation.Fragments.Tabs.News.SelectedNewsFeed;
+import com.myapps.playnation.Fragments.TabHosts.News.SelectedNewsFeed;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.HelperClass;
 import com.myapps.playnation.main.MainActivity;

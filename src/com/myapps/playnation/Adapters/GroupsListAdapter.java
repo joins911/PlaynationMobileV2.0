@@ -16,12 +16,11 @@ import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Classes.ListsHelper;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.LoadImage;
 import com.myapps.playnation.main.MainActivity;
 
-public class GroupsListAdapter extends ListsHelper implements MyBaseAdapter {
+public class GroupsListAdapter extends ListsHelper implements IShowMore {
 	LayoutInflater inflater;
 	ImageView thumb_image;
 	ArrayList<Bundle> groupsDataCollection;
@@ -44,9 +43,9 @@ public class GroupsListAdapter extends ListsHelper implements MyBaseAdapter {
 
 	@Override
 	public int getCount() {
-		/*
-		 * if (groupsDataCollection.size() >= count) return count; else
-		 */
+		
+		  if (groupsDataCollection.size() >= count) return count; else
+		 
 		return groupsDataCollection.size();
 	}
 
@@ -63,11 +62,11 @@ public class GroupsListAdapter extends ListsHelper implements MyBaseAdapter {
 	@Override
 	public void showMore() {
 		groupsDataCollection.addAll(getNextItems());
-		/*
-		 * if (showMore) if (count + 5 <= groupsDataCollection.size()) count =
-		 * count + 5; else { count = groupsDataCollection.size(); showMore =
-		 * false; }
-		 */
+		
+		  if (showMore) if (count + 5 <= groupsDataCollection.size()) count =
+		  count + 5; else { count = groupsDataCollection.size(); showMore =
+		  false; }
+		 
 	}
 
 	@Override
@@ -127,9 +126,4 @@ public class GroupsListAdapter extends ListsHelper implements MyBaseAdapter {
 		// ImageView tvImage;
 	}
 
-	@Override
-	public ArrayList<Bundle> getList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

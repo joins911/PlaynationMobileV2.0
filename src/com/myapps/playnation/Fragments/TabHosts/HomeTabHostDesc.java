@@ -15,13 +15,13 @@ import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Fragments.Tabs.Home.XHomeEditProfileFragment;
-import com.myapps.playnation.Fragments.Tabs.Home.XHomeEventsFragment;
-import com.myapps.playnation.Fragments.Tabs.Home.XHomeFriendsFragment;
-import com.myapps.playnation.Fragments.Tabs.Home.XHomeGamesFragment;
-import com.myapps.playnation.Fragments.Tabs.Home.XHomeGroupsFragment;
-import com.myapps.playnation.Fragments.Tabs.Home.XHomeMessagesFragment;
-import com.myapps.playnation.Fragments.Tabs.Home.HomeWallFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.HomeWallFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.XHomeEditProfileFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.XHomeEventsFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.XHomeFriendsFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.XHomeGamesFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.XHomeGroupsFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.HomeMessagesFragment;
 
 public class HomeTabHostDesc extends TabHostDesc implements OnTabChangeListener {
 
@@ -39,7 +39,7 @@ public class HomeTabHostDesc extends TabHostDesc implements OnTabChangeListener 
 				android.R.id.tabhost);
 		setupTab(HomeWallFragment.class, new TextView(getActivity()),
 				Keys.TAB_WALL, getArguments());
-		setupTab(XHomeMessagesFragment.class, new TextView(getActivity()),
+		setupTab(HomeMessagesFragment.class, new TextView(getActivity()),
 				Keys.TAB_MESSAGES, getArguments());
 		setupTab(XHomeGroupsFragment.class, new TextView(getActivity()),
 				Keys.TAB_GROUPS, getArguments());
@@ -97,7 +97,7 @@ public class HomeTabHostDesc extends TabHostDesc implements OnTabChangeListener 
 			return;
 		}
 		if (Keys.TAB_MESSAGES.equals(tabId)) {
-			XHomeMessagesFragment frag = new XHomeMessagesFragment();
+			HomeMessagesFragment frag = new HomeMessagesFragment();
 			updateTab(tabId, android.R.id.tabcontent, frag);
 			// mCurrentTab = 1;
 			return;

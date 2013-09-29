@@ -13,10 +13,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,13 +44,14 @@ public class LoginActivity extends Activity {
 	DataConnector con;
 	private SharedPreferences prefrence;
 
-	@SuppressLint("NewApi")
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Keys.internetStatus = HelperClass
 				.isNetworkAvailable((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE));
 		stopService(new Intent(this, ServiceClass.class));
-		startService(new Intent(this, ServiceClass.class));
+		startService(new Intent(this, ServiceClass.class));		
+		
 		if (android.os.Build.VERSION.SDK_INT > 10) {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
 					.permitAll().build();
@@ -68,19 +72,19 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.activity_login);
 		con = DataConnector.getInst();
 		con.setSQLLinker(PlaynationMobile.getContext());
-		username = (EditText) findViewById(R.id.password_logIn);
-		password = (EditText) findViewById(R.id.username_logIn);
+		username = (EditText) findViewById(R.id.username_logIn);
+		password = (EditText) findViewById(R.id.password_logIn);
 		logButton = (Button) findViewById(R.id.btnLogin);
 		Button logGuestButton = (Button) findViewById(R.id.btnGuestLogin);
 		TextView registerScreen = (TextView) findViewById(R.id.link_to_register);
-
+		ImageView logo = (ImageView) findViewById(R.id.logo_big);
 		logButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				logButton.setError(null);
-				if (HelperClass.EmailPassNickCheck(password, username, null)) {
-					if (Keys.internetStatus) {
+				if (HelperClass.EmailPassNickCheck(username, password, null)) {
+					if (Configurations.isReachable) {
 						if (checkCredentials()) {
 							logOnlineUser();
 						} else {
@@ -94,7 +98,7 @@ public class LoginActivity extends Activity {
 						Toast.makeText(getApplicationContext(),
 								"No server Connection", Toast.LENGTH_SHORT)
 								.show();
-				} else if (username.getText().toString()
+				} else if (password.getText().toString()
 						.equalsIgnoreCase("admin")) {
 					logOnlineAdmin();
 				}
@@ -115,7 +119,7 @@ public class LoginActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// Switching to Register screen
-				if (Keys.internetStatus) {
+				if (Configurations.isReachable) {
 					Intent i = new Intent(getApplicationContext(),
 							RegisterActivity.class);
 					startActivity(i);
@@ -125,6 +129,32 @@ public class LoginActivity extends Activity {
 							.show();
 
 				}
+			}
+		});
+		
+		logo.setOnTouchListener(new OnTouchListener() {
+			
+			private float total=0;
+			/*
+			 * (non-Javadoc)
+			 * @see android.view.View.OnTouchListener#onTouch(android.view.View, android.view.MotionEvent)
+			 * work in progress not really necesary but proof of concept
+			 */
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				switch(event.getActionMasked()){
+				case MotionEvent.ACTION_DOWN :
+					Toast.makeText(getApplicationContext(), total+" ", Toast.LENGTH_SHORT).show();
+					total = event.getX(); 
+					break; 
+				case MotionEvent.ACTION_UP: 					
+					total = event.getX()-total;
+					Toast.makeText(getApplicationContext(), total+" ", Toast.LENGTH_SHORT).show();
+					if(total > 100)  clearText(); 
+					total = 0;
+					return false;														
+				}
+				return true;
 			}
 		});
 
@@ -147,6 +177,12 @@ public class LoginActivity extends Activity {
 		edit.clear();
 		edit.commit();
 	}
+	
+	private void clearText()
+	{
+		username.setText("");
+		password.setText("admin");
+	}
 
 	private void logOnlineAdmin() {
 		Configurations.CurrentPlayerID = "959";
@@ -167,13 +203,6 @@ public class LoginActivity extends Activity {
 	private void startMainActivity(int appState) {
 		task = new LoadMainActivityTask(appState);
 		task.execute();
-	}
-
-	@Override
-	public void onConfigurationChanged(Configuration newConfig) {
-		// TODO Auto-generated method stub
-		super.onConfigurationChanged(newConfig);
-		setContentView(R.layout.activity_login);
 	}
 
 	class LoadMainActivityTask extends AsyncTask<Void, Integer, Void> {

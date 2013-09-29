@@ -31,8 +31,9 @@ public class Configurations {
 	private int appState;
 	private int listsIncrement;
 	private int backTimer;
-	private int initialListCount;
-	private boolean internetStatus;
+	private int initialListCount;	
+	public static boolean isReachable;
+	//public static boolean connectionStatus = isReachable;
 	
 	private Configurations() {		
 	}
@@ -51,16 +52,7 @@ public class Configurations {
 		initialListCount=14; //
 	}
 	
-	public boolean getInternetStatus()
-	{
-		return internetStatus;
-	}
-	
-	public void setInternetStatus(boolean connected)
-	{
-		internetStatus = connected;
-	}
-	
+
 	public boolean isTablet()
 	{
 		return PlaynationMobile.getContext().getResources().getBoolean(R.bool.isTablet);

@@ -1,5 +1,10 @@
 package com.myapps.playnation.Operations;
 
+import java.io.IOException;
+import java.net.Socket;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -25,8 +30,10 @@ public class ServiceClass extends Service {
 	private MySQLinker linker;
 	private DataConnector con;
 	private Timer timer;
-	private ArrayList<Bundle> playersNotificationList;
-
+	private ArrayList<Bundle> playersNotificationList;	
+	private int checkConnectionTimerTimeout = 500; 
+	private int timerCount=0; //10s
+	private int TimeOut = 5*1000;
 	// private static final String tag = "ServiceClass";
 
 	@Override
@@ -138,6 +145,25 @@ public class ServiceClass extends Service {
 			}
 		}
 	};
+	
+	TimerTask checkServerStatus = new TimerTask() {
+		
+		@Override
+		public void run(){
+			if(timerCount==4) checkConnectionTimerTimeout = 10*1000;
+			 try{
+			        URL myUrl = new URL("http://playnation.eu");
+			        URLConnection connection = myUrl.openConnection();
+			        connection.setConnectTimeout(TimeOut);
+			        connection.connect();
+			        Configurations.isReachable = true;
+			    } catch (Exception e) {
+			        // Handle your exceptions
+			    	Configurations.isReachable = false;
+			    }
+			 timerCount++;
+		}		
+	};
 
 	static int MINUTES = 1;
 
@@ -148,6 +174,13 @@ public class ServiceClass extends Service {
 			timer = new Timer();
 			timer.scheduleAtFixedRate(serviceStarterTask, MINUTES * 60 * 1000,
 					MINUTES * 60 * 1000);
+		}
+	}
+	
+	private void getServerConnection(){
+		if(Keys.internetStatus) {
+			if(timer == null) timer = new Timer();
+			else timer.scheduleAtFixedRate(checkServerStatus,checkConnectionTimerTimeout , checkConnectionTimerTimeout);
 		}
 	}
 
@@ -164,6 +197,7 @@ public class ServiceClass extends Service {
 	@Override
 	public void onStart(Intent intent, int startId) {
 		showNotification();
+		getServerConnection();
 	}
 
 }

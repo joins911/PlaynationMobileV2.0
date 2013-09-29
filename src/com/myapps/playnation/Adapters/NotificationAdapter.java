@@ -17,7 +17,7 @@ import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Operations.HelperClass;
 
-public class NotificationAdapter extends BaseAdapter implements MyBaseAdapter {
+public class NotificationAdapter extends BaseAdapter implements IShowMore {
 	LayoutInflater inflater;
 	ArrayList<Bundle> notifDataCollection;
 	int count;
@@ -96,11 +96,6 @@ public class NotificationAdapter extends BaseAdapter implements MyBaseAdapter {
 	@Override
 	public boolean canShowMore() {
 		return showMore;
-	}
-
-	@Override
-	public ArrayList<Bundle> getList() {
-		return notifDataCollection;
 	}
 
 }

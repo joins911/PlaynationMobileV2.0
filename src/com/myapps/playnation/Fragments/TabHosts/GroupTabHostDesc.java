@@ -16,11 +16,11 @@ import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Fragments.Tabs.Group.GroupEventsFragment;
-import com.myapps.playnation.Fragments.Tabs.Group.GroupInfoFragment;
-import com.myapps.playnation.Fragments.Tabs.Group.GroupMediaFragment;
-import com.myapps.playnation.Fragments.Tabs.Group.GroupPlayersFragment;
-import com.myapps.playnation.Fragments.Tabs.Group.GroupWallFragment;
+import com.myapps.playnation.Fragments.TabHosts.Group.GroupEventsFragment;
+import com.myapps.playnation.Fragments.TabHosts.Group.GroupInfoFragment;
+import com.myapps.playnation.Fragments.TabHosts.Group.GroupMediaFragment;
+import com.myapps.playnation.Fragments.TabHosts.Group.GroupPlayersFragment;
+import com.myapps.playnation.Fragments.TabHosts.Group.GroupWallFragment;
 
 /*
  * Disabled Players,Media and Events Tabs

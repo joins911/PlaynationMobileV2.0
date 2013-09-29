@@ -2,12 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/gamesCI_All_RLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+     android:background="@drawable/background_pattern2" >
 
         <ImageView
             android:id="@+id/gamesCI_replyImage_pic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="30dp"
@@ -18,10 +19,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/margin"
         android:layout_toRightOf="@+id/gamesCI_replyImage_pic"
         android:text="how_i_met_your_mother"
-        android:textSize="12sp"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/gamesCI_replyText_TView"
@@ -29,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/gamesCI_replyUsername_TView"
         android:layout_below="@+id/gamesCI_replyUsername_TView"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="@dimen/paragraphPadding"
         android:layout_marginTop="5dp"
         android:ellipsize="end"
         android:lines="2"
