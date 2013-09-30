@@ -32,17 +32,12 @@ public class ServiceClass extends Service {
 	private MySQLinker linker;
 	private DataConnector con;
 	private Timer timer;
-<<<<<<< HEAD
-	private ArrayList<Bundle> playersNotificationList;
 	private SharedPreferences saveLoginPref;
 	private boolean session;
-
-=======
 	private ArrayList<Bundle> playersNotificationList;	
 	private int checkConnectionTimerTimeout = 500; 
 	private int timerCount=0; //10s
 	private int TimeOut = 5*1000;
->>>>>>> origin/master
 	// private static final String tag = "ServiceClass";
 
 	@Override
@@ -166,7 +161,7 @@ public class ServiceClass extends Service {
 		
 		@Override
 		public void run(){
-			if(timerCount==4) checkConnectionTimerTimeout = 10*1000;
+			if(timerCount==4) checkConnectionTimerTimeout = 60*1000;
 			 try{
 			        URL myUrl = new URL("http://playnation.eu");
 			        URLConnection connection = myUrl.openConnection();

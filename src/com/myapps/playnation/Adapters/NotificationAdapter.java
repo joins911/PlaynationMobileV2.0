@@ -133,12 +133,6 @@ public class NotificationAdapter extends BaseAdapter implements IShowMore {
 		return showMore;
 	}
 
-<<<<<<< HEAD
-	@Override
-	public ArrayList<Bundle> getList() {
-		return notifDataCollection;
-	}
-
 	private void checkNotifiState(Bundle arg, String type) {
 		if (arg.getString(Keys.NotificationType).equals("FriendRequest")) {
 			showButtonCondition = true;
@@ -152,6 +146,4 @@ public class NotificationAdapter extends BaseAdapter implements IShowMore {
 		}
 	}
 
-=======
->>>>>>> origin/master
 }

@@ -105,13 +105,10 @@ public class LoginActivity extends Activity {
 
 		con = DataConnector.getInst();
 		con.setSQLLinker(PlaynationMobile.getContext());
-<<<<<<< HEAD
-		username = (EditText) findViewById(R.id.password_logIn);
 
-=======
 		username = (EditText) findViewById(R.id.username_logIn);
 		password = (EditText) findViewById(R.id.password_logIn);
->>>>>>> origin/master
+
 		logButton = (Button) findViewById(R.id.btnLogin);
 		Button logGuestButton = (Button) findViewById(R.id.btnGuestLogin);
 		TextView registerScreen = (TextView) findViewById(R.id.link_to_register);

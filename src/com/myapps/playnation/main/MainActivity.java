@@ -141,7 +141,6 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		String[] mainArr = getResources().getStringArray(R.array.main_array);
 		String[] menuArr = getResources().getStringArray(R.array.menu_array);
 		String[] topArr = { "header" };
-<<<<<<< HEAD
 		con.queryPlayerGames(Configurations.CurrentPlayerID);
 		con.queryPlayerGroup(Configurations.CurrentPlayerID);
 		mGamesTitles = con.getLinker().getMyGames(
@@ -149,14 +148,14 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		mGroupsTitles = con.getLinker().getMyGroups(
 				Configurations.CurrentPlayerID);
 
-=======
+/*
 		con.queryPlayerGames("12");
 		con.queryPlayerGroup("12");
 		mGamesTitles = con.getLinker().getMyGames("12");
 		mGroupsTitles = con.getLinker().getMyGroups("12");
 		Toast.makeText(getApplicationContext(), mGamesTitles.toString(),
 				Toast.LENGTH_SHORT).show();
->>>>>>> origin/master
+*/
 		String showMore = getApplicationContext().getResources().getString(
 				R.string.showMore);
 		mGamesTitles.add(showMore);
