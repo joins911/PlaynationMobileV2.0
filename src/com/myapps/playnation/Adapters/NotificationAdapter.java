@@ -19,7 +19,7 @@ import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.HelperClass;
 
-public class NotificationAdapter extends BaseAdapter implements MyBaseAdapter {
+public class NotificationAdapter extends BaseAdapter implements IShowMore {
 	LayoutInflater inflater;
 	ArrayList<Bundle> notifDataCollection;
 	int count;
@@ -133,6 +133,7 @@ public class NotificationAdapter extends BaseAdapter implements MyBaseAdapter {
 		return showMore;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public ArrayList<Bundle> getList() {
 		return notifDataCollection;
@@ -151,4 +152,6 @@ public class NotificationAdapter extends BaseAdapter implements MyBaseAdapter {
 		}
 	}
 
+=======
+>>>>>>> origin/master
 }

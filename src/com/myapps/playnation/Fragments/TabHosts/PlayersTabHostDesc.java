@@ -15,13 +15,13 @@ import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Fragments.Tabs.Players.PlayerEventsFragment;
-import com.myapps.playnation.Fragments.Tabs.Players.PlayerFriendsFragment;
-import com.myapps.playnation.Fragments.Tabs.Players.PlayerGamesFragment;
-import com.myapps.playnation.Fragments.Tabs.Players.PlayerGroupsFragment;
-import com.myapps.playnation.Fragments.Tabs.Players.PlayerInfoFragment;
-import com.myapps.playnation.Fragments.Tabs.Players.PlayerSubscriptionFragment;
-import com.myapps.playnation.Fragments.Tabs.Players.PlayerWallFragment;
+import com.myapps.playnation.Fragments.TabHosts.Players.PlayerEventsFragment;
+import com.myapps.playnation.Fragments.TabHosts.Players.PlayerFriendsFragment;
+import com.myapps.playnation.Fragments.TabHosts.Players.PlayerGamesFragment;
+import com.myapps.playnation.Fragments.TabHosts.Players.PlayerGroupsFragment;
+import com.myapps.playnation.Fragments.TabHosts.Players.PlayerInfoFragment;
+import com.myapps.playnation.Fragments.TabHosts.Players.PlayerSubscriptionFragment;
+import com.myapps.playnation.Fragments.TabHosts.Players.PlayerWallFragment;
 
 public class PlayersTabHostDesc extends TabHostDesc implements
 		OnTabChangeListener {

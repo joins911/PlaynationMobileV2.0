@@ -18,7 +18,7 @@ import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Operations.LoadImage;
 
-public class CompanyListAdapter extends BaseAdapter implements MyBaseAdapter {
+public class CompanyListAdapter extends BaseAdapter implements IShowMore {
 	private LayoutInflater inflator;
 	private ArrayList<Bundle> companiesList;
 	private int count = 10;
@@ -93,12 +93,6 @@ public class CompanyListAdapter extends BaseAdapter implements MyBaseAdapter {
 	@Override
 	public boolean canShowMore() {
 		return showMore;
-	}
-
-	@Override
-	public ArrayList<Bundle> getList() {
-		// TODO Auto-generated method stub
-		return companiesList;
 	}
 
 }

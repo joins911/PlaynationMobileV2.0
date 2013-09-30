@@ -19,14 +19,14 @@ import com.myapps.playnation.Fragments.TabHosts.GroupTabHostDesc;
 import com.myapps.playnation.Fragments.TabHosts.HomeTabHostDesc;
 import com.myapps.playnation.Fragments.TabHosts.PlayersTabHostDesc;
 import com.myapps.playnation.Fragments.TabHosts.TabHostDesc;
-import com.myapps.playnation.Fragments.Tabs.Home.XHomeEditProfileFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.XHomeEditProfileFragment;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.LoadImage;
 import com.myapps.playnation.main.ISectionAdapter;
 import com.myapps.playnation.main.MainActivity;
 
-public class HeaderFragment extends Fragment implements BaseFragment {
+public class HeaderFragment extends Fragment implements BaseFragment{
 	private TabHostDesc mTabFrag;
 	private View mView;
 	private TextView gName;
@@ -38,11 +38,6 @@ public class HeaderFragment extends Fragment implements BaseFragment {
 	private DataConnector con;
 	ISectionAdapter actContext;
 	
-	public HeaderFragment()
-	{
-		
-	}
-
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
@@ -92,7 +87,7 @@ public class HeaderFragment extends Fragment implements BaseFragment {
 					.replace(R.id.container_games, mTabFrag).commit();
 		}
 	}
-
+	
 	public void onSavedInstanceState(Bundle outState) {
 		outState.putAll(getArguments());
 		super.onSaveInstanceState(outState);
@@ -185,5 +180,11 @@ public class HeaderFragment extends Fragment implements BaseFragment {
 	public void onDestroy() {
 		mView = null;
 		super.onDestroy();
+	}
+
+	@Override
+	public boolean onBackButtonPressed() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

@@ -150,7 +150,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:text="@string/AddGroup"
+            android:text="@string/addAGroup"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/btnLikeColor" />
     </RelativeLayout>

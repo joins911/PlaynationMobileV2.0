@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/GrayTheme"
+     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="false">
+<LinearLayout    
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    <!-- Main Info Panel -->    
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/PanelShape" >
+
+        <TextView
+            android:id="@+id/websideTV"
+            style="@style/SmallTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="@dimen/margin"
+            android:text="@string/website" />
+        <TextView
+            android:id="@+id/joinedDateTV"
+            style="@style/SmallTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+            android:layout_below="@id/websideTV"
+            android:paddingRight="@dimen/margin"            
+            android:text="@string/dateJoined" />
+
+        <TextView
+            android:id="@+id/contentText"
+            style="@style/ContentTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/joinedDateTV"
+            android:paddingLeft="@dimen/paragraphPadding"
+            android:text="@string/noFriendsString" />
+
+        <TextView
+            android:id="@+id/releaseDateTV"
+            style="@style/SmallTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/contentText"
+            android:paddingRight="@dimen/margin"
+            android:text="@string/dateReleased" />
+        
+         
+
+         <TextView
+             android:id="@+id/playersPLayingTV"
+             style="@style/SmallTextStyle"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignBaseline="@+id/releaseDateTV"
+             android:layout_alignBottom="@+id/releaseDateTV"
+             android:layout_alignLeft="@+id/contentText"
+             android:paddingBottom="@dimen/textSpacing"
+             android:paddingLeft="@dimen/margin"
+             android:text="@string/playersPlaying" />
+
+    </RelativeLayout>
+
+    <!-- Buttons Pannel -->
+    
+    <RelativeLayout 
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="@dimen/margin">
+
+       <Button
+           android:id="@+id/challengeButt"
+           style="@style/LightGrayButStyle"
+           android:layout_width="@dimen/MenuButtonWidth"
+           android:layout_height="@dimen/MenuButtonHeight"
+           android:layout_alignParentLeft="true"
+           android:layout_marginLeft="25dp"
+           android:text="@string/challenge"
+           android:textStyle="normal" />
+
+       <Button
+           android:id="@+id/addGameButt"
+           style="@style/DarkGrayButStyle"
+           android:layout_width="@dimen/MenuButtonWidth"
+           android:layout_height="@dimen/MenuButtonHeight"
+           android:layout_alignParentRight="true"
+           android:layout_marginRight="25dp"
+           android:text="@string/addGame" />
+
+    </RelativeLayout>
+    
+	<!-- Ratings Panel -->
+    
+    <LinearLayout   
+        style="@style/PanelShape"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"        >
+         <TextView
+            android:id="@+id/esrbRat"
+            style="@style/RatingsTextStyle"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/esrbRat"/>
+
+        <TextView
+            android:id="@+id/playnationRat"
+            style="@style/RatingsTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/playRat" />
+
+        <TextView
+            android:id="@+id/userRat"
+            style="@style/RatingsTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/userRat" />
+    </LinearLayout>
+    
+    <!-- Developers/Distributor Panel -->
+    
+     <LinearLayout   
+        style="@style/PanelShape"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"        >
+         <TextView
+            android:id="@+id/developerTV"
+            style="@style/RatingsTextStyle"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/developers"/>
+
+        <TextView
+            android:id="@+id/distributorTV"
+            style="@style/RatingsTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/distributors" />
+    </LinearLayout>
+    
+     <!-- Platforms Panel -->
+     
+      <LinearLayout
+          style="@style/PanelShape"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal" >
+
+          <TextView
+              android:id="@+id/platformV"
+              style="@style/RatingsTextStyle"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/margin"
+              android:text="@string/platformString" />
+
+          <ImageView
+              android:id="@+id/availablePC"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:src="@drawable/abc_ic_clear_search_api_holo_light" />
+
+          <ImageView
+              android:id="@+id/availableXBOX"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:src="@drawable/abc_ic_clear_search_api_holo_light" />
+
+          <ImageView
+              android:id="@+id/availablePS"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:src="@drawable/abc_ic_clear_search_api_holo_light" />
+
+          <ImageView
+              android:id="@+id/availableVITA"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:src="@drawable/abc_ic_clear_search_api_holo_light" />
+
+          <ImageView
+              android:id="@+id/availableWii"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:src="@drawable/abc_ic_clear_search_api_holo_light" />
+
+          <ImageView
+              android:id="@+id/availableAndroid"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:src="@drawable/abc_ic_clear_search_api_holo_light" />
+      </LinearLayout>
+
+      <Button
+          android:id="@+id/button1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Button" />
+</LinearLayout>
+</ScrollView>

@@ -22,7 +22,7 @@
 		<!-- The textColor property is backward compatible with the Support Library -->
 	</style>
 	
-	<!-- ActionBar tabs text -->
+		<!-- ActionBar tabs text -->
 	<style name="MyActionBarTabText" parent="@style/Widget.AppCompat.ActionBar.TabText">
 		<item name="android:textColor">@color/actionbar_text</item>
 		<!-- The textColor property is backward compatible with the Support Library -->
@@ -33,6 +33,31 @@
 	<style name="AppTheme" parent="@style/CustomActionBarTheme">		
 	    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
 	</style>
+	<style name="Paragraph">
+	    <item name="android:paddingLeft">@dimen/margin</item>
+	</style>
+	
+	<style name="PanelShape">
+	    <item name="android:background">@drawable/wall_item_shape</item>
+	    <item name="android:paddingLeft">@dimen/wall_padding_left</item>
+	    <item name="android:paddingTop">@dimen/wall_padding_top</item>
+	    <item name="android:paddingRight">@dimen/wall_padding_left</item>
+	    <item name="android:paddingBottom">@dimen/wall_padding_top</item>  
+	</style>
+	
+	<style name="ContentTextStyle">
+	    <item name="android:paddingTop">@dimen/textSpacing</item>	   e
+	    <item name="android:textSize">@dimen/NormalTextSize</item>
+	</style>
+	<style name="SmallTextStyle" parent="ContentTextStyle">
+	    <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+		 <item name="android:textSize">@dimen/subTitleTextSize</item>
+	</style>
+	<style name="RatingsTextStyle" parent="Paragraph" >	    
+	    <item name="android:textSize">@dimen/NormalTextSize</item>
+	    <item name="android:fontFamily">sans-sherif</item>
+	    <item name="android:textStyle">bold</item>
+	</style>
 	
 	<style name="BlackText">
 	    <item name="android:textColor">@color/actionbar_text</item>
@@ -41,21 +66,26 @@
 	<style name="TabsTheme">
 		<item name="android:paddingTop">@dimen/TabHostSize</item>
 	</style>
+	
 	<style name="GrayTheme" parent="TabsTheme">
 		<item name="android:background">@drawable/tabs_my_back2</item>
 	</style>
+	
 	<style name="DarkTheme" parent="TabsTheme">
 		<item name="android:background">@drawable/tabs_my_back</item>
 	</style>
+	
 	<style name="HomeStyle" parent="TabsTheme">
 		<item name="android:background">@drawable/tabs_my_back2</item>
 		<item name="android:textSize">20sp</item>
 		<item name="android:textColor">@color/headlineColor</item>
 	</style>
+	
 	<style name="HeaderStyle">
 		<item name="android:textSize">20sp</item>
 		<item name="android:textColor">@color/headlineColor</item>
 	</style>
+	
 	<style name="textviewTextstyle">
 		<item name="android:paddingLeft">20dp</item>
 		<item name="android:paddingRight">20dp</item>
@@ -63,6 +93,7 @@
 		<item name="android:paddingBottom">5dp</item>
 		<item name="android:textStyle">bold</item>
 	</style>
+	
 	<style name="textviewstyle">
 		<item name="android:paddingLeft">5dp</item>
 		<item name="android:paddingRight">5dp</item>
@@ -75,12 +106,17 @@
 		<item name="android:paddingTop">5dp</item>
 		<item name="android:paddingBottom">5dp</item>
 	</style>
-	<style name="MenuButtonStyle">
+	<style name="LightGrayButStyle">
 		<item name="android:background">@drawable/footer_button_selector</item>
-		<item name="android:height">@dimen/MenuButtonHeight</item>
 		<item name="android:gravity">center</item>
 	</style>
-	<style name="SortButtons">
+	
+	<style name="DarkGrayButStyle">
+		<item name="android:background">@drawable/buttons_style_sel</item>
+		<item name="android:gravity">center</item>
+	</style>
+	
+	<style name="CommentButtons">
 		<item name="android:background">@drawable/footer_button_selector</item>
 		<item name="android:paddingLeft">3dp</item>
 		<item name="android:paddingRight">3dp</item>

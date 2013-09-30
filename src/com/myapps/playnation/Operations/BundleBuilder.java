@@ -30,7 +30,11 @@ public class BundleBuilder {
 		bundle.putString(Keys.GAMEURL,
 				cursor.getString(cursor.getColumnIndex(Keys.GAMEURL)));
 		bundle.putString(Keys.GAMEPLAYERSCOUNT,
+<<<<<<< HEAD
 				cursor.getString(cursor.getColumnIndex(Keys.GAMEPLAYERSCOUNT)));
+=======
+				cursor.getString(cursor.getColumnIndex(Keys.GAMEPLAYERSCOUNT)));		
+>>>>>>> origin/master
 		bundle.putString(Keys.GameisPlaying,
 				cursor.getString(cursor.getColumnIndex(Keys.GameisPlaying)));
 		bundle.putString(Keys.GameIsLiked,
@@ -52,8 +56,12 @@ public class BundleBuilder {
 
 	public static Bundle putPGameExtraInBundle(Cursor cursor) {
 		Bundle bundle = putGameInBundle(cursor);
+<<<<<<< HEAD
 		bundle.putString(Keys.ID_PLAYER,
 				cursor.getString(cursor.getColumnIndex(Keys.ID_PLAYER)));
+=======
+		bundle.putString(Keys.ID_PLAYER, cursor.getString(cursor.getColumnIndex(Keys.ID_PLAYER)));
+>>>>>>> origin/master
 		bundle.putString(Keys.GameComments,
 				cursor.getString(cursor.getColumnIndex(Keys.GameComments)));
 

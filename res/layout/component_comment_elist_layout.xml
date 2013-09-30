@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/gamesCL_commentImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/ic_launcher" />
@@ -18,6 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/margin"
         android:layout_toRightOf="@+id/gamesCL_commentImage"
         android:text="Baubau"
         android:textSize="12sp"
@@ -27,13 +28,11 @@
         android:id="@+id/gamesCL_commentText_TView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/gamesCL_commentImage"
         android:layout_alignLeft="@+id/gamesCL_commentUsername_TView"
         android:layout_alignParentRight="true"
-        android:layout_marginLeft="5dp"
-        android:ellipsize="end"
-        android:lines="2"
-        android:maxLines="2"
+        android:layout_below="@id/gamesCL_commentUsername_TView"
+        android:layout_marginLeft="@dimen/paragraphPadding"
+        android:layout_marginTop="@dimen/margin"
         android:text="Here there is gona be the comment, not the whole thing but just a bit with the rest on follow up "
         android:textSize="12sp"
         android:typeface="sans" />

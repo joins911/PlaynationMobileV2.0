@@ -14,11 +14,11 @@ import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Fragments.Tabs.Home.XHomeEventsFragment;
-import com.myapps.playnation.Fragments.Tabs.Home.XHomeGamesFragment;
-import com.myapps.playnation.Fragments.Tabs.Home.XHomeGroupsFragment;
-import com.myapps.playnation.Fragments.Tabs.Home.XHomeSubscriptionFragment;
-import com.myapps.playnation.Fragments.Tabs.Players.PlayerGamesFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.XHomeEventsFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.XHomeGamesFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.XHomeGroupsFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.XHomeSubscriptionFragment;
+import com.myapps.playnation.Fragments.TabHosts.Players.PlayerGamesFragment;
 import com.myapps.playnation.Operations.HelperClass;
 import com.myapps.playnation.Operations.LoadImage;
 

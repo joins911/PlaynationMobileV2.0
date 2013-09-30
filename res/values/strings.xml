@@ -2,24 +2,39 @@
 <resources>
 	<string name="app_name">Playnation</string>
 	<string name="action_settings">Settings</string>
+	<!-- New Strings -->
+	<string name="playersPlaying">Players Playing</string>
+	<string name="dateReleased">Date Released</string>
+	<string name="dateJoined">Date Joined</string>
+	<string name="website">Website</string>
+	<string name="esrbRat">ESRB Rating:</string>
+	<string name="playRat">Playnation Rating:</string>
+	<string name="userRat">User Score:</string>
+	<string name="platformString">Available on</string>
+	<string name="challenge">Challenge friend</string>	
+	<string name="addGame">Add Game</string>
+	<string name="messageString">Messages</string>
+	<string name="chose_friend">Choose a friend to Challenge</string>
+	
 	<!-- Menu Strings -->
 	<string-array name="main_array">
 		<item>Browse Playnation</item>
 		<item>Wall</item>
 		<item>Messages</item>
 		<item>Notification</item>
+		<item>Friends</item>
 		<item>Events</item>
-		<item>Media</item>
 	</string-array>
 	<string-array name="menu_array">
 		<item>Your Profile</item>
 		<item>Main Menu</item>
 		<item>My Games</item>
 		<item>My Groups</item>
+		<item>Log Out</item>
 	</string-array>
 	<string name="showMore">Show More&#8230;</string>
-	<string name="AddGame">Add a Game</string>
-	<string name="AddGroup">Add a Group</string>
+	<string name="addAGame">Add a Game</string>
+	<string name="addAGroup">Add a Group</string>
 	<string name="btnUnlike">Unlike</string>
 	<string name="btnSendFriendRequest">Add Friend</string>
 	<string name="lblSendGroupComment">Reason to join group :</string>
@@ -73,7 +88,7 @@
 	<string name="emptyFriendsListString">No friends yet...</string>
 	<string name="emptyMsgListString">No messages present...</string>
 	<string name="emptyGroupListString">No groups present...</string>
-	<string name="subViewText">Some text that seems very intresting</string>
+	<string name="subViewText">Some text that seems very intresting asdasd /n sadsadsd asd as das /n sadasfgsdgsfasda</string>
 	<!-- Extras New -->
 	<string name="fontFamilyTextView">Ariel</string>
 	<string name="btnSave">Save</string>
@@ -93,6 +108,8 @@
 	<string name="startdate">Start date:</string>
 	<string name="endDate">End Date:</string>
 	<string name="Participants">Participants:</string>
+	<string name="developers">Developer:</string>
+	<string name="distributors">Distributor:</string>
 	<string name="Privacy">Privacy:</string>
 	<string name="Invitations">Invitations:</string>
 	<string name="headquarters">Headquarters :</string>
@@ -117,8 +134,6 @@
 	<string name="released">Released:</string>
 	<string name="platforms">Platforms:</string>
 	<string name="esrbRating">ESRB Rating</string>
-	<string name="developers">Developers:</string>
-	<string name="distributors">Distributors:</string>
 	<string name="emptyNotifListString">No Notification ....</string>
 	<string name="btnCheckSave">Save Credentials</string>
 </resources>

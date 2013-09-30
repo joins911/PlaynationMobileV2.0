@@ -46,7 +46,8 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 		String finals = "";
 		String main = folderName + "/";
 		Bitmap returnBitmap = null;
-		// url sometimes null???
+		// url sometimes null???		
+		
 		if (!url.equalsIgnoreCase("")) {
 			String dir1 = url.substring(0, 1);
 			// Chc

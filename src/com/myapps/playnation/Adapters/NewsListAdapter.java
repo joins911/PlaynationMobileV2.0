@@ -23,26 +23,31 @@ import com.myapps.playnation.Classes.NewsFeedItem;
 import com.myapps.playnation.Operations.LoadImage;
 import com.myapps.playnation.main.ISectionAdapter;
 
-@SuppressWarnings("rawtypes")
-public class NewsListAdapter extends ArrayAdapter implements MyBaseAdapter {
+public class NewsListAdapter extends NewsListHelper implements IShowMore {
 	private LayoutInflater inflator;
 	private List<NewsFeedItem> newsFeedsLists;
 	ISectionAdapter context;
 	int count = 10;
 	boolean showMore = true;
 
-	@SuppressWarnings("unchecked")
-	public NewsListAdapter(Activity context, List<NewsFeedItem> items) {
-		super(context, 0, items);
+	public NewsListAdapter(Activity context, ArrayList<NewsFeedItem> items) {
+		super(items);
 		this.context = (ISectionAdapter) context;
-		this.newsFeedsLists = items;
+		this.newsFeedsLists = getNewList();
+		inflator = (LayoutInflater) context
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		count = 10;
+	}
+	
+	public NewsListAdapter(Activity context, ArrayList<NewsFeedItem> items, int initialIndex) {
+		super(items);
+		this.context = (ISectionAdapter) context;
+		this.newsFeedsLists = getNewList(initialIndex);
 		inflator = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		count = 10;
 	}
 
-	@SuppressLint("SimpleDateFormat")
-	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
 		NewsFeedItem item = newsFeedsLists.get(position);
@@ -122,11 +127,5 @@ public class NewsListAdapter extends ArrayAdapter implements MyBaseAdapter {
 	public boolean canShowMore() {
 		// TODO Auto-generated method stub
 		return showMore;
-	}
-
-	@Override
-	public ArrayList<Bundle> getList() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

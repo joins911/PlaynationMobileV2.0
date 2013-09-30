@@ -19,7 +19,7 @@ import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.LoadImage;
 
-public class FriendsListAdapter extends BaseAdapter implements MyBaseAdapter {
+public class FriendsListAdapter extends BaseAdapter implements IShowMore {
 	private LayoutInflater inflater;
 	private ArrayList<Bundle> generalList;
 	private int count;
@@ -137,11 +137,6 @@ public class FriendsListAdapter extends BaseAdapter implements MyBaseAdapter {
 	@Override
 	public boolean canShowMore() {
 		return showMore;
-	}
-
-	@Override
-	public ArrayList<Bundle> getList() {
-		return null;
 	}
 
 }

@@ -16,11 +16,11 @@ import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Fragments.Tabs.Game.GameInfoFragment;
-import com.myapps.playnation.Fragments.Tabs.Game.GameNewsFragment;
-import com.myapps.playnation.Fragments.Tabs.Game.GamePlayersFragment;
-import com.myapps.playnation.Fragments.Tabs.Game.GameReviewFragment;
-import com.myapps.playnation.Fragments.Tabs.Game.GameWallFragment;
+import com.myapps.playnation.Fragments.TabHosts.Game.GameInfoFragment;
+import com.myapps.playnation.Fragments.TabHosts.Game.GameNewsFragment;
+import com.myapps.playnation.Fragments.TabHosts.Game.GamePlayersFragment;
+import com.myapps.playnation.Fragments.TabHosts.Game.GameReviewFragment;
+import com.myapps.playnation.Fragments.TabHosts.Game.GameWallFragment;
 
 public class GameTabHostDesc extends TabHostDesc implements OnTabChangeListener {
 

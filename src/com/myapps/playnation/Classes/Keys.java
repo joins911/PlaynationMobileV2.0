@@ -168,7 +168,13 @@ public final class Keys {
 
 	public static int tempLimitGame = 10;
 	public static boolean internetStatus;
+<<<<<<< HEAD
 
+=======
+	public final static String clickedIndex = "clickedIndex";
+	
+	
+>>>>>>> origin/master
 	public final static String ID_PLAYER = "ID_PLAYER";
 	public final static String PLAYERNICKNAME = "DisplayName";
 	public final static String PLAYERAVATAR = "Avatar";

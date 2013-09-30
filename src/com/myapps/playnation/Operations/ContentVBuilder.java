@@ -15,7 +15,11 @@ public class ContentVBuilder {
 	public static ContentValues putExtraGameInContentV(JSONObject obj)
 			throws JSONException {
 		ContentValues temp = putGameInContentV(obj);
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> origin/master
 		temp.put(Keys.ID_PLAYER, obj.getInt(Keys.ID_PLAYER) + "");
 		temp.put(Keys.GameComments, obj.getString(Keys.GameComments));
 
@@ -33,16 +37,28 @@ public class ContentVBuilder {
 		temp.put(Keys.ID_GAME, obj.getInt(Keys.ID_GAME));
 		temp.put(Keys.GAMENAME, obj.getString(Keys.GAMENAME));
 		String gameType = obj.getString(Keys.GAMETYPE);
+<<<<<<< HEAD
 		temp.put(Keys.GAMETYPE, gameType);
+=======
+		temp.put(Keys.GAMETYPE, gameType);		
+>>>>>>> origin/master
 		temp.put(Keys.CompanyName, obj.getString(Keys.GAMECompanyDeveloper));
 		temp.put(Keys.GAMEDESC, obj.getString(Keys.GAMEDESC));
 		temp.put(Keys.GAMEDATE, obj.getString(Keys.GAMEDATE));
 		temp.put(Keys.RATING, obj.getString(Keys.RATING));
+<<<<<<< HEAD
 		temp.put(Keys.GAMEESRB, obj.getString(Keys.GAMEESRB));
 		temp.put(Keys.GAMEURL, obj.getString(Keys.GAMEURL));
 		temp.put(Keys.GAMEPLAYERSCOUNT, obj.getString(Keys.GAMEPLAYERSCOUNT));
 		temp.put(Keys.GameIsLiked, obj.getString(Keys.GameIsLiked));
 		temp.put(Keys.GameisPlaying, obj.getString(Keys.GameisPlaying));
+=======
+		temp.put(Keys.GAMEESRB, obj.getString(Keys.GAMEESRB));		
+		temp.put(Keys.GAMEURL, obj.getString(Keys.GAMEURL));
+		temp.put(Keys.GAMEPLAYERSCOUNT, obj.getString(Keys.GAMEPLAYERSCOUNT));
+		temp.put(Keys.GameIsLiked, obj.getString(Keys.GameIsLiked));
+		temp.put(Keys.GameisPlaying, obj.getString(Keys.GameisPlaying));		
+>>>>>>> origin/master
 		temp.put(Keys.GAMETYPENAME, obj.getString(Keys.GAMETYPENAME));
 		temp.put(Keys.GAMEPLATFORM, obj.getString(Keys.GAMEPLATFORM));
 		temp.put(Keys.GAMECompanyDistributor,

@@ -2,7 +2,7 @@ package com.myapps.playnation.Fragments.TabHosts;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Fragments.Tabs.Companies.*;
+import com.myapps.playnation.Fragments.TabHosts.Companies.*;
 
 
 import android.content.Context;

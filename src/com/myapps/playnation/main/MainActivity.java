@@ -47,9 +47,9 @@ import com.myapps.playnation.Classes.Menu.MyMenuItem;
 import com.myapps.playnation.Fragments.BaseFragment;
 import com.myapps.playnation.Fragments.HeaderFragment;
 import com.myapps.playnation.Fragments.WrapperFragment;
-import com.myapps.playnation.Fragments.Tabs.Home.HomeWallFragment;
-import com.myapps.playnation.Fragments.Tabs.Home.XHomeMessagesFragment;
-import com.myapps.playnation.Fragments.Tabs.Home.XHomeNotificationFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.HomeWallFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.HomeMessagesFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.HomeNotificationFragment;
 import com.myapps.playnation.Operations.BackTimer;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
@@ -62,6 +62,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	private CharSequence mDrawerTitle;
 	private CharSequence mTitle;
 	private String[] mPagesTitles;
+	private String[] mMenuTitles;
 	private ArrayList<String> mGamesTitles = new ArrayList<String>();
 	private ArrayList<String> mGroupsTitles = new ArrayList<String>();
 
@@ -80,6 +81,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		setContentView(R.layout.activity_main);
 		mTitle = mDrawerTitle = getTitle();
 		mPagesTitles = getResources().getStringArray(R.array.main_array);
+		mMenuTitles = getResources().getStringArray(R.array.menu_array);
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (ExpandableListView) findViewById(R.id.left_drawer);
 		mBackTimer = new BackTimer();
@@ -139,6 +141,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		String[] mainArr = getResources().getStringArray(R.array.main_array);
 		String[] menuArr = getResources().getStringArray(R.array.menu_array);
 		String[] topArr = { "header" };
+<<<<<<< HEAD
 		con.queryPlayerGames(Configurations.CurrentPlayerID);
 		con.queryPlayerGroup(Configurations.CurrentPlayerID);
 		mGamesTitles = con.getLinker().getMyGames(
@@ -146,6 +149,14 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		mGroupsTitles = con.getLinker().getMyGroups(
 				Configurations.CurrentPlayerID);
 
+=======
+		con.queryPlayerGames("12");
+		con.queryPlayerGroup("12");
+		mGamesTitles = con.getLinker().getMyGames("12");
+		mGroupsTitles = con.getLinker().getMyGroups("12");
+		Toast.makeText(getApplicationContext(), mGamesTitles.toString(),
+				Toast.LENGTH_SHORT).show();
+>>>>>>> origin/master
 		String showMore = getApplicationContext().getResources().getString(
 				R.string.showMore);
 		mGamesTitles.add(showMore);
@@ -197,7 +208,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		con = DataConnector.getInst();
 		Log.i("MainActiv", "intent.getInt() = "
 				+ getIntent().getExtras().getInt(Keys.AppState));
-		isTablet = getResources().getBoolean(R.bool.isTablet);
+		isTablet = Configurations.getConfigs().isTablet();
 		if (!isTablet)
 			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		setSupportProgressBarIndeterminateVisibility(true);
@@ -270,9 +281,12 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 
 	@Override
 	public void onBackPressed() {
-		if (currFragment instanceof BrowserFragment) {
-			if (!((BrowserFragment) currFragment).onBackButtonPressed())
-				finishActivity();
+		if (currFragment instanceof BaseFragment) {
+			if (currFragment instanceof BrowserFragment) {
+				if (!((BaseFragment) currFragment).onBackButtonPressed())
+					finishActivity();
+			} else
+				initHome();
 		} else
 			finishActivity();
 	}
@@ -329,17 +343,23 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	}
 
 	private void selectGroup(int groupPos, int childPos) {
+		setTitle(mMenuTitles[groupPos]);
 		switch (groupPos) {
-		case mMainMenu:
+		case MainMenu:
 			selectChildHome(childPos);
 			break;
-		case mGamesMenu:
+		case GamesMenu:
 			selectChildGames(childPos);
 			break;
-		case mGroupsMenu:
+		case GroupsMenu:
 			selectChildGroups(childPos);
 			break;
-		}
+		case LogOutMenu:
+			Toast.makeText(getApplicationContext(), "Logging out...",
+					Toast.LENGTH_SHORT).show();
+			this.finish();
+			break;
+		}		
 		mDrawerLayout.closeDrawer(mDrawerList);
 	}
 
@@ -357,14 +377,14 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		case NotificationPage:
 			initNotification();
 			break;
+		case FriendsPage:
+			initFriends();
 		}
 		setTitle(mPagesTitles[childPos]);
 	}
 
 	private void selectChildGames(int childPos) {
-		if (mGamesTitles.size() == 1 && childPos == 0)
-			initGamesPage();
-		else if (childPos == 3)
+		if ((mGamesTitles.size() == 1 && childPos == 0) || childPos == 3)
 			initGamesPage();
 		else
 			initGamePage(childPos);
@@ -392,6 +412,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 				mBrowserFragment.setVisible();
 				currFragment = mBrowserFragment;
 			}
+		setTitle(mPagesTitles[HomePage]);
 	}
 
 	private void initWall() {
@@ -402,34 +423,34 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 
 	private void initMessages() {
 		// MessagesFragment temp = new MessagesFragment();
-		XHomeMessagesFragment temp = new XHomeMessagesFragment();
-		Bundle args = new Bundle();
-		args.putInt(Keys.ARG_POSITION, 2);
-		temp.setArguments(args);
+		HomeMessagesFragment temp = new HomeMessagesFragment();
+		temp.setArguments(putPositionInBundle(MessagesPage));
 		putOnTop(temp);
 	}
 
 	private void initNotification() {
-		XHomeNotificationFragment temp = new XHomeNotificationFragment();
-		Bundle args = new Bundle();
-		args.putInt(Keys.ARG_POSITION, 3);
-		temp.setArguments(args);
+		HomeNotificationFragment temp = new HomeNotificationFragment();		
+		temp.setArguments(putPositionInBundle(NotificationPage));
 		putOnTop(temp);
+	}
+	
+	private void initFriends() {
+		WrapperFragment frag = new WrapperFragment();
+		frag.setArguments(putPositionInBundle(Configurations.PlayersSTATE));
+		putOnTop(frag);
+		
 	}
 
 	private void initGamesPage() {
-		WrapperFragment frag = new WrapperFragment();
-		Bundle args = new Bundle();
-		args.putInt(Keys.ARG_POSITION, Configurations.GamesSTATE);
-		frag.setArguments(args);
+		WrapperFragment frag = new WrapperFragment();		
+		frag.setArguments(putPositionInBundle(Configurations.GamesSTATE));
 		putOnTop(frag);
 	}
 
 	private void initGamePage(int childPos) {
 		// ToDo Show SelectedGame in a HeaderFragment
 		HeaderFragment temp = new HeaderFragment();
-		Bundle args = new Bundle();
-		args.putInt(Keys.ARG_POSITION, Configurations.GamesSTATE);
+		Bundle args = putPositionInBundle(Configurations.GamesSTATE);		
 		args.putAll(con.getLinker().getItem(
 				"'" + mGamesTitles.get(childPos) + "'", Keys.gamesTable));
 		// args.putAll();
@@ -438,21 +459,23 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	}
 
 	private void initGroupsPage() {
-		WrapperFragment frag = new WrapperFragment();
-		Bundle args = new Bundle();
-		args.putInt(Keys.ARG_POSITION, Configurations.GroupsSTATE);
-		frag.setArguments(args);
+		WrapperFragment frag = new WrapperFragment();		
+		frag.setArguments(putPositionInBundle(Configurations.GroupsSTATE));
 		putOnTop(frag);
 	}
 
 	private void initGroupPage(int childPos) {
 		// ToDo Show SelectedGroup in a HeaderFragment
 		HeaderFragment temp = new HeaderFragment();
-		Bundle args = new Bundle();
-		args.putInt(Keys.ARG_POSITION, Configurations.GroupsSTATE);
-		// args.putAll();
-		temp.setArguments(args);
+		temp.setArguments(putPositionInBundle(Configurations.GroupsSTATE));
 		putOnTop(temp);
+	}
+	
+	private Bundle putPositionInBundle(int position)
+	{
+		Bundle args = new Bundle();
+		args.putInt(Keys.ARG_POSITION, position);
+		return args;
 	}
 
 	private void putOnTop(Fragment frag) {
@@ -472,11 +495,13 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	private final int MessagesPage = 2;
 	private final int NotificationPage = 3;
 	// private final int mEventsPage = 3;
-	// private final int mMediaPage =4;
+	private final int FriendsPage = 4;
+
 	// private final int mHeaderMenu = 0;
-	private final int mMainMenu = 1;
-	private final int mGamesMenu = 2;
-	private final int mGroupsMenu = 3;
+	private final int MainMenu = 1;
+	private final int GamesMenu = 2;
+	private final int GroupsMenu = 3;
+	private final int LogOutMenu = 4;
 
 	// private
 	/* The click listner for ListView in the navigation drawer */
