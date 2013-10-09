@@ -51,7 +51,7 @@ public class HomeMsgesAdapter extends BaseAdapter {
 			holder = new ViewHolder();			
 		    view = inflater.inflate(R.layout.component_comment_elist_layout,
 		    		parent, false); 		    
-			holder.img = (ImageView) view.findViewById(R.id.imgEvent);			
+			holder.img = (ImageView) view.findViewById(R.id.gamesCL_commentImage);			
 			holder.txtUser = (TextView) view.findViewById(R.id.gamesCL_commentUsername_TView);
 			holder.txtContent = (TextView) view.findViewById(R.id.gamesCL_commentText_TView);
 			holder.txtDate = (TextView) view.findViewById(R.id.gamesCL_commentTime_TView);

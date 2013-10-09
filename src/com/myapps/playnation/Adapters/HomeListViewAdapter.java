@@ -92,10 +92,10 @@ public class HomeListViewAdapter extends BaseAdapter {
 		View view = convertView;
 		TextView txEHeadline;
 		TextView txELocation;
-		TextView txEDate;
-		TextView txEDuration;
+	//	TextView txEDate;
+	//	TextView txEDuration;
 		TextView txText;
-
+/*
 		if (currentFragment instanceof XHomeEventsFragment) {
 			view = inflater.inflate(R.layout.fragment_home_event, viewGroup,
 					false);
@@ -121,8 +121,7 @@ public class HomeListViewAdapter extends BaseAdapter {
 				txText.setText(Html.fromHtml(mapEntry
 						.getString(Keys.EventDescription)));
 			}
-		} else if (currentFragment instanceof XHomeGamesFragment
-				|| currentFragment instanceof PlayerGamesFragment) {
+		} else*/
 			view = inflater.inflate(R.layout.component_homemsg_elist_layout,
 					viewGroup, false);
 
@@ -134,17 +133,17 @@ public class HomeListViewAdapter extends BaseAdapter {
 
 			final Bundle mapEntry = generalList.get(position);
 			if (mapEntry != null) {
-				txEHeadline.setText("" + mapEntry.getString(Keys.GAMENAME));
-				txELocation.setText(mapEntry.getString(Keys.GAMETYPE));
+			//	txEHeadline.setText("" + mapEntry.getString(Keys.GAMENAME));
+			//	txELocation.setText(mapEntry.getString(Keys.GAMETYPE));
 
-				txText.setText(Html.fromHtml(HelperClass
-						.checkGameComments(mapEntry)));
+			//	txText.setText(Html.fromHtml(HelperClass
+			//			.checkGameComments(mapEntry)));
 				String imageUrl = mapEntry.getString(Keys.EventIMAGEURL);
 				img.setTag(imageUrl);
 				new LoadImage(mapEntry.getString(Keys.ID_GAME), "game",
 						Keys.gamesTable, imageUrl, img, "games").execute(img);
 			}
-		} else if (currentFragment instanceof XHomeGroupsFragment) {
+	/*	} else if (currentFragment instanceof XHomeGroupsFragment) {
 			view = inflater.inflate(R.layout.fragment_home_group, viewGroup,
 					false);
 
@@ -185,7 +184,7 @@ public class HomeListViewAdapter extends BaseAdapter {
 				txELocation.setText(mapEntry.getString(Keys.ItemType));
 				txEDate.setText(mapEntry.getString(Keys.SubscriptionTime));
 			}
-		}
+		}*/
 		return view;
 	}
 

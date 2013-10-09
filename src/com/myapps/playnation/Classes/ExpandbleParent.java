@@ -13,6 +13,7 @@ public class ExpandbleParent {
 	public ExpandbleParent(Bundle args,String tableName)
 	{
 		mFirstItem = args;
+		if(tableName!="")
 		mItemReplies = DataConnector.getInst()
 				.getTable(tableName, args.getString(Keys.ID_WALLITEM));
 	}

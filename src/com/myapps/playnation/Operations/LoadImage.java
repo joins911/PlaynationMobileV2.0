@@ -52,7 +52,7 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 			String dir1 = url.substring(0, 1);
 			// Chc
 			String dir2 = "";
-			if (url.substring(1, 2) != null) {
+			if (!url.substring(1, 2).equalsIgnoreCase("")) { // bad code
 				dir2 = url.substring(1, 2);
 				initalmageUrl = main + dir1 + "/" + dir2 + "/" + url;
 			} else {

@@ -8,8 +8,8 @@
 
         <ImageView
             android:id="@+id/gameM_headerPic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/GameHeaderImgWidth"
+            android:layout_height="@dimen/GameHeaderImgHeight"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:src="@drawable/rsz_crysis_cover" />

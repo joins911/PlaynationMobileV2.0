@@ -21,16 +21,19 @@ public abstract class NewsListHelper extends BaseAdapter{
 		counter = 0;		
 	}
 	
-	public void getArrayListSection(int posStart,int posEnd)
-	{
-		
+	public NewsListHelper(ArrayList<NewsFeedItem> list,int initialCount)
+	{		
+		this.list = list;
+		increment = Configurations.getConfigs().getListsIncrement();
+		this.initialCount = initialCount;
+		counter = 0;		
 	}
 	
 	public boolean canShowMore()
 	{
 		return counter<list.size();
 	}
-	
+	/*
 	public ArrayList<NewsFeedItem> getNewList(int initialIndex)
 	{
 		ArrayList<NewsFeedItem> temp = new ArrayList<NewsFeedItem>();
@@ -44,7 +47,7 @@ public abstract class NewsListHelper extends BaseAdapter{
 		}
 		counter = max;
 		return temp;
-	}
+	}*/
 	
 	public ArrayList<NewsFeedItem> getNewList()
 	{

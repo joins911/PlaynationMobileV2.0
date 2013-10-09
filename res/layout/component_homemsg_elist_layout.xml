@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/mainLayoutPlayer"
-	android:background="@color/headerColor"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent" >
-	<RelativeLayout
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		android:id="@+id/contentPlayer"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
@@ -13,10 +8,7 @@
 		android:paddingBottom="4dp"
 		android:paddingLeft="10dp"
 		android:paddingRight="10dp" >
-		<RelativeLayout
-			android:id="@+id/infoSubContent"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content" >
+
 			<ImageView
 				android:id="@+id/imgEvent"
 				android:layout_width="wrap_content"
@@ -41,14 +33,13 @@
 				android:layout_toRightOf="@id/imgEvent"
 				android:text="Large Text"
 				android:textAppearance="?android:attr/textAppearanceLarge" />
-		</RelativeLayout>
 		<TextView
 			android:id="@+id/txText"
 			style="@style/TextViewStyle"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:layout_below="@id/infoSubContent"
+			android:layout_below="@id/imgEvent"
+			android:layout_marginTop="@dimen/margin"
 			android:maxLines="4"
 			android:text="TextView" />
 	</RelativeLayout>
-</RelativeLayout>

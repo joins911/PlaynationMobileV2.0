@@ -65,7 +65,7 @@ public class PlayerGamesFragment extends Fragment {
 			msgText.setGravity(Gravity.CENTER_HORIZONTAL);
 			mListView.addHeaderView(msgText);
 
-		}
+		}	
 
 		mListView.setAdapter(expAdapter);
 		mListView.setOnItemClickListener(new OnItemClickListener() {

@@ -53,7 +53,8 @@ public class LoginActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		password = (EditText) findViewById(R.id.username_logIn);
+		username = (EditText) findViewById(R.id.username_logIn);
+		password = (EditText) findViewById(R.id.password_logIn);
 		Keys.internetStatus = HelperClass
 				.isNetworkAvailable((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE));
 		stopService(new Intent(this, ServiceClass.class));
@@ -83,7 +84,7 @@ public class LoginActivity extends Activity {
 							SharedPreferences.Editor edit = saveLoginPref
 									.edit();
 							edit.putBoolean(Keys.isCheckButton, isChecked);
-							edit.putString(Keys.Email, password.getText()
+							edit.putString(Keys.Email, username.getText()
 									.toString());
 							edit.commit();
 							btnCheckSave.setChecked(saveLoginPref.getBoolean(
@@ -95,7 +96,7 @@ public class LoginActivity extends Activity {
 			String email = saveLoginPref.getString(Keys.Email, "");
 			btnCheckSave.setChecked(isChecked);
 			if (isChecked)
-				password.setText(email);
+				username.setText(email);
 		}
 
 		clearPreviewsLoginInformation(prefrence);
@@ -104,10 +105,8 @@ public class LoginActivity extends Activity {
 		//Keys.TEMPLAYERID = prefrence.getString(Keys.ID_PLAYER, "12");
 
 		con = DataConnector.getInst();
-		con.setSQLLinker(PlaynationMobile.getContext());
-
-		username = (EditText) findViewById(R.id.username_logIn);
-		password = (EditText) findViewById(R.id.password_logIn);
+		con.setSQLLinker(PlaynationMobile.getContext());		
+		
 
 		logButton = (Button) findViewById(R.id.btnLogin);
 		Button logGuestButton = (Button) findViewById(R.id.btnGuestLogin);
@@ -179,12 +178,12 @@ public class LoginActivity extends Activity {
 			public boolean onTouch(View v, MotionEvent event) {
 				switch(event.getActionMasked()){
 				case MotionEvent.ACTION_DOWN :
-					Toast.makeText(getApplicationContext(), total+" ", Toast.LENGTH_SHORT).show();
+				//	Toast.makeText(getApplicationContext(), total+" ", Toast.LENGTH_SHORT).show();
 					total = event.getX(); 
 					break; 
 				case MotionEvent.ACTION_UP: 					
 					total = event.getX()-total;
-					Toast.makeText(getApplicationContext(), total+" ", Toast.LENGTH_SHORT).show();
+				//	Toast.makeText(getApplicationContext(), total+" ", Toast.LENGTH_SHORT).show();
 					if(total > 100)  clearText(); 
 					total = 0;
 					return false;														
@@ -347,7 +346,7 @@ public class LoginActivity extends Activity {
 		String userName = username.getText().toString();
 		String passWord = password.getText().toString();
 
-		return con.checkLogin(passWord, userName, prefrence, saveLoginPref);
+		return con.checkLogin(userName, passWord, prefrence, saveLoginPref);
 		// return true;
 	}
 }

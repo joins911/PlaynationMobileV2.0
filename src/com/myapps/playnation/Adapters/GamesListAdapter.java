@@ -32,7 +32,6 @@ public class GamesListAdapter extends ListsHelper implements IShowMore {
 	ArrayList<Bundle> gamesDataCollection;
 	JSONArray gamesArray;
 	ViewHolder holder;
-	int count;
 	boolean showMore = true;
 
 	public GamesListAdapter(Activity act, ArrayList<Bundle> map) {
@@ -40,7 +39,6 @@ public class GamesListAdapter extends ListsHelper implements IShowMore {
 		this.gamesDataCollection = getNewList();
 		inflater = (LayoutInflater) act
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		// count = 10;
 	}
 	
 	public GamesListAdapter(Activity act, ArrayList<Bundle> map, int initialIndex) {
@@ -48,7 +46,6 @@ public class GamesListAdapter extends ListsHelper implements IShowMore {
 		this.gamesDataCollection = getNewList(initialIndex);
 		inflater = (LayoutInflater) act
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		// count = 10;
 	}
 
 	@Override

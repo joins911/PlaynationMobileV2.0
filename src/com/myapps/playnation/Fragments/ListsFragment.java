@@ -61,11 +61,10 @@ public class ListsFragment extends Fragment{
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-
 		// This makes sure that the container activity has implemented
 		// the callback interface. If not, it throws an exception
 		try {
-			mCallback = (ISectionAdapter) getActivity();
+			mCallback = (ISectionAdapter) getActivity();			
 		} catch (ClassCastException e) {
 			throw new ClassCastException(activity.toString()
 					+ " must implement OnHeadlineSelectedListener");
@@ -200,7 +199,7 @@ public class ListsFragment extends Fragment{
 			Toast.makeText(getActivity(), getArguments().getInt(Keys.clickedIndex,0)+"", Toast.LENGTH_SHORT).show();
 			NewsListAdapter bindingData = new NewsListAdapter(getActivity(),
 					HelperClass.createHeaderListView(HelperClass
-							.queryNewsList(mListBundle)),initialIndex);
+							.queryNewsList(mListBundle)));
 			mList.setAdapter(bindingData);
 		}
 		mList.setOnItemClickListener(new OnItemClickListener() {

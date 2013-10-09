@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/generalPlayerListViewLayout"
-	style="@style/GrayTheme"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent" >
-	<ListView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+	<ListView 	    
 		android:id="@+id/generalPlayerListView"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -13,4 +11,4 @@
 		android:dividerHeight="1dp"
 		android:fadingEdgeLength="0dp" >
 	</ListView>
-</RelativeLayout>
+	</RelativeLayout>

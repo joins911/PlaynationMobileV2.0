@@ -35,12 +35,11 @@ public class HomeMessagesFragment extends Fragment implements BaseFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.component_mainlist,
-				container, false);
+		View view = inflater.inflate(R.layout.component_mainlist, container,
+				false);
 		con = DataConnector.getInst();
 
-		ListView mListView = (ListView) view
-				.findViewById(R.id.mainList);
+		ListView mListView = (ListView) view.findViewById(R.id.mainList);
 
 		if (!con.getLinker().checkDBTableExits(Keys.HomeMsgTable))
 			con.queryPlayerMessages(Keys.TEMPLAYERID);
@@ -51,16 +50,20 @@ public class HomeMessagesFragment extends Fragment implements BaseFragment {
 		if (list != null)
 			for (Bundle hashMap : list) {
 				if (hashMap != null) {
-					ExpandbleParent parentItem = new ExpandbleParent(hashMap,Keys.HomeMsgRepliesTable);
+					ExpandbleParent parentItem = new ExpandbleParent(hashMap,
+							Keys.HomeMsgRepliesTable);
 					listParents.add(parentItem);
 				}
 			}
+		HomeMsgesAdapter expAdapter;
+
 		ArrayList<Bundle> msges = new ArrayList<Bundle>();
-		for(ExpandbleParent item:listParents)
-		{
-			msges.add(item.getFirstChild());
-		}
-		HomeMsgesAdapter expAdapter = new HomeMsgesAdapter(getActivity(), msges);
+		if (listParents.size() != 0)
+			for (ExpandbleParent item : listParents)
+				msges.add(item.getFirstChild());
+		else
+			msges = makeFakeList();
+		expAdapter = new HomeMsgesAdapter(getActivity(), msges);
 
 		if (expAdapter.isEmpty()) {
 			TextView msgText = (TextView) view.findViewById(R.id.noFriendsText);
@@ -69,13 +72,13 @@ public class HomeMessagesFragment extends Fragment implements BaseFragment {
 			msgText.setTextSize(TypedValue.COMPLEX_UNIT_SP, Keys.testSize);
 			msgText.setGravity(Gravity.CENTER_HORIZONTAL);
 			msgText.setOnClickListener(new OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
-					startMessageAct(new Bundle());					
+					startMessageAct(new Bundle());
 				}
 			});
-			//mListView.addHeaderView(msgText);
+			// mListView.addHeaderView(msgText);
 
 		}
 		mListView.setAdapter(expAdapter);
@@ -83,29 +86,47 @@ public class HomeMessagesFragment extends Fragment implements BaseFragment {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
-					long arg3) {					
-					Bundle args = new Bundle();
-					ArrayList<Bundle> replies = listParents.get(pos).getArrayChildren();
-					for(int i=0;i<replies.size();i++)
-					args.putBundle(""+i, replies.get(i));
-					startMessageAct(args);					
-			}		
-			
+					long arg3) {
+				Bundle args = new Bundle();
+				if (listParents.size() != 0) {
+					ArrayList<Bundle> replies = listParents.get(pos)
+							.getArrayChildren();
+					for (int i = 0; i < replies.size(); i++)
+						args.putBundle("" + i, replies.get(i));
+				}
+				startMessageAct(args);
+			}
+
 		});
 		return view;
 	}
 
-	private void startMessageAct(Bundle args)
-	{
-		Intent mInt = new Intent(getActivity(),MessagesActivity.class);
+	private ArrayList<Bundle> makeFakeList() {
+		ArrayList<Bundle> bunds = new ArrayList<Bundle>();
+		Bundle args = new Bundle();
+		args.putString(Keys.PLAYERNICKNAME, "justme");
+		args.putString(Keys.MessageText, "07/12/2012 18:46");
+		args.putString(Keys.MessageText, "dsadsadmaennnisa ddsa in measdas");
+		bunds.add(args);
+		Bundle args2 = new Bundle();
+		args.putString(Keys.PLAYERNICKNAME, "heyYou");
+		args.putString(Keys.MessageText, "07/12/2012 18:46");
+		args.putString(Keys.MessageText, "dsadsadmaennnisa ddsa in measdas");
+		bunds.add(args2);
+		bunds.add(args);
+		return bunds;
+	}
+
+	private void startMessageAct(Bundle args) {
+		Intent mInt = new Intent(getActivity(), MessagesActivity.class);
 		mInt.putExtras(args);
 		startActivity(mInt);
 	}
-	
+
 	@Override
 	public void searchFunction(String args) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

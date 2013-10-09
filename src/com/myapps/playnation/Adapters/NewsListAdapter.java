@@ -27,8 +27,6 @@ public class NewsListAdapter extends NewsListHelper implements IShowMore {
 	private LayoutInflater inflator;
 	private List<NewsFeedItem> newsFeedsLists;
 	ISectionAdapter context;
-	int count = 10;
-	boolean showMore = true;
 
 	public NewsListAdapter(Activity context, ArrayList<NewsFeedItem> items) {
 		super(items);
@@ -36,16 +34,14 @@ public class NewsListAdapter extends NewsListHelper implements IShowMore {
 		this.newsFeedsLists = getNewList();
 		inflator = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		count = 10;
 	}
 	
-	public NewsListAdapter(Activity context, ArrayList<NewsFeedItem> items, int initialIndex) {
-		super(items);
+	public NewsListAdapter(Activity context, ArrayList<NewsFeedItem> items, int initialCount) {
+		super(items,initialCount);
 		this.context = (ISectionAdapter) context;
-		this.newsFeedsLists = getNewList(initialIndex);
+		this.newsFeedsLists = getNewList();
 		inflator = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		count = 10;
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
@@ -95,11 +91,7 @@ public class NewsListAdapter extends NewsListHelper implements IShowMore {
 
 	@Override
 	public int getCount() {
-		if (newsFeedsLists.size() <= count) {
 			return newsFeedsLists.size();
-		} else {
-			return count;
-		}
 	}
 
 	@Override
@@ -114,18 +106,11 @@ public class NewsListAdapter extends NewsListHelper implements IShowMore {
 
 	@Override
 	public void showMore() {
-		if (showMore)
-			if (count + 5 <= newsFeedsLists.size())
-				count = count + 5;
-			else {
-				count = newsFeedsLists.size();
-				showMore = false;
-			}
+	newsFeedsLists.addAll(getNextItems());
 	}
-
+	
 	@Override
 	public boolean canShowMore() {
-		// TODO Auto-generated method stub
-		return showMore;
+		return super.canShowMore();
 	}
 }
