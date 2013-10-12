@@ -15,12 +15,8 @@ import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Fragments.TabHosts.Home.XHomeEventsFragment;
 import com.myapps.playnation.Fragments.TabHosts.Home.XHomeGamesFragment;
-import com.myapps.playnation.Fragments.TabHosts.Home.XHomeGroupsFragment;
-import com.myapps.playnation.Fragments.TabHosts.Home.XHomeSubscriptionFragment;
 import com.myapps.playnation.Fragments.TabHosts.Players.PlayerGamesFragment;
-import com.myapps.playnation.Operations.HelperClass;
 import com.myapps.playnation.Operations.LoadImage;
 
 public class HomeListViewAdapter extends BaseAdapter {
@@ -88,36 +84,7 @@ public class HomeListViewAdapter extends BaseAdapter {
 		View view = convertView;
 		TextView txEHeadline;
 		TextView txELocation;
-	//	TextView txEDate;
-	//	TextView txEDuration;
 		TextView txText;
-/*
-		if (currentFragment instanceof XHomeEventsFragment) {
-			view = inflater.inflate(R.layout.fragment_home_event, viewGroup,
-					false);
-			txEHeadline = (TextView) view.findViewById(R.id.txEHeadline);
-			txELocation = (TextView) view.findViewById(R.id.txELocation);
-			txEDate = (TextView) view.findViewById(R.id.txEDate);
-			txEDuration = (TextView) view.findViewById(R.id.txEDuration);
-			txText = (TextView) view.findViewById(R.id.txText);
-
-			ImageView img = (ImageView) view.findViewById(R.id.imgEvent);
-			img.setImageResource(R.drawable.event);
-
-			final Bundle mapEntry = generalList.get(position);
-			if (mapEntry != null) {
-				txEHeadline
-						.setText("" + mapEntry.getString(Keys.EventHeadline));
-				txELocation.setText(view.getResources().getString(
-						R.string.Location)
-						+ mapEntry.getString(Keys.EventLocation));
-				txEDate.setText(view.getResources().getString(R.string.Date)
-						+ mapEntry.getString(Keys.EventTime));
-				txEDuration.setText(mapEntry.getString(Keys.EventDuration));
-				txText.setText(Html.fromHtml(mapEntry
-						.getString(Keys.EventDescription)));
-			}
-		} else*/
 			view = inflater.inflate(R.layout.component_homemsg_elist_layout,
 					viewGroup, false);
 
@@ -129,58 +96,16 @@ public class HomeListViewAdapter extends BaseAdapter {
 
 			final Bundle mapEntry = generalList.get(position);
 			if (mapEntry != null) {
-				txEHeadline.setText("" + mapEntry.getString(Keys.GAMENAME));
-				txELocation.setText(mapEntry.getString(Keys.GAMETYPE));
-
-				txText.setText(Html.fromHtml(HelperClass
-						.checkGameComments(mapEntry)));
+				// txEHeadline.setText("" + mapEntry.getString(Keys.GAMENAME));
+				// txELocation.setText(mapEntry.getString(Keys.GAMETYPE));
+				// txText.setText(Html.fromHtml(HelperClass
+				// .checkGameComments(mapEntry)));
 				String imageUrl = mapEntry.getString(Keys.EventIMAGEURL);
 				img.setTag(imageUrl);
 				new LoadImage(mapEntry.getString(Keys.ID_GAME), "game",
 						Keys.gamesTable, imageUrl, img, "games").execute(img);
 			}
-	/*	} else if (currentFragment instanceof XHomeGroupsFragment) {
-			view = inflater.inflate(R.layout.fragment_home_group, viewGroup,
-					false);
 
-			txEHeadline = (TextView) view.findViewById(R.id.txEHeadline);
-			txELocation = (TextView) view.findViewById(R.id.txELocation);
-			txEDuration = (TextView) view.findViewById(R.id.txEDuration);
-			txText = (TextView) view.findViewById(R.id.txText);
-
-			ImageView img = (ImageView) view.findViewById(R.id.imgEvent);
-
-			final Bundle mapEntry = generalList.get(position);
-			if (mapEntry != null) {
-				txEHeadline.setText("" + mapEntry.getString(Keys.GROUPNAME));
-				txELocation.setText(mapEntry.getString(Keys.GAMENAME));
-				txText.setText(mapEntry.getString(Keys.GROUPDESC));
-				txEDuration.setText(mapEntry.getString(Keys.GroupMemberCount)
-						+ view.getResources().getString(R.string.Members));
-				String imageUrl = mapEntry.getString(Keys.EventIMAGEURL);
-				img.setTag(imageUrl);
-				new LoadImage(mapEntry.getString(Keys.ID_GROUP), "group",
-						Keys.groupsTable, imageUrl, img, "groups").execute(img);
-			}
-
-		} else if (currentFragment instanceof XHomeSubscriptionFragment) {
-			view = inflater.inflate(R.layout.fragment_home_subscrition,
-					viewGroup, false);
-
-			txEHeadline = (TextView) view.findViewById(R.id.txEHeadline);
-			txELocation = (TextView) view.findViewById(R.id.txELocation);
-			txEDate = (TextView) view.findViewById(R.id.txEDate);
-
-			ImageView img = (ImageView) view.findViewById(R.id.imgEvent);
-			img.setImageResource(R.drawable.subscription);
-
-			Bundle mapEntry = generalList.get(position);
-			if (mapEntry != null) {
-				txEHeadline.setText("" + mapEntry.getString(Keys.ItemName));
-				txELocation.setText(mapEntry.getString(Keys.ItemType));
-				txEDate.setText(mapEntry.getString(Keys.SubscriptionTime));
-			}
-		}*/
 		return view;
 	}
 

@@ -16,6 +16,7 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
@@ -28,13 +29,14 @@ public class ServiceClass extends Service {
 	private MySQLinker linker;
 	private DataConnector con;
 	private Timer timer;
+
+	private ArrayList<Bundle> playersNotificationList;
+
+	private int checkConnectionTimerTimeout = 500;
+	private int timerCount = 0; // 10s
+	private int TimeOut = 5 * 1000;
 	private SharedPreferences saveLoginPref;
 	private boolean session;
-	private ArrayList<Bundle> playersNotificationList;	
-	private int checkConnectionTimerTimeout = 500; 
-	private int timerCount=0; //10s
-	private int TimeOut = 5*1000;
-	
 	// private static final String tag = "ServiceClass";
 
 	@Override
@@ -46,6 +48,10 @@ public class ServiceClass extends Service {
 	public void onCreate() {
 		linker = DataConnector.getInst().getLinker();
 		con = DataConnector.getInst();
+
+		saveLoginPref = PreferenceManager
+				.getDefaultSharedPreferences(getApplicationContext());
+		session = saveLoginPref.getBoolean(Keys.ActiveSession, false);
 		playersNotificationList = new ArrayList<Bundle>();
 		super.onCreate();
 	}
@@ -61,6 +67,7 @@ public class ServiceClass extends Service {
 		// your application to the Home screen.
 		TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
 		// Adds the back stack for the Intent (but not the Intent itself)
+
 		stackBuilder.addParentStack(MainActivity.class);
 		// Adds the Intent that starts the Activity to the top of the stack
 		stackBuilder.addNextIntent(resultIntent);
@@ -77,6 +84,7 @@ public class ServiceClass extends Service {
 						.setContentText(
 								"From " + bund.getString(Keys.PLAYERNICKNAME))
 						.setAutoCancel(true);
+
 				mBuilder.setContentIntent(resultPendingIntent);
 				NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 				// mId allows you to update the notification later on.
@@ -170,7 +178,7 @@ public class ServiceClass extends Service {
 		}		
 	};
 
-	static int MINUTES = 1;
+	static int MINUTES = 2;
 
 	private void showNotification() {
 		stopTimer();
@@ -194,12 +202,15 @@ public class ServiceClass extends Service {
 	}
 
 	private void stopTimer() {
+		System.out.println("Service is Stoped");
 		if (timer != null)
 			timer.cancel();
 	}
 
 	@Override
 	public void onDestroy() {
+		System.out.println("Service is Destroyed");
+		stopTimer();
 		super.onDestroy();
 	}
 

@@ -19,7 +19,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.myapps.playnation.R;
@@ -197,11 +196,8 @@ public class ListsFragment extends Fragment {
 	private void initializeNews(final ArrayList<Bundle> results) {
 		mListBundle = results;
 		if (mListBundle != null) {
-			Toast.makeText(getActivity(),
-					getArguments().getInt(Keys.clickedIndex, 0) + "",
-					Toast.LENGTH_SHORT).show();
 			NewsListAdapter bindingData = new NewsListAdapter(getActivity(),
-					HelperClass.createHeaderListView(HelperClass
+					HelperClass.createHeaderListViewNews(HelperClass
 							.queryNewsList(mListBundle)));
 						//	.queryNewsList(mListBundle)), initialIndex);
 			mList.setAdapter(bindingData);

@@ -12,11 +12,12 @@ import android.widget.EditText;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.Fragments.BaseFragment;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.HelperClass;
 import com.myapps.playnation.main.ISectionAdapter;
 
-public class XHomeEditProfileFragment extends Fragment {
+public class XHomeEditProfileFragment extends Fragment implements BaseFragment {
 	ISectionAdapter mCallback;
 	private View mView;
 	private DataConnector con;
@@ -128,5 +129,17 @@ public class XHomeEditProfileFragment extends Fragment {
 			throw new ClassCastException(activity.toString()
 					+ " must implement OnHomeEditListener");
 		}
+	}
+
+	@Override
+	public void searchFunction(String args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public boolean onBackButtonPressed() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

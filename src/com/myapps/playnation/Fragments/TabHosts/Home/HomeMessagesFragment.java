@@ -56,17 +56,16 @@ public class HomeMessagesFragment extends Fragment implements BaseFragment {
 					listParents.add(parentItem);
 				}
 			}
-		HomeMsgesAdapter expAdapter;
-
 		ArrayList<Bundle> msges = new ArrayList<Bundle>();
 		if (listParents.size() != 0)
-			for (ExpandbleParent item : listParents)
+			for (ExpandbleParent item : listParents) {
 				msges.add(item.getFirstChild());
+			}
 		else
 			msges = makeFakeList();
-		expAdapter = new HomeMsgesAdapter(getActivity(), msges);
+		HomeMsgesAdapter expAdapter = new HomeMsgesAdapter(getActivity(), msges);
 		TextView msgText = (TextView) view.findViewById(R.id.noFriendsText);
-		if (expAdapter.isEmpty()) {
+		if (expAdapter.isEmpty()) {			
 			msgText.setVisibility(View.VISIBLE);
 			msgText.setText(R.string.emptyMsgListString);
 			msgText.setTextColor(Color.parseColor("#CFCFCF"));
@@ -80,7 +79,6 @@ public class HomeMessagesFragment extends Fragment implements BaseFragment {
 				}
 			});
 			// mListView.addHeaderView(msgText);
-
 		} else {
 			msgText.setVisibility(View.GONE);
 		}

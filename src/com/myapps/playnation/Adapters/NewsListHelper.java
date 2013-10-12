@@ -22,37 +22,26 @@ public abstract class NewsListHelper extends BaseAdapter {
 	public NewsListHelper(ArrayList<NewsFeedItem> list, int initialIndex) {
 		this.list = list;
 		increment = Configurations.getConfigs().getListsIncrement();
-		initialCount = Configurations.getConfigs().getInitialListCount();
-		if (initialCount >= 3)
+		this.initialCount = Configurations.getConfigs().getInitialListCount();
+		//this.initialIndex = initialIndex;
+		if (initialIndex >= 3)
 			this.initialIndex = initialIndex - 3;
 		else
 			this.initialIndex = 0;
-	}
-
-	public void getArrayListSection(int posStart, int posEnd) {
 	}
 
 	public boolean canShowMore() {
 		return counter < list.size();
 	}
 
-	/*
-	 * public ArrayList<NewsFeedItem> getNewList(int initialIndex) {
-	 * ArrayList<NewsFeedItem> temp = new ArrayList<NewsFeedItem>(); int max;
-	 * int tempMax = initialIndex + initialCount; if (tempMax >
-	 * list.subList(initialIndex, list.size() - 1).size()) max = list.size();
-	 * else max = tempMax; for (int i = initialIndex; i < max; i++) {
-	 * temp.add(list.get(i)); } counter = max; return temp; }
-	 */
-
 	public ArrayList<NewsFeedItem> getNewList() {
 		ArrayList<NewsFeedItem> temp = new ArrayList<NewsFeedItem>();
 		int max;
-		if (initialCount > list.size())
+		if (initialIndex+initialCount > list.size())
 			max = list.size();
 		else
-			max = initialCount;
-		for (int i = 0; i < max; i++) {
+			max = initialIndex+initialCount;
+		for (int i = initialIndex; i < max; i++) {
 			temp.add(list.get(i));
 		}
 		counter = max;

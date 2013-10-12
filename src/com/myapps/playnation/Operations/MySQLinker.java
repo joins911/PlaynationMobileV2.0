@@ -19,7 +19,8 @@ import com.myapps.playnation.Classes.Keys;
 public class MySQLinker extends SQLinker {
 
 	private static String DATABASE_NAME = "playnation.db";
-	private static int DATABASE_VERSION = 8;
+	private static int DATABASE_VERSION = 9;
+
 
 	public MySQLinker(Context con) {
 		super(con, DATABASE_NAME, DATABASE_VERSION);

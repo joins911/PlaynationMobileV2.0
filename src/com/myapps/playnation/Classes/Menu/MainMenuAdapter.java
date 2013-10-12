@@ -3,9 +3,12 @@ package com.myapps.playnation.Classes.Menu;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.BaseExpandableListAdapter;
@@ -15,7 +18,11 @@ import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.Fragments.TabHosts.Home.XHomeEditProfileFragment;
+import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
+import com.myapps.playnation.main.MainActivity;
+
 
 public class MainMenuAdapter extends BaseExpandableListAdapter {
 
@@ -26,9 +33,13 @@ public class MainMenuAdapter extends BaseExpandableListAdapter {
 	private String showMoreString;
 	private String addGame;
 	private String addGroup;
+	private FragmentManager supportFrag;
 
-	public MainMenuAdapter(Context context, ArrayList<MyMenuItem> items) {
+	public MainMenuAdapter(Context context, ArrayList<MyMenuItem> items,
+			FragmentManager supportFrag) {
 		this.context = context;
+		this.supportFrag = supportFrag;
+
 		inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mMenuItems = items;
@@ -66,6 +77,19 @@ public class MainMenuAdapter extends BaseExpandableListAdapter {
 					Keys.TEMPLAYERID, null);
 			TextView send = (TextView) view.findViewById(R.id.lblSendMessage);
 			send.setVisibility(View.GONE);
+			edit.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					XHomeEditProfileFragment frag = new XHomeEditProfileFragment();
+					Bundle args = new Bundle();
+					args.putInt(Keys.ARG_POSITION, Configurations.HomeEditSTATE);
+					supportFrag.beginTransaction()
+							.add(R.id.content_frame, frag).commit();
+					MainActivity.passCurrFragment = frag;
+					MainActivity.passmBrowserFragment.setInvisible();
+				}
+			});
 		} else {
 			view = inflater.inflate(R.layout.component_menu_subitem_layout,
 					null);

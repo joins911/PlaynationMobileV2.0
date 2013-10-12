@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
@@ -64,26 +63,27 @@ public class GameInfoFragment extends Fragment {
 		TextView txtDeveloper = (TextView) view.findViewById(R.id.developerTV);
 		TextView txtDistr = (TextView) view.findViewById(R.id.distributorTV);
 		LinearLayout mainLayout = (LinearLayout) view.findViewById(R.id.mainInfoLayout);
-		
+
 		addGame = (Button) view.findViewById(R.id.addGameButt);
-		addGame.setOnClickListener(new OnClickListener() {			
+		addGame.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getActivity(), "Game added", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "Game added", Toast.LENGTH_SHORT)
+						.show();
 				setButtonInvis();
 			}
 		});
-		
-		Button challenge = (Button) view.findViewById(R.id.challengeButt);		
-		challenge.setOnClickListener(new OnClickListener() {			
+
+		Button challenge = (Button) view.findViewById(R.id.challengeButt);
+		challenge.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				DialogFragment newDialog = new ChallengeFragment();
 				newDialog.show(getChildFragmentManager(), "DialogFragment");
-				
+
 			}
 		});
-		
+
 		// TextView txtPlatform = (TextView) view
 		// .findViewById(R.id.txtgameinfoPlatforms);
 
@@ -106,8 +106,26 @@ public class GameInfoFragment extends Fragment {
 			String isPlaying = myIntent.getString(Keys.GameisPlaying);
 
 			TextView tx = (TextView) view.findViewById(R.id.addGameButt);
+			if (isPlaying.equals("1")) {
+				tx.setVisibility(View.GONE);
+			}
 			TextView tx2 = (TextView) view.findViewById(R.id.challengeButt);
+			tx.setOnClickListener(new OnClickListener() {
 
+				@Override
+				public void onClick(View v) {
+					DialogFragment dialog = new DialogSendCommentFragment();
+					dialog.show(getChildFragmentManager(), "Game");
+					Bundle argss = new Bundle();
+					argss.putString(Keys.ID_PLAYER,
+							Configurations.CurrentPlayerID);
+					argss.putString(Keys.functionAnotherID, id_game);
+					argss.putString(Keys.functionAction,
+							Keys.POSTFUNCOMMANTAddGame);
+					argss.putString(Keys.functionPhpName, "gameFunction.php");
+					dialog.setArguments(argss);
+				}
+			});
 			/*
 			 * if (isPlaying.equals("1")) {tx.setVisibility(View.GONE);
 			 * tx2.setVisibility(View.VISIBLE);} final TextView txlike =
@@ -129,10 +147,10 @@ public class GameInfoFragment extends Fragment {
 			txtWeb.setText(gameURL);
 			txtJoined.setText(txtJoined.getText() + " " + gameFounded);
 
-			txtEsrbRat.setText(txtEsrbRat.getText()+" "+gameEsrb);
+			txtEsrbRat.setText(txtEsrbRat.getText() + " " + gameEsrb);
 
 			// txtPlatform.setText(gamePlatform);
-			txtPlayer.setText(txtPlayer.getText()+" "+ gamePlCount);
+			txtPlayer.setText(txtPlayer.getText() + " " + gamePlCount);
 			if (HelperClass.isTablet(getActivity())) {
 				txtWeb.setAutoLinkMask(0);
 				txtWeb.setText(txtWeb.getText() + " " + gameURL + " ");

@@ -21,10 +21,11 @@ public class Configurations {
 	public static int GamesSTATE = 1;
 	public static int GroupsSTATE = 3;
 	public static int CompaniesSTATE = 4;
+	public static int HomeEditSTATE = 5;
+
 	public static int Total;
 	public static float screenDencity;
 	public static int screenDpi;
-	//public static Resources appResource;
 
 	public final static SimpleDateFormat dataTemplate = new SimpleDateFormat(
 			"MMM dd,yyyy HH:mm", Locale.getDefault());

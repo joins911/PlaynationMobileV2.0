@@ -59,7 +59,7 @@ public class CompaniesNewsFragment extends Fragment {
 			if (results.size() != 0)
 				txtMessage.setVisibility(View.GONE);
 			NewsListAdapter bindingData = new NewsListAdapter(getActivity(),
-					HelperClass.createHeaderListView(HelperClass
+					HelperClass.createHeaderListViewNews(HelperClass
 							.queryNewsList(results)));
 			list.setAdapter(bindingData);
 

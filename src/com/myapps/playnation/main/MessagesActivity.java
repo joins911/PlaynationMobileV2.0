@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Calendar;
+
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -20,8 +22,10 @@ import com.myapps.playnation.R;
 import com.myapps.playnation.Adapters.BubbleMessageAdapter;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Classes.Message;
+import com.myapps.playnation.Classes.NewsFeedItem;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
+import com.myapps.playnation.Operations.HelperClass;
 
 public class MessagesActivity extends Activity {
 
@@ -73,13 +77,6 @@ public class MessagesActivity extends Activity {
 
 						commentText.setText("");
 					}
-					// } else {
-					// Toast.makeText(
-					// MessagesActivity.this,
-					// getResources().getString(
-					// R.string.noServerMessage),
-					// Toast.LENGTH_LONG).show();
-					// }
 				}
 			});
 
@@ -88,18 +85,18 @@ public class MessagesActivity extends Activity {
 		listView.setAdapter(adapter);
 	}
 
-	public ArrayList<Message> buildList() throws NumberFormatException,
+	public ArrayList<NewsFeedItem> buildList() throws NumberFormatException,
 			ParseException {
 
 		Bundle args = getIntent().getExtras();
 
-		ArrayList<Message> replies = new ArrayList<Message>();
+		ArrayList<NewsFeedItem> replies = new ArrayList<NewsFeedItem>();
 		if (args != null && args.size() != 0) {
 			for (int i = 0; i < args.size(); i++) {
 
 				boolean answer;
-				String date = args.getBundle("" + i)
-						.getString(Keys.MessageTime);
+				Calendar date = HelperClass.convertTime(Integer.parseInt(args
+						.getBundle("" + i).getString(Keys.MessageTime)));
 
 				String[] arr = args.getBundle("" + i)
 						.getString(Keys.MessageParticipants).split(",");
@@ -125,18 +122,11 @@ public class MessagesActivity extends Activity {
 			replies = buildFakeList();
 			fake = true;
 		}
-		Collections.sort(replies, new Comparator<Message>() {
-			@Override
-			public int compare(Message lhs, Message rhs) {
-				return lhs.getDate().compareTo(rhs.getDate());
-			}
-		});
-
-		return replies;
+		return HelperClass.createHeaderListViewMsg(replies);
 	}
 
-	public ArrayList<Message> buildFakeList() {
-		ArrayList<Message> replies = new ArrayList<Message>();
+	public ArrayList<NewsFeedItem> buildFakeList() {
+		ArrayList<NewsFeedItem> replies = new ArrayList<NewsFeedItem>();
 		replies.add(new Message("yoyoyoy", true));
 		replies.add(new Message("hey", false));
 		replies.add(new Message("what's up", false));

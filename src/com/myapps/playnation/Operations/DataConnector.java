@@ -213,7 +213,8 @@ public class DataConnector {
 
 		try {
 			if (result != null) {
-				if (result.endsWith("]")) {
+				String suffix = "{(";
+				if (result.endsWith(suffix)) {
 					jArray = new JSONArray(result);
 					jsonToArray(jArray, tableName);
 				}

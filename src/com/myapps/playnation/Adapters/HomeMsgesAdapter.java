@@ -2,6 +2,7 @@ package com.myapps.playnation.Adapters;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -43,30 +44,39 @@ public class HomeMsgesAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-
 		View view = convertView;
 		Bundle mapEntry = msgesList.get(position);
 		if (convertView == null) {
-			holder = new ViewHolder();			
-		    view = inflater.inflate(R.layout.component_comment_elist_layout,
-		    		parent, false); 		    
-			holder.img = (ImageView) view.findViewById(R.id.gamesCL_commentImage);			
-			holder.txtUser = (TextView) view.findViewById(R.id.gamesCL_commentUsername_TView);
-			holder.txtContent = (TextView) view.findViewById(R.id.gamesCL_commentText_TView);
-			holder.txtDate = (TextView) view.findViewById(R.id.gamesCL_commentTime_TView);
-			view.setTag(holder);			
-		}
-		else holder = (ViewHolder) view.getTag();
-		holder.img.setImageResource(R.drawable.msgclose);
-		if(mapEntry!=null)
-		{
-		holder.txtUser.setText("" + mapEntry.getString(Keys.PLAYERNICKNAME));
-		holder.txtDate.setText(mapEntry.getString(Keys.MessageTime));
-		holder.txtContent.setText(mapEntry.getString(Keys.MessageText));
-/*		MessageTime ??
-			holder.txtDate.setText(HelperClass.convertTime(
-					Integer.parseInt(mapEntry.getString(Keys.MessageTime)),
-					new SimpleDateFormat("MMM dd,yyyy")));*/
+			holder = new ViewHolder();
+			view = inflater.inflate(R.layout.component_comment_elist_layout,
+					parent, false);
+			holder.img = (ImageView) view.findViewById(R.id.imgEvent);
+			holder.txtUser = (TextView) view
+					.findViewById(R.id.gamesCL_commentUsername_TView);
+			holder.txtContent = (TextView) view
+					.findViewById(R.id.gamesCL_commentText_TView);
+			holder.txtDate = (TextView) view
+					.findViewById(R.id.gamesCL_commentTime_TView);
+			view.setTag(holder);
+		} else
+			holder = (ViewHolder) view.getTag();
+		if (mapEntry != null) {
+			holder.txtUser
+					.setText("" + mapEntry.getString(Keys.PLAYERNICKNAME));
+			SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy");
+
+			if (mapEntry.containsKey(Keys.MessageTime)
+					|| !mapEntry.getString(Keys.MessageTime).equalsIgnoreCase(
+							"null")
+					|| mapEntry.getString(Keys.MessageTime)
+							.equalsIgnoreCase(""))
+				holder.txtDate.setText(HelperClass.convertTime(
+						Integer.parseInt(mapEntry.getString(Keys.MessageTime)),
+						sdf));
+			else
+				holder.txtDate.setText(sdf.format(Calendar.getInstance()));
+
+			holder.txtContent.setText(mapEntry.getString(Keys.MessageText));
 		}
 		// return the entire view
 		return view;

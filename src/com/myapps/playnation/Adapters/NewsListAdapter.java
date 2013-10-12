@@ -26,11 +26,7 @@ public class NewsListAdapter extends NewsListHelper implements IShowMore {
 	ISectionAdapter context;
 
 	public NewsListAdapter(Activity context, ArrayList<NewsFeedItem> items) {
-		super(items);
-		this.context = (ISectionAdapter) context;
-		this.newsFeedsLists = getNewList();
-		inflator = (LayoutInflater) context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		this(context,items,0);		
 	}
 
 	public NewsListAdapter(Activity context, ArrayList<NewsFeedItem> items, int initialCount) {
@@ -103,6 +99,7 @@ public class NewsListAdapter extends NewsListHelper implements IShowMore {
 	@Override
 	public void showMore() {
 	newsFeedsLists.addAll(getNextItems());
+
 	}
 	
 	@Override

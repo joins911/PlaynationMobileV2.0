@@ -42,6 +42,7 @@ import android.widget.TextView;
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.DataSection;
 import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.Classes.Message;
 import com.myapps.playnation.Classes.NewsFeed;
 import com.myapps.playnation.Classes.NewsFeedItem;
 import com.myapps.playnation.Classes.UserComment;
@@ -344,6 +345,7 @@ public class HelperClass {
 
 	public static boolean EmailPassNickCheck(EditText email, EditText password,
 			EditText nick) {
+
 		if (nick != null) {
 			if (nick.getText().toString().trim().equals("")) {
 				nick.setError("Empty name please revise!");
@@ -425,7 +427,7 @@ public class HelperClass {
 		return returns;
 	}
 
-	public static ArrayList<NewsFeedItem> createHeaderListView(
+	public static ArrayList<NewsFeedItem> createHeaderListViewNews(
 			ArrayList<NewsFeedItem> newsFeedList) {
 		Collections.sort(newsFeedList, new Comparator<NewsFeedItem>() {
 			@Override
@@ -453,6 +455,51 @@ public class HelperClass {
 		int lastIndex = 0;
 		for (int i = 0; i < newsFeedList.size(); i++) {
 			final NewsFeed nf = (NewsFeed) newsFeedList.get(i);
+
+			DataSection ds = new DataSection();
+			ds.setKey_Title(dateWriter(nf));
+			for (int a = lastIndex; a < temp.size(); a++) {
+				DataSection newsFeedItem = (DataSection) temp.get(a);
+				if (newsFeedItem instanceof DataSection) {
+					if (ds.getKey_Title().equals(newsFeedItem.getKey_Title())) {
+						int index = temp.size();
+						temp.add(index, nf);
+						break;
+					}
+					if (!((DataSection) temp.get(lastIndex)).getKey_Title()
+							.equals(ds.getKey_Title())) {
+						temp.add(ds);
+						temp.add(nf);
+
+						lastIndex = temp.indexOf(ds);
+						break;
+					}
+				}
+			}
+			if (temp.size() == 0) {
+				temp.add(ds);
+				temp.add(nf);
+			}
+		}
+
+		return temp;
+	}
+
+	public static ArrayList<NewsFeedItem> createHeaderListViewMsg(
+			ArrayList<NewsFeedItem> newsFeedList) {
+
+		ArrayList<NewsFeedItem> temp = new ArrayList<NewsFeedItem>();
+		int lastIndex = 0;
+		Collections.sort(newsFeedList, new Comparator<NewsFeedItem>() {
+
+			@Override
+			public int compare(NewsFeedItem lhs, NewsFeedItem rhs) {
+				return ((Message) lhs).getDate().compareTo(
+						((Message) rhs).getDate());
+			}
+		});
+		for (int i = 0; i < newsFeedList.size(); i++) {
+			final Message nf = (Message) newsFeedList.get(i);
 			DataSection ds = new DataSection();
 			ds.setKey_Title(dateWriter(nf));
 			for (int a = lastIndex; a < temp.size(); a++) {
@@ -500,6 +547,24 @@ public class HelperClass {
 		}
 	}
 
+	@SuppressLint("SimpleDateFormat")
+	private static String dateWriter(Message feed) {
+		SimpleDateFormat time = new SimpleDateFormat("MMMMM dd, yyyy");
+		Calendar date = Calendar.getInstance();
+		Calendar compareDate = feed.getDate();
+		int comparableDay = compareDate.get(Calendar.DAY_OF_YEAR);
+		int currentDay = date.get(Calendar.DAY_OF_YEAR);
+		if (comparableDay == currentDay)
+			return "Today";
+		if ((comparableDay + 1) == currentDay)
+			return "Yesterday";
+		if (comparableDay < currentDay)
+			return time.format(compareDate.getTime());
+		else {
+			return time.format(compareDate.getTime());
+		}
+	}
+
 	public static ArrayList<NewsFeedItem> queryNewsList(ArrayList<Bundle> result) {
 		ArrayList<NewsFeedItem> newsFeedList = new ArrayList<NewsFeedItem>();
 
@@ -533,4 +598,9 @@ public class HelperClass {
 		return newsFeedList;
 	}
 
+	public static Calendar convertTime(int fetchDate) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date((long) fetchDate * 1000));
+		return cal;
+	}
 }

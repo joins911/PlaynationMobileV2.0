@@ -70,7 +70,6 @@ public class FriendsListAdapter extends BaseAdapter implements IShowMore {
 				false);
 		QuickContactBadge playerIcon = (QuickContactBadge) view
 				.findViewById(R.id.quickContactBadge1);
-
 		TextView txPlName = (TextView) view.findViewById(R.id.txPlName);
 		TextView txPlNick = (TextView) view.findViewById(R.id.txPlNick);
 		TextView txPlAge = (TextView) view.findViewById(R.id.txPlAge);
@@ -85,9 +84,9 @@ public class FriendsListAdapter extends BaseAdapter implements IShowMore {
 		if (mapEntry != null) {
 
 			String mutual = mapEntry.getString(Keys.Mutual);
-			if (mutual.equals("1") || mutual.equals("null"))
+			if (mutual.equals("1") || mutual.equals("null")) {
 				txEdit.setVisibility(View.GONE);
-			else {
+			} else {
 				txEdit.setText(addText);
 				txEdit.setTextColor(color);
 			}
@@ -138,7 +137,6 @@ public class FriendsListAdapter extends BaseAdapter implements IShowMore {
 			String imageUrl = mapEntry.getString(Keys.PLAYERAVATAR);
 			playerIcon.setTag(imageUrl);
 			new LoadImage(imageUrl, playerIcon, "players").execute(playerIcon);
-
 		}
 		return view;
 	}

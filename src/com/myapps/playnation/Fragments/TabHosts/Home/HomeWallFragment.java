@@ -52,7 +52,7 @@ public class HomeWallFragment extends Fragment implements BaseFragment {
 		ExpandableListView eListView = (ExpandableListView) view
 				.findViewById(R.id.listView);
 		HomeWallExpListAdapter expAdapter = new HomeWallExpListAdapter(
-				getActivity(), listParents);
+	getActivity(), listParents, getFragmentManager());
 		if (expAdapter.isEmpty()) {
 			TextView msgText = new TextView(getActivity());
 			msgText.setText(R.string.emptyListString);

@@ -1,25 +1,26 @@
 package com.myapps.playnation.Classes;
 
+import java.util.Calendar;
 
 public class Message implements NewsFeedItem {
 
-	public String mDate;
+	public Calendar mDate;
 	public String content;
 	public boolean left;
 
 	public Message(String content, boolean left) {
-		mDate = "";
+		mDate = Calendar.getInstance();
 		this.content = content;
 		this.left = left;
 	}
 
-	public Message(String date, String content, boolean left) {
+	public Message(Calendar date, String content, boolean left) {
 		mDate = date;
 		this.content = content;
 		this.left = left;
 	}
 
-	public String getDate() {
+	public Calendar getDate() {
 		return mDate;
 	}
 

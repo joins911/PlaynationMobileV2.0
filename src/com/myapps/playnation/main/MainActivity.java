@@ -51,6 +51,7 @@ import com.myapps.playnation.Fragments.WrapperFragment;
 import com.myapps.playnation.Fragments.TabHosts.Home.HomeMessagesFragment;
 import com.myapps.playnation.Fragments.TabHosts.Home.HomeNotificationFragment;
 import com.myapps.playnation.Fragments.TabHosts.Home.HomeWallFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.XHomeEditProfileFragment;
 import com.myapps.playnation.Operations.BackTimer;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
@@ -75,6 +76,9 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	private Fragment currFragment;
 	private BrowserFragment mBrowserFragment;
 	private BackTimer mBackTimer;
+	// Used for setting the different fragments outside of the MainActivity
+	public static Fragment passCurrFragment;
+	public static BrowserFragment passmBrowserFragment;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +97,8 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 				GravityCompat.START);
 		// set up the drawer's list view with items and click listener
 		MainMenuAdapter mMenuAdapter = new MainMenuAdapter(
-				getApplicationContext(), buildMenu());
+				getApplicationContext(), buildMenu(),
+				getSupportFragmentManager());
 		mDrawerList.setAdapter(mMenuAdapter);
 		/*
 		 * DrawerItemClickListener mListener = new DrawerItemClickListener();
@@ -149,24 +154,11 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 				Configurations.CurrentPlayerID);
 		mGroupsTitles = con.getLinker().getMyGroups(
 				Configurations.CurrentPlayerID);
-/*
-		con.queryPlayerGames("12");
-		con.queryPlayerGroup("12");
-		mGamesTitles = con.getLinker().getMyGames("12");
-		mGroupsTitles = con.getLinker().getMyGroups("12");
-		Toast.makeText(getApplicationContext(), mGamesTitles.toString(),
-				Toast.LENGTH_SHORT).show();
-*/
 		String showMore = getApplicationContext().getResources().getString(
 				R.string.showMore);
 		mGamesTitles.add(showMore);
 		mGroupsTitles.add(showMore);
 
-		// String[] gamesArr =
-		// {"Crysis","World of Warcraft","League of Legends", "Show More..."};
-		// String[] groupsArr = {"Crysis Legion","Playnation","Sons Of Durotar",
-		// "Show More..."};
-		// DataConnector con = DataConnector.getInst();
 		for (int i = 0; i < menuArr.length; i++) {
 			MyMenuItem temp = new MyMenuItem(menuArr[i]);
 			switch (i) {
@@ -302,9 +294,9 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 
 	@Override
 	public void onDestroy() {
+		stopService(new Intent(this, ServiceClass.class));
 		super.onDestroy();
 		java.lang.System.gc();
-		stopService(new Intent(MainActivity.this, ServiceClass.class));
 	}
 
 	public void setPageAndTab(int pageIndex, int tabIndex, Bundle args) {
@@ -401,25 +393,40 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	}
 
 	private void initHome() {
-		if (!(currFragment instanceof BrowserFragment))
+		if (!(currFragment instanceof BrowserFragment)
+				|| !(passCurrFragment instanceof BrowserFragment)) {
 			if (currFragment == null) {
 				currFragment = mBrowserFragment = new BrowserFragment();
 				getSupportFragmentManager().beginTransaction()
 						.add(R.id.content_frame, currFragment).commit();
+				passmBrowserFragment = mBrowserFragment;
+				passCurrFragment = currFragment;
 			} else {
-				FragmentManager fragmentManager = getSupportFragmentManager();
-				fragmentManager.beginTransaction().remove(currFragment)
-						.commit();
+				if (passCurrFragment instanceof XHomeEditProfileFragment
+						|| passCurrFragment instanceof HomeNotificationFragment
+						|| passCurrFragment instanceof HomeMessagesFragment) {
+					FragmentManager fragmentManager = getSupportFragmentManager();
+					fragmentManager.beginTransaction().remove(passCurrFragment)
+							.commit();
+				} else {
+					FragmentManager fragmentManager = getSupportFragmentManager();
+					fragmentManager.beginTransaction().remove(currFragment)
+							.commit();
+				}
 				mBrowserFragment.setVisible();
 				currFragment = mBrowserFragment;
+				passCurrFragment = currFragment;
 			}
+		} else {
+
+		}
+
 		setTitle(mPagesTitles[HomePage]);
 	}
 
 	private void initWall() {
 		HomeWallFragment temp = new HomeWallFragment();
 		putOnTop(temp);
-
 	}
 
 	private void initMessages() {

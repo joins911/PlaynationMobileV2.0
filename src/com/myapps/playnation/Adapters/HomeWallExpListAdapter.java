@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.ExpandbleParent;
 import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.Fragments.DialogSendCommentFragment;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.HelperClass;
@@ -26,16 +29,19 @@ public class HomeWallExpListAdapter extends BaseExpandableListAdapter {
 	private ArrayList<ExpandbleParent> mParent;
 	private Context context;
 	private DataConnector con;
+	private FragmentManager fragmentManager;
 
 	// Only used as mark which class is currently present.
 	// private Object currentFragment;
 
 	public HomeWallExpListAdapter(Context context,
-			ArrayList<ExpandbleParent> parent) {
+			ArrayList<ExpandbleParent> parent, FragmentManager frag) {
 		mParent = parent;
 		inflater = LayoutInflater.from(context);
 		this.context = context;
 		con = DataConnector.getInst();
+		this.fragmentManager = frag;
+
 	}
 
 	// ---------------------------------------------------------------
@@ -112,7 +118,7 @@ public class HomeWallExpListAdapter extends BaseExpandableListAdapter {
 						.getString(Keys.WallPostingTime)),
 						Configurations.dataTemplate));
 		isLiked(view, mapEntry);
-		// return the entire view
+		addComment(view, mapEntry);
 		return view;
 	}
 
@@ -231,6 +237,23 @@ public class HomeWallExpListAdapter extends BaseExpandableListAdapter {
 			});
 
 		}
+	}
+
+	public void addComment(View v, final Bundle b) {
+		TextView txtComment = (TextView) v.findViewById(R.id.comment_text);
+		txtComment.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				DialogFragment dialog = new DialogSendCommentFragment();
+				dialog.show(fragmentManager, "SendComment");
+				Bundle argss = new Bundle();
+				argss.putString(Keys.ID_PLAYER, Configurations.CurrentPlayerID);
+				argss.putString(Keys.WallOwnerType, "player");
+				argss.putString(Keys.ID_WALLITEM, b.getString(Keys.ID_WALLITEM));
+				dialog.setArguments(argss);
+			}
+		});
 	}
 	// @Override
 	// public void registerDataSetObserver(DataSetObserver observer) {

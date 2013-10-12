@@ -6,13 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.Fragments.TabHosts.Home.HomeMessagesFragment;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
+import com.myapps.playnation.main.MainActivity;
 
 public class DialogSendCommentFragment extends DialogFragment {
 	private Button btnSave;
@@ -21,6 +24,7 @@ public class DialogSendCommentFragment extends DialogFragment {
 	private TextView lblSendComment;
 	private String currentTag;
 	private DataConnector con;
+	public static int commandBtnPressed;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,6 +43,9 @@ public class DialogSendCommentFragment extends DialogFragment {
 			lblSendComment.setText(getActivity().getResources().getString(
 					R.string.lblSendGroupComment));
 		} else if (currentTag.equals("Game")) {
+			lblSendComment.setText(getActivity().getResources().getString(
+					R.string.lblSendGroupComment));
+		} else if (currentTag.equals("SendComment")) {
 			lblSendComment.setText(getActivity().getResources().getString(
 					R.string.lblSendGroupComment));
 		} else {
@@ -60,6 +67,26 @@ public class DialogSendCommentFragment extends DialogFragment {
 									Configurations.CurrentPlayerID,
 									args.getString(Keys.functionAnotherID));
 							dismiss();
+							HomeMessagesFragment frag = new HomeMessagesFragment();
+							MainActivity.passCurrFragment.getActivity()
+									.getSupportFragmentManager()
+									.beginTransaction()
+									.add(R.id.content_frame, frag).commit();
+							MainActivity.passCurrFragment = frag;
+							MainActivity.passmBrowserFragment.setInvisible();
+							commandBtnPressed = 1;
+							dismiss();
+						}
+					} else if (currentTag.equals("SendComment")) {
+						if (!txtComment.getText().toString().isEmpty()) {
+							con.insertComment(
+									txtComment.getText().toString(),
+									args.getString(Keys.WallOwnerType),
+									con.getCurrentPlayer().getString(
+											Keys.PLAYERNICKNAME), args
+											.getString(Keys.ID_WALLITEM));
+							commandBtnPressed = 1;
+							dismiss();
 						}
 					} else {
 						con.functionQuery(args.getString(Keys.ID_PLAYER), args
@@ -67,9 +94,11 @@ public class DialogSendCommentFragment extends DialogFragment {
 								.getString(Keys.functionPhpName), args
 								.getString(Keys.functionAction), txtComment
 								.getText().toString());
+						commandBtnPressed = 1;
 						dismiss();
 					}
 				}
+
 			}
 		});
 
@@ -77,9 +106,11 @@ public class DialogSendCommentFragment extends DialogFragment {
 
 			@Override
 			public void onClick(View v) {
+				commandBtnPressed = 0;
 				dismiss();
 			}
 		});
+		getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 		return mView;
 	}
 }

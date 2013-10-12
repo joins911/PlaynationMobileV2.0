@@ -38,6 +38,7 @@ public class ContentVBuilder {
 		temp.put(Keys.GAMENAME, obj.getString(Keys.GAMENAME));
 		String gameType = obj.getString(Keys.GAMETYPE);
 		temp.put(Keys.GAMETYPE, gameType);
+
 		temp.put(Keys.CompanyName, obj.getString(Keys.GAMECompanyDeveloper));
 		temp.put(Keys.GAMEDESC, obj.getString(Keys.GAMEDESC));
 		temp.put(Keys.GAMEDATE, obj.getString(Keys.GAMEDATE));
@@ -47,6 +48,7 @@ public class ContentVBuilder {
 		temp.put(Keys.EventIMAGEURL, imageUrl);
 		temp.put(Keys.GAMEURL, obj.getString(Keys.GAMEURL));
 		temp.put(Keys.GAMEPLAYERSCOUNT, obj.getString(Keys.GAMEPLAYERSCOUNT));
+
 		temp.put(Keys.GameIsLiked, obj.getString(Keys.GameIsLiked));
 		temp.put(Keys.GameisPlaying, obj.getString(Keys.GameisPlaying));
 		temp.put(Keys.GAMETYPENAME, obj.getString(Keys.GAMETYPENAME));
