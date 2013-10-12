@@ -19,6 +19,7 @@
 			android:layout_width="100dip"
 			android:layout_height="100dip"
 			android:contentDescription="@string/app_name"
+			android:scaleType="fitCenter"
 			android:src="@drawable/no_game_100x100" />
 	</LinearLayout>
 	<!-- Rightend Arrow -->

@@ -10,15 +10,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.LoadImage;
-import com.myapps.playnation.main.MainActivity;
 
 public class GroupsListAdapter extends ListsHelper implements IShowMore {
 	LayoutInflater inflater;
@@ -43,10 +40,12 @@ public class GroupsListAdapter extends ListsHelper implements IShowMore {
 
 	@Override
 	public int getCount() {
-		
-		  if (groupsDataCollection.size() >= count) return count; else
-		 
-		return groupsDataCollection.size();
+
+		if (groupsDataCollection.size() >= count)
+			return count;
+		else
+
+			return groupsDataCollection.size();
 	}
 
 	@Override
@@ -62,11 +61,15 @@ public class GroupsListAdapter extends ListsHelper implements IShowMore {
 	@Override
 	public void showMore() {
 		groupsDataCollection.addAll(getNextItems());
-		
-		  if (showMore) if (count + 5 <= groupsDataCollection.size()) count =
-		  count + 5; else { count = groupsDataCollection.size(); showMore =
-		  false; }
-		 
+
+		if (showMore)
+			if (count + 5 <= groupsDataCollection.size())
+				count = count + 5;
+			else {
+				count = groupsDataCollection.size();
+				showMore = false;
+			}
+
 	}
 
 	@Override
@@ -112,10 +115,6 @@ public class GroupsListAdapter extends ListsHelper implements IShowMore {
 			new LoadImage(groupsDataCollection.get(position).getString(
 					Keys.ID_GROUP), "group", Keys.groupsTable, imageUrl,
 					holder.tvImage, "groups").execute(holder.tvImage);
-			holder.tvImage.setMaxWidth(Keys.globalMaxandMinImageSize);
-			holder.tvImage.setMinimumWidth(Keys.globalMaxandMinImageSize);
-			holder.tvImage.setMaxHeight(Keys.globalMaxandMinImageSize);
-			holder.tvImage.setMinimumHeight(Keys.globalMaxandMinImageSize);
 		}
 		return vi;
 	}

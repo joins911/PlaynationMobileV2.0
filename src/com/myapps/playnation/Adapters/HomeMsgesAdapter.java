@@ -1,5 +1,6 @@
 package com.myapps.playnation.Adapters;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import android.content.Context;
@@ -13,16 +14,14 @@ import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-
+import com.myapps.playnation.Operations.HelperClass;
 
 public class HomeMsgesAdapter extends BaseAdapter {
 	private LayoutInflater inflater;
 	private ArrayList<Bundle> msgesList;
 	ViewHolder holder;
 
-
-	public HomeMsgesAdapter(Context context,
-			ArrayList<Bundle> args) {
+	public HomeMsgesAdapter(Context context, ArrayList<Bundle> args) {
 		msgesList = args;
 		inflater = LayoutInflater.from(context);
 	}
@@ -44,7 +43,7 @@ public class HomeMsgesAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		
+
 		View view = convertView;
 		Bundle mapEntry = msgesList.get(position);
 		if (convertView == null) {
@@ -64,13 +63,17 @@ public class HomeMsgesAdapter extends BaseAdapter {
 		holder.txtUser.setText("" + mapEntry.getString(Keys.PLAYERNICKNAME));
 		holder.txtDate.setText(mapEntry.getString(Keys.MessageTime));
 		holder.txtContent.setText(mapEntry.getString(Keys.MessageText));
+/*		MessageTime ??
+			holder.txtDate.setText(HelperClass.convertTime(
+					Integer.parseInt(mapEntry.getString(Keys.MessageTime)),
+					new SimpleDateFormat("MMM dd,yyyy")));*/
 		}
 		// return the entire view
 		return view;
 	}
 
-	static class ViewHolder{
-		TextView txtUser,txtDate,txtContent;
+	static class ViewHolder {
+		TextView txtUser, txtDate, txtContent;
 		ImageView img;
 	}
 

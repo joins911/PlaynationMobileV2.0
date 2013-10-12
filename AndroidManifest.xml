@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.myapps.playnation"
 	android:installLocation="auto"
-	android:versionCode="147"
+	android:versionCode="149"
 	android:versionName="0.1.3" >
 	<uses-sdk
 		android:minSdkVersion="10"
@@ -45,11 +45,10 @@
 			android:windowSoftInputMode="stateHidden|adjustPan" >
 		</activity>
 		<activity
-		    android:name="com.myapps.playnation.main.MessagesActivity"
-		    android:label="@string/messageString"
-		    android:parentActivityName="MainActivity">		    
+			android:name="com.myapps.playnation.main.MessagesActivity"
+			android:label="@string/messageString"
+			android:parentActivityName="MainActivity" >
 		</activity>
-		    
 		<service android:name="com.myapps.playnation.Operations.ServiceClass" >
 		</service>
 		<activity android:name="com.myapps.playnation.Fragments.NotificationActivity" >

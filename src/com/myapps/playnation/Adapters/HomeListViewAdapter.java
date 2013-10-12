@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,17 +29,12 @@ public class HomeListViewAdapter extends BaseAdapter {
 	private static int TYPE_HEADER = 0;
 	private static int TYPE_CHILD = 1;
 	private LayoutInflater inflater;
-	// Only used as mark which class is currently present.
-	private Object currentFragment;
 
-	public HomeListViewAdapter(Context context, ArrayList<Bundle> list,
-			Object currentFragment) {
+	public HomeListViewAdapter(Context context, ArrayList<Bundle> list,Fragment obj) {
 		super();
 		this.generalList = list;
 		inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-		this.currentFragment = currentFragment;
 
 	}
 
@@ -133,11 +129,11 @@ public class HomeListViewAdapter extends BaseAdapter {
 
 			final Bundle mapEntry = generalList.get(position);
 			if (mapEntry != null) {
-			//	txEHeadline.setText("" + mapEntry.getString(Keys.GAMENAME));
-			//	txELocation.setText(mapEntry.getString(Keys.GAMETYPE));
+				txEHeadline.setText("" + mapEntry.getString(Keys.GAMENAME));
+				txELocation.setText(mapEntry.getString(Keys.GAMETYPE));
 
-			//	txText.setText(Html.fromHtml(HelperClass
-			//			.checkGameComments(mapEntry)));
+				txText.setText(Html.fromHtml(HelperClass
+						.checkGameComments(mapEntry)));
 				String imageUrl = mapEntry.getString(Keys.EventIMAGEURL);
 				img.setTag(imageUrl);
 				new LoadImage(mapEntry.getString(Keys.ID_GAME), "game",

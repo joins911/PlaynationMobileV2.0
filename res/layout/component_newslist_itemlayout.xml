@@ -12,18 +12,18 @@
 		android:layout_alignParentTop="true"
 		android:text="Large Text"
 		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:textColor="@color/listTitleColor"
 		android:textSize="15sp"
 		android:textStyle="bold"
-		android:typeface="sans"
-		android:textColor="@color/listTitleColor"/>
+		android:typeface="sans" />
 	<ImageView
 		android:id="@+id/imgPlayerAvatarLog"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:adjustViewBounds="true"
-        android:scaleType="fitXY"
 		android:layout_alignParentLeft="true"
 		android:layout_below="@+id/txtTitle"
+		android:adjustViewBounds="true"
+		android:scaleType="fitCenter"
 		android:src="@drawable/no_news_100x100" />
 	<TextView
 		android:id="@+id/txtNickNameText"

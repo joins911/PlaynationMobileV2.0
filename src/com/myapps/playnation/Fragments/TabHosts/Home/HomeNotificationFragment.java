@@ -1,6 +1,5 @@
 package com.myapps.playnation.Fragments.TabHosts.Home;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,9 +17,8 @@ import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Fragments.BaseFragment;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
-import com.myapps.playnation.main.ISectionAdapter;
 
-public class HomeNotificationFragment extends Fragment implements BaseFragment{
+public class HomeNotificationFragment extends Fragment implements BaseFragment {
 	private DataConnector con;
 
 	@Override
@@ -34,7 +32,8 @@ public class HomeNotificationFragment extends Fragment implements BaseFragment{
 				.findViewById(R.id.generalPlayerListView);
 
 		if (!con.getLinker().checkDBTableExits(Keys.HomeNotificationTable))
-			con.queryNotification(Configurations.CurrentPlayerID);
+			con.queryNotification(Configurations.CurrentPlayerID,
+					"PNotificationF");
 
 		NotificationAdapter expAdapter = new NotificationAdapter(getActivity(),
 				con.getLinker().getSQLiteNotification(
@@ -57,7 +56,7 @@ public class HomeNotificationFragment extends Fragment implements BaseFragment{
 	@Override
 	public void searchFunction(String args) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

@@ -1,5 +1,8 @@
 package com.myapps.playnation.Fragments.TabHosts.Players;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,23 +18,24 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.myapps.playnation.R;
+import com.myapps.playnation.Adapters.GamesListAdapter;
 import com.myapps.playnation.Adapters.HomeListViewAdapter;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
+import com.myapps.playnation.Workers.QueryTask;
+import com.myapps.playnation.main.IQueryTask;
 import com.myapps.playnation.main.ISectionAdapter;
 import com.myapps.playnation.main.MainActivity;
 
-public class PlayerGamesFragment extends Fragment {
+public class PlayerGamesFragment extends Fragment implements IQueryTask{
 	private DataConnector con;
 	private ISectionAdapter mCallback;
+	private ListView mListView;
 
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-
-		// This makes sure that the container activity has implemented
-		// the callback interface. If not, it throws an exception
 		try {
 			mCallback = (ISectionAdapter) getActivity();
 		} catch (ClassCastException e) {
@@ -46,16 +50,15 @@ public class PlayerGamesFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_template_tabslistview,
 				container, false);
 		con = DataConnector.getInst();
-
-		ListView mListView = (ListView) view
+		mListView = (ListView) view
 				.findViewById(R.id.generalPlayerListView);
 
 		Bundle args = getArguments();
 
-		con.queryPlayerGames(args.getString(Keys.ID_PLAYER));
-		HomeListViewAdapter expAdapter = new HomeListViewAdapter(getActivity(),
-				con.getTable(Keys.HomeGamesTable,
-						args.getString(Keys.ID_PLAYER)), this);
+		final String playerID = args.getString(Keys.ID_PLAYER);
+		con.queryPlayerGames(playerID);
+		ArrayList<Bundle> temp = con.getTable(Keys.HomeGamesTable,playerID);
+		GamesListAdapter expAdapter = new GamesListAdapter(getActivity(),temp);
 		if (expAdapter.isEmpty()) {
 
 			TextView msgText = new TextView(getActivity());
@@ -64,10 +67,10 @@ public class PlayerGamesFragment extends Fragment {
 			msgText.setTextSize(TypedValue.COMPLEX_UNIT_SP, Keys.testSize);
 			msgText.setGravity(Gravity.CENTER_HORIZONTAL);
 			mListView.addHeaderView(msgText);
-
 		}	
-
 		mListView.setAdapter(expAdapter);
+
+		
 		mListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -81,5 +84,10 @@ public class PlayerGamesFragment extends Fragment {
 		});
 
 		return view;
+	}
+
+	@Override
+	public void setQueryResult(ArrayList<Bundle> args) {
+		
 	}
 }

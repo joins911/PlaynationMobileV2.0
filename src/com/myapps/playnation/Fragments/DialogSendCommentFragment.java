@@ -11,59 +11,75 @@ import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 
 public class DialogSendCommentFragment extends DialogFragment {
-  private Button btnSave;
-  private Button btnCancel;
-  private TextView txtComment;
-  private TextView lblSendComment;
+	private Button btnSave;
+	private Button btnCancel;
+	private TextView txtComment;
+	private TextView lblSendComment;
+	private String currentTag;
+	private DataConnector con;
 
-  private DataConnector con;
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		con = DataConnector.getInst();
+		View mView = inflater
+				.inflate(R.layout.component_sendgamegroupcommentinvite,
+						container, false);
+		currentTag = this.getTag();
 
-  @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container,
-      Bundle savedInstanceState) {
-    con = DataConnector.getInst();
-    // TODO Auto-generated method stub
-    View mView = inflater.inflate(
-        R.layout.component_sendgamegroupcommentinvite, container,
-        false);
-    btnSave = (Button) mView.findViewById(R.id.btnSend);
-    btnCancel = (Button) mView.findViewById(R.id.btnCancel);
-    txtComment = (TextView) mView.findViewById(R.id.txtComment);
-    lblSendComment = (TextView) mView.findViewById(R.id.txtNotificationMsg);
-    if (this.getTag().equals("Group")) {
-      lblSendComment.setText(getActivity().getResources().getString(
-          R.string.lblSendGroupComment));
-    } else {
-      lblSendComment.setText(getActivity().getResources().getString(
-          R.string.lblSendGameComment));
-    }
+		btnSave = (Button) mView.findViewById(R.id.btnSend);
+		btnCancel = (Button) mView.findViewById(R.id.btnCancel);
+		txtComment = (TextView) mView.findViewById(R.id.txtComment);
+		lblSendComment = (TextView) mView.findViewById(R.id.txtNotificationMsg);
+		if (currentTag.equals("Group")) {
+			lblSendComment.setText(getActivity().getResources().getString(
+					R.string.lblSendGroupComment));
+		} else if (currentTag.equals("Game")) {
+			lblSendComment.setText(getActivity().getResources().getString(
+					R.string.lblSendGroupComment));
+		} else {
+			Bundle args = getArguments();
+			lblSendComment.setText(getActivity().getResources().getString(
+					R.string.sendMsgText)
+					+ ": " + args.getString(Keys.PLAYERNICKNAME));
+		}
 
-    btnSave.setOnClickListener(new OnClickListener() {
+		btnSave.setOnClickListener(new OnClickListener() {
 
-      @Override
-      public void onClick(View v) {
-        Bundle args = getArguments();
-        if (args != null) {
-          con.functionQuery(args.getString(Keys.ID_PLAYER), args
-              .getString(Keys.functionAnotherID), args
-              .getString(Keys.functionPhpName), args
-              .getString(Keys.functionAction), txtComment
-              .getText().toString());
-          dismiss();
-        }
-      }
-    });
+			@Override
+			public void onClick(View v) {
+				Bundle args = getArguments();
+				if (args != null) {
+					if (currentTag.equals("SendMessage")) {
+						if (!txtComment.getText().toString().isEmpty()) {
+							con.sendMessage(txtComment.getText().toString(),
+									Configurations.CurrentPlayerID,
+									args.getString(Keys.functionAnotherID));
+							dismiss();
+						}
+					} else {
+						con.functionQuery(args.getString(Keys.ID_PLAYER), args
+								.getString(Keys.functionAnotherID), args
+								.getString(Keys.functionPhpName), args
+								.getString(Keys.functionAction), txtComment
+								.getText().toString());
+						dismiss();
+					}
+				}
+			}
+		});
 
-    btnCancel.setOnClickListener(new OnClickListener() {
+		btnCancel.setOnClickListener(new OnClickListener() {
 
-      @Override
-      public void onClick(View v) {
-        dismiss();
-      }
-    });
-    return mView;
-  }
+			@Override
+			public void onClick(View v) {
+				dismiss();
+			}
+		});
+		return mView;
+	}
 }

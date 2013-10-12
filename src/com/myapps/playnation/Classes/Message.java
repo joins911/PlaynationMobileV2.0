@@ -1,6 +1,7 @@
 package com.myapps.playnation.Classes;
 
-public class Message {
+
+public class Message implements NewsFeedItem {
 
 	public String mDate;
 	public String content;
@@ -29,4 +30,10 @@ public class Message {
 	public boolean getSide() {
 		return left;
 	}
+
+	@Override
+	public boolean isSection() {
+		return false;
+	}
+
 }

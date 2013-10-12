@@ -3,15 +3,12 @@ package com.myapps.playnation.Adapters;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,7 +32,7 @@ public class NewsListAdapter extends NewsListHelper implements IShowMore {
 		inflator = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
-	
+
 	public NewsListAdapter(Activity context, ArrayList<NewsFeedItem> items, int initialCount) {
 		super(items,initialCount);
 		this.context = (ISectionAdapter) context;
@@ -47,7 +44,6 @@ public class NewsListAdapter extends NewsListHelper implements IShowMore {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
 		NewsFeedItem item = newsFeedsLists.get(position);
-
 		if (item != null) {
 			if (item.isSection()) {
 				DataSection ds = (DataSection) item;
@@ -81,9 +77,9 @@ public class NewsListAdapter extends NewsListHelper implements IShowMore {
 				txtText.setText(Html.fromHtml(feed.getKey_NewsIntroText()
 						.replace("\\", "")));
 				img.setTag(imageUrl);
-			     new LoadImage(feed.getKey_NewsFeedID() + "", "news",
-			    	            Keys.newsTable, imageUrl, img, "newsitems")
-			    	           .execute(img);
+				new LoadImage(feed.getKey_NewsFeedID() + "", "news",
+						Keys.newsTable, imageUrl, img, "newsitems")
+						.execute(img);
 			}
 		}
 		return row;
@@ -91,7 +87,7 @@ public class NewsListAdapter extends NewsListHelper implements IShowMore {
 
 	@Override
 	public int getCount() {
-			return newsFeedsLists.size();
+	return newsFeedsLists.size();
 	}
 
 	@Override

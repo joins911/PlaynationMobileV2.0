@@ -68,13 +68,8 @@ public class CompanyListAdapter extends BaseAdapter implements IShowMore {
 					Keys.CompanyImageURL);
 			img.setTag(imageUrl);
 			new LoadImage(companiesList.get(position).getString(
-					          Keys.EventID_COMPANY), "company", Keys.companyTable,
-					          imageUrl, img, "companies").execute(img);
-			img.setMaxWidth(Keys.globalMaxandMinImageSize);
-			      img.setMinimumWidth(Keys.globalMaxandMinImageSize);
-			      img.setMaxHeight(Keys.globalMaxandMinImageSize);
-			      img.setMinimumHeight(Keys.globalMaxandMinImageSize);
-
+					Keys.EventID_COMPANY), "company", Keys.companyTable,
+					imageUrl, img, "companies").execute(img);
 		}
 		return v;
 	}

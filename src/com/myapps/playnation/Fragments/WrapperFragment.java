@@ -72,7 +72,7 @@ public class WrapperFragment extends Fragment implements BaseFragment{
 			mHeaderFragment = new SelectedNewsFeed();
 			mHeaderFragment.setArguments(args);
 			canBack = true;
-		} else {
+		} else {			
 			args.putAll(getArguments());
 			mHeaderFragment = new HeaderFragment();
 			mHeaderFragment.setArguments(args);

@@ -49,8 +49,8 @@ public class DataConnector {
 	InputStream is = null;
 	HttpClient httpclient;
 	String url;
-	final String ServerIp = "85.17.176.83";
-	// final String ServerIp = "10.0.2.2";
+
+	final String ServerIp = "10.0.2.2";
 
 	private static JSONArray json;
 	private boolean connStatus = false;
@@ -69,9 +69,10 @@ public class DataConnector {
 	}
 
 	private DataConnector() {
-		url = "http://playnation.eu/beta/hacks/";
 
+		url = "http://playnation.eu/beta/hacks/";
 		// url = "http://" + ServerIp + "/test/";
+
 	}
 
 	/**
@@ -245,15 +246,23 @@ public class DataConnector {
 			httppost.setEntity(new UrlEncodedFormEntity(pairs));
 			HttpResponse response = httpclient.execute(httppost);
 			entity = response.getEntity();
-			// is = entity.get;
+			is = entity.getContent();
 		} catch (Exception e) {
 			Log.e("log_tag HTML Conn",
 					"Error in http connection " + e.toString());
 		}
 
 		try {
-			if (entity != null)
-				result = EntityUtils.toString(entity);
+
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					is, "iso-8859-1"), 8);
+			StringBuilder sb = new StringBuilder();
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				sb.append(line + "\n");
+			}
+			is.close();
+			result = sb.toString();
 		} catch (Exception e) {
 			Log.e("DataConnector getWithPost2() ", "Error converting result "
 					+ e.toString());
@@ -261,9 +270,12 @@ public class DataConnector {
 		// parse json data
 		try {
 			if (result != null) {
-				// if (result.endsWith("]")
-				// || tableName.equals(Keys.SearchFriendsTable)) {
+
+				// if (result.contains("<b><b>Notice</b>"))
+				// || result.contains("null"))
+				// {
 				jArray = new JSONArray(result);
+
 				jsonToArray(jArray, tableName);
 				return jArray;
 				// }
@@ -287,7 +299,6 @@ public class DataConnector {
 		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
 				Keys.HomeFriendsTable, "0", 0);
 		sqlLinker.insertPFriends(json, playerID);
-		// sql.close();
 	}
 
 	public String queryNewImageURL(String ids, String ownerType,
@@ -320,6 +331,8 @@ public class DataConnector {
 			url += "friendFunctions.php";
 		} else if (phpName.startsWith("company")) {
 			url += "companyFunctions.php";
+		} else if (phpName.startsWith("wall")) {
+			url += "wallFunction.php";
 		}
 
 		// http post
@@ -386,6 +399,20 @@ public class DataConnector {
 							Keys.EventID_COMPANY + "=" + Another, null,
 							SQLiteDatabase.CONFLICT_REPLACE);
 				}
+			} else if (phpName.startsWith("wall")) {
+				pairs.add(new BasicNameValuePair(Keys.ID_WALLITEM, Another));
+				ContentValues values = new ContentValues();
+				if (action.equals(Keys.POSTFUNCOMMANTLike)) {
+					values.put(Keys.GameIsLiked, "1");
+					sql.updateWithOnConflict(Keys.HomeWallTable, values,
+							Keys.ID_WALLITEM + "=" + Another, null,
+							SQLiteDatabase.CONFLICT_REPLACE);
+				} else {
+					values.put(Keys.GameIsLiked, "-1");
+					sql.updateWithOnConflict(Keys.HomeWallTable, values,
+							Keys.ID_WALLITEM + "=" + Another, null,
+							SQLiteDatabase.CONFLICT_REPLACE);
+				}
 			}
 
 			httppost.setEntity(new UrlEncodedFormEntity(pairs));
@@ -411,7 +438,7 @@ public class DataConnector {
 
 	public void queryPlayerMessages(String playerID) {
 		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
-				Keys.HomeMsgTable, "0", sqlLinker.getLastIDHomeMSg());
+				Keys.HomeMsgTable, "0", 0);
 		sqlLinker.insertPMessages(json, playerID);
 	}
 
@@ -455,7 +482,6 @@ public class DataConnector {
 	}
 
 	public void queryPlayerMSGReplices(String wallitem, String playerID) {
-
 		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
 				Keys.HomeMsgRepliesTable, wallitem, 0);
 		sqlLinker.insertPMessagesReplies(json, playerID, wallitem);
@@ -467,42 +493,69 @@ public class DataConnector {
 		sqlLinker.insertPlayerInfo(json, playerID);
 	}
 
-	public View populatePlayerGeneralInfo(View v, String nameT, String playerID) {
-		setCurrentPlayer(sqlLinker.getPlayer(playerID));
+	public View populatePlayerGeneralInfo(View v, String nameT,
+			String playerID, Bundle mapEntry) {
+		TextView txPlName = (TextView) v.findViewById(R.id.txPlName);
+		TextView txPlNick = (TextView) v.findViewById(R.id.txPlNick);
+		TextView txPlAge = (TextView) v.findViewById(R.id.txPlAge);
+		TextView txPlCountry = (TextView) v.findViewById(R.id.txPlCountry);
+		QuickContactBadge playerIcon = (QuickContactBadge) v
+				.findViewById(R.id.quickContactBadge1);
+		if (nameT.equals("Wall")) {
+			setCurrentPlayer(sqlLinker.getPlayer(playerID));
 
-		if (v != null) {
-			TextView txPlName = (TextView) v.findViewById(R.id.txPlName);
-			TextView txPlNick = (TextView) v.findViewById(R.id.txPlNick);
-			TextView txPlAge = (TextView) v.findViewById(R.id.txPlAge);
-			TextView txPlCountry = (TextView) v.findViewById(R.id.txPlCountry);
-			QuickContactBadge playerIcon = (QuickContactBadge) v
-					.findViewById(R.id.quickContactBadge1);
+			if (v != null) {
+				if (currentPlayer != null) {
+					if (txPlName != null)
+						txPlName.setText("Name : "
+								+ currentPlayer.get(Keys.FirstName) + " , "
+								+ currentPlayer.get(Keys.LastName));
 
-			if (currentPlayer != null) {
+					if (txPlNick != null)
+						txPlNick.setText("Nick : "
+								+ currentPlayer.get(Keys.PLAYERNICKNAME));
+
+					if (txPlAge != null)
+						txPlAge.setText("Age : "
+								+ HelperClass.convertToAge(currentPlayer
+										.getString(Keys.Age)));
+
+					if (txPlCountry != null)
+						txPlCountry.setText("Country: "
+								+ currentPlayer.get(Keys.COUNTRY));
+					if (playerIcon != null) {
+						String imageUrl = currentPlayer
+								.getString(Keys.PLAYERAVATAR);
+						playerIcon.setTag(imageUrl);
+						new LoadImage(imageUrl, playerIcon, "players")
+								.execute(playerIcon);
+
+					}
+				}
+			}
+		} else {
+			if (mapEntry != null) {
 				if (txPlName != null)
-					txPlName.setText("Name : "
-							+ currentPlayer.get(Keys.FirstName) + " , "
-							+ currentPlayer.get(Keys.LastName));
+					txPlName.setText("Name : " + mapEntry.get(Keys.FirstName)
+							+ " , " + mapEntry.get(Keys.LastName));
 
 				if (txPlNick != null)
 					txPlNick.setText("Nick : "
-							+ currentPlayer.get(Keys.PLAYERNICKNAME));
+							+ mapEntry.get(Keys.PLAYERNICKNAME));
 
 				if (txPlAge != null)
 					txPlAge.setText("Age : "
-							+ HelperClass.convertToAge(currentPlayer
+							+ HelperClass.convertToAge(mapEntry
 									.getString(Keys.Age)));
 
 				if (txPlCountry != null)
 					txPlCountry.setText("Country: "
-							+ currentPlayer.get(Keys.COUNTRY));
+							+ mapEntry.get(Keys.COUNTRY));
 				if (playerIcon != null) {
-					String imageUrl = currentPlayer
-							.getString(Keys.PLAYERAVATAR);
+					String imageUrl = mapEntry.getString(Keys.PLAYERAVATAR);
 					playerIcon.setTag(imageUrl);
 					new LoadImage(imageUrl, playerIcon, "players")
 							.execute(playerIcon);
-
 				}
 			}
 		}
@@ -608,12 +661,34 @@ public class DataConnector {
 		}
 	}
 
+	public void sendMessage(String msg, String ID_PLAYER, String ID_FRIEND) {
+		String temp = url;
+		url += "sendMessage.php";
+		try {
+			httpclient = new DefaultHttpClient();
+			HttpPost httppost = new HttpPost(url);
+			List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+			url = temp;
+
+			pairs.add(new BasicNameValuePair(Keys.ID_PLAYER, ID_PLAYER));
+			pairs.add(new BasicNameValuePair(Keys.ID_FRIEND, ID_FRIEND));
+			pairs.add(new BasicNameValuePair(Keys.MessageText, msg));
+			String now = DateFormat.getDateInstance().format(new Date());
+			pairs.add(new BasicNameValuePair(Keys.MessageTime, now));
+
+			httppost.setEntity(new UrlEncodedFormEntity(pairs));
+			httpclient.execute(httppost);
+		} catch (Exception e) {
+			Log.e("log_tag HTML Conn",
+					"Error in insertMessage http connection " + e.toString());
+		}
+	}
+
 	public ArrayList<Bundle> queryPlayerFriendsSearch(CharSequence search) {
 		searchArray = new ArrayList<Bundle>();
 		JSONArray json = getArrayFromQuerryWithPostVariable(
 				Configurations.CurrentPlayerID, Keys.SearchFriendsTable,
 				search.toString(), 0);
-
 		// // Print the data to the console
 		if (json != null) {
 			for (int i = 0; i < json.length(); i++) {
@@ -656,9 +731,9 @@ public class DataConnector {
 			return null;
 	}
 
-	public void queryNotification(String PlayerID) {
+	public void queryNotification(String PlayerID, String tableName) {
 		JSONArray json = getArrayFromQuerryWithPostVariable(PlayerID,
-				Keys.HomeNotificationTable, "", 0);
+				tableName, "", 0);
 		sqlLinker.insertPNotification(json, PlayerID);
 	}
 
@@ -713,8 +788,7 @@ public class DataConnector {
 		}
 	}
 
-	public boolean checkLogin(String email, String pass,
-			SharedPreferences pref, SharedPreferences secoundPref) {
+	public boolean checkLogin(String email, String pass, SharedPreferences pref) {
 		String result = "";
 		String temp = url;
 		temp = temp + "chekRegisterLogin.php";
@@ -764,10 +838,8 @@ public class DataConnector {
 			editPref.putString(Keys.USERNAME, email);
 			editPref.putString(Keys.ID_PLAYER, Configurations.CurrentPlayerID);
 			editPref.putString(Keys.Password, pass);
+			editPref.putBoolean(Keys.ActiveSession, true);
 			editPref.commit();
-			SharedPreferences.Editor editSPref = secoundPref.edit();
-			editSPref.putBoolean(Keys.ActiveSession, true);
-			editSPref.commit();
 			results = true;
 		} else {
 			results = false;

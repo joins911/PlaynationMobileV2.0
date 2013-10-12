@@ -1,0 +1,3437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true">  
+  <class id="1" language="java" name="com.myapps.playnation.Fragments.TabHosts.PlayersTabHostDesc" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/PlayersTabHostDesc.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="243" width="293" x="6725" y="7893"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.myapps.playnation.Operations.FlyOutContainer.AnimationRunnable" 
+    project="PlaynationMobile" file="/PlaynationMobile/src/com/myapps/playnation/Operations/FlyOutContainer.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="7574" y="6738"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.myapps.playnation.Adapters.GamesListAdapter.ViewHolder" 
+    project="PlaynationMobile" file="/PlaynationMobile/src/com/myapps/playnation/Adapters/GamesListAdapter.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="151" x="11058" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.myapps.playnation.Classes.HorizontalImageHolder" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/HorizontalImageHolder.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="8215" y="6931"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.myapps.playnation.Operations.SerializedPhpParser" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/SerializedPhpParser.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="369" width="246" x="3628" y="10892"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.myapps.playnation.Adapters.GroupsListAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/GroupsListAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="315" width="254" x="9337" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.myapps.playnation.Classes.Menu.SubMenuItem" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/Menu/SubMenuItem.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="173" x="5310" y="6954"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.myapps.playnation.Fragments.TabHosts.Home.XSelectedHomeEvent" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Home/XSelectedHomeEvent.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="293" x="2292" y="11779"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.myapps.playnation.Adapters.GroupsListAdapter.ViewHolder" 
+    project="PlaynationMobile" file="/PlaynationMobile/src/com/myapps/playnation/Adapters/GroupsListAdapter.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="151" x="8737" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.myapps.playnation.Fragments.TabHosts.GroupTabHostDesc" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/GroupTabHostDesc.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="225" width="293" x="6161" y="7893"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.myapps.playnation.Workers.PlaynationTask" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Workers/PlaynationTask.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="163" x="8756" y="7893"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.myapps.playnation.Fragments.TabHosts.Players.PlayerEventsFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Players/PlayerEventsFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="293" x="10603" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.myapps.playnation.Classes.Menu.SubMenuHeader" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/Menu/SubMenuHeader.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="178" x="5452" y="7363"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.myapps.playnation.Fragments.TabHosts.Game.GamePlayersFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Game/GamePlayersFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="293" x="12616" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.myapps.playnation.Fragments.TabHosts.Players.PlayerWallFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Players/PlayerWallFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="225" width="293" x="13387" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.myapps.playnation.Classes.DataSection" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/DataSection.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="148" x="3314" y="10892"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="com.myapps.playnation.Classes.NotificationClass" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/NotificationClass.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="459" width="176" x="3761" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="com.myapps.playnation.Adapters.CommExpListAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/CommExpListAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="279" width="301" x="11383" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.myapps.playnation.Adapters.FriendsListAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/FriendsListAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="315" width="346" x="8657" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.myapps.playnation.Fragments.TabHosts.CompaniesTabHostDesc" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/CompaniesTabHostDesc.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="243" width="293" x="4991" y="7893"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.myapps.playnation.Operations.BackTimer.RemindTask" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/BackTimer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="159" x="4538" y="6347"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.myapps.playnation.Operations.ContentVBuilder" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/ContentVBuilder.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="279" width="349" x="4103" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.myapps.playnation.Fragments.TabHosts.Companies.CompaniesNewsFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Companies/CompaniesNewsFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="293" x="6289" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.myapps.playnation.Operations.FlyOutContainer" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/FlyOutContainer.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="7606" y="6446"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="com.myapps.playnation.Adapters.NewsListHelper" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/NewsListHelper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="254" x="5389" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="com.myapps.playnation.Fragments.TabHosts.Home.HomeMessagesFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Home/HomeMessagesFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="171" width="293" x="7687" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="com.myapps.playnation.Operations.JSONTransformer" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/JSONTransformer.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="176" x="3245" y="10375"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="com.myapps.playnation.Adapters.BubbleMessageAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/BubbleMessageAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="261" width="291" x="5147" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="com.myapps.playnation.main.SectionAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/main/SectionAdapter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="290" x="4061" y="6347"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.myapps.playnation.Operations.SerializedPhpParser.PhpObject" 
+    project="PlaynationMobile" file="/PlaynationMobile/src/com/myapps/playnation/Operations/SerializedPhpParser.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="174" x="3628" y="11779"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="31" language="java" name="com.myapps.playnation.main.ISectionAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/main/ISectionAdapter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="213" x="10085" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <enumeration id="32" language="java" name="com.myapps.playnation.Operations.FlyOutContainer.MenuState" 
+    project="PlaynationMobile" file="/PlaynationMobile/src/com/myapps/playnation/Operations/FlyOutContainer.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="7773" y="6765"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="33" language="java" name="com.myapps.playnation.Fragments.TabHosts.Game.GameWallFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Game/GameWallFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="225" width="293" x="14179" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="com.myapps.playnation.Fragments.TabHosts.Group.GroupEventsFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Group/GroupEventsFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="293" x="9061" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="com.myapps.playnation.Fragments.ListsFragment.LoadListTask" 
+    project="PlaynationMobile" file="/PlaynationMobile/src/com/myapps/playnation/Fragments/ListsFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="165" x="6541" y="10375"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="com.myapps.playnation.Fragments.TabHosts.Players.PlayerSubscriptionFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Players/PlayerSubscriptionFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="293" x="9937" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="com.myapps.playnation.Operations.SQLinker" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/SQLinker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="747" width="240" x="2985" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="com.myapps.playnation.Adapters.HomeMsgesAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/HomeMsgesAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="262" x="8355" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="com.myapps.playnation.Fragments.WrapperFragment" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/WrapperFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="369" width="293" x="4162" y="6954"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="com.myapps.playnation.Classes.NewsFeed" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/NewsFeed.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="495" width="195" x="3079" y="10892"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="41" language="java" name="com.myapps.playnation.Adapters.IShowMore" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/IShowMore.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="151" x="8928" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="42" language="java" name="com.myapps.playnation.Adapters.CompanyListAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/CompanyListAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="261" width="263" x="9820" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="com.myapps.playnation.Fragments.TabHosts.Players.PlayerGamesFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Players/PlayerGamesFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="293" x="14575" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="com.myapps.playnation.Classes.Menu.MainMenuAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/Menu/MainMenuAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="369" width="280" x="5098" y="5938"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="45" language="java" name="com.myapps.playnation.Fragments.TabHosts.GameTabHostDesc" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/GameTabHostDesc.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="243" width="293" x="7478" y="7893"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="46" language="java" name="com.myapps.playnation.Fragments.TabHosts.Home.HomeNotificationFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Home/HomeNotificationFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="293" x="5704" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="com.myapps.playnation.Fragments.NotificationActivity" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/NotificationActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="7836" y="6293"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="48" language="java" name="com.myapps.playnation.login.RegisterActivity" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/login/RegisterActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="168" x="4834" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="49" language="java" name="com.myapps.playnation.main.PlaynationMobile" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/main/PlaynationMobile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="207" x="2229" y="12432"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="50" language="java" name="com.myapps.playnation.Fragments.GamesListsFragment" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/GamesListsFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="81" width="159" x="4810" y="6954"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="51" language="java" name="com.myapps.playnation.Adapters.GamesListAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/GamesListAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="297" width="266" x="11871" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="52" language="java" name="com.myapps.playnation.Adapters.ListsHelper" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/ListsHelper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="200" x="11437" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="53" language="java" name="com.myapps.playnation.main.BrowserFragment" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/main/BrowserFragment.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="351" width="293" x="4356" y="5938"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="54" language="java" name="com.myapps.playnation.Operations.MySQLinker" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/MySQLinker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="855" width="297" x="4455" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="55" language="java" name="com.myapps.playnation.Workers.QueryTask" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Workers/QueryTask.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="198" x="15412" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="56" language="java" name="com.myapps.playnation.login.LoginActivity.LoadMainActivityTask" 
+    project="PlaynationMobile" file="/PlaynationMobile/src/com/myapps/playnation/login/LoginActivity.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3925" y="5333"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="57" language="java" name="com.myapps.playnation.Adapters.ReviewListAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/ReviewListAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="255" x="12686" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="58" language="java" name="com.myapps.playnation.Classes.Menu.MyMenuItem" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/Menu/MyMenuItem.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="245" x="5259" y="6347"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="59" language="java" name="com.myapps.playnation.Fragments.TabHosts.Home.HomeWallFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Home/HomeWallFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="293" x="8062" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="60" language="java" name="com.myapps.playnation.Adapters.NotificationAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/NotificationAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="333" width="254" x="5599" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="61" language="java" name="com.myapps.playnation.Classes.NewsFeedItem" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/NewsFeedItem.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="148" x="3377" y="11779"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="62" language="java" name="com.myapps.playnation.Operations.BackTimer" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/BackTimer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="159" x="4752" y="5938"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="63" language="java" name="com.myapps.playnation.Classes.Message" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/Message.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="178" x="3524" y="10375"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="64" language="java" name="com.myapps.playnation.Fragments.TabHosts.Group.GroupInfoFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Group/GroupInfoFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="207" width="293" x="8022" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="65" language="java" name="com.myapps.playnation.Fragments.TabHosts.Companies.CompaniesInfoFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Companies/CompaniesInfoFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="293" x="6171" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="66" language="java" name="com.myapps.playnation.Adapters.ReviewListAdapter.ViewHolder" 
+    project="PlaynationMobile" file="/PlaynationMobile/src/com/myapps/playnation/Adapters/ReviewListAdapter.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="151" x="11554" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="67" language="java" name="com.myapps.playnation.Fragments.TabHosts.Group.GroupPlayersFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Group/GroupPlayersFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="293" x="8728" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="68" language="java" name="com.myapps.playnation.login.LoginActivity" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/login/LoginActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3345" y="5960"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="69" language="java" name="com.myapps.playnation.Classes.HorizontalViewHolder" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/HorizontalViewHolder.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="262" x="10756" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="70" language="java" name="com.myapps.playnation.Fragments.TabHosts.Game.GameNewsFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Game/GameNewsFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="207" width="293" x="7144" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="71" language="java" name="com.myapps.playnation.Fragments.TabHosts.Group.GroupWallFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Group/GroupWallFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="293" x="11761" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="72" language="java" name="com.myapps.playnation.Fragments.TabHosts.Game.GameInfoFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Game/GameInfoFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="261" width="293" x="10756" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="73" language="java" name="com.myapps.playnation.Adapters.HomeWallExpListAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/HomeWallExpListAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="333" width="333" x="7460" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="74" language="java" name="com.myapps.playnation.Fragments.TabHosts.Home.XHomeEventsFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Home/XHomeEventsFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="293" x="4345" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="75" language="java" name="com.myapps.playnation.Classes.UserComment" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/UserComment.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="285" x="6881" y="11779"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="76" language="java" name="com.myapps.playnation.Workers.LoadCommentsTask" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Workers/LoadCommentsTask.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="259" x="12261" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="77" language="java" name="com.myapps.playnation.Operations.LoadImage" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/LoadImage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="333" width="294" x="9119" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="78" language="java" name="com.myapps.playnation.Operations.BundleBuilder" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/BundleBuilder.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="261" width="218" x="4492" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="79" language="java" name="com.myapps.playnation.Fragments.IWallFragment" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/IWallFragment.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="244" x="11270" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="80" language="java" name="com.myapps.playnation.Adapters.SpinnerAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/SpinnerAdapter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="8057" y="6338"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="81" language="java" name="com.myapps.playnation.Operations.ArraySorter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/ArraySorter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="481" x="2646" y="11779"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="82" language="java" name="com.myapps.playnation.Adapters.NewsListAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/NewsListAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="225" width="300" x="5977" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="83" language="java" name="com.myapps.playnation.Fragments.TabHosts.HomeTabHostDesc" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/HomeTabHostDesc.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="261" width="293" x="5765" y="7893"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="84" language="java" name="com.myapps.playnation.main.MainActivity" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/main/MainActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1053" width="240" x="4272" y="4845"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="85" language="java" name="com.myapps.playnation.Fragments.TabHosts.Players.PlayerGroupsFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Players/PlayerGroupsFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="293" x="10270" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="86" language="java" name="com.myapps.playnation.Fragments.TabHosts.Group.GroupMediaFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Group/GroupMediaFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="293" x="8395" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="87" language="java" name="com.myapps.playnation.Fragments.TabHosts.TabHostDesc" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/TabHostDesc.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="201" x="5681" y="7754"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="88" language="java" name="com.myapps.playnation.Adapters.HomeMsgesAdapter.ViewHolder" 
+    project="PlaynationMobile" file="/PlaynationMobile/src/com/myapps/playnation/Adapters/HomeMsgesAdapter.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="151" x="7940" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="89" language="java" name="com.myapps.playnation.Adapters.HomeListViewAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/HomeListViewAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="261" width="321" x="4019" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="90" language="java" name="com.myapps.playnation.Fragments.HeaderFragment" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/HeaderFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="351" width="293" x="5119" y="7363"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="91" language="java" name="com.myapps.playnation.Classes.CommentInfo" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/CommentInfo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="217" x="2744" y="12432"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="92" language="java" name="com.myapps.playnation.Adapters.SpinnerAdapter.ViewHolder" 
+    project="PlaynationMobile" file="/PlaynationMobile/src/com/myapps/playnation/Adapters/SpinnerAdapter.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="8167" y="6738"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="93" language="java" name="com.myapps.playnation.Fragments.DialogSendCommentFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/DialogSendCommentFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="293" x="8131" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="94" language="java" name="com.myapps.playnation.Fragments.TabHosts.Companies.CompaniesWallFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Companies/CompaniesWallFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="293" x="6748" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="95" language="java" name="com.myapps.playnation.Fragments.TabHosts.Home.XHomeEditProfileFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Home/XHomeEditProfileFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="315" width="293" x="9415" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="96" language="java" name="com.myapps.playnation.Fragments.TabHosts.Home.XHomeFriendsFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Home/XHomeFriendsFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="293" x="10957" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="97" language="java" name="com.myapps.playnation.Fragments.TabHosts.Players.PlayerFriendsFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Players/PlayerFriendsFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="293" x="12157" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="98" language="java" name="com.myapps.playnation.Operations.HelperClass" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/HelperClass.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="477" width="404" x="4103" y="10375"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="99" language="java" name="com.myapps.playnation.Fragments.TabHosts.Home.XHomeSubscriptionFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Home/XHomeSubscriptionFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="293" x="3637" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="100" language="java" name="com.myapps.playnation.Fragments.ChallengeFragment" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/ChallengeFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="172" x="9747" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="101" language="java" name="com.myapps.playnation.Fragments.TabHosts.Home.XHomeGamesFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Home/XHomeGamesFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="293" x="3970" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="102" language="java" name="com.myapps.playnation.Classes.ExpandbleParent" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/ExpandbleParent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="209" x="7376" y="9876"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="103" language="java" name="com.myapps.playnation.Adapters.PlayerHomeInfoAdapter" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Adapters/PlayerHomeInfoAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="261" width="278" x="10291" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="104" language="java" name="com.myapps.playnation.Fragments.BaseFragment" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/BaseFragment.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="182" x="4873" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="105" language="java" name="com.myapps.playnation.Classes.ListsHelper" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Classes/ListsHelper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="200" x="4208" y="10892"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="106" language="java" name="com.myapps.playnation.Operations.ServiceClass" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/ServiceClass.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="405" width="227" x="3307" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="107" language="java" name="com.myapps.playnation.Fragments.ListsFragment" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/ListsFragment.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="567" width="293" x="4926" y="6347"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="108" language="java" name="com.myapps.playnation.Operations.Configurations" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/Configurations.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="603" width="181" x="5516" y="11779"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="109" language="java" name="com.myapps.playnation.main.MainActivity.DrawerItemClickListener" 
+    project="PlaynationMobile" file="/PlaynationMobile/src/com/myapps/playnation/main/MainActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="309" x="3818" y="5938"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="110" language="java" name="com.myapps.playnation.Fragments.TabHosts.News.SelectedNewsFeed" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/News/SelectedNewsFeed.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="293" x="3679" y="7363"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="111" language="java" name="com.myapps.playnation.Operations.FlyOutContainer.SmoothInterpolator" 
+    project="PlaynationMobile" file="/PlaynationMobile/src/com/myapps/playnation/Operations/FlyOutContainer.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="7972" y="6738"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="112" language="java" name="com.myapps.playnation.Operations.DataConnector" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Operations/DataConnector.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="837" width="454" x="6396" y="10892"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="113" language="java" name="com.myapps.playnation.Fragments.TabHosts.Players.PlayerInfoFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Players/PlayerInfoFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="293" x="12949" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="114" language="java" name="com.myapps.playnation.Fragments.TabHosts.Game.GameReviewFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Game/GameReviewFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="293" x="13720" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="115" language="java" name="com.myapps.playnation.main.IQueryTask" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/main/IQueryTask.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="222" x="13023" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="116" language="java" name="com.myapps.playnation.main.MessagesActivity" project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/main/MessagesActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="200" x="6695" y="8981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="117" language="java" name="com.myapps.playnation.Fragments.TabHosts.Home.XHomeGroupsFragment" 
+    project="PlaynationMobile" 
+    file="/PlaynationMobile/src/com/myapps/playnation/Fragments/TabHosts/Home/XHomeGroupsFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="293" x="4720" y="8194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="118">    
+    <bendpoint x="5946" y="8981"/>    
+    <bendpoint x="6578" y="9876"/>    
+    <bendpoint x="6489" y="10375"/>    
+    <end type="SOURCE" refId="46" navigable="false">      
+      <attribute id="119" name="con"/>      
+      <multiplicity id="120" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="121">    
+    <bendpoint x="5004" y="5938"/>    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="58"/>  
+  </dependency>  
+  <realization id="122">    
+    <end type="SOURCE" refId="51"/>    
+    <end type="TARGET" refId="41"/>  
+  </realization>  
+  <association id="123">    
+    <bendpoint x="7865" y="8981"/>    
+    <bendpoint x="7615" y="9876"/>    
+    <bendpoint x="7282" y="10375"/>    
+    <end type="SOURCE" refId="95" navigable="false">      
+      <attribute id="124" name="con"/>      
+      <multiplicity id="125" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="126">    
+    <bendpoint x="6622" y="8981"/>    
+    <bendpoint x="6641" y="9876"/>    
+    <bendpoint x="6239" y="10375"/>    
+    <bendpoint x="6071" y="10892"/>    
+    <end type="SOURCE" refId="70"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="127">    
+    <bendpoint x="3988" y="8981"/>    
+    <bendpoint x="3988" y="9876"/>    
+    <bendpoint x="4948" y="10375"/>    
+    <bendpoint x="5032" y="10892"/>    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <association id="128">    
+    <bendpoint x="11798" y="8981"/>    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="129" name="mCallback"/>      
+      <multiplicity id="130" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="131">    
+    <bendpoint x="5681" y="6954"/>    
+    <bendpoint x="5954" y="7363"/>    
+    <bendpoint x="6206" y="7754"/>    
+    <bendpoint x="7174" y="7893"/>    
+    <bendpoint x="11730" y="8194"/>    
+    <end type="SOURCE" refId="107"/>    
+    <end type="TARGET" refId="42"/>  
+  </dependency>  
+  <generalization id="132">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <dependency id="133">    
+    <bendpoint x="6328" y="8981"/>    
+    <bendpoint x="6077" y="9876"/>    
+    <bendpoint x="5987" y="10375"/>    
+    <bendpoint x="5924" y="10892"/>    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="134">    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="54"/>  
+  </dependency>  
+  <association id="135">    
+    <bendpoint x="7408" y="8981"/>    
+    <bendpoint x="7324" y="9876"/>    
+    <bendpoint x="7198" y="10375"/>    
+    <end type="SOURCE" refId="59" navigable="false">      
+      <attribute id="136" name="con"/>      
+      <multiplicity id="137" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="138">    
+    <bendpoint x="5440" y="7754"/>    
+    <bendpoint x="5608" y="7893"/>    
+    <bendpoint x="7635" y="8194"/>    
+    <bendpoint x="7198" y="8981"/>    
+    <bendpoint x="7177" y="9876"/>    
+    <bendpoint x="7114" y="10375"/>    
+    <end type="SOURCE" refId="90" navigable="false">      
+      <attribute id="139" name="con"/>      
+      <multiplicity id="140" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="141">    
+    <bendpoint x="7699" y="9876"/>    
+    <bendpoint x="7303" y="10375"/>    
+    <bendpoint x="6890" y="10892"/>    
+    <end type="SOURCE" refId="64"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="142">    
+    <bendpoint x="5608" y="7754"/>    
+    <bendpoint x="6526" y="7893"/>    
+    <bendpoint x="9885" y="8194"/>    
+    <bendpoint x="9264" y="8981"/>    
+    <end type="SOURCE" refId="90"/>    
+    <end type="TARGET" refId="77"/>  
+  </dependency>  
+  <dependency id="143">    
+    <bendpoint x="5032" y="10375"/>    
+    <bendpoint x="5525" y="10892"/>    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="144">    
+    <bendpoint x="3443" y="8981"/>    
+    <bendpoint x="3508" y="9876"/>    
+    <bendpoint x="4030" y="10375"/>    
+    <bendpoint x="4438" y="10892"/>    
+    <end type="SOURCE" refId="106"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="145">    
+    <bendpoint x="6643" y="8981"/>    
+    <bendpoint x="5867" y="9876"/>    
+    <end type="SOURCE" refId="95"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="146">    
+    <bendpoint x="4721" y="5938"/>    
+    <bendpoint x="4811" y="6347"/>    
+    <bendpoint x="5062" y="6954"/>    
+    <bendpoint x="5067" y="7363"/>    
+    <bendpoint x="5419" y="7754"/>    
+    <bendpoint x="5671" y="7893"/>    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="59"/>  
+  </dependency>  
+  <association id="147">    
+    <end type="SOURCE" refId="114" navigable="false">      
+      <attribute id="148" name="commentsAdapter"/>      
+      <multiplicity id="149" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="150">    
+    <end type="SOURCE" refId="76" navigable="false">      
+      <attribute id="151" name="mActConn"/>      
+      <multiplicity id="152" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="153">    
+    <end type="SOURCE" refId="58" navigable="false">      
+      <attribute id="154" name="mSubItems"/>      
+      <multiplicity id="155" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="156">    
+    <bendpoint x="5408" y="5938"/>    
+    <bendpoint x="5765" y="6347"/>    
+    <bendpoint x="6101" y="6954"/>    
+    <bendpoint x="6374" y="7363"/>    
+    <bendpoint x="6647" y="7754"/>    
+    <bendpoint x="7948" y="7893"/>    
+    <bendpoint x="14085" y="8194"/>    
+    <bendpoint x="11289" y="8981"/>    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="31"/>  
+  </realization>  
+  <dependency id="157">    
+    <end type="SOURCE" refId="45"/>    
+    <end type="TARGET" refId="70"/>  
+  </dependency>  
+  <association id="158">    
+    <bendpoint x="3136" y="4845"/>    
+    <bendpoint x="3175" y="5938"/>    
+    <bendpoint x="3266" y="6347"/>    
+    <bendpoint x="3480" y="6954"/>    
+    <bendpoint x="3543" y="7363"/>    
+    <bendpoint x="3773" y="7754"/>    
+    <bendpoint x="4044" y="7893"/>    
+    <bendpoint x="4314" y="8194"/>    
+    <end type="SOURCE" refId="56" navigable="false">      
+      <attribute id="159" name="linker"/>      
+      <multiplicity id="160" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="54" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="161">    
+    <end type="SOURCE" refId="62"/>    
+    <end type="TARGET" refId="21"/>  
+  </nesting>  
+  <association id="162">    
+    <end type="SOURCE" refId="82" navigable="false">      
+      <attribute id="163" name="context"/>      
+      <multiplicity id="164" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="165">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="112"/>  
+  </dependency>  
+  <dependency id="166">    
+    <bendpoint x="6349" y="8981"/>    
+    <bendpoint x="5741" y="9876"/>    
+    <bendpoint x="5011" y="10375"/>    
+    <end type="SOURCE" refId="70"/>    
+    <end type="TARGET" refId="40"/>  
+  </dependency>  
+  <association id="167">    
+    <end type="SOURCE" refId="75" navigable="false">      
+      <attribute id="168" name="replyList"/>      
+      <multiplicity id="169" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="91" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="170">    
+    <bendpoint x="6143" y="7754"/>    
+    <end type="SOURCE" refId="90"/>    
+    <end type="TARGET" refId="45"/>  
+  </dependency>  
+  <dependency id="171">    
+    <end type="SOURCE" refId="95"/>    
+    <end type="TARGET" refId="54"/>  
+  </dependency>  
+  <realization id="172">    
+    <end type="SOURCE" refId="82"/>    
+    <end type="TARGET" refId="41"/>  
+  </realization>  
+  <dependency id="173">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="51"/>  
+  </dependency>  
+  <association id="174">    
+    <bendpoint x="9159" y="8981"/>    
+    <end type="SOURCE" refId="70" navigable="false">      
+      <attribute id="175" name="mCallback"/>      
+      <multiplicity id="176" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="177">    
+    <bendpoint x="5316" y="8981"/>    
+    <bendpoint x="5951" y="9876"/>    
+    <bendpoint x="6218" y="10375"/>    
+    <end type="SOURCE" refId="74" navigable="false">      
+      <attribute id="178" name="con"/>      
+      <multiplicity id="179" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="180">    
+    <end type="SOURCE" refId="84" navigable="false">      
+      <attribute id="181" name="mBrowserFragment"/>      
+      <multiplicity id="182" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="53" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="183">    
+    <bendpoint x="10517" y="9876"/>    
+    <bendpoint x="9156" y="10375"/>    
+    <bendpoint x="7919" y="10892"/>    
+    <end type="SOURCE" refId="76" navigable="false">      
+      <attribute id="184" name="comments"/>      
+      <multiplicity id="185" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="75" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="186">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="187" name="holder"/>      
+      <multiplicity id="188" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="189">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="41"/>  
+  </realization>  
+  <dependency id="190">    
+    <bendpoint x="4423" y="6347"/>    
+    <bendpoint x="4527" y="6954"/>    
+    <bendpoint x="4668" y="7363"/>    
+    <bendpoint x="4758" y="7754"/>    
+    <bendpoint x="4729" y="7893"/>    
+    <bendpoint x="6069" y="8194"/>    
+    <bendpoint x="5547" y="8981"/>    
+    <bendpoint x="5825" y="9876"/>    
+    <bendpoint x="5798" y="10375"/>    
+    <bendpoint x="5798" y="10892"/>    
+    <end type="SOURCE" refId="53"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="191">    
+    <bendpoint x="7219" y="8981"/>    
+    <bendpoint x="7051" y="9876"/>    
+    <bendpoint x="6820" y="10375"/>    
+    <bendpoint x="6260" y="10892"/>    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <realization id="192">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="104"/>  
+  </realization>  
+  <association id="193">    
+    <bendpoint x="10155" y="8981"/>    
+    <bendpoint x="8664" y="9876"/>    
+    <bendpoint x="7765" y="10375"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="194" name="con"/>      
+      <multiplicity id="195" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="196">    
+    <bendpoint x="5720" y="9876"/>    
+    <end type="SOURCE" refId="116"/>    
+    <end type="TARGET" refId="63"/>  
+  </dependency>  
+  <dependency id="197">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="89"/>  
+  </dependency>  
+  <dependency id="198">    
+    <bendpoint x="3157" y="4598"/>    
+    <bendpoint x="3178" y="4845"/>    
+    <bendpoint x="3241" y="5938"/>    
+    <bendpoint x="3403" y="6347"/>    
+    <bendpoint x="3564" y="6954"/>    
+    <bendpoint x="3627" y="7363"/>    
+    <bendpoint x="4112" y="7754"/>    
+    <bendpoint x="4597" y="7893"/>    
+    <bendpoint x="5106" y="8194"/>    
+    <bendpoint x="5127" y="8981"/>    
+    <end type="SOURCE" refId="68"/>    
+    <end type="TARGET" refId="48"/>  
+  </dependency>  
+  <dependency id="199">    
+    <end type="SOURCE" refId="74"/>    
+    <end type="TARGET" refId="54"/>  
+  </dependency>  
+  <dependency id="200">    
+    <bendpoint x="5909" y="9876"/>    
+    <bendpoint x="5840" y="10375"/>    
+    <bendpoint x="5819" y="10892"/>    
+    <end type="SOURCE" refId="60"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="201">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="76"/>  
+  </dependency>  
+  <generalization id="202">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <dependency id="203">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="110"/>  
+  </dependency>  
+  <association id="204">    
+    <end type="SOURCE" refId="90" navigable="false">      
+      <attribute id="205" name="mTabFrag"/>      
+      <multiplicity id="206" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="87" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="207">    
+    <bendpoint x="7324" y="8981"/>    
+    <end type="SOURCE" refId="117" navigable="false">      
+      <attribute id="208" name="mCallback"/>      
+      <multiplicity id="209" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="210">    
+    <end type="SOURCE" refId="44" navigable="false">      
+      <attribute id="211" name="mMenuItems"/>      
+      <multiplicity id="212" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="58" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="213">    
+    <end type="SOURCE" refId="57" navigable="false">      
+      <attribute id="214" name="holder"/>      
+      <multiplicity id="215" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="66" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="216">    
+    <end type="SOURCE" refId="103"/>    
+    <end type="TARGET" refId="41"/>  
+  </realization>  
+  <association id="217">    
+    <bendpoint x="5888" y="9876"/>    
+    <bendpoint x="5636" y="10375"/>    
+    <bendpoint x="5011" y="10892"/>    
+    <end type="SOURCE" refId="82" navigable="false">      
+      <attribute id="218" name="newsFeedsLists"/>      
+      <multiplicity id="219" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="61" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="220">    
+    <bendpoint x="9705" y="8981"/>    
+    <bendpoint x="8580" y="9876"/>    
+    <bendpoint x="7786" y="10375"/>    
+    <bendpoint x="7037" y="10892"/>    
+    <end type="SOURCE" refId="97"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <nesting id="221">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="9"/>  
+  </nesting>  
+  <association id="222">    
+    <bendpoint x="5807" y="6954"/>    
+    <bendpoint x="6143" y="7363"/>    
+    <bendpoint x="6500" y="7754"/>    
+    <bendpoint x="7885" y="7893"/>    
+    <bendpoint x="14043" y="8194"/>    
+    <bendpoint x="11247" y="8981"/>    
+    <end type="SOURCE" refId="107" navigable="false">      
+      <attribute id="223" name="mCallback"/>      
+      <multiplicity id="224" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="225">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="26"/>  
+  </dependency>  
+  <association id="226">    
+    <bendpoint x="5295" y="8981"/>    
+    <bendpoint x="5095" y="9876"/>    
+    <bendpoint x="5095" y="10375"/>    
+    <bendpoint x="4156" y="10892"/>    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="227" name="list"/>      
+      <multiplicity id="228" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="61" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="229">    
+    <bendpoint x="7345" y="9876"/>    
+    <bendpoint x="7219" y="10375"/>    
+    <end type="SOURCE" refId="73" navigable="false">      
+      <attribute id="230" name="con"/>      
+      <multiplicity id="231" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="232">    
+    <bendpoint x="5083" y="6954"/>    
+    <bendpoint x="5025" y="7363"/>    
+    <bendpoint x="5243" y="7754"/>    
+    <bendpoint x="5461" y="7893"/>    
+    <bendpoint x="7488" y="8194"/>    
+    <bendpoint x="6988" y="8981"/>    
+    <bendpoint x="6904" y="9876"/>    
+    <end type="SOURCE" refId="107"/>    
+    <end type="TARGET" refId="35"/>  
+  </nesting>  
+  <realization id="233">    
+    <end type="SOURCE" refId="60"/>    
+    <end type="TARGET" refId="41"/>  
+  </realization>  
+  <dependency id="234">    
+    <end type="SOURCE" refId="112"/>    
+    <end type="TARGET" refId="75"/>  
+  </dependency>  
+  <association id="235">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="236" name="expAdapter"/>      
+      <multiplicity id="237" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="238">    
+    <bendpoint x="6052" y="11779"/>    
+    <end type="SOURCE" refId="112"/>    
+    <end type="TARGET" refId="91"/>  
+  </dependency>  
+  <realization id="239">    
+    <bendpoint x="4401" y="7363"/>    
+    <bendpoint x="4401" y="7754"/>    
+    <bendpoint x="4401" y="7893"/>    
+    <bendpoint x="5127" y="8194"/>    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="104"/>  
+  </realization>  
+  <dependency id="240">    
+    <end type="SOURCE" refId="53"/>    
+    <end type="TARGET" refId="107"/>  
+  </dependency>  
+  <dependency id="241">    
+    <bendpoint x="4700" y="5938"/>    
+    <bendpoint x="4748" y="6347"/>    
+    <bendpoint x="4758" y="6954"/>    
+    <bendpoint x="4983" y="7363"/>    
+    <bendpoint x="5356" y="7754"/>    
+    <bendpoint x="5587" y="7893"/>    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="26"/>  
+  </dependency>  
+  <association id="242">    
+    <bendpoint x="15297" y="8194"/>    
+    <bendpoint x="12592" y="8981"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="243" name="mActConn"/>      
+      <multiplicity id="244" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="245">    
+    <bendpoint x="5505" y="8981"/>    
+    <bendpoint x="5783" y="9876"/>    
+    <bendpoint x="5783" y="10375"/>    
+    <bendpoint x="5777" y="10892"/>    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <association id="246">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="247" name="expAdapter"/>      
+      <multiplicity id="248" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="249">    
+    <bendpoint x="4157" y="5938"/>    
+    <bendpoint x="3841" y="6347"/>    
+    <bendpoint x="3900" y="6954"/>    
+    <bendpoint x="4128" y="7363"/>    
+    <bendpoint x="4168" y="7754"/>    
+    <bendpoint x="4618" y="7893"/>    
+    <bendpoint x="5043" y="8194"/>    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="104"/>  
+  </dependency>  
+  <dependency id="250">    
+    <end type="SOURCE" refId="117"/>    
+    <end type="TARGET" refId="89"/>  
+  </dependency>  
+  <dependency id="251">    
+    <bendpoint x="7219" y="9876"/>    
+    <end type="SOURCE" refId="72"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="252">    
+    <bendpoint x="13272" y="8194"/>    
+    <end type="SOURCE" refId="45"/>    
+    <end type="TARGET" refId="72"/>  
+  </dependency>  
+  <dependency id="253">    
+    <bendpoint x="4563" y="7363"/>    
+    <bendpoint x="4577" y="7754"/>    
+    <bendpoint x="4611" y="7893"/>    
+    <bendpoint x="5673" y="8194"/>    
+    <bendpoint x="5463" y="8981"/>    
+    <bendpoint x="5678" y="9876"/>    
+    <bendpoint x="5707" y="10375"/>    
+    <bendpoint x="5756" y="10892"/>    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <realization id="254">    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="104"/>  
+  </realization>  
+  <dependency id="255">    
+    <bendpoint x="4178" y="5938"/>    
+    <bendpoint x="3883" y="6347"/>    
+    <bendpoint x="3942" y="6954"/>    
+    <bendpoint x="4212" y="7363"/>    
+    <bendpoint x="4321" y="7754"/>    
+    <bendpoint x="4422" y="7893"/>    
+    <bendpoint x="5232" y="8194"/>    
+    <bendpoint x="5232" y="8981"/>    
+    <bendpoint x="5116" y="9876"/>    
+    <bendpoint x="5394" y="10375"/>    
+    <bendpoint x="5672" y="10892"/>    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="256">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="60"/>  
+  </dependency>  
+  <dependency id="257">    
+    <end type="SOURCE" refId="98"/>    
+    <end type="TARGET" refId="112"/>  
+  </dependency>  
+  <association id="258">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="259" name="holder"/>      
+      <multiplicity id="260" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="261">    
+    <bendpoint x="6101" y="7754"/>    
+    <bendpoint x="7300" y="7893"/>    
+    <bendpoint x="12564" y="8194"/>    
+    <bendpoint x="11079" y="8981"/>    
+    <end type="SOURCE" refId="90" navigable="false">      
+      <attribute id="262" name="actContext"/>      
+      <multiplicity id="263" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="264">    
+    <end type="SOURCE" refId="57"/>    
+    <end type="TARGET" refId="66"/>  
+  </nesting>  
+  <dependency id="265">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="77"/>  
+  </dependency>  
+  <dependency id="266">    
+    <bendpoint x="5442" y="8981"/>    
+    <bendpoint x="5053" y="9876"/>    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="267">    
+    <bendpoint x="7949" y="8981"/>    
+    <bendpoint x="6620" y="9876"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="268">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="77"/>  
+  </dependency>  
+  <realization id="269">    
+    <bendpoint x="3988" y="6347"/>    
+    <bendpoint x="4005" y="6954"/>    
+    <bendpoint x="4233" y="7363"/>    
+    <bendpoint x="4279" y="7754"/>    
+    <bendpoint x="4317" y="7893"/>    
+    <bendpoint x="5085" y="8194"/>    
+    <end type="SOURCE" refId="53"/>    
+    <end type="TARGET" refId="104"/>  
+  </realization>  
+  <association id="270">    
+    <end type="SOURCE" refId="108" navigable="false">      
+      <attribute id="271" name="configs"/>      
+      <multiplicity id="272" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="108" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="273">    
+    <bendpoint x="4989" y="7754"/>    
+    <bendpoint x="4750" y="7893"/>    
+    <bendpoint x="5295" y="8194"/>    
+    <end type="SOURCE" refId="90"/>    
+    <end type="TARGET" refId="104"/>  
+  </realization>  
+  <association id="274">    
+    <end type="SOURCE" refId="112" navigable="false">      
+      <attribute id="275" name="inst"/>      
+      <multiplicity id="276" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="277">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="23"/>  
+  </dependency>  
+  <dependency id="278">    
+    <bendpoint x="6696" y="8194"/>    
+    <bendpoint x="6454" y="8981"/>    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="65"/>  
+  </dependency>  
+  <dependency id="279">    
+    <bendpoint x="6239" y="10892"/>    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <association id="280">    
+    <bendpoint x="8232" y="10375"/>    
+    <end type="SOURCE" refId="100" navigable="false">      
+      <attribute id="281" name="con"/>      
+      <multiplicity id="282" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="283">    
+    <bendpoint x="9780" y="8194"/>    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="64"/>  
+  </dependency>  
+  <association id="284">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="285" name="msgesList"/>      
+      <multiplicity id="286" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="63" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="287">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="96"/>  
+  </dependency>  
+  <association id="288">    
+    <end type="SOURCE" refId="106" navigable="false">      
+      <attribute id="289" name="linker"/>      
+      <multiplicity id="290" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="54" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="291">    
+    <end type="SOURCE" refId="117"/>    
+    <end type="TARGET" refId="54"/>  
+  </dependency>  
+  <association id="292">    
+    <bendpoint x="4999" y="6954"/>    
+    <bendpoint x="4857" y="7363"/>    
+    <bendpoint x="4926" y="7754"/>    
+    <bendpoint x="4876" y="7893"/>    
+    <bendpoint x="6174" y="8194"/>    
+    <bendpoint x="5904" y="8981"/>    
+    <bendpoint x="5972" y="9876"/>    
+    <bendpoint x="5903" y="10375"/>    
+    <bendpoint x="5861" y="10892"/>    
+    <end type="SOURCE" refId="107" navigable="false">      
+      <attribute id="293" name="configs"/>      
+      <multiplicity id="294" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="108" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="295">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="67"/>  
+  </dependency>  
+  <association id="296">    
+    <bendpoint x="9033" y="8981"/>    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="297" name="mCallback"/>      
+      <multiplicity id="298" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="299">    
+    <bendpoint x="10599" y="8981"/>    
+    <bendpoint x="9443" y="9876"/>    
+    <bendpoint x="7870" y="10375"/>    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="300" name="con"/>      
+      <multiplicity id="301" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="302">    
+    <bendpoint x="11268" y="8981"/>    
+    <bendpoint x="9716" y="9876"/>    
+    <bendpoint x="8211" y="10375"/>    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="303" name="con"/>      
+      <multiplicity id="304" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="305">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="95"/>  
+  </dependency>  
+  <association id="306">    
+    <end type="SOURCE" refId="80" navigable="false">      
+      <attribute id="307" name="holder"/>      
+      <multiplicity id="308" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="92" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="309">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="103"/>  
+  </dependency>  
+  <dependency id="310">    
+    <end type="SOURCE" refId="56"/>    
+    <end type="TARGET" refId="84"/>  
+  </dependency>  
+  <association id="311">    
+    <bendpoint x="7009" y="9876"/>    
+    <bendpoint x="6946" y="10375"/>    
+    <end type="SOURCE" refId="116" navigable="false">      
+      <attribute id="312" name="con"/>      
+      <multiplicity id="313" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="314">    
+    <bendpoint x="7991" y="8981"/>    
+    <bendpoint x="7720" y="9876"/>    
+    <bendpoint x="7366" y="10375"/>    
+    <bendpoint x="6911" y="10892"/>    
+    <end type="SOURCE" refId="96"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <association id="315">    
+    <end type="SOURCE" refId="75" navigable="false">      
+      <attribute id="316" name="comment"/>      
+      <multiplicity id="317" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="91" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="318">    
+    <bendpoint x="3534" y="10892"/>    
+    <end type="SOURCE" refId="63"/>    
+    <end type="TARGET" refId="61"/>  
+  </realization>  
+  <dependency id="319">    
+    <bendpoint x="4819" y="10892"/>    
+    <end type="SOURCE" refId="98"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="320">    
+    <bendpoint x="6515" y="9876"/>    
+    <end type="SOURCE" refId="73"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="321">    
+    <bendpoint x="3578" y="8981"/>    
+    <bendpoint x="3592" y="9876"/>    
+    <end type="SOURCE" refId="106"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="322">    
+    <bendpoint x="4779" y="6954"/>    
+    <bendpoint x="4836" y="7363"/>    
+    <bendpoint x="4905" y="7754"/>    
+    <bendpoint x="4855" y="7893"/>    
+    <bendpoint x="6195" y="8194"/>    
+    <end type="SOURCE" refId="107"/>    
+    <end type="TARGET" refId="82"/>  
+  </dependency>  
+  <dependency id="323">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="82"/>  
+  </dependency>  
+  <dependency id="324">    
+    <bendpoint x="4716" y="6954"/>    
+    <bendpoint x="4710" y="7363"/>    
+    <bendpoint x="4598" y="7754"/>    
+    <bendpoint x="4527" y="7893"/>    
+    <bendpoint x="5211" y="8194"/>    
+    <bendpoint x="5085" y="8981"/>    
+    <bendpoint x="4051" y="9876"/>    
+    <end type="SOURCE" refId="107"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <association id="325">    
+    <end type="SOURCE" refId="84" navigable="false">      
+      <attribute id="326" name="mBackTimer"/>      
+      <multiplicity id="327" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="62" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="328">    
+    <bendpoint x="5925" y="8981"/>    
+    <bendpoint x="5531" y="9876"/>    
+    <end type="SOURCE" refId="70"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="329">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <association id="330">    
+    <bendpoint x="6496" y="8981"/>    
+    <bendpoint x="6637" y="9876"/>    
+    <bendpoint x="6778" y="10375"/>    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="331" name="con"/>      
+      <multiplicity id="332" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="333">    
+    <bendpoint x="6925" y="8981"/>    
+    <bendpoint x="6925" y="9876"/>    
+    <bendpoint x="6883" y="10375"/>    
+    <end type="SOURCE" refId="94" navigable="false">      
+      <attribute id="334" name="con"/>      
+      <multiplicity id="335" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="336">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="94"/>  
+  </dependency>  
+  <dependency id="337">    
+    <end type="SOURCE" refId="101"/>    
+    <end type="TARGET" refId="54"/>  
+  </dependency>  
+  <association id="338">    
+    <bendpoint x="5379" y="8981"/>    
+    <bendpoint x="6014" y="9876"/>    
+    <bendpoint x="6260" y="10375"/>    
+    <end type="SOURCE" refId="117" navigable="false">      
+      <attribute id="339" name="con"/>      
+      <multiplicity id="340" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="341">    
+    <bendpoint x="6799" y="9876"/>    
+    <bendpoint x="6459" y="10375"/>    
+    <bendpoint x="6113" y="10892"/>    
+    <end type="SOURCE" refId="116"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="342">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="343">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="43"/>  
+  </dependency>  
+  <dependency id="344">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="90"/>  
+  </dependency>  
+  <association id="345">    
+    <bendpoint x="7261" y="8981"/>    
+    <end type="SOURCE" refId="74" navigable="false">      
+      <attribute id="346" name="mCallback"/>      
+      <multiplicity id="347" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="348">    
+    <bendpoint x="7823" y="8981"/>    
+    <end type="SOURCE" refId="59" navigable="false">      
+      <attribute id="349" name="listParents"/>      
+      <multiplicity id="350" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="102" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="351">    
+    <end type="SOURCE" refId="53" navigable="false">      
+      <attribute id="352" name="mSectionAdapter"/>      
+      <multiplicity id="353" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="354">    
+    <end type="SOURCE" refId="54"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <realization id="355">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="61"/>  
+  </realization>  
+  <dependency id="356">    
+    <end type="SOURCE" refId="89"/>    
+    <end type="TARGET" refId="77"/>  
+  </dependency>  
+  <dependency id="357">    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="44"/>  
+  </dependency>  
+  <dependency id="358">    
+    <end type="SOURCE" refId="70"/>    
+    <end type="TARGET" refId="82"/>  
+  </dependency>  
+  <dependency id="359">    
+    <end type="SOURCE" refId="82"/>    
+    <end type="TARGET" refId="77"/>  
+  </dependency>  
+  <dependency id="360">    
+    <bendpoint x="5912" y="7754"/>    
+    <end type="SOURCE" refId="90"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="361">    
+    <bendpoint x="9282" y="10375"/>    
+    <bendpoint x="8003" y="10892"/>    
+    <end type="SOURCE" refId="79"/>    
+    <end type="TARGET" refId="75"/>  
+  </dependency>  
+  <dependency id="362">    
+    <end type="SOURCE" refId="74"/>    
+    <end type="TARGET" refId="89"/>  
+  </dependency>  
+  <dependency id="363">    
+    <bendpoint x="4740" y="9876"/>    
+    <bendpoint x="5154" y="10375"/>    
+    <bendpoint x="5567" y="10892"/>    
+    <end type="SOURCE" refId="54"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <association id="364">    
+    <bendpoint x="9054" y="8981"/>    
+    <bendpoint x="7867" y="9876"/>    
+    <bendpoint x="7513" y="10375"/>    
+    <end type="SOURCE" refId="96" navigable="false">      
+      <attribute id="365" name="con"/>      
+      <multiplicity id="366" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="367">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="368" name="holder"/>      
+      <multiplicity id="369" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="88" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="370">    
+    <bendpoint x="5639" y="6954"/>    
+    <bendpoint x="5849" y="7363"/>    
+    <bendpoint x="6080" y="7754"/>    
+    <bendpoint x="7048" y="7893"/>    
+    <bendpoint x="11364" y="8194"/>    
+    <bendpoint x="9621" y="8981"/>    
+    <end type="SOURCE" refId="107"/>    
+    <end type="TARGET" refId="41"/>  
+  </dependency>  
+  <dependency id="371">    
+    <end type="SOURCE" refId="99"/>    
+    <end type="TARGET" refId="54"/>  
+  </dependency>  
+  <dependency id="372">    
+    <end type="SOURCE" refId="98"/>    
+    <end type="TARGET" refId="40"/>  
+  </dependency>  
+  <dependency id="373">    
+    <end type="SOURCE" refId="108"/>    
+    <end type="TARGET" refId="49"/>  
+  </dependency>  
+  <dependency id="374">    
+    <end type="SOURCE" refId="72"/>    
+    <end type="TARGET" refId="69"/>  
+  </dependency>  
+  <dependency id="375">    
+    <bendpoint x="11714" y="8981"/>    
+    <bendpoint x="10012" y="9876"/>    
+    <bendpoint x="8778" y="10375"/>    
+    <bendpoint x="7226" y="10892"/>    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <generalization id="376">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="87"/>  
+  </generalization>  
+  <dependency id="377">    
+    <bendpoint x="10260" y="8981"/>    
+    <bendpoint x="9485" y="9876"/>    
+    <bendpoint x="8127" y="10375"/>    
+    <bendpoint x="7142" y="10892"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="378">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="74"/>  
+  </dependency>  
+  <association id="379">    
+    <bendpoint x="11777" y="8981"/>    
+    <bendpoint x="10475" y="9876"/>    
+    <bendpoint x="9135" y="10375"/>    
+    <bendpoint x="7877" y="10892"/>    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="380" name="mListData"/>      
+      <multiplicity id="381" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="75" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="382">    
+    <bendpoint x="11819" y="8981"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="79"/>  
+  </realization>  
+  <dependency id="383">    
+    <end type="SOURCE" refId="54"/>    
+    <end type="TARGET" refId="78"/>  
+  </dependency>  
+  <dependency id="384">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="59"/>  
+  </dependency>  
+  <dependency id="385">    
+    <end type="SOURCE" refId="51"/>    
+    <end type="TARGET" refId="77"/>  
+  </dependency>  
+  <dependency id="386">    
+    <bendpoint x="5400" y="8981"/>    
+    <bendpoint x="5615" y="9876"/>    
+    <bendpoint x="5615" y="10375"/>    
+    <bendpoint x="5714" y="10892"/>    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <association id="387">    
+    <bendpoint x="4679" y="5938"/>    
+    <bendpoint x="4507" y="6347"/>    
+    <bendpoint x="4695" y="6954"/>    
+    <bendpoint x="4899" y="7363"/>    
+    <bendpoint x="5073" y="7754"/>    
+    <bendpoint x="5440" y="7893"/>    
+    <bendpoint x="7551" y="8194"/>    
+    <bendpoint x="7093" y="8981"/>    
+    <bendpoint x="7093" y="9876"/>    
+    <bendpoint x="7009" y="10375"/>    
+    <end type="SOURCE" refId="84" navigable="false">      
+      <attribute id="388" name="con"/>      
+      <multiplicity id="389" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="390">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="101"/>  
+  </dependency>  
+  <dependency id="391">    
+    <end type="SOURCE" refId="72"/>    
+    <end type="TARGET" refId="77"/>  
+  </dependency>  
+  <dependency id="392">    
+    <end type="SOURCE" refId="72"/>    
+    <end type="TARGET" refId="100"/>  
+  </dependency>  
+  <association id="393">    
+    <bendpoint x="5861" y="10375"/>    
+    <end type="SOURCE" refId="48" navigable="false">      
+      <attribute id="394" name="con"/>      
+      <multiplicity id="395" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="396">    
+    <bendpoint x="3946" y="10892"/>    
+    <end type="SOURCE" refId="98"/>    
+    <end type="TARGET" refId="61"/>  
+  </dependency>  
+  <association id="397">    
+    <end type="SOURCE" refId="107" navigable="false">      
+      <attribute id="398" name="mWrapperParrent"/>      
+      <multiplicity id="399" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="400">    
+    <end type="SOURCE" refId="64"/>    
+    <end type="TARGET" refId="93"/>  
+  </dependency>  
+  <generalization id="401">    
+    <end type="SOURCE" refId="50"/>    
+    <end type="TARGET" refId="107"/>  
+  </generalization>  
+  <dependency id="402">    
+    <bendpoint x="7072" y="8981"/>    
+    <bendpoint x="6883" y="9876"/>    
+    <bendpoint x="6447" y="10375"/>    
+    <bendpoint x="6155" y="10892"/>    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="403">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="71"/>  
+  </dependency>  
+  <generalization id="404">    
+    <bendpoint x="15276" y="8194"/>    
+    <end type="SOURCE" refId="76"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <dependency id="405">    
+    <bendpoint x="4220" y="5938"/>    
+    <bendpoint x="3967" y="6347"/>    
+    <bendpoint x="4089" y="6954"/>    
+    <bendpoint x="4422" y="7363"/>    
+    <bendpoint x="4527" y="7754"/>    
+    <bendpoint x="4590" y="7893"/>    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="46"/>  
+  </dependency>  
+  <dependency id="406">    
+    <bendpoint x="3262" y="4598"/>    
+    <bendpoint x="3367" y="4845"/>    
+    <bendpoint x="3472" y="5938"/>    
+    <bendpoint x="3694" y="6347"/>    
+    <bendpoint x="3921" y="6954"/>    
+    <bendpoint x="4359" y="7363"/>    
+    <bendpoint x="4619" y="7754"/>    
+    <bendpoint x="4813" y="7893"/>    
+    <bendpoint x="6633" y="8194"/>    
+    <bendpoint x="6580" y="8981"/>    
+    <bendpoint x="6820" y="9876"/>    
+    <bendpoint x="6799" y="10375"/>    
+    <end type="SOURCE" refId="68"/>    
+    <end type="TARGET" refId="112"/>  
+  </dependency>  
+  <dependency id="407">    
+    <bendpoint x="5555" y="6954"/>    
+    <bendpoint x="5765" y="7363"/>    
+    <bendpoint x="5933" y="7754"/>    
+    <bendpoint x="6568" y="7893"/>    
+    <bendpoint x="9906" y="8194"/>    
+    <end type="SOURCE" refId="107"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="408">    
+    <bendpoint x="2805" y="4598"/>    
+    <bendpoint x="2765" y="4845"/>    
+    <bendpoint x="2744" y="5938"/>    
+    <bendpoint x="2721" y="6347"/>    
+    <bendpoint x="2702" y="6954"/>    
+    <bendpoint x="2694" y="7363"/>    
+    <bendpoint x="2683" y="7754"/>    
+    <bendpoint x="2672" y="7893"/>    
+    <bendpoint x="2660" y="8194"/>    
+    <bendpoint x="2828" y="8981"/>    
+    <bendpoint x="3235" y="9876"/>    
+    <bendpoint x="3795" y="10375"/>    
+    <bendpoint x="4030" y="10892"/>    
+    <end type="SOURCE" refId="68"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="409">    
+    <bendpoint x="10391" y="9876"/>    
+    <bendpoint x="9030" y="10375"/>    
+    <bendpoint x="7772" y="10892"/>    
+    <bendpoint x="6787" y="11779"/>    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="91"/>  
+  </dependency>  
+  <generalization id="410">    
+    <end type="SOURCE" refId="51"/>    
+    <end type="TARGET" refId="52"/>  
+  </generalization>  
+  <association id="411">    
+    <bendpoint x="5555" y="6347"/>    
+    <bendpoint x="5576" y="6954"/>    
+    <bendpoint x="5660" y="7363"/>    
+    <bendpoint x="5482" y="7754"/>    
+    <bendpoint x="5629" y="7893"/>    
+    <bendpoint x="7656" y="8194"/>    
+    <bendpoint x="7240" y="8981"/>    
+    <bendpoint x="7198" y="9876"/>    
+    <bendpoint x="7135" y="10375"/>    
+    <end type="SOURCE" refId="44" navigable="false">      
+      <attribute id="412" name="con"/>      
+      <multiplicity id="413" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="414">    
+    <bendpoint x="6010" y="11779"/>    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="112"/>  
+  </dependency>  
+  <generalization id="415">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="87"/>  
+  </generalization>  
+  <association id="416">    
+    <bendpoint x="6405" y="10375"/>    
+    <end type="SOURCE" refId="65" navigable="false">      
+      <attribute id="417" name="con"/>      
+      <multiplicity id="418" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="419">    
+    <end type="SOURCE" refId="70"/>    
+    <end type="TARGET" refId="54"/>  
+  </dependency>  
+  <dependency id="420">    
+    <bendpoint x="9117" y="8981"/>    
+    <bendpoint x="6757" y="9876"/>    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <realization id="421">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="115"/>  
+  </realization>  
+  <nesting id="422">    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="109"/>  
+  </nesting>  
+  <dependency id="423">    
+    <bendpoint x="4381" y="6347"/>    
+    <end type="SOURCE" refId="53"/>    
+    <end type="TARGET" refId="39"/>  
+  </dependency>  
+  <dependency id="424">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="54"/>  
+  </dependency>  
+  <dependency id="425">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="426">    
+    <end type="SOURCE" refId="45"/>    
+    <end type="TARGET" refId="114"/>  
+  </dependency>  
+  <association id="427">    
+    <end type="SOURCE" refId="116" navigable="false">      
+      <attribute id="428" name="adapter"/>      
+      <multiplicity id="429" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="430">    
+    <end type="SOURCE" refId="51"/>    
+    <end type="TARGET" refId="3"/>  
+  </nesting>  
+  <association id="431">    
+    <bendpoint x="7051" y="8981"/>    
+    <bendpoint x="7072" y="9876"/>    
+    <bendpoint x="6988" y="10375"/>    
+    <end type="SOURCE" refId="70" navigable="false">      
+      <attribute id="432" name="con"/>      
+      <multiplicity id="433" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="434">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="61"/>  
+  </realization>  
+  <dependency id="435">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="436">    
+    <bendpoint x="10370" y="9876"/>    
+    <bendpoint x="8673" y="10375"/>    
+    <end type="SOURCE" refId="76"/>    
+    <end type="TARGET" refId="112"/>  
+  </dependency>  
+  <dependency id="437">    
+    <bendpoint x="2847" y="4598"/>    
+    <bendpoint x="2870" y="4845"/>    
+    <bendpoint x="2957" y="5938"/>    
+    <bendpoint x="3010" y="6347"/>    
+    <bendpoint x="3017" y="6954"/>    
+    <bendpoint x="3017" y="7363"/>    
+    <bendpoint x="3017" y="7754"/>    
+    <bendpoint x="2994" y="7893"/>    
+    <bendpoint x="2954" y="8194"/>    
+    <bendpoint x="3361" y="8981"/>    
+    <bendpoint x="3487" y="9876"/>    
+    <end type="SOURCE" refId="68"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="438">    
+    <end type="SOURCE" refId="48"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <nesting id="439">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="111"/>  
+  </nesting>  
+  <realization id="440">    
+    <bendpoint x="12550" y="8981"/>    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="79"/>  
+  </realization>  
+  <dependency id="441">    
+    <bendpoint x="3724" y="5938"/>    
+    <bendpoint x="3715" y="6347"/>    
+    <bendpoint x="3774" y="6954"/>    
+    <bendpoint x="4002" y="7363"/>    
+    <bendpoint x="3815" y="7754"/>    
+    <bendpoint x="3606" y="7893"/>    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="106"/>  
+  </dependency>  
+  <dependency id="442">    
+    <bendpoint x="7261" y="10375"/>    
+    <end type="SOURCE" refId="102"/>    
+    <end type="TARGET" refId="112"/>  
+  </dependency>  
+  <association id="443">    
+    <bendpoint x="6494" y="9876"/>    
+    <bendpoint x="6426" y="10375"/>    
+    <end type="SOURCE" refId="60" navigable="false">      
+      <attribute id="444" name="con"/>      
+      <multiplicity id="445" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="446">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="93"/>  
+  </dependency>  
+  <association id="447">    
+    <bendpoint x="7828" y="10375"/>    
+    <end type="SOURCE" refId="77" navigable="false">      
+      <attribute id="448" name="con"/>      
+      <multiplicity id="449" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="450">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="38"/>  
+  </dependency>  
+  <dependency id="451">    
+    <bendpoint x="3492" y="10892"/>    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="30"/>  
+  </dependency>  
+  <dependency id="452">    
+    <bendpoint x="5421" y="8981"/>    
+    <bendpoint x="4803" y="9876"/>    
+    <bendpoint x="3988" y="10375"/>    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="40"/>  
+  </dependency>  
+  <realization id="453">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="104"/>  
+  </realization>  
+  <dependency id="454">    
+    <bendpoint x="5568" y="8981"/>    
+    <bendpoint x="5468" y="9876"/>    
+    <end type="SOURCE" refId="94"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <association id="455">    
+    <end type="SOURCE" refId="68" navigable="false">      
+      <attribute id="456" name="task"/>      
+      <multiplicity id="457" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="56" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="458">    
+    <bendpoint x="5489" y="9876"/>    
+    <end type="SOURCE" refId="60"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <association id="459">    
+    <bendpoint x="7177" y="8981"/>    
+    <end type="SOURCE" refId="101" navigable="false">      
+      <attribute id="460" name="mCallback"/>      
+      <multiplicity id="461" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="462">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="41"/>  
+  </realization>  
+  <association id="463">    
+    <bendpoint x="5169" y="8981"/>    
+    <bendpoint x="5762" y="9876"/>    
+    <bendpoint x="6113" y="10375"/>    
+    <end type="SOURCE" refId="99" navigable="false">      
+      <attribute id="464" name="con"/>      
+      <multiplicity id="465" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="466">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="52"/>  
+  </generalization>  
+  <dependency id="467">    
+    <bendpoint x="5870" y="6954"/>    
+    <bendpoint x="6269" y="7363"/>    
+    <bendpoint x="6668" y="7754"/>    
+    <bendpoint x="8074" y="7893"/>    
+    <bendpoint x="14898" y="8194"/>    
+    <end type="SOURCE" refId="107"/>    
+    <end type="TARGET" refId="51"/>  
+  </dependency>  
+  <association id="468">    
+    <bendpoint x="10176" y="8981"/>    
+    <end type="SOURCE" refId="96" navigable="false">      
+      <attribute id="469" name="mCall"/>      
+      <multiplicity id="470" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="471">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="54"/>  
+  </dependency>  
+  <association id="472">    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="473" name="instance"/>      
+      <multiplicity id="474" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="49" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="475">    
+    <bendpoint x="4842" y="8981"/>    
+    <bendpoint x="5636" y="9876"/>    
+    <bendpoint x="6050" y="10375"/>    
+    <end type="SOURCE" refId="106" navigable="false">      
+      <attribute id="476" name="con"/>      
+      <multiplicity id="477" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="478">    
+    <bendpoint x="7576" y="10375"/>    
+    <bendpoint x="6974" y="10892"/>    
+    <end type="SOURCE" refId="93"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <association id="479">    
+    <end type="SOURCE" refId="55" navigable="false">      
+      <attribute id="480" name="mFrag"/>      
+      <multiplicity id="481" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="115" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="482">    
+    <end type="SOURCE" refId="72" navigable="false">      
+      <attribute id="483" name="mCallback"/>      
+      <multiplicity id="484" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="485">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="2"/>  
+  </nesting>  
+  <association id="486">    
+    <bendpoint x="5253" y="8981"/>    
+    <bendpoint x="5846" y="9876"/>    
+    <bendpoint x="6176" y="10375"/>    
+    <end type="SOURCE" refId="101" navigable="false">      
+      <attribute id="487" name="con"/>      
+      <multiplicity id="488" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="489">    
+    <bendpoint x="7282" y="8981"/>    
+    <bendpoint x="6098" y="9876"/>    
+    <end type="SOURCE" refId="71"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <association id="490">    
+    <bendpoint x="10662" y="8981"/>    
+    <end type="SOURCE" refId="97" navigable="false">      
+      <attribute id="491" name="mCallback"/>      
+      <multiplicity id="492" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="493">    
+    <bendpoint x="3967" y="9876"/>    
+    <end type="SOURCE" refId="89"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="494">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="495">    
+    <bendpoint x="2891" y="4845"/>    
+    <bendpoint x="2891" y="5938"/>    
+    <bendpoint x="2891" y="6347"/>    
+    <bendpoint x="2849" y="6954"/>    
+    <bendpoint x="2822" y="7363"/>    
+    <bendpoint x="2794" y="7754"/>    
+    <bendpoint x="2756" y="7893"/>    
+    <bendpoint x="2765" y="8194"/>    
+    <bendpoint x="3028" y="8981"/>    
+    <bendpoint x="3298" y="9876"/>    
+    <bendpoint x="3858" y="10375"/>    
+    <bendpoint x="4093" y="10892"/>    
+    <end type="SOURCE" refId="56"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <association id="496">    
+    <bendpoint x="9590" y="9876"/>    
+    <bendpoint x="8085" y="10375"/>    
+    <end type="SOURCE" refId="72" navigable="false">      
+      <attribute id="497" name="con"/>      
+      <multiplicity id="498" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="499">    
+    <end type="SOURCE" refId="68"/>    
+    <end type="TARGET" refId="56"/>  
+  </nesting>  
+  <dependency id="500">    
+    <bendpoint x="5534" y="6347"/>    
+    <end type="SOURCE" refId="44"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <dependency id="501">    
+    <end type="SOURCE" refId="45"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <dependency id="502">    
+    <bendpoint x="7261" y="9876"/>    
+    <bendpoint x="7030" y="10375"/>    
+    <bendpoint x="6344" y="10892"/>    
+    <end type="SOURCE" refId="73"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="503">    
+    <bendpoint x="5594" y="9876"/>    
+    <bendpoint x="4927" y="10375"/>    
+    <end type="SOURCE" refId="82"/>    
+    <end type="TARGET" refId="40"/>  
+  </dependency>  
+  <dependency id="504">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="116"/>  
+  </dependency>  
+  <dependency id="505">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="506">    
+    <bendpoint x="4304" y="5938"/>    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="29"/>  
+  </dependency>  
+  <dependency id="507">    
+    <bendpoint x="9075" y="8981"/>    
+    <bendpoint x="7762" y="9876"/>    
+    <bendpoint x="7387" y="10375"/>    
+    <bendpoint x="6932" y="10892"/>    
+    <end type="SOURCE" refId="52"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="508">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="113"/>  
+  </dependency>  
+  <dependency id="509">    
+    <bendpoint x="5136" y="7754"/>    
+    <end type="SOURCE" refId="90"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="510">    
+    <end type="SOURCE" refId="83"/>    
+    <end type="TARGET" refId="117"/>  
+  </dependency>  
+  <association id="511">    
+    <end type="SOURCE" refId="114" navigable="false">      
+      <attribute id="512" name="reviewsAdapter"/>      
+      <multiplicity id="513" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="57" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="514">    
+    <bendpoint x="7534" y="10375"/>    
+    <end type="SOURCE" refId="93" navigable="false">      
+      <attribute id="515" name="con"/>      
+      <multiplicity id="516" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="517">    
+    <end type="SOURCE" refId="96"/>    
+    <end type="TARGET" refId="54"/>  
+  </dependency>  
+  <association id="518">    
+    <bendpoint x="7303" y="8981"/>    
+    <bendpoint x="7240" y="9876"/>    
+    <bendpoint x="7156" y="10375"/>    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="519" name="con"/>      
+      <multiplicity id="520" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="521">    
+    <bendpoint x="4941" y="5938"/>    
+    <bendpoint x="4853" y="6347"/>    
+    <bendpoint x="5125" y="6954"/>    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="90"/>  
+  </dependency>  
+  <dependency id="522">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="86"/>  
+  </dependency>  
+  <dependency id="523">    
+    <end type="SOURCE" refId="105"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="524">    
+    <end type="SOURCE" refId="96"/>    
+    <end type="TARGET" refId="103"/>  
+  </dependency>  
+  <association id="525">    
+    <bendpoint x="7804" y="9876"/>    
+    <bendpoint x="7429" y="10375"/>    
+    <end type="SOURCE" refId="64" navigable="false">      
+      <attribute id="526" name="con"/>      
+      <multiplicity id="527" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="528">    
+    <bendpoint x="9684" y="8981"/>    
+    <bendpoint x="8559" y="9876"/>    
+    <bendpoint x="7681" y="10375"/>    
+    <end type="SOURCE" refId="97" navigable="false">      
+      <attribute id="529" name="con"/>      
+      <multiplicity id="530" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="531">    
+    <end type="SOURCE" refId="98"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <association id="532">    
+    <bendpoint x="4569" y="6954"/>    
+    <bendpoint x="4815" y="7363"/>    
+    <bendpoint x="5010" y="7754"/>    
+    <bendpoint x="5398" y="7893"/>    
+    <bendpoint x="7509" y="8194"/>    
+    <bendpoint x="7030" y="8981"/>    
+    <bendpoint x="7030" y="9876"/>    
+    <bendpoint x="6967" y="10375"/>    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="533" name="con"/>      
+      <multiplicity id="534" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="535">    
+    <bendpoint x="5146" y="6954"/>    
+    <bendpoint x="5088" y="7363"/>    
+    <bendpoint x="5398" y="7754"/>    
+    <bendpoint x="5566" y="7893"/>    
+    <bendpoint x="7614" y="8194"/>    
+    <bendpoint x="7156" y="8981"/>    
+    <bendpoint x="7156" y="9876"/>    
+    <bendpoint x="7093" y="10375"/>    
+    <end type="SOURCE" refId="107" navigable="false">      
+      <attribute id="536" name="con"/>      
+      <multiplicity id="537" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="538">    
+    <bendpoint x="11184" y="8981"/>    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="539" name="mActConn"/>      
+      <multiplicity id="540" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="541">    
+    <end type="SOURCE" refId="54"/>    
+    <end type="TARGET" refId="37"/>  
+  </generalization>  
+  <association id="542">    
+    <bendpoint x="11100" y="8981"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="543" name="mCallback"/>      
+      <multiplicity id="544" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="545">    
+    <end type="SOURCE" refId="99"/>    
+    <end type="TARGET" refId="89"/>  
+  </dependency>  
+  <dependency id="546">    
+    <bendpoint x="5094" y="7754"/>    
+    <bendpoint x="4960" y="7893"/>    
+    <bendpoint x="6258" y="8194"/>    
+    <bendpoint x="6307" y="8981"/>    
+    <bendpoint x="6035" y="9876"/>    
+    <bendpoint x="5945" y="10375"/>    
+    <bendpoint x="5903" y="10892"/>    
+    <end type="SOURCE" refId="90"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <association id="547">    
+    <bendpoint x="5966" y="10375"/>    
+    <bendpoint x="5510" y="9876"/>    
+    <end type="SOURCE" refId="112" navigable="false">      
+      <attribute id="548" name="sqlLinker"/>      
+      <multiplicity id="549" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="54" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="550">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="88"/>  
+  </nesting>  
+  <association id="551">    
+    <bendpoint x="7387" y="8981"/>    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="552" name="listParents"/>      
+      <multiplicity id="553" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="102" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="554">    
+    <end type="SOURCE" refId="73" navigable="false">      
+      <attribute id="555" name="mParent"/>      
+      <multiplicity id="556" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="102" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="557">    
+    <bendpoint x="7825" y="9876"/>    
+    <bendpoint x="7450" y="10375"/>    
+    <bendpoint x="6953" y="10892"/>    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <association id="558">    
+    <bendpoint x="10704" y="8981"/>    
+    <bendpoint x="9527" y="9876"/>    
+    <bendpoint x="7933" y="10375"/>    
+    <end type="SOURCE" refId="114" navigable="false">      
+      <attribute id="559" name="con"/>      
+      <multiplicity id="560" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="561">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="87"/>  
+  </generalization>  
+  <association id="562">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="563" name="menuCurrentState"/>      
+      <multiplicity id="564" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="565">    
+    <end type="SOURCE" refId="112"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="566">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="77"/>  
+  </dependency>  
+  <dependency id="567">    
+    <bendpoint x="5657" y="9876"/>    
+    <bendpoint x="4990" y="10375"/>    
+    <end type="SOURCE" refId="82"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="568">    
+    <bendpoint x="5597" y="6954"/>    
+    <bendpoint x="5828" y="7363"/>    
+    <bendpoint x="5996" y="7754"/>    
+    <bendpoint x="6631" y="7893"/>    
+    <bendpoint x="9864" y="8194"/>    
+    <end type="SOURCE" refId="107"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <realization id="569">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="41"/>  
+  </realization>  
+  <dependency id="570">    
+    <bendpoint x="3787" y="5938"/>    
+    <bendpoint x="3778" y="6347"/>    
+    <bendpoint x="3816" y="6954"/>    
+    <bendpoint x="4065" y="7363"/>    
+    <bendpoint x="4065" y="7754"/>    
+    <bendpoint x="4065" y="7893"/>    
+    <bendpoint x="4668" y="8194"/>    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="54"/>  
+  </dependency>  
+  <nesting id="571">    
+    <end type="SOURCE" refId="80"/>    
+    <end type="TARGET" refId="92"/>  
+  </nesting>  
+  <dependency id="572">    
+    <end type="SOURCE" refId="78"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="573">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="85"/>  
+  </dependency>  
+  <dependency id="574">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="36"/>  
+  </dependency>  
+  <dependency id="575">    
+    <end type="SOURCE" refId="97"/>    
+    <end type="TARGET" refId="103"/>  
+  </dependency>  
+  <dependency id="576">    
+    <bendpoint x="6092" y="10375"/>    
+    <bendpoint x="5987" y="10892"/>    
+    <end type="SOURCE" refId="65"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="577">    
+    <bendpoint x="8253" y="10375"/>    
+    <bendpoint x="7373" y="10892"/>    
+    <bendpoint x="6325" y="11779"/>    
+    <end type="SOURCE" refId="77"/>    
+    <end type="TARGET" refId="49"/>  
+  </dependency>  
+  <dependency id="578">    
+    <end type="SOURCE" refId="94"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="579">    
+    <end type="SOURCE" refId="98"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <association id="580">    
+    <end type="SOURCE" refId="76" navigable="false">      
+      <attribute id="581" name="mFrag"/>      
+      <multiplicity id="582" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="79" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="583">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="30"/>  
+  </nesting>  
+  <generalization id="584">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="87"/>  
+  </generalization>  
+  <generalization id="585">    
+    <end type="SOURCE" refId="45"/>    
+    <end type="TARGET" refId="87"/>  
+  </generalization>  
+  <association id="586">    
+    <bendpoint x="9285" y="8981"/>    
+    <bendpoint x="8496" y="9876"/>    
+    <bendpoint x="7639" y="10375"/>    
+    <end type="SOURCE" refId="71" navigable="false">      
+      <attribute id="587" name="con"/>      
+      <multiplicity id="588" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="589">    
+    <bendpoint x="6176" y="10892"/>    
+    <end type="SOURCE" refId="98"/>    
+    <end type="TARGET" refId="75"/>  
+  </dependency>  
+  <association id="590">    
+    <bendpoint x="11142" y="8981"/>    
+    <bendpoint x="9632" y="9876"/>    
+    <bendpoint x="8148" y="10375"/>    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="591" name="con"/>      
+      <multiplicity id="592" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="593">    
+    <bendpoint x="2868" y="4598"/>    
+    <bendpoint x="3012" y="4845"/>    
+    <bendpoint x="3089" y="5938"/>    
+    <bendpoint x="3155" y="6347"/>    
+    <bendpoint x="3220" y="6954"/>    
+    <bendpoint x="3265" y="7363"/>    
+    <bendpoint x="3277" y="7754"/>    
+    <bendpoint x="3283" y="7893"/>    
+    <end type="SOURCE" refId="68"/>    
+    <end type="TARGET" refId="106"/>  
+  </dependency>  
+  <association id="594">    
+    <bendpoint x="3241" y="4845"/>    
+    <bendpoint x="3325" y="5938"/>    
+    <bendpoint x="3529" y="6347"/>    
+    <bendpoint x="3732" y="6954"/>    
+    <bendpoint x="4191" y="7363"/>    
+    <bendpoint x="4443" y="7754"/>    
+    <bendpoint x="4653" y="7893"/>    
+    <bendpoint x="6153" y="8194"/>    
+    <bendpoint x="6412" y="8981"/>    
+    <bendpoint x="6574" y="9876"/>    
+    <bendpoint x="6736" y="10375"/>    
+    <end type="SOURCE" refId="56" navigable="false">      
+      <attribute id="595" name="con"/>      
+      <multiplicity id="596" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="597">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="97"/>  
+  </dependency>  
+  <dependency id="598">    
+    <bendpoint x="3401" y="8981"/>    
+    <bendpoint x="3529" y="9876"/>    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="599">    
+    <bendpoint x="5566" y="7754"/>    
+    <end type="SOURCE" refId="90"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <nesting id="600">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="32"/>  
+  </nesting>  
+  <dependency id="601">    
+    <end type="SOURCE" refId="45"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <association id="602">    
+    <bendpoint x="9726" y="8981"/>    
+    <end type="SOURCE" refId="95" navigable="false">      
+      <attribute id="603" name="mCallback"/>      
+      <multiplicity id="604" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="605">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="606" name="currFragments"/>      
+      <multiplicity id="607" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="608">    
+    <bendpoint x="4548" y="6954"/>    
+    <bendpoint x="4338" y="7363"/>    
+    <bendpoint x="4189" y="7754"/>    
+    <bendpoint x="3627" y="7893"/>    
+    <bendpoint x="3276" y="8194"/>    
+    <bendpoint x="3235" y="8981"/>    
+    <bendpoint x="3214" y="9876"/>    
+    <bendpoint x="3214" y="10375"/>    
+    <end type="SOURCE" refId="107"/>    
+    <end type="TARGET" refId="40"/>  
+  </dependency>  
+  <dependency id="609">    
+    <bendpoint x="4262" y="5938"/>    
+    <bendpoint x="4009" y="6347"/>    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="39"/>  
+  </dependency>  
+  <association id="610">    
+    <bendpoint x="7846" y="9876"/>    
+    <bendpoint x="7492" y="10375"/>    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="611" name="con"/>      
+      <multiplicity id="612" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="613">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="34"/>  
+  </dependency>  
+  <dependency id="614">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="76"/>  
+  </dependency>  
+  <dependency id="615">    
+    <bendpoint x="4782" y="8981"/>    
+    <bendpoint x="4782" y="9876"/>    
+    <bendpoint x="5185" y="10375"/>    
+    <bendpoint x="5588" y="10892"/>    
+    <end type="SOURCE" refId="117"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="616">    
+    <end type="SOURCE" refId="65"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="617">    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="73"/>  
+  </dependency>  
+  <generalization id="618">    
+    <end type="SOURCE" refId="82"/>    
+    <end type="TARGET" refId="25"/>  
+  </generalization>  
+  <dependency id="619">    
+    <bendpoint x="5074" y="10375"/>    
+    <bendpoint x="5546" y="10892"/>    
+    <end type="SOURCE" refId="78"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="620">    
+    <bendpoint x="4030" y="9876"/>    
+    <end type="SOURCE" refId="54"/>    
+    <end type="TARGET" refId="98"/>  
+  </dependency>  
+  <dependency id="621">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="77"/>  
+  </dependency>  
+  <association id="622">    
+    <bendpoint x="4486" y="6347"/>    
+    <bendpoint x="4674" y="6954"/>    
+    <bendpoint x="4920" y="7363"/>    
+    <bendpoint x="5115" y="7754"/>    
+    <bendpoint x="5482" y="7893"/>    
+    <bendpoint x="7572" y="8194"/>    
+    <bendpoint x="7114" y="8981"/>    
+    <bendpoint x="7114" y="9876"/>    
+    <bendpoint x="7051" y="10375"/>    
+    <end type="SOURCE" refId="53" navigable="false">      
+      <attribute id="623" name="con"/>      
+      <multiplicity id="624" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="625">    
+    <bendpoint x="10433" y="9876"/>    
+    <bendpoint x="9093" y="10375"/>    
+    <bendpoint x="7835" y="10892"/>    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="626" name="commentList"/>      
+      <multiplicity id="627" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="75" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="628">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="54"/>  
+  </dependency>  
+  <dependency id="629">    
+    <end type="SOURCE" refId="71"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="630">    
+    <bendpoint x="8064" y="10375"/>    
+    <bendpoint x="7100" y="10892"/>    
+    <end type="SOURCE" refId="77"/>    
+    <end type="TARGET" refId="108"/>  
+  </dependency>  
+  <dependency id="631">    
+    <bendpoint x="11163" y="8981"/>    
+    <bendpoint x="10054" y="9876"/>    
+    <bendpoint x="9009" y="10375"/>    
+    <bendpoint x="7814" y="10892"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="75"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

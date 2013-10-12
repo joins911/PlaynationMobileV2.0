@@ -6,7 +6,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -36,47 +35,88 @@ import com.myapps.playnation.main.MainActivity;
 import com.myapps.playnation.main.PlaynationMobile;
 
 public class LoginActivity extends Activity {
-	private ProgressDialog progressDialog;
-	private int progressbarStatus = 0;
-	public LoadMainActivityTask task;
+	
+	public LoadMainActivityTask task;	
+	//DataConnector con;
+	
+	private SharedPreferences prefrence;
+	private SharedPreferences saveLoginPref;
+	
+	//layout components
 	private EditText username;
 	private EditText password;
 	private Button logButton;
-
-	private CheckBox btnCheckSave;
-	DataConnector con;
-	private SharedPreferences prefrence;
-	private SharedPreferences saveLoginPref;
-
-
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
-		username = (EditText) findViewById(R.id.username_logIn);
-		password = (EditText) findViewById(R.id.password_logIn);
+	private Button logGuestButton;
+	private ImageView logo;
+	private TextView registerText;
+	
+	private ProgressDialog progressDialog;
+	private int progressbarStatus = 0;
+	
+	private void initLogin()
+	{
+		Configurations.screenDencity = getResources().getDisplayMetrics().density;
+		Configurations.screenDpi = getResources().getDisplayMetrics().densityDpi;
+		//con = DataConnector.getInst();
 		Keys.internetStatus = HelperClass
 				.isNetworkAvailable((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE));
 		stopService(new Intent(this, ServiceClass.class));
-		startService(new Intent(this, ServiceClass.class));		
-		
+		startService(new Intent(this, ServiceClass.class));
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		initLogin();
+		super.onCreate(savedInstanceState);		
+		setContentView(R.layout.activity_login);
 		if (android.os.Build.VERSION.SDK_INT > 10) {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
 					.permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 		}
+		
+		username = (EditText) findViewById(R.id.username_logIn);
+		password = (EditText) findViewById(R.id.password_logIn);
+		logButton = (Button) findViewById(R.id.btnLogin);
+		logGuestButton = (Button) findViewById(R.id.btnGuestLogin);
+		registerText = (TextView) findViewById(R.id.link_to_register);
+		logo = (ImageView) findViewById(R.id.logo_big);
+		
 		this.getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+		
 		// UserLoginPreferences
 		prefrence = PreferenceManager
 				.getDefaultSharedPreferences(getApplicationContext());
 		saveLoginPref = PreferenceManager
-				.getDefaultSharedPreferences(getApplicationContext());
-		btnCheckSave = (CheckBox) findViewById(R.id.btnCheckSaveEmail);
+				.getDefaultSharedPreferences(getApplicationContext());		
+		clearPreviewsLoginInformation(prefrence);		
+		
+		initButtons();
+
+		if (!Keys.internetStatus) {
+			Toast.makeText(
+					getApplicationContext(),
+					"There is no internet connection available. Offline Mode(Ignore login).",
+					Toast.LENGTH_SHORT).show();
+			logButton.setText(getResources().getString(
+					R.string.loginOfflineString));
+			registerText.setText(getResources().getString(
+					R.string.registerOfflineDesc));
+			logGuestButton.setVisibility(View.GONE);
+		}
+
+	}
+	
+	private void initButtons()
+	{
+		boolean isChecked = saveLoginPref.getBoolean(Keys.isCheckButton,
+				false);
+		final CheckBox btnCheckSave = (CheckBox) findViewById(R.id.btnCheckSaveEmail);
+		
 		if (btnCheckSave != null) {
 			btnCheckSave
 					.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
 						@Override
 						public void onCheckedChanged(CompoundButton buttonView,
 								boolean isChecked) {
@@ -91,51 +131,17 @@ public class LoginActivity extends Activity {
 									Keys.isCheckButton, false));
 						}
 					});
-			boolean isChecked = saveLoginPref.getBoolean(Keys.isCheckButton,
-					false);
+			
 			String email = saveLoginPref.getString(Keys.Email, "");
 			btnCheckSave.setChecked(isChecked);
 			if (isChecked)
 				username.setText(email);
 		}
-
-		clearPreviewsLoginInformation(prefrence);
-		//Configurations.CurrentPlayerID = prefrence.getString(Keys.ID_PLAYER,
-				//"12");
-		//Keys.TEMPLAYERID = prefrence.getString(Keys.ID_PLAYER, "12");
-
-		con = DataConnector.getInst();
-		con.setSQLLinker(PlaynationMobile.getContext());		
-		
-
-		logButton = (Button) findViewById(R.id.btnLogin);
-		Button logGuestButton = (Button) findViewById(R.id.btnGuestLogin);
-		TextView registerScreen = (TextView) findViewById(R.id.link_to_register);
-		ImageView logo = (ImageView) findViewById(R.id.logo_big);
 		logButton.setOnClickListener(new View.OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
 				logButton.setError(null);
-				if (HelperClass.EmailPassNickCheck(username, password, null)) {
-					if (Configurations.isReachable) {
-						if (checkCredentials()) {
-							logOnlineUser();
-						} else {
-							logButton
-									.setError("Incorrect UserName or Password!");
-							Toast.makeText(getApplicationContext(),
-									"Incorrect Username or Password",
-									Toast.LENGTH_LONG).show();
-						}
-					} else
-						Toast.makeText(getApplicationContext(),
-								"No server Connection", Toast.LENGTH_SHORT)
-								.show();
-				} else if (password.getText().toString()
-						.equalsIgnoreCase("admin")) {
-					logOnlineAdmin();
-				}
+				checkLogin();
 			}
 		});
 
@@ -148,7 +154,7 @@ public class LoginActivity extends Activity {
 			});
 
 		// Listening to register new account link
-		registerScreen.setOnClickListener(new View.OnClickListener() {
+		registerText.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -165,14 +171,15 @@ public class LoginActivity extends Activity {
 				}
 			}
 		});
-		
+
 		logo.setOnTouchListener(new OnTouchListener() {
-			
-			private float total=0;
+			private float total = 0;
 			/*
 			 * (non-Javadoc)
-			 * @see android.view.View.OnTouchListener#onTouch(android.view.View, android.view.MotionEvent)
-			 * work in progress not really necesary but proof of concept
+			 * 
+			 * @see android.view.View.OnTouchListener#onTouch(android.view.View,
+			 * android.view.MotionEvent) work in progress not really necesary
+			 * but proof of concept
 			 */
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
@@ -183,51 +190,64 @@ public class LoginActivity extends Activity {
 					break; 
 				case MotionEvent.ACTION_UP: 					
 					total = event.getX()-total;
-				//	Toast.makeText(getApplicationContext(), total+" ", Toast.LENGTH_SHORT).show();
-					if(total > 100)  clearText(); 
+					//Toast.makeText(getApplicationContext(), total+" ", Toast.LENGTH_SHORT).show();
+					if(total > 100)  clearText(); 					
+					if(total < -100) setLoginText();
 					total = 0;
-					return false;														
+					return false;
 				}
 				return true;
 			}
 		});
-
-		if (!Keys.internetStatus) {
-			Toast.makeText(
-					getApplicationContext(),
-					"There is no internet connection available. Offline Mode(Ignore login).",
-					Toast.LENGTH_SHORT).show();
-			logButton.setText(getResources().getString(
-					R.string.loginOfflineString));
-			registerScreen.setText(getResources().getString(
-					R.string.registerOfflineDesc));
-			logGuestButton.setVisibility(View.GONE);
-		}
-
 	}
 
+	private void checkLogin()
+	{
+		if (HelperClass.EmailPassNickCheck(username, password, null)) {
+			if (Configurations.isReachable) {
+				if (checkCredentials()) {
+					logOnlineUser();
+				} else {
+					logButton
+							.setError("Incorrect UserName or Password!");
+					Toast.makeText(getApplicationContext(),
+							"Incorrect Username or Password",
+							Toast.LENGTH_LONG).show();
+				}
+			} else
+				Toast.makeText(getApplicationContext(),
+						"No server Connection", Toast.LENGTH_SHORT)
+						.show();
+		} else if (password.getText().toString()
+				.equalsIgnoreCase("admin")) {
+			logOnlineAdmin();
+		}
+	}
+	
 	private void clearPreviewsLoginInformation(SharedPreferences pref) {
 		SharedPreferences.Editor edit = pref.edit();
 		edit.clear();
 		edit.commit();
 	}
-	
-	private void clearText()
+
+	private void setLoginText()
 	{
+		username.setText("claudiu.manea.l@gmail.com");
+		password.setText("caterinca");
+	}
+	
+	private void clearText() {
 		username.setText("");
 		password.setText("admin");
 	}
 
 	private void logOnlineAdmin() {
-		Configurations.CurrentPlayerID = "959";
+		Configurations.CurrentPlayerID = "12";
 		startMainActivity(Configurations.appStateOnUser);
 	}
 
 	private void logOnlineUser() {
 		// Login as User XXX
-		SharedPreferences.Editor edit = saveLoginPref.edit();
-		edit.putBoolean(Keys.ActiveSession, false);
-		edit.commit();
 		startMainActivity(Configurations.appStateOnUser);
 	}
 
@@ -243,7 +263,7 @@ public class LoginActivity extends Activity {
 	}
 
 	class LoadMainActivityTask extends AsyncTask<Void, Integer, Void> {
-
+		DataConnector con = DataConnector.getInst();
 		String tableName;
 		int appState;
 		Intent mInt;
@@ -276,11 +296,15 @@ public class LoginActivity extends Activity {
 			synchronized (this) {
 				try {
 					progressbarStatus += 0;
+
+					// if (Configurations.isReachable) {
 					progressDialog.setProgress(progressbarStatus);
-					if (!linker.checkDBTableExits(Keys.gamesTable)) {
+					if (!linker.checkDBTableExits(Keys.newsTable)) {
 						con.getArrayFromQuerryWithPostVariable(
-								Configurations.CurrentPlayerID,
-								Keys.gamesTable, "", linker.getLastIDGames());
+								Configurations.CurrentPlayerID, Keys.newsTable,
+								"", linker.getLastIDNews());
+						con.queryMiniIds();
+
 					}
 					progressbarStatus += 40;
 					progressDialog.setProgress(progressbarStatus);
@@ -301,16 +325,20 @@ public class LoginActivity extends Activity {
 					}
 					progressbarStatus += 20;
 					progressDialog.setProgress(progressbarStatus);
-
-					if (!linker.checkDBTableExits(Keys.newsTable)) {
+					if (!linker.checkDBTableExits(Keys.gamesTable)) {
 						con.getArrayFromQuerryWithPostVariable(
-								Configurations.CurrentPlayerID, Keys.newsTable,
-								"", linker.getLastIDNews());
-						con.queryMiniIds();
+								Configurations.CurrentPlayerID,
+								Keys.gamesTable, "", linker.getLastIDGames());
+
 					}
 					progressbarStatus += 20;
 					progressDialog.setProgress(progressbarStatus);
-
+					// } else {
+					// progressDialog.dismiss();
+					// Toast.makeText(LoginActivity.this,
+					// getResources().getString(R.string.noServer),
+					// Toast.LENGTH_LONG).show();
+					// }
 				} catch (Exception e) {
 				}
 				mInt = new Intent(getApplicationContext(), MainActivity.class);
@@ -341,12 +369,17 @@ public class LoginActivity extends Activity {
 		finish();
 	}
 
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+	}
+
 	@SuppressLint("NewApi")
 	public boolean checkCredentials() {
 		String userName = username.getText().toString();
 		String passWord = password.getText().toString();
+		return DataConnector.getInst().checkLogin(userName, passWord, saveLoginPref);
 
-		return con.checkLogin(userName, passWord, prefrence, saveLoginPref);
 		// return true;
 	}
 }

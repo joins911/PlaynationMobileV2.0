@@ -1,10 +1,7 @@
 package com.myapps.playnation.Operations;
 
-import java.io.IOException;
-import java.net.Socket;
 import java.net.URL;
 import java.net.URLConnection;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -19,7 +16,6 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
@@ -38,6 +34,7 @@ public class ServiceClass extends Service {
 	private int checkConnectionTimerTimeout = 500; 
 	private int timerCount=0; //10s
 	private int TimeOut = 5*1000;
+	
 	// private static final String tag = "ServiceClass";
 
 	@Override
@@ -50,9 +47,6 @@ public class ServiceClass extends Service {
 		linker = DataConnector.getInst().getLinker();
 		con = DataConnector.getInst();
 		playersNotificationList = new ArrayList<Bundle>();
-		saveLoginPref = PreferenceManager
-				.getDefaultSharedPreferences(getApplicationContext());
-		session = saveLoginPref.getBoolean(Keys.ActiveSession, false);
 		super.onCreate();
 	}
 
@@ -96,9 +90,12 @@ public class ServiceClass extends Service {
 	TimerTask serviceStarterTask = new TimerTask() {
 		@Override
 		public void run() {
+
 			if (Configurations.getConfigs().getApplicationState() == 0
 					|| session) {
-				con.queryNotification(Configurations.CurrentPlayerID);
+				con.queryNotification(Configurations.CurrentPlayerID,
+						Keys.HomeNotificationTable);
+
 				for (Bundle el : linker.getSQLiteNotification(
 						Keys.HomeNotificationTable,
 						Configurations.CurrentPlayerID)) {
@@ -142,12 +139,9 @@ public class ServiceClass extends Service {
 							"", linker.getLastIDNews());
 				} else {
 					if (linker.getLastIDNews() > 0) {
-						linker.setLastIDNews(linker.getLastIDNews() + 50);
 						con.getArrayFromQuerryWithPostVariable("",
-								Keys.newsTable, "", linker.getLastIDNews());
-						// con.getArrayFromQuerryWithPostVariable("",
-						// Keys.newsServiceTable, "",
-						// linker.getLastIDNews());
+								Keys.newsServiceTable, "",
+								linker.getLastIDNews());
 					}
 				}
 
@@ -156,9 +150,9 @@ public class ServiceClass extends Service {
 			}
 		}
 	};
-	
+
 	TimerTask checkServerStatus = new TimerTask() {
-		
+
 		@Override
 		public void run(){
 			if(timerCount==4) checkConnectionTimerTimeout = 60*1000;
@@ -187,11 +181,15 @@ public class ServiceClass extends Service {
 					MINUTES * 60 * 1000);
 		}
 	}
-	
-	private void getServerConnection(){
-		if(Keys.internetStatus) {
-			if(timer == null) timer = new Timer();
-			else timer.scheduleAtFixedRate(checkServerStatus,checkConnectionTimerTimeout , checkConnectionTimerTimeout);
+
+	private void getServerConnection() {
+		if (Keys.internetStatus) {
+			if (timer == null)
+				timer = new Timer();
+			else
+				timer.scheduleAtFixedRate(checkServerStatus,
+						checkConnectionTimerTimeout,
+						checkConnectionTimerTimeout);
 		}
 	}
 

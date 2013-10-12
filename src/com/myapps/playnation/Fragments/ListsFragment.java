@@ -36,7 +36,7 @@ import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.HelperClass;
 import com.myapps.playnation.main.ISectionAdapter;
 
-public class ListsFragment extends Fragment{
+public class ListsFragment extends Fragment {
 
 	private DataConnector con;
 	private View rootView;
@@ -51,10 +51,10 @@ public class ListsFragment extends Fragment{
 	public Configurations configs;
 	private int initialIndex;
 	private ArrayList<Bundle> listData = new ArrayList<Bundle>();
-	
-	
+
 	public ListsFragment() {
-		con = DataConnector.getInst();		
+		con = DataConnector.getInst();
+		initialIndex = 0;
 		// setRetainInstance(true);
 	}
 
@@ -76,7 +76,7 @@ public class ListsFragment extends Fragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		rootView = inflater.inflate(R.layout.component_mainlist, container,
-				false);	
+				false);
 		mViewPagerState = this.getArguments().getInt(Keys.ARG_POSITION);
 		ListView list = (ListView) rootView.findViewById(R.id.mainList);
 		mList = list;
@@ -134,14 +134,15 @@ public class ListsFragment extends Fragment{
 		if (HelperClass.isTablet(getActivity())) {
 			flipper = (ViewFlipper) rootView.findViewById(R.id.viewFlipper1);
 		}
-		
-		if(listData.size()<=1)	mListTask = new LoadListTask().execute();
-		else initList(listData);
+
+		if (listData.size() <= 1)
+			mListTask = new LoadListTask().execute();
+		else
+			initList(listData);
 		return rootView;
 	}
-	
-	public void setParent(WrapperFragment parrent)
-	{
+
+	public void setParent(WrapperFragment parrent) {
 		mWrapperParrent = parrent;
 	}
 
@@ -169,7 +170,8 @@ public class ListsFragment extends Fragment{
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				tabletOrPhoneControll(Configurations.GamesSTATE, results.get(position));
+				tabletOrPhoneControll(Configurations.GamesSTATE,
+						results.get(position));
 			}
 		});
 	}
@@ -194,12 +196,14 @@ public class ListsFragment extends Fragment{
 
 	private void initializeNews(final ArrayList<Bundle> results) {
 		mListBundle = results;
-		if (mListBundle != null) {			
-			//initialIndex = getArguments().getInt(Keys.clickedIndex,0);
-			Toast.makeText(getActivity(), getArguments().getInt(Keys.clickedIndex,0)+"", Toast.LENGTH_SHORT).show();
+		if (mListBundle != null) {
+			Toast.makeText(getActivity(),
+					getArguments().getInt(Keys.clickedIndex, 0) + "",
+					Toast.LENGTH_SHORT).show();
 			NewsListAdapter bindingData = new NewsListAdapter(getActivity(),
 					HelperClass.createHeaderListView(HelperClass
 							.queryNewsList(mListBundle)));
+						//	.queryNewsList(mListBundle)), initialIndex);
 			mList.setAdapter(bindingData);
 		}
 		mList.setOnItemClickListener(new OnItemClickListener() {
@@ -224,7 +228,8 @@ public class ListsFragment extends Fragment{
 					edit.putString(Keys.NEWSCOLPOSTINGTIME,
 							format.format(feed.getKey_NewsDate().getTime()));
 					initialIndex = position;
-					tabletOrPhoneControll(Configurations.NewsSTATE, edit,position);
+					tabletOrPhoneControll(Configurations.NewsSTATE, edit,
+							position);
 					view.setSelected(true);
 				}
 			}
@@ -235,7 +240,7 @@ public class ListsFragment extends Fragment{
 		mListBundle = results;
 		if (mListBundle != null) {
 			FriendsListAdapter bindingData = new FriendsListAdapter(
-					getActivity(), mListBundle);
+					getActivity(), mListBundle, getFragmentManager());
 			mList.setAdapter(bindingData);
 
 			mList.setOnItemClickListener(new OnItemClickListener() {
@@ -291,11 +296,11 @@ public class ListsFragment extends Fragment{
 			}
 		});
 	}
-	
-	private void tabletOrPhoneControll(int state,Bundle edit,int index)
-	{
-		mWrapperParrent.switchToHeader(edit,index);
+
+	private void tabletOrPhoneControll(int state, Bundle edit, int index) {
+		mWrapperParrent.switchToHeader(edit, index);
 	}
+
 	private void tabletOrPhoneControll(int state, Bundle edit) {
 		if (flipper != null) {
 			flipper.setDisplayedChild(2);
@@ -303,13 +308,12 @@ public class ListsFragment extends Fragment{
 			mCallback.setPage(state, edit);
 		} else {
 			mWrapperParrent.switchToHeader(edit);
-		//	mCallback.setPage(state, edit);
+			// mCallback.setPage(state, edit);
 		}
 	}
-	
-	private void initList(ArrayList<Bundle> mResults)
-	{
-		if (Configurations.GamesSTATE == mViewPagerState) {				
+
+	private void initList(ArrayList<Bundle> mResults) {
+		if (Configurations.GamesSTATE == mViewPagerState) {
 			initializeGames(mResults);
 		} else if (Configurations.GroupsSTATE == mViewPagerState) {
 			initializeGroups(mResults);
@@ -365,7 +369,8 @@ public class ListsFragment extends Fragment{
 
 		@Override
 		protected void onPostExecute(Void result) {
-			listData.addAll(mResults);
+			if (mResults != null)
+				listData.addAll(mResults);
 			initList(mResults);
 			finishTask();
 		}

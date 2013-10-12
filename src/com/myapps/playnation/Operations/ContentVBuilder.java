@@ -15,29 +15,36 @@ public class ContentVBuilder {
 	public static ContentValues putExtraGameInContentV(JSONObject obj)
 			throws JSONException {
 		ContentValues temp = putGameInContentV(obj);
+		temp.put(Keys.ID_GAME, obj.getInt(Keys.ID_GAME));
 		temp.put(Keys.ID_PLAYER, obj.getInt(Keys.ID_PLAYER) + "");
 		temp.put(Keys.GameComments, obj.getString(Keys.GameComments));
+		temp.put(Keys.isMember, obj.getString(Keys.isMember));
 
 		temp.put(Keys.GamesisSubscribed, obj.getInt(Keys.GamesisSubscribed)
 				+ "");
 		temp.put(Keys.GamePostCount, obj.getInt(Keys.GamePostCount) + "");
 		temp.put(Keys.GamesSubscriptionTime,
 				obj.getString(Keys.GamesSubscriptionTime));
+		temp.put(Keys.CompanyFounded, obj.getString(Keys.CompanyFounded));
+		temp.put(Keys.CompanyName, obj.getString(Keys.GAMECompanyDeveloper));
+		String imageUrl = obj.getString(Keys.EventIMAGEURL);
+		temp.put(Keys.EventIMAGEURL, imageUrl);
 		return temp;
 	}
 
 	public static ContentValues putGameInContentV(JSONObject obj)
 			throws JSONException {
 		ContentValues temp = new ContentValues();
-		temp.put(Keys.ID_GAME, obj.getInt(Keys.ID_GAME));
 		temp.put(Keys.GAMENAME, obj.getString(Keys.GAMENAME));
 		String gameType = obj.getString(Keys.GAMETYPE);
-		temp.put(Keys.GAMETYPE, gameType);		
+		temp.put(Keys.GAMETYPE, gameType);
 		temp.put(Keys.CompanyName, obj.getString(Keys.GAMECompanyDeveloper));
 		temp.put(Keys.GAMEDESC, obj.getString(Keys.GAMEDESC));
 		temp.put(Keys.GAMEDATE, obj.getString(Keys.GAMEDATE));
 		temp.put(Keys.RATING, obj.getString(Keys.RATING));
 		temp.put(Keys.GAMEESRB, obj.getString(Keys.GAMEESRB));
+		String imageUrl = obj.getString(Keys.EventIMAGEURL);
+		temp.put(Keys.EventIMAGEURL, imageUrl);
 		temp.put(Keys.GAMEURL, obj.getString(Keys.GAMEURL));
 		temp.put(Keys.GAMEPLAYERSCOUNT, obj.getString(Keys.GAMEPLAYERSCOUNT));
 		temp.put(Keys.GameIsLiked, obj.getString(Keys.GameIsLiked));
@@ -48,8 +55,6 @@ public class ContentVBuilder {
 				obj.getString(Keys.GAMECompanyDistributor));
 		temp.put(Keys.CompanyFounded, obj.getString(Keys.CompanyFounded));
 		temp.put(Keys.CompanyName, obj.getString(Keys.GAMECompanyDeveloper));
-		String imageUrl = obj.getString(Keys.EventIMAGEURL);
-		temp.put(Keys.EventIMAGEURL, imageUrl);
 		return temp;
 	}
 
@@ -184,9 +189,7 @@ public class ContentVBuilder {
 		map.put(Keys.PLAYERAVATAR, obj.getString(Keys.PLAYERAVATAR));
 		map.put(Keys.MessageText, HelperClass.returnUnserializedText(obj
 				.getString(Keys.MessageText)));
-		map.put(Keys.MessageTime, HelperClass.convertTime(
-				Integer.parseInt(obj.getString(Keys.MessageTime)),
-				Configurations.dataTemplate));
+		map.put(Keys.MessageTime, obj.getString(Keys.MessageTime));
 		return map;
 
 	}
@@ -200,6 +203,7 @@ public class ContentVBuilder {
 		map.put(Keys.ID_WALLITEM, obj.getInt(Keys.ID_WALLITEM));
 		map.put(Keys.ID_OWNER, obj.getInt(Keys.ID_OWNER) + "");
 		map.put(Keys.ItemType, obj.getString(Keys.ItemType));
+		map.put(Keys.GameIsLiked, obj.optString(Keys.GameIsLiked));
 		map.put(Keys.WallLastActivityTime,
 				obj.getString(Keys.WallLastActivityTime));
 		map.put(Keys.WallMessage, HelperClass.returnUnserializedText(obj

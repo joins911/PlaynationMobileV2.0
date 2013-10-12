@@ -9,10 +9,7 @@ import com.myapps.playnation.Fragments.IWallFragment;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.main.ISectionAdapter;
 
-/*
- * In progress... 
- */
-public class LoadCommentsTask extends AsyncTask<Void, Void, Void> {
+public class LoadCommentsTask extends PlaynationTask {
 
 	private ArrayList<UserComment> comments;
 	private ISectionAdapter mActConn;
@@ -21,15 +18,10 @@ public class LoadCommentsTask extends AsyncTask<Void, Void, Void> {
 	private IWallFragment mFrag;
 
 	public LoadCommentsTask(IWallFragment mFrag, String playerID, String section) {
-		mActConn = (ISectionAdapter) mFrag.getContext();
+		super(mFrag.getContext());
 		this.playerId = playerID;
 		wallType = section;
 		this.mFrag = mFrag;
-	}
-
-	@Override
-	protected void onPreExecute() {
-		mActConn.setIndeterminateVisibility(true);
 	}
 
 	@Override
@@ -40,9 +32,8 @@ public class LoadCommentsTask extends AsyncTask<Void, Void, Void> {
 
 	@Override
 	protected void onPostExecute(Void result) {
-		mActConn.setIndeterminateVisibility(false);
+		super.onPostExecute(result);
 		mFrag.initComments(comments);
 
 	}
-
 }

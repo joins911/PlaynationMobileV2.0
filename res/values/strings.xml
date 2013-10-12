@@ -5,17 +5,15 @@
 	<!-- New Strings -->
 	<string name="playersPlaying">Players Playing</string>
 	<string name="dateReleased">Date Released</string>
-	<string name="dateJoined">Date Joined</string>
-	<string name="website">Website</string>
+	<string name="dateJoined">Date Joined</string>	
 	<string name="esrbRat">ESRB Rating:</string>
 	<string name="playRat">Playnation Rating:</string>
 	<string name="userRat">User Score:</string>
 	<string name="platformString">Available on</string>
-	<string name="challenge">Challenge friend</string>	
+	<string name="challenge">Challenge friend</string>
 	<string name="addGame">Add Game</string>
 	<string name="messageString">Messages</string>
 	<string name="chose_friend">Choose a friend to Challenge</string>
-	
 	<!-- Menu Strings -->
 	<string-array name="main_array">
 		<item>Browse Playnation</item>
@@ -136,4 +134,7 @@
 	<string name="esrbRating">ESRB Rating</string>
 	<string name="emptyNotifListString">No Notification ....</string>
 	<string name="btnCheckSave">Save Credentials</string>
+	<string name="noServerMessage">We are sorry you message cant be send. Server is UNDER MAINTENANCE.</string>
+	<string name="noServer">Server is UNDER MAINTENANCE.</string>
+	<string name="sendMsgText">Send Message</string>
 </resources>

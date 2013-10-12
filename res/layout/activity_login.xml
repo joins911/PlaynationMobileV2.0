@@ -73,11 +73,13 @@
 				android:singleLine="true"
 				android:text="" />
 			<!-- Login button -->
+
 			<CheckBox
-				android:id="@+id/btnCheckSaveEmail"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="@string/btnCheckSave" />
+			    android:id="@+id/btnCheckSaveEmail"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="Remember email" />
+
 			<Button
 				android:id="@+id/btnLogin"
 				android:layout_width="fill_parent"

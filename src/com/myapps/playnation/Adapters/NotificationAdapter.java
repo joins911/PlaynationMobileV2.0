@@ -70,10 +70,10 @@ public class NotificationAdapter extends BaseAdapter implements IShowMore {
 			checkNotifiState(arg, arg.getString(Keys.NotificationType));
 			if (showButtonCondition) {
 				btnAccept.setVisibility(View.VISIBLE);
-				btnAccept.setVisibility(View.VISIBLE);
+				btnDecline.setVisibility(View.VISIBLE);
 			} else {
 				btnAccept.setVisibility(View.GONE);
-				btnAccept.setVisibility(View.GONE);
+				btnDecline.setVisibility(View.GONE);
 			}
 			txMsg.setText(arg.getString(Keys.NotificationType));
 			txMsgCon.setText(HelperClass.returnNotificationMessage(arg));

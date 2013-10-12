@@ -19,6 +19,7 @@ package com.myapps.playnation.main;
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -47,12 +48,13 @@ import com.myapps.playnation.Classes.Menu.MyMenuItem;
 import com.myapps.playnation.Fragments.BaseFragment;
 import com.myapps.playnation.Fragments.HeaderFragment;
 import com.myapps.playnation.Fragments.WrapperFragment;
-import com.myapps.playnation.Fragments.TabHosts.Home.HomeWallFragment;
 import com.myapps.playnation.Fragments.TabHosts.Home.HomeMessagesFragment;
 import com.myapps.playnation.Fragments.TabHosts.Home.HomeNotificationFragment;
+import com.myapps.playnation.Fragments.TabHosts.Home.HomeWallFragment;
 import com.myapps.playnation.Operations.BackTimer;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
+import com.myapps.playnation.Operations.ServiceClass;
 
 public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	private DrawerLayout mDrawerLayout;
@@ -147,7 +149,6 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 				Configurations.CurrentPlayerID);
 		mGroupsTitles = con.getLinker().getMyGroups(
 				Configurations.CurrentPlayerID);
-
 /*
 		con.queryPlayerGames("12");
 		con.queryPlayerGroup("12");
@@ -301,8 +302,9 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 
 	@Override
 	public void onDestroy() {
-		java.lang.System.gc();
 		super.onDestroy();
+		java.lang.System.gc();
+		stopService(new Intent(MainActivity.this, ServiceClass.class));
 	}
 
 	public void setPageAndTab(int pageIndex, int tabIndex, Bundle args) {
@@ -358,7 +360,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 					Toast.LENGTH_SHORT).show();
 			this.finish();
 			break;
-		}		
+		}
 		mDrawerLayout.closeDrawer(mDrawerList);
 	}
 
@@ -428,20 +430,20 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	}
 
 	private void initNotification() {
-		HomeNotificationFragment temp = new HomeNotificationFragment();		
+		HomeNotificationFragment temp = new HomeNotificationFragment();
 		temp.setArguments(putPositionInBundle(NotificationPage));
 		putOnTop(temp);
 	}
-	
+
 	private void initFriends() {
 		WrapperFragment frag = new WrapperFragment();
 		frag.setArguments(putPositionInBundle(Configurations.PlayersSTATE));
 		putOnTop(frag);
-		
+
 	}
 
 	private void initGamesPage() {
-		WrapperFragment frag = new WrapperFragment();		
+		WrapperFragment frag = new WrapperFragment();
 		frag.setArguments(putPositionInBundle(Configurations.GamesSTATE));
 		putOnTop(frag);
 	}
@@ -449,7 +451,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	private void initGamePage(int childPos) {
 		// ToDo Show SelectedGame in a HeaderFragment
 		HeaderFragment temp = new HeaderFragment();
-		Bundle args = putPositionInBundle(Configurations.GamesSTATE);		
+		Bundle args = putPositionInBundle(Configurations.GamesSTATE);
 		args.putAll(con.getLinker().getItem(
 				"'" + mGamesTitles.get(childPos) + "'", Keys.gamesTable));
 		// args.putAll();
@@ -458,7 +460,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	}
 
 	private void initGroupsPage() {
-		WrapperFragment frag = new WrapperFragment();		
+		WrapperFragment frag = new WrapperFragment();
 		frag.setArguments(putPositionInBundle(Configurations.GroupsSTATE));
 		putOnTop(frag);
 	}
@@ -469,9 +471,8 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 		temp.setArguments(putPositionInBundle(Configurations.GroupsSTATE));
 		putOnTop(temp);
 	}
-	
-	private Bundle putPositionInBundle(int position)
-	{
+
+	private Bundle putPositionInBundle(int position) {
 		Bundle args = new Bundle();
 		args.putInt(Keys.ARG_POSITION, position);
 		return args;

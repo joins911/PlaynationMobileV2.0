@@ -78,6 +78,9 @@ public class SerializedPhpParser {
 		case 'N':
 			index += 2;
 			return NULL;
+		case 'n':
+			index += 2;
+			return NULL;
 		default:
 			throw new IllegalStateException("Encountered unknown type [" + type
 					+ "]");
@@ -192,7 +195,7 @@ public class SerializedPhpParser {
 			return Integer.valueOf(value);
 		} catch (Exception ex) {
 			index = index_old;
-			Log.e("SerializedPhpParser "," parseInt Error");
+			Log.e("SerializedPhpParser ", " parseInt Error");
 		}
 		return null;
 		// End of Patch Integer/Double for the PHP x64.

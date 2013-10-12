@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
+import com.myapps.playnation.main.PlaynationMobile;
 
 public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 	private ImageView img;
@@ -20,6 +22,7 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 	private String path = "";
 	private String initalmageUrl = "";
 	private DataConnector con = DataConnector.getInst();
+	private Context context;
 
 	public LoadImage(String ownerID, String ownerType, String tableName,
 			String url, ImageView img, String folderName) {
@@ -30,7 +33,9 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 			path = img.getTag().toString();
 
 		String tempUrl = "";
-		// tempUrl =con.queryNewImageURL(ownerID, ownerType, tableName);
+
+		// tempUrl = con.queryNewImageURL(ownerID, ownerType, tableName);
+
 		if (!tempUrl.equalsIgnoreCase("")) {
 			url = tempUrl;
 		}
@@ -46,18 +51,18 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 		String finals = "";
 		String main = folderName + "/";
 		Bitmap returnBitmap = null;
-		// url sometimes null???		
-		
+
 		if (!url.equalsIgnoreCase("")) {
 			String dir1 = url.substring(0, 1);
-			// Chc
 			String dir2 = "";
-			if (!url.substring(1, 2).equalsIgnoreCase("")) { // bad code
-				dir2 = url.substring(1, 2);
+			int indexDot = url.indexOf(".");
+			if (indexDot > 2) {
+			dir2 = url.substring(1, 2);
 				initalmageUrl = main + dir1 + "/" + dir2 + "/" + url;
 			} else {
 				initalmageUrl = main + dir1 + "/" + url;
 			}
+
 			String[] temp = new String[1];
 			if (url.contains(".jpg")) {
 				temp = url.split(".jpg");
@@ -66,11 +71,7 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 				temp = url.split(".png");
 				url = temp[0] + "_100x100.png";
 			}
-			if (url.substring(1, 2) != null)
-				finals = main + dir1 + "/" + dir2 + "/" + url;
-			else
-				finals = main + dir1 + "/" + url;
-
+			finals = main + dir1 + "/" + dir2 + "/" + url;
 		} else {
 			finals = main;
 		}
@@ -82,6 +83,7 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 				return getImage(initalmageUrl, img, true);
 			}
 		} else {
+			returnBitmap = BitmapCalculationSize(returnBitmap);
 			return returnBitmap;
 		}
 	}
@@ -92,7 +94,6 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 	}
 
 	protected void onPostExecute(Bitmap bitmap) {
-
 		if (img.getTag() != null)
 			if (img.getTag().equals(path)) {
 				if (bitmap == null || img == null) {
@@ -100,34 +101,58 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 						no_Image(folderName);
 					}
 				} else {
-					bitmap = Bitmap.createScaledBitmap(bitmap, 100, 100, false);
 					img.setImageBitmap(bitmap);
 				}
 			}
 
 	}
 
+	private Bitmap BitmapCalculationSize(Bitmap bitmap) {
+		float scaleDim = Configurations.screenDencity;
+		int scaleDpi = Configurations.screenDpi;
+		int pixels = (int) (Keys.globalMaxandMinImageSize * scaleDim + 0.5f);
+		return Bitmap.createScaledBitmap(bitmap, pixels, pixels, true);
+
+	}
+
 	private void no_Image(String folderName) {
+		Bitmap resultBitmap = null;
+		float scaleDim = Configurations.screenDencity;
+		int pixels = (int) (Keys.globalMaxandMinImageSize * scaleDim + 0.5f);
 		if (folderName.equals("games")) {
-			img.setImageResource(R.drawable.no_game_100x100);
+			resultBitmap = BitmapFactory.decodeResource(
+					PlaynationMobile.getPlaynationResources(), R.drawable.no_game_100x100);
+			resultBitmap.setDensity(pixels);
 		} else if (folderName.equals("players")) {
-			img.setImageResource(R.drawable.no_player_100x100);
+			resultBitmap = BitmapFactory.decodeResource(
+					PlaynationMobile.getPlaynationResources(), R.drawable.no_player_100x100);
+			resultBitmap.setDensity(pixels);
 		} else if (folderName.equals("newsitems")) {
-			img.setImageResource(R.drawable.no_news_100x100);
+			resultBitmap = BitmapFactory.decodeResource(
+					PlaynationMobile.getPlaynationResources(), R.drawable.no_news_100x100);
+			resultBitmap.setDensity(pixels);
 		} else if (folderName.equals("groups")) {
-			img.setImageResource(R.drawable.no_group_100x100);
+			resultBitmap = BitmapFactory.decodeResource(
+					PlaynationMobile.getPlaynationResources(), R.drawable.no_group_100x100);
+			resultBitmap.setDensity(pixels);
 		} else if (folderName.equals("wall_photos")) {
-			img.setImageResource(R.drawable.no_forum_100x100);
+			resultBitmap = BitmapFactory.decodeResource(
+					PlaynationMobile.getPlaynationResources(), R.drawable.no_forum_100x100);
+			resultBitmap.setDensity(pixels);
 		} else if (folderName.equals("companies")) {
-			img.setImageResource(R.drawable.no_company_100x100);
+			resultBitmap = BitmapFactory.decodeResource(
+					PlaynationMobile.getPlaynationResources(), R.drawable.no_company_100x100);
+			resultBitmap.setDensity(pixels);
 		}
+		if (resultBitmap != null)
+			img.setImageBitmap(resultBitmap);
 	}
 
 	public Bitmap getImage(String imageLoc, ImageView tvImage, boolean attempt) {
 		Bitmap bitmap = getImage(imageLoc, tvImage);
 		if (attempt)
 			if (bitmap != null)
-				return Bitmap.createScaledBitmap(bitmap, 100, 100, true);
+				return BitmapCalculationSize(bitmap);
 		return bitmap;
 
 	}
@@ -145,9 +170,7 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 			connection.setDoInput(true);
 			connection.connect();
 			InputStream inputStream = connection.getInputStream();
-			BitmapFactory.Options options = new BitmapFactory.Options();
-			options.inPurgeable = true;
-			bitmap = BitmapFactory.decodeStream(inputStream, null, options);
+			bitmap = BitmapFactory.decodeStream(inputStream, null, null);
 		} catch (IOException e) {
 		}
 		if (bitmap == null) {
@@ -160,9 +183,7 @@ public class LoadImage extends AsyncTask<Object, Object, Bitmap> {
 				connection.setDoInput(true);
 				connection.connect();
 				InputStream inputStream = connection.getInputStream();
-				BitmapFactory.Options options = new BitmapFactory.Options();
-				options.inPurgeable = true;
-				bitmap = BitmapFactory.decodeStream(inputStream, null, options);
+				bitmap = BitmapFactory.decodeStream(inputStream, null, null);
 			} catch (IOException e) {
 			}
 		}

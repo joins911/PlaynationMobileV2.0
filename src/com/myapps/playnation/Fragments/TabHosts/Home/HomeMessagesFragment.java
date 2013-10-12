@@ -12,19 +12,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.webkit.WebView.FindListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Adapters.HomeMsgesAdapter;
-import com.myapps.playnation.Adapters.HomeWallExpListAdapter;
 import com.myapps.playnation.Classes.ExpandbleParent;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Fragments.BaseFragment;
+import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.main.MessagesActivity;
 
@@ -50,6 +48,9 @@ public class HomeMessagesFragment extends Fragment implements BaseFragment {
 		if (list != null)
 			for (Bundle hashMap : list) {
 				if (hashMap != null) {
+					con.queryPlayerMSGReplices(
+							hashMap.getString(Keys.MessageID_CONVERSATION),
+							Configurations.CurrentPlayerID);
 					ExpandbleParent parentItem = new ExpandbleParent(hashMap,
 							Keys.HomeMsgRepliesTable);
 					listParents.add(parentItem);
@@ -64,9 +65,9 @@ public class HomeMessagesFragment extends Fragment implements BaseFragment {
 		else
 			msges = makeFakeList();
 		expAdapter = new HomeMsgesAdapter(getActivity(), msges);
-
+		TextView msgText = (TextView) view.findViewById(R.id.noFriendsText);
 		if (expAdapter.isEmpty()) {
-			TextView msgText = (TextView) view.findViewById(R.id.noFriendsText);
+			msgText.setVisibility(View.VISIBLE);
 			msgText.setText(R.string.emptyMsgListString);
 			msgText.setTextColor(Color.parseColor("#CFCFCF"));
 			msgText.setTextSize(TypedValue.COMPLEX_UNIT_SP, Keys.testSize);
@@ -80,7 +81,10 @@ public class HomeMessagesFragment extends Fragment implements BaseFragment {
 			});
 			// mListView.addHeaderView(msgText);
 
+		} else {
+			msgText.setVisibility(View.GONE);
 		}
+
 		mListView.setAdapter(expAdapter);
 		mListView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -94,9 +98,13 @@ public class HomeMessagesFragment extends Fragment implements BaseFragment {
 					for (int i = 0; i < replies.size(); i++)
 						args.putBundle("" + i, replies.get(i));
 				}
+				else {
+				ArrayList<Bundle> replies = makeFakeList();
+				for (int i = 0; i < replies.size(); i++)
+					args.putBundle("" + i, replies.get(i));
+				}
 				startMessageAct(args);
-			}
-
+				}
 		});
 		return view;
 	}
@@ -134,4 +142,5 @@ public class HomeMessagesFragment extends Fragment implements BaseFragment {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 }

@@ -1,25 +1,37 @@
 package com.myapps.playnation.Fragments.TabHosts.Game;
 
+import java.util.ArrayList;
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.text.Html;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.myapps.playnation.R;
+import com.myapps.playnation.Classes.HorizontalImageHolder;
+import com.myapps.playnation.Classes.HorizontalViewHolder;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Fragments.ChallengeFragment;
 import com.myapps.playnation.Fragments.DialogSendCommentFragment;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.HelperClass;
+import com.myapps.playnation.Operations.LoadImage;
 import com.myapps.playnation.main.ISectionAdapter;
 
 public class GameInfoFragment extends Fragment {
@@ -29,6 +41,7 @@ public class GameInfoFragment extends Fragment {
 	private View view;
 	private DataConnector con;
 	private Button addGame;
+	private View component;
 
 	public void initGameInfo() {
 		Bundle myIntent = getArguments();
@@ -42,10 +55,15 @@ public class GameInfoFragment extends Fragment {
 
 		TextView txtEsrbRat = (TextView) view.findViewById(R.id.esrbRat);
 		TextView txtPlayRat = (TextView) view.findViewById(R.id.playnationRat);
-		TextView txtUserRat = (TextView) view.findViewById(R.id.userRat);
-
+		TextView txtUserRat = (TextView) view.findViewById(R.id.userRat);		
+		
+		HorizontalScrollView friendsPics = (HorizontalScrollView) component.findViewById(R.id.RotationScrollView);
+		HorizontalViewHolder friendsHolder = new HorizontalViewHolder(getActivity(),getFriendsPictures());
+		friendsPics.addView(friendsHolder,new LinearLayout.LayoutParams(
+				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		TextView txtDeveloper = (TextView) view.findViewById(R.id.developerTV);
 		TextView txtDistr = (TextView) view.findViewById(R.id.distributorTV);
+		LinearLayout mainLayout = (LinearLayout) view.findViewById(R.id.mainInfoLayout);
 		
 		addGame = (Button) view.findViewById(R.id.addGameButt);
 		addGame.setOnClickListener(new OnClickListener() {			
@@ -122,7 +140,52 @@ public class GameInfoFragment extends Fragment {
 			txtDistr.setText(txtDistr.getText() + "   " + gameDistributor);
 			txtDeveloper
 					.setText(txtDeveloper.getText() + "   " + gameDeveloper);
+			mainLayout.addView(component, 2);
 		}
+	}
+	
+	private ArrayList<View> getFriendsPictures()
+	{
+		ArrayList<View> list = new ArrayList<View>();
+		ArrayList<Bundle> args = con.queryPlayerFriendsSearch("");
+		for(Bundle itm : args)
+		{
+		LinearLayout layout = getTemplateLayout();		
+		String imageUrl = itm.getString(Keys.PLAYERAVATAR);
+		ImageView image = getTemplatePic();
+		image.setTag(imageUrl);
+		layout.addView(image);
+		
+		TextView name = new TextView(getActivity());
+		name.setText(itm.getString(Keys.FirstName));
+		name.setTextColor(Color.parseColor("#CFCFCF"));
+		name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
+		name.setGravity(Gravity.CENTER_HORIZONTAL);
+		layout.addView(name);
+		
+		list.add(layout);
+		new LoadImage(imageUrl, image, "players").execute(image);
+		}
+		return list;
+	}
+	
+	private LinearLayout getTemplateLayout()
+	{
+		LinearLayout temp = new LinearLayout(getActivity());
+		temp.setOrientation(LinearLayout.VERTICAL);
+		LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+			     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		temp.setGravity(Gravity.CENTER);
+		return temp;
+	}
+	
+	private ImageView getTemplatePic()
+	{
+		ImageView temp = new ImageView(getActivity());
+		temp.setLayoutParams(new LinearLayout.LayoutParams(150, 150));
+		temp.setPadding(10, 15, 10, 15);
+		temp.setScaleType(ImageView.ScaleType.CENTER_CROP);
+		return temp;
 	}
 	
 	private void setButtonInvis()
@@ -135,6 +198,7 @@ public class GameInfoFragment extends Fragment {
 			Bundle savedInstanceState) {
 		view = inflater.inflate(R.layout.fragment_template_info, container,
 				false);
+		component = inflater.inflate(R.layout.component_horizontal_image_holder,null,false);
 		con = DataConnector.getInst();
 		initGameInfo();
 		return view;

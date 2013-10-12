@@ -8,17 +8,15 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.ExpandbleParent;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Fragments.TabHosts.Home.HomeWallFragment;
-import com.myapps.playnation.Fragments.TabHosts.Home.HomeMessagesFragment;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.Operations.HelperClass;
@@ -26,6 +24,8 @@ import com.myapps.playnation.Operations.HelperClass;
 public class HomeWallExpListAdapter extends BaseExpandableListAdapter {
 	private LayoutInflater inflater;
 	private ArrayList<ExpandbleParent> mParent;
+	private Context context;
+	private DataConnector con;
 
 	// Only used as mark which class is currently present.
 	// private Object currentFragment;
@@ -34,7 +34,8 @@ public class HomeWallExpListAdapter extends BaseExpandableListAdapter {
 			ArrayList<ExpandbleParent> parent) {
 		mParent = parent;
 		inflater = LayoutInflater.from(context);
-		//con = DataConnector.getInst();
+		this.context = context;
+		con = DataConnector.getInst();
 	}
 
 	// ---------------------------------------------------------------
@@ -110,6 +111,7 @@ public class HomeWallExpListAdapter extends BaseExpandableListAdapter {
 				+ HelperClass.convertTime(Integer.parseInt(mapEntry
 						.getString(Keys.WallPostingTime)),
 						Configurations.dataTemplate));
+		isLiked(view, mapEntry);
 		// return the entire view
 		return view;
 	}
@@ -121,7 +123,7 @@ public class HomeWallExpListAdapter extends BaseExpandableListAdapter {
 	// in this method you must set the text to see the children on the list
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View view, ViewGroup viewGroup) {
-		view = null;		
+		view = null;
 		// return the entire view
 
 		TextView txEHeadline;
@@ -130,7 +132,8 @@ public class HomeWallExpListAdapter extends BaseExpandableListAdapter {
 		TextView txText;
 
 		if (!mParent.get(groupPosition).getArrayChildren().isEmpty()) {
-			Bundle mapEntry = mParent.get(groupPosition).getArrayChildren().get(childPosition);
+			Bundle mapEntry = mParent.get(groupPosition).getArrayChildren()
+					.get(childPosition);
 			if (mapEntry != null) {
 				view = inflater.inflate(
 						R.layout.component_homewall_eitem_layout, viewGroup,
@@ -147,6 +150,8 @@ public class HomeWallExpListAdapter extends BaseExpandableListAdapter {
 						+ Html.fromHtml(mapEntry.getString(Keys.WallMessage)));
 				txEDate.setText("Date: "
 						+ mapEntry.getString(Keys.WallPostingTime));
+				isLiked(view, mapEntry);
+
 			}
 		}
 		return view;
@@ -157,6 +162,76 @@ public class HomeWallExpListAdapter extends BaseExpandableListAdapter {
 		return true;
 	}
 
+	/**
+	 * Controls function isLiked as well send and change the current Like to
+	 * UnLike and vice versa.
+	 * 
+	 * @param v
+	 * @param b
+	 */
+	public void isLiked(View v, final Bundle b) {
+		final TextView txlike = (TextView) v.findViewById(R.id.like_button);
+		ImageView imgLIke = (ImageView) v.findViewById(R.id.like_img);
+		if (b != null) {
+
+			String isLiked = b.getString(Keys.GameIsLiked);
+			if (isLiked.equals("1")) {
+				txlike.setText(context.getResources().getString(
+						R.string.btnUnlike));
+			} else {
+				txlike.setText(context.getResources().getString(
+						R.string.btnLike));
+			}
+			if (Configurations.getConfigs().getApplicationState() != 0) {
+				txlike.setVisibility(View.GONE);
+				imgLIke.setVisibility(View.GONE);
+			}
+			txlike.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+
+					if (txlike.getText().equals("Like")) {
+						con.functionQuery(Configurations.CurrentPlayerID,
+								b.getString(Keys.ID_WALLITEM),
+								"wallFunction.php", Keys.POSTFUNCOMMANTLike, "");
+						txlike.setText(context.getResources().getString(
+								R.string.btnUnlike));
+					} else {
+						con.functionQuery(Configurations.CurrentPlayerID,
+								b.getString(Keys.ID_WALLITEM),
+								"wallFunction.php", Keys.POSTFUNCOMMANTUnLike,
+								"");
+						txlike.setText(context.getResources().getString(
+								R.string.btnLike));
+					}
+
+				}
+			});
+
+			imgLIke.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					if (txlike.getText().equals("Like")) {
+						con.functionQuery(Configurations.CurrentPlayerID,
+								b.getString(Keys.ID_WALLITEM),
+								"wallFunction.php", Keys.POSTFUNCOMMANTLike, "");
+						txlike.setText(context.getResources().getString(
+								R.string.btnUnlike));
+					} else {
+						con.functionQuery(Configurations.CurrentPlayerID,
+								b.getString(Keys.ID_WALLITEM),
+								"wallFunction.php", Keys.POSTFUNCOMMANTUnLike,
+								"");
+						txlike.setText(context.getResources().getString(
+								R.string.btnLike));
+					}
+				}
+			});
+
+		}
+	}
 	// @Override
 	// public void registerDataSetObserver(DataSetObserver observer) {
 	// /* used to make the notifyDataSetChanged() method work */
@@ -164,24 +239,19 @@ public class HomeWallExpListAdapter extends BaseExpandableListAdapter {
 	// }
 
 	/*
-	@Override
-	public void onGroupExpanded(int groupPosition) {
-		super.onGroupExpanded(groupPosition);
-		//mExpandableList.expandGroup(groupPosition);
-		if (groupPosition != lastParent) {
-			mExpandableList.collapseGroup(lastParent);
-		}
-		array = new ArrayList<Bundle>();
-		Bundle mapEntry = mParent.get(groupPosition).getFirstChild();
-		if (lastParent == groupPosition) {
-			con.queryPlayerWallReplices(mapEntry.getString(Keys.ID_WALLITEM),
-					Configurations.CurrentPlayerID);
-			array = con.getTable(Keys.HomeWallRepliesTable,
-					mapEntry.getString(Keys.ID_WALLITEM));
-			mParent.get(groupPosition).setArrayChildren(array);
-		}
-		lastParent = groupPosition;
-		notifyDataSetChanged();
-	}*/
+	 * @Override public void onGroupExpanded(int groupPosition) {
+	 * super.onGroupExpanded(groupPosition);
+	 * //mExpandableList.expandGroup(groupPosition); if (groupPosition !=
+	 * lastParent) { mExpandableList.collapseGroup(lastParent); } array = new
+	 * ArrayList<Bundle>(); Bundle mapEntry =
+	 * mParent.get(groupPosition).getFirstChild(); if (lastParent ==
+	 * groupPosition) {
+	 * con.queryPlayerWallReplices(mapEntry.getString(Keys.ID_WALLITEM),
+	 * Configurations.CurrentPlayerID); array =
+	 * con.getTable(Keys.HomeWallRepliesTable,
+	 * mapEntry.getString(Keys.ID_WALLITEM));
+	 * mParent.get(groupPosition).setArrayChildren(array); } lastParent =
+	 * groupPosition; notifyDataSetChanged(); }
+	 */
 
 }

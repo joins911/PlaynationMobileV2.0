@@ -36,7 +36,6 @@ public final class Keys {
 	public static final String GAMELILDBTABLENAME = "GAMEINFOTABLE";
 
 	public static final int commentsID = 2;
-	public static final String isCheckButton = "isCheckButton";
 
 	public static final String commentsTable = "Comments";
 	public static final String USERNAME = "Name";
@@ -170,7 +169,6 @@ public final class Keys {
 	public static boolean internetStatus;
 
 	public final static String clickedIndex = "clickedIndex";
-	
 
 	public final static String ID_PLAYER = "ID_PLAYER";
 	public final static String PLAYERNICKNAME = "DisplayName";
@@ -199,6 +197,7 @@ public final class Keys {
 	public final static String MessageID_CONVERSATION = "ID_CONVERSATION";
 	public final static String MessageText = "MessageText";
 	public final static String MessageTime = "MessageTime";
+	public final static String MessageParticipants = "Participants";
 
 	// Events json and map identifiers
 	public final static String ID_EVENT = "ID_EVENT";
@@ -296,5 +295,6 @@ public final class Keys {
 	public final static String companysubNewsTAB = "Company";
 	public final static String gamesubNewsTAB = "GAME";
 	public static final String AppState = "ApplicationState";
+	public static final String isCheckButton = "isChecked";
 
 }

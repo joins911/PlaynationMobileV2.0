@@ -51,7 +51,7 @@ public class PlayerWallFragment extends Fragment implements IWallFragment {
 		footer = inflater.inflate(R.layout.component_comment_footer, null);
 		Button commentBut = (Button) footer.findViewById(R.id.wallsF_commBut);
 		commentText = (EditText) footer.findViewById(R.id.wallsF_comment_EBox);
-	//	footer.setVisibility(View.GONE);
+		// footer.setVisibility(View.GONE);
 		commentBut.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -59,7 +59,7 @@ public class PlayerWallFragment extends Fragment implements IWallFragment {
 						getArguments().getString(Keys.PLAYERNAME),
 						getArguments().getString(Keys.ID_PLAYER));
 				expAdapter.notifyDataSetChanged();
-				Log.i("Games Wall", "Comment Button Pressed"
+				Log.i("Player Wall", "Comment Button Pressed"
 						+ commentText.getText().toString());
 			}
 		});

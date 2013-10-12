@@ -11,15 +11,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.myapps.playnation.R;
 import com.myapps.playnation.Classes.Keys;
-import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.LoadImage;
-import com.myapps.playnation.main.MainActivity;
 
 /**
  * 
@@ -35,14 +32,15 @@ public class GamesListAdapter extends ListsHelper implements IShowMore {
 	boolean showMore = true;
 
 	public GamesListAdapter(Activity act, ArrayList<Bundle> map) {
-		super(map);		
+		super(map);
 		this.gamesDataCollection = getNewList();
 		inflater = (LayoutInflater) act
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
-	
-	public GamesListAdapter(Activity act, ArrayList<Bundle> map, int initialIndex) {
-		super(map);		
+
+	public GamesListAdapter(Activity act, ArrayList<Bundle> map,
+			int initialIndex) {
+		super(map);
 		this.gamesDataCollection = getNewList(initialIndex);
 		inflater = (LayoutInflater) act
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -58,12 +56,12 @@ public class GamesListAdapter extends ListsHelper implements IShowMore {
 
 	@Override
 	public Object getItem(int arg0) {
-		return null;
+		return gamesDataCollection.get(arg0);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		return 0;
+		return position;
 	}
 
 	@Override
@@ -125,10 +123,6 @@ public class GamesListAdapter extends ListsHelper implements IShowMore {
 			new LoadImage(gamesDataCollection.get(position).getString(
 					Keys.ID_GAME), "game", Keys.gamesTable, imageUrl,
 					holder.tvImage, "games").execute(holder.tvImage);
-			holder.tvImage.setMaxWidth(Keys.globalMaxandMinImageSize);
-			holder.tvImage.setMinimumWidth(Keys.globalMaxandMinImageSize);
-			holder.tvImage.setMaxHeight(Keys.globalMaxandMinImageSize);
-			holder.tvImage.setMinimumHeight(Keys.globalMaxandMinImageSize);
 		}
 
 		return vi;

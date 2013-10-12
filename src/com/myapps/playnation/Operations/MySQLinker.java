@@ -19,8 +19,7 @@ import com.myapps.playnation.Classes.Keys;
 public class MySQLinker extends SQLinker {
 
 	private static String DATABASE_NAME = "playnation.db";
-	private static int DATABASE_VERSION = 5;
-	ArrayList<Bundle> listNews = new ArrayList<Bundle>();
+	private static int DATABASE_VERSION = 8;
 
 	public MySQLinker(Context con) {
 		super(con, DATABASE_NAME, DATABASE_VERSION);
@@ -92,6 +91,7 @@ public class MySQLinker extends SQLinker {
 			cursor.moveToFirst();
 			if (!cursor.isAfterLast()) {
 				do {
+
 					list.add(BundleBuilder.putGroupInBundle(cursor));
 				} while (cursor.moveToNext());
 			}
@@ -141,17 +141,16 @@ public class MySQLinker extends SQLinker {
 		SQLiteDatabase sql = this.getWritableDatabase();
 
 		for (int i = 0; i < json.length(); i++) {
-			// String ID_News = json.getJSONObject(i).getString(
-			// Keys.NEWSCOLID_NEWS);
-			// if (!checkRowExist(Keys.newsTable, ID_News, "")) {
-			// ContentValues temp = ContentVBuilder.putTempNewsInContentV(
-			// json.getJSONObject(i), "", ID_News);
-			//
-			// sql.insertWithOnConflict(Keys.newsTable, null, temp,
-			// SQLiteDatabase.CONFLICT_REPLACE);
-			// }
-			listNews.add(BundleBuilder.putTempNewsInBundle(
-					json.getJSONObject(i), null));
+			String ID_News = json.getJSONObject(i).getString(
+					Keys.NEWSCOLID_NEWS);
+			if (!checkRowExist(Keys.newsTable, ID_News, "")) {
+				setLastIDNews(Integer.parseInt(ID_News));
+				ContentValues temp = ContentVBuilder.putTempNewsInContentV(
+						json.getJSONObject(i), "", ID_News);
+
+				sql.insertWithOnConflict(Keys.newsTable, null, temp,
+						SQLiteDatabase.CONFLICT_REPLACE);
+			}
 		}
 	}
 
@@ -183,23 +182,22 @@ public class MySQLinker extends SQLinker {
 	}
 
 	public ArrayList<Bundle> getSQLiteNews(String tableName) {
-		// ArrayList<Bundle> list = new ArrayList<Bundle>();
-		// String selectQuery = HelperClass.sqliteQueryStrings(tableName, "",
-		// "",
-		// "0");
-		// SQLiteDatabase sql = this.getReadableDatabase();
-		// Cursor cursor = sql.rawQuery(selectQuery, null);
-		// if (cursor != null) {
-		// cursor.moveToFirst();
-		// if (!cursor.isAfterLast()) {
-		// do {
-		// list.add(BundleBuilder.putTempNewsInBundle(cursor));
-		// } while (cursor.moveToNext());
-		// }
-		// cursor.close();
-		// }
-		System.out.println(listNews.size());
-		return listNews;
+		ArrayList<Bundle> list = new ArrayList<Bundle>();
+		String selectQuery = HelperClass.sqliteQueryStrings(tableName, "", "",
+				"0");
+		SQLiteDatabase sql = this.getReadableDatabase();
+		Cursor cursor = sql.rawQuery(selectQuery, null);
+		if (cursor != null) {
+			cursor.moveToFirst();
+			if (!cursor.isAfterLast()) {
+				do {
+					list.add(BundleBuilder.putTempNewsInBundle(cursor));
+				} while (cursor.moveToNext());
+			}
+			cursor.close();
+		}
+
+		return list;
 	}
 
 	public ArrayList<Bundle> getTempNewsTab(String id, String gameType) {
@@ -222,12 +220,11 @@ public class MySQLinker extends SQLinker {
 			cursor.moveToFirst();
 			if (!cursor.isAfterLast()) {
 				do {
-					// Bundle bundle =
-					// BundleBuilder.putTempNewsInBundle(cursor);
-					// bundle.putString(Keys.ID_OWNER, cursor.getString(cursor
-					// .getColumnIndex(Keys.ID_OWNER)));
-					//
-					// arrayList.add(bundle);
+					Bundle bundle = BundleBuilder.putTempNewsInBundle(cursor);
+					bundle.putString(Keys.ID_OWNER, cursor.getString(cursor
+							.getColumnIndex(Keys.ID_OWNER)));
+
+					arrayList.add(bundle);
 				} while (cursor.moveToNext());
 			}
 			cursor.close();
@@ -304,7 +301,11 @@ public class MySQLinker extends SQLinker {
 			cursor.moveToFirst();
 			if (!cursor.isAfterLast()) {
 				do {
-					list.add(BundleBuilder.putPMsgInBundle(cursor));
+					Bundle b = BundleBuilder.putPMsgInBundle(cursor);
+					b.putString(Keys.MessageParticipants, cursor
+							.getString(cursor
+									.getColumnIndex(Keys.MessageParticipants)));
+					list.add(b);
 				} while (cursor.moveToNext());
 			}
 			cursor.close();
@@ -734,7 +735,9 @@ public class MySQLinker extends SQLinker {
 					String ID = json.getJSONObject(i).getInt(Keys.ID_MESSAGE)
 							+ "";
 					if (!checkRowExist(Keys.HomeMsgTable, ID, playerID)) {
-						ContentValues map = new ContentValues();
+						ContentValues map = ContentVBuilder
+								.putMessageInContentV(json.getJSONObject(i));
+
 						int id = Integer.parseInt(ID);
 						if (id > getLastIDHomeMSg())
 							setLastIDHomeMSg(id);
@@ -761,6 +764,8 @@ public class MySQLinker extends SQLinker {
 							playerID)) {
 						ContentValues map = ContentVBuilder
 								.putMessageInContentV(json.getJSONObject(i));
+						map.put(Keys.MessageParticipants, json.getJSONObject(i)
+								.optString(Keys.MessageParticipants) + "");
 						if (map != null)
 							sql.insertWithOnConflict(Keys.HomeMsgRepliesTable,
 									null, map, SQLiteDatabase.CONFLICT_REPLACE);
@@ -878,7 +883,6 @@ public class MySQLinker extends SQLinker {
 				cursor.close();
 				return true;
 			}
-			cursor.close();
 		}
 		cursor.close();
 		return false;
@@ -890,9 +894,9 @@ public class MySQLinker extends SQLinker {
 		String cREATE_PWall = "CREATE TABLE " + Keys.HomeWallTable + " ("
 				+ Keys.ID_WALLITEM + " INTEGER PRIMARY KEY, "
 				+ Keys.WallPosterDisplayName + " TEXT, " + Keys.ID_OWNER
-				+ " TEXT, " + Keys.ItemType + " TEXT, "
-				+ Keys.WallLastActivityTime + " TEXT, " + Keys.WallMessage
-				+ " TEXT, " + Keys.WallOwnerType + " TEXT, "
+				+ " TEXT, " + Keys.ItemType + " TEXT, " + Keys.GameIsLiked
+				+ " TEXT, " + Keys.WallLastActivityTime + " TEXT, "
+				+ Keys.WallMessage + " TEXT, " + Keys.WallOwnerType + " TEXT, "
 				+ Keys.PLAYERAVATAR + " TEXT, " + Keys.WallPostingTime
 				+ " TEXT" + ");";
 		db.execSQL(cREATE_PWall);
@@ -1012,10 +1016,11 @@ public class MySQLinker extends SQLinker {
 
 		String cREATE_HomeWallRepliesTable = "CREATE TABLE "
 				+ Keys.HomeWallRepliesTable + " (" + Keys.ID_WALLITEM
-				+ " INTEGER PRIMARY KEY," + Keys.WallPosterDisplayName
-				+ " TEXT," + Keys.ID_ORGOWNER + " INTEGER," + Keys.PLAYERAVATAR
-				+ " TEXT," + Keys.WallLastActivityTime + " TEXT,"
-				+ Keys.WallMessage + " TEXT," + Keys.WallOwnerType + " TEXT,"
+				+ " INTEGER PRIMARY KEY," + Keys.GameIsLiked + " TEXT, "
+				+ Keys.WallPosterDisplayName + " TEXT," + Keys.ID_ORGOWNER
+				+ " INTEGER," + Keys.PLAYERAVATAR + " TEXT,"
+				+ Keys.WallLastActivityTime + " TEXT," + Keys.WallMessage
+				+ " TEXT," + Keys.WallOwnerType + " TEXT,"
 				+ Keys.WallPostingTime + " TEXT);";
 		db.execSQL(cREATE_HomeWallRepliesTable);
 
@@ -1023,8 +1028,9 @@ public class MySQLinker extends SQLinker {
 				+ Keys.HomeMsgRepliesTable + " (" + Keys.ID_MESSAGE
 				+ " INTEGER PRIMARY KEY," + Keys.MessageID_CONVERSATION
 				+ " INTEGER," + Keys.ID_PLAYER + " INTEGER,"
-				+ Keys.PLAYERNICKNAME + " TEXT," + Keys.PLAYERAVATAR + " TEXT,"
-				+ Keys.MessageText + " TEXT," + Keys.MessageTime + " TEXT);";
+				+ Keys.PLAYERNICKNAME + " TEXT," + Keys.MessageParticipants
+				+ " TEXT," + Keys.PLAYERAVATAR + " TEXT," + Keys.MessageText
+				+ " TEXT," + Keys.MessageTime + " TEXT);";
 		db.execSQL(cREATE_HomeMsgRepliesTable);
 
 		String cREATE_HomeSubscriptionTable = "CREATE TABLE "

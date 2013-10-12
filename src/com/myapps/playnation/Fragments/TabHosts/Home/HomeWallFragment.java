@@ -2,7 +2,6 @@ package com.myapps.playnation.Fragments.TabHosts.Home;
 
 import java.util.ArrayList;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,6 +18,7 @@ import com.myapps.playnation.Adapters.HomeWallExpListAdapter;
 import com.myapps.playnation.Classes.ExpandbleParent;
 import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Fragments.BaseFragment;
+import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 
 public class HomeWallFragment extends Fragment implements BaseFragment {
@@ -31,9 +31,8 @@ public class HomeWallFragment extends Fragment implements BaseFragment {
 		View view = inflater.inflate(R.layout.component_homewall_layout,
 				container, false);
 		con = DataConnector.getInst();
-		if (!con.getLinker().checkDBTableExits(Keys.HomeWallTable)) {
-			con.queryPlayerWall(Keys.TEMPLAYERID, "player");
-		}
+		if (!con.getLinker().checkDBTableExits(Keys.HomeWallTable))
+			con.queryPlayerWall(Configurations.CurrentPlayerID, "player");
 
 		listParents.clear();
 		ArrayList<Bundle> list = con.getTable(Keys.HomeWallTable,
@@ -41,15 +40,19 @@ public class HomeWallFragment extends Fragment implements BaseFragment {
 		if (list != null)
 			for (Bundle hashMap : list) {
 				if (hashMap != null) {
-					ExpandbleParent parentItem = new ExpandbleParent(hashMap,Keys.HomeWallRepliesTable);
+					// con.queryPlayerWallReplices(
+					// hashMap.getString(Keys.ID_WALLITEM),
+					// Configurations.CurrentPlayerID);
+					ExpandbleParent parentItem = new ExpandbleParent(hashMap,
+							Keys.HomeWallRepliesTable);
 					listParents.add(parentItem);
 				}
 			}
 
 		ExpandableListView eListView = (ExpandableListView) view
 				.findViewById(R.id.listView);
-		HomeWallExpListAdapter expAdapter = new HomeWallExpListAdapter(getActivity(),
-				listParents);		
+		HomeWallExpListAdapter expAdapter = new HomeWallExpListAdapter(
+				getActivity(), listParents);
 		if (expAdapter.isEmpty()) {
 			TextView msgText = new TextView(getActivity());
 			msgText.setText(R.string.emptyListString);
@@ -65,7 +68,7 @@ public class HomeWallFragment extends Fragment implements BaseFragment {
 	@Override
 	public void searchFunction(String args) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
