@@ -19,8 +19,6 @@ import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.main.ISectionAdapter;
-import com.myapps.playnation.main.BrowserFragment;
-import com.myapps.playnation.main.MainActivity;
 
 public class XHomeFriendsFragment extends Fragment {
 	private DataConnector con;
@@ -42,7 +40,7 @@ public class XHomeFriendsFragment extends Fragment {
 
 		PlayerHomeInfoAdapter expAdapter = new PlayerHomeInfoAdapter(
 				getActivity(), con.getTable(Keys.HomeFriendsTable,
-						Keys.TEMPLAYERID));
+						Keys.TEMPLAYERID), getFragmentManager());
 
 		if (expAdapter.isEmpty()) {
 			TextView msgText = new TextView(getActivity());
@@ -60,8 +58,7 @@ public class XHomeFriendsFragment extends Fragment {
 					int position, long id) {
 				Bundle results = (Bundle) parent.getItemAtPosition(position);
 
-				mCall.setPageAndTab(Configurations.PlayersSTATE, 4,
-						results);
+				mCall.setPageAndTab(Configurations.PlayersSTATE, 4, results);
 			}
 		});
 		return view;

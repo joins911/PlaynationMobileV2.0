@@ -61,8 +61,8 @@ public class HomeMsgesAdapter extends BaseAdapter {
 		} else
 			holder = (ViewHolder) view.getTag();
 		if (mapEntry != null) {
-			holder.txtUser
-					.setText("" + mapEntry.getString(Keys.PLAYERNICKNAME));
+			holder.txtUser.setText(""
+					+ mapEntry.getString(Keys.MessageAnotherPerson));
 			SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy");
 
 			if (mapEntry.containsKey(Keys.MessageTime)

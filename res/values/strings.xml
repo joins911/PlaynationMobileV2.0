@@ -5,7 +5,7 @@
 	<!-- New Strings -->
 	<string name="playersPlaying">Players Playing</string>
 	<string name="dateReleased">Date Released</string>
-	<string name="dateJoined">Date Joined</string>	
+	<string name="dateJoined">Date Joined</string>
 	<string name="esrbRat">ESRB Rating:</string>
 	<string name="playRat">Playnation Rating:</string>
 	<string name="userRat">User Score:</string>
@@ -137,4 +137,5 @@
 	<string name="noServerMessage">We are sorry you message cant be send. Server is UNDER MAINTENANCE.</string>
 	<string name="noServer">Server is UNDER MAINTENANCE.</string>
 	<string name="sendMsgText">Send Message</string>
+	<string name="lblSendComment">Send Comment</string>
 </resources>

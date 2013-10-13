@@ -20,8 +20,6 @@ import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.main.ISectionAdapter;
-import com.myapps.playnation.main.BrowserFragment;
-import com.myapps.playnation.main.MainActivity;
 
 public class GamePlayersFragment extends Fragment {
 	private DataConnector con;
@@ -57,7 +55,7 @@ public class GamePlayersFragment extends Fragment {
 
 		PlayerHomeInfoAdapter expAdapter = new PlayerHomeInfoAdapter(
 				getActivity(), con.getTable(Keys.whoIsPlayingTable,
-						args.getString(Keys.ID_GAME)));
+						args.getString(Keys.ID_GAME)), getFragmentManager());
 
 		if (expAdapter.isEmpty()) {
 			TextView msgText = new TextView(getActivity());
@@ -74,8 +72,7 @@ public class GamePlayersFragment extends Fragment {
 					int position, long id) {
 				Bundle args = (Bundle) parent.getItemAtPosition(position);
 
-				mCallback.setPageAndTab(Configurations.PlayersSTATE, 5,
-						args);
+				mCallback.setPageAndTab(Configurations.PlayersSTATE, 5, args);
 			}
 		});
 		return view;

@@ -214,10 +214,10 @@ public class DataConnector {
 		try {
 			if (result != null) {
 				String suffix = "{(";
-				if (result.endsWith(suffix)) {
-					jArray = new JSONArray(result);
-					jsonToArray(jArray, tableName);
-				}
+				// if (result.endsWith(suffix)) {
+				jArray = new JSONArray(result);
+				jsonToArray(jArray, tableName);
+				// }
 			}
 		} catch (JSONException e) {
 			Log.e("DataConnector " + tableName + " ",
@@ -271,15 +271,9 @@ public class DataConnector {
 		// parse json data
 		try {
 			if (result != null) {
-
-				// if (result.contains("<b><b>Notice</b>"))
-				// || result.contains("null"))
-				// {
 				jArray = new JSONArray(result);
-
 				jsonToArray(jArray, tableName);
 				return jArray;
-				// }
 			}
 
 		} catch (JSONException e) {

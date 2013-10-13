@@ -7,6 +7,7 @@ public final class Keys {
 
 	public static final String LASTIDTABLE = "LASTIDTABLE";
 	public static final float testSize = 22;
+
 	// ID is used by the DataConnector class to know which table to search for
 	// same principle
 	// as table name but needed int for Switch { (case): }
@@ -198,6 +199,7 @@ public final class Keys {
 	public final static String MessageText = "MessageText";
 	public final static String MessageTime = "MessageTime";
 	public final static String MessageParticipants = "Participants";
+	public final static String MessageAnotherPerson = "AnotherPerson";
 
 	// Events json and map identifiers
 	public final static String ID_EVENT = "ID_EVENT";

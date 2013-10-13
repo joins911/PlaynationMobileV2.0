@@ -87,6 +87,7 @@ public class FriendsListAdapter extends BaseAdapter implements IShowMore {
 			if (mutual.equals("1") || mutual.equals("null")) {
 				txEdit.setVisibility(View.GONE);
 			} else {
+				txSendMsg.setVisibility(View.GONE);
 				txEdit.setText(addText);
 				txEdit.setTextColor(color);
 			}

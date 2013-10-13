@@ -24,7 +24,6 @@ public class DialogSendCommentFragment extends DialogFragment {
 	private TextView lblSendComment;
 	private String currentTag;
 	private DataConnector con;
-	public static int commandBtnPressed;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,7 +46,7 @@ public class DialogSendCommentFragment extends DialogFragment {
 					R.string.lblSendGroupComment));
 		} else if (currentTag.equals("SendComment")) {
 			lblSendComment.setText(getActivity().getResources().getString(
-					R.string.lblSendGroupComment));
+					R.string.lblSendComment));
 		} else {
 			Bundle args = getArguments();
 			lblSendComment.setText(getActivity().getResources().getString(
@@ -74,8 +73,8 @@ public class DialogSendCommentFragment extends DialogFragment {
 									.add(R.id.content_frame, frag).commit();
 							MainActivity.passCurrFragment = frag;
 							MainActivity.passmBrowserFragment.setInvisible();
-							commandBtnPressed = 1;
 							dismiss();
+
 						}
 					} else if (currentTag.equals("SendComment")) {
 						if (!txtComment.getText().toString().isEmpty()) {
@@ -85,7 +84,6 @@ public class DialogSendCommentFragment extends DialogFragment {
 									con.getCurrentPlayer().getString(
 											Keys.PLAYERNICKNAME), args
 											.getString(Keys.ID_WALLITEM));
-							commandBtnPressed = 1;
 							dismiss();
 						}
 					} else {
@@ -94,7 +92,6 @@ public class DialogSendCommentFragment extends DialogFragment {
 								.getString(Keys.functionPhpName), args
 								.getString(Keys.functionAction), txtComment
 								.getText().toString());
-						commandBtnPressed = 1;
 						dismiss();
 					}
 				}
@@ -106,7 +103,6 @@ public class DialogSendCommentFragment extends DialogFragment {
 
 			@Override
 			public void onClick(View v) {
-				commandBtnPressed = 0;
 				dismiss();
 			}
 		});

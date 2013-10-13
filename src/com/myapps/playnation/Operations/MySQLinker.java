@@ -19,8 +19,7 @@ import com.myapps.playnation.Classes.Keys;
 public class MySQLinker extends SQLinker {
 
 	private static String DATABASE_NAME = "playnation.db";
-	private static int DATABASE_VERSION = 9;
-
+	private static int DATABASE_VERSION = 11;
 
 	public MySQLinker(Context con) {
 		super(con, DATABASE_NAME, DATABASE_VERSION);
@@ -283,7 +282,11 @@ public class MySQLinker extends SQLinker {
 			cursor.moveToFirst();
 			if (!cursor.isAfterLast()) {
 				do {
-					list.add(BundleBuilder.putPMsgInBundle(cursor));
+					Bundle bundle = BundleBuilder.putPMsgInBundle(cursor);
+					bundle.putString(Keys.MessageAnotherPerson, cursor
+							.getString(cursor
+									.getColumnIndex(Keys.MessageAnotherPerson)));
+					list.add(bundle);
 				} while (cursor.moveToNext());
 			}
 			cursor.close();
@@ -370,6 +373,8 @@ public class MySQLinker extends SQLinker {
 					Bundle bundle = BundleBuilder.putPlayerInBundle(cursor);
 					bundle.putString(Keys.ID_GAME, cursor.getString(cursor
 							.getColumnIndex(Keys.ID_GAME)));
+					bundle.putString(Keys.Mutual, cursor.getString(cursor
+							.getColumnIndex(Keys.Mutual)));
 					list.add(bundle);
 				} while (cursor.moveToNext());
 			}
@@ -657,6 +662,8 @@ public class MySQLinker extends SQLinker {
 								.putPlayerInContentV(json.getJSONObject(i));
 						map.put(Keys.ID_GAME,
 								json.getJSONObject(i).getString(Keys.ID_GAME));
+						map.put(Keys.Mutual,
+								json.getJSONObject(i).optString(Keys.Mutual));
 						sql.insertWithOnConflict(Keys.whoIsPlayingTable, null,
 								map, SQLiteDatabase.CONFLICT_REPLACE);
 					}
@@ -690,9 +697,10 @@ public class MySQLinker extends SQLinker {
 		if (json != null)
 			for (int i = 0; i < json.length(); i++) {
 				try {
-					String ID = json.getJSONObject(i).getInt(Keys.ID_PLAYER)
+					String ID = json.getJSONObject(i).getInt(
+							Keys.ID_NOTIFICATION)
 							+ "";
-					if (!checkRowExist(Keys.HomeNotificationTable, ID, playerID)) {
+					if (!checkRowExist(Keys.HomeNotificationTable, playerID, ID)) {
 						ContentValues m = ContentVBuilder
 								.putPNotificationContentV(json.getJSONObject(i));
 						sql.insertWithOnConflict(Keys.HomeNotificationTable,
@@ -738,7 +746,9 @@ public class MySQLinker extends SQLinker {
 					if (!checkRowExist(Keys.HomeMsgTable, ID, playerID)) {
 						ContentValues map = ContentVBuilder
 								.putMessageInContentV(json.getJSONObject(i));
-
+						map.put(Keys.MessageAnotherPerson,
+								json.getJSONObject(i).optString(
+										Keys.MessageAnotherPerson));
 						int id = Integer.parseInt(ID);
 						if (id > getLastIDHomeMSg())
 							setLastIDHomeMSg(id);
@@ -968,7 +978,8 @@ public class MySQLinker extends SQLinker {
 				+ Keys.MessageID_CONVERSATION + " INTEGER," + Keys.ID_PLAYER
 				+ " INTEGER," + Keys.PLAYERNICKNAME + " TEXT,"
 				+ Keys.PLAYERAVATAR + " TEXT," + Keys.MessageText + " TEXT,"
-				+ Keys.MessageTime + " TEXT);";
+				+ Keys.MessageAnotherPerson + " TEXT," + Keys.MessageTime
+				+ " TEXT);";
 		db.execSQL(cREATE_HomeMsgTable);
 
 		String cREATE_HomeEventTable = "CREATE TABLE " + Keys.HomeEventTable
@@ -999,8 +1010,8 @@ public class MySQLinker extends SQLinker {
 				+ " INTEGER PRIMARY KEY," + Keys.ID_GAME + " TEXT," + Keys.CITY
 				+ " TEXT," + Keys.COUNTRY + " TEXT," + Keys.PLAYERNICKNAME
 				+ " TEXT," + Keys.Email + " TEXT," + Keys.PLAYERAVATAR
-				+ " TEXT," + Keys.FirstName + " TEXT," + Keys.LastName
-				+ " TEXT," + Keys.Age + " TEXT);";
+				+ " TEXT," + Keys.FirstName + " TEXT," + Keys.Mutual + " TEXT,"
+				+ Keys.LastName + " TEXT," + Keys.Age + " TEXT);";
 		db.execSQL(cREATE_whoIsPlayingTable);
 
 		String cREATE_HomeGroupTable = "CREATE TABLE " + Keys.HomeGroupTable

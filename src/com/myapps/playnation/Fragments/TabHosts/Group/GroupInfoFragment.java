@@ -71,7 +71,6 @@ public class GroupInfoFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-
 				DialogFragment dialog = new DialogSendCommentFragment();
 				dialog.show(getChildFragmentManager(), "Group");
 				Bundle argss = new Bundle();
@@ -82,6 +81,7 @@ public class GroupInfoFragment extends Fragment {
 				argss.putString(Keys.functionPhpName, "groupFunction.php");
 				dialog.setArguments(argss);
 				v.setVisibility(View.GONE);
+
 			}
 		});
 

@@ -55,11 +55,10 @@ public class BundleBuilder {
 
 	public static Bundle putPGameExtraInBundle(Cursor cursor) {
 		Bundle bundle = putGameInBundle(cursor);
-		bundle.putString(Keys.ID_PLAYER, cursor.getString(cursor.getColumnIndex(Keys.ID_PLAYER)));
+		bundle.putString(Keys.ID_PLAYER,
+				cursor.getString(cursor.getColumnIndex(Keys.ID_PLAYER)));
 		bundle.putString(Keys.GameComments,
 				cursor.getString(cursor.getColumnIndex(Keys.GameComments)));
-	//	bundle.putString(Keys.isMember,
-	//			cursor.getString(cursor.getColumnIndex(Keys.isMember)));
 
 		bundle.putString(Keys.GameisPlaying,
 				cursor.getInt(cursor.getColumnIndex(Keys.GameisPlaying)) + "");

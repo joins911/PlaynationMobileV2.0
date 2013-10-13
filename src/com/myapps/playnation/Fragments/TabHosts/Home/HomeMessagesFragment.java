@@ -65,7 +65,7 @@ public class HomeMessagesFragment extends Fragment implements BaseFragment {
 			msges = makeFakeList();
 		HomeMsgesAdapter expAdapter = new HomeMsgesAdapter(getActivity(), msges);
 		TextView msgText = (TextView) view.findViewById(R.id.noFriendsText);
-		if (expAdapter.isEmpty()) {			
+		if (expAdapter.isEmpty()) {
 			msgText.setVisibility(View.VISIBLE);
 			msgText.setText(R.string.emptyMsgListString);
 			msgText.setTextColor(Color.parseColor("#CFCFCF"));
@@ -95,14 +95,13 @@ public class HomeMessagesFragment extends Fragment implements BaseFragment {
 							.getArrayChildren();
 					for (int i = 0; i < replies.size(); i++)
 						args.putBundle("" + i, replies.get(i));
-				}
-				else {
-				ArrayList<Bundle> replies = makeFakeList();
-				for (int i = 0; i < replies.size(); i++)
-					args.putBundle("" + i, replies.get(i));
+				} else {
+					ArrayList<Bundle> replies = makeFakeList();
+					for (int i = 0; i < replies.size(); i++)
+						args.putBundle("" + i, replies.get(i));
 				}
 				startMessageAct(args);
-				}
+			}
 		});
 		return view;
 	}

@@ -37,6 +37,7 @@ public class ServiceClass extends Service {
 	private int TimeOut = 5 * 1000;
 	private SharedPreferences saveLoginPref;
 	private boolean session;
+
 	// private static final String tag = "ServiceClass";
 
 	@Override
@@ -58,13 +59,16 @@ public class ServiceClass extends Service {
 
 	public void createNotification() {
 		// Creates an explicit intent for an Activity in your app
-		Intent resultIntent = new Intent();
+		Intent resultIntent = new Intent(
+				MainActivity.passmBrowserFragment.getActivity(),
+				MainActivity.passmBrowserFragment.getClass());
 
 		// The stack builder object will contain an artificial back stack for
 		// the
 		// started Activity.
 		// This ensures that navigating backward from the Activity leads out of
 		// your application to the Home screen.
+
 		TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
 		// Adds the back stack for the Intent (but not the Intent itself)
 
@@ -122,6 +126,7 @@ public class ServiceClass extends Service {
 			Keys.internetStatus = HelperClass
 					.isNetworkAvailable((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE));
 			try {
+				System.out.println("In service");
 				if (linker.getMinGameID() == linker.getLastIDGames()) {
 					linker.setLastIDGames(0);
 				}
@@ -162,20 +167,21 @@ public class ServiceClass extends Service {
 	TimerTask checkServerStatus = new TimerTask() {
 
 		@Override
-		public void run(){
-			if(timerCount==4) checkConnectionTimerTimeout = 60*1000;
-			 try{
-			        URL myUrl = new URL("http://playnation.eu");
-			        URLConnection connection = myUrl.openConnection();
-			        connection.setConnectTimeout(TimeOut);
-			        connection.connect();
-			        Configurations.isReachable = true;
-			    } catch (Exception e) {
-			        // Handle your exceptions
-			    	Configurations.isReachable = false;
-			    }
-			 timerCount++;
-		}		
+		public void run() {
+			if (timerCount == 4)
+				checkConnectionTimerTimeout = 60 * 1000;
+			try {
+				URL myUrl = new URL("http://playnation.eu");
+				URLConnection connection = myUrl.openConnection();
+				connection.setConnectTimeout(TimeOut);
+				connection.connect();
+				Configurations.isReachable = true;
+			} catch (Exception e) {
+				// Handle your exceptions
+				Configurations.isReachable = false;
+			}
+			timerCount++;
+		}
 	};
 
 	static int MINUTES = 2;
@@ -216,6 +222,7 @@ public class ServiceClass extends Service {
 
 	@Override
 	public void onStart(Intent intent, int startId) {
+		System.out.println("Service is Started");
 		showNotification();
 		getServerConnection();
 	}

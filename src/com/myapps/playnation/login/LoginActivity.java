@@ -31,7 +31,6 @@ import com.myapps.playnation.Operations.HelperClass;
 import com.myapps.playnation.Operations.MySQLinker;
 import com.myapps.playnation.Operations.ServiceClass;
 import com.myapps.playnation.main.MainActivity;
-import com.myapps.playnation.main.PlaynationMobile;
 
 public class LoginActivity extends Activity {
 
@@ -134,7 +133,7 @@ public class LoginActivity extends Activity {
 			if (isChecked)
 				username.setText(email);
 		}
-		
+
 		Configurations.screenDencity = getResources().getDisplayMetrics().density;
 		Configurations.screenDpi = getResources().getDisplayMetrics().densityDpi;
 
@@ -397,7 +396,7 @@ public class LoginActivity extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		stopService(new Intent(this, ServiceClass.class));
+		// stopService(new Intent(this, ServiceClass.class));
 		super.onDestroy();
 	}
 

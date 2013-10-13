@@ -18,7 +18,6 @@ public class ContentVBuilder {
 		temp.put(Keys.ID_GAME, obj.getInt(Keys.ID_GAME));
 		temp.put(Keys.ID_PLAYER, obj.getInt(Keys.ID_PLAYER) + "");
 		temp.put(Keys.GameComments, obj.getString(Keys.GameComments));
-		temp.put(Keys.isMember, obj.getString(Keys.isMember));
 
 		temp.put(Keys.GamesisSubscribed, obj.getInt(Keys.GamesisSubscribed)
 				+ "");

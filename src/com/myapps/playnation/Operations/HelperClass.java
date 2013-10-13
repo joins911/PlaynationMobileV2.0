@@ -338,7 +338,8 @@ public class HelperClass {
 		} else if (tableName.equals(Keys.PlayerTable)) {
 			returns = "SELECT * FROM " + tableName + " Where ID_PLAYER=?;";
 		} else if (tableName.equals(Keys.HomeNotificationTable)) {
-			returns = "SELECT * FROM " + tableName + " Where ID_PLAYER=?;";
+			returns = "SELECT * FROM " + tableName + " Where ID_PLAYER=? and "
+					+ Keys.ID_NOTIFICATION + "=" + anotherID + ";";
 		}
 		return returns;
 	}

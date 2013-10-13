@@ -393,6 +393,7 @@ public class MainActivity extends ActionBarActivity implements ISectionAdapter {
 	}
 
 	private void initHome() {
+		System.out.println(passCurrFragment);
 		if (!(currFragment instanceof BrowserFragment)
 				|| !(passCurrFragment instanceof BrowserFragment)) {
 			if (currFragment == null) {

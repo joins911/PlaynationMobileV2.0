@@ -20,7 +20,6 @@ import com.myapps.playnation.Classes.Keys;
 import com.myapps.playnation.Operations.Configurations;
 import com.myapps.playnation.Operations.DataConnector;
 import com.myapps.playnation.main.ISectionAdapter;
-import com.myapps.playnation.main.MainActivity;
 
 public class PlayerFriendsFragment extends Fragment {
 	private DataConnector con;
@@ -55,7 +54,7 @@ public class PlayerFriendsFragment extends Fragment {
 		con.queryPlayerFriends(args.getString(Keys.ID_PLAYER));
 		PlayerHomeInfoAdapter expAdapter = new PlayerHomeInfoAdapter(
 				getActivity(), con.getTable(Keys.HomeFriendsTable,
-						args.getString(Keys.ID_PLAYER)));
+						args.getString(Keys.ID_PLAYER)), getFragmentManager());
 
 		if (expAdapter.isEmpty()) {
 
@@ -73,8 +72,7 @@ public class PlayerFriendsFragment extends Fragment {
 					int position, long id) {
 				Bundle args = (Bundle) parent.getItemAtPosition(position);
 
-				mCallback.setPageAndTab(Configurations.PlayersSTATE, 5,
-						args);
+				mCallback.setPageAndTab(Configurations.PlayersSTATE, 5, args);
 			}
 		});
 		return view;
