@@ -183,6 +183,7 @@ public final class Keys {
 	public final static String Age = "DateOfBirth";
 	public final static String Author = "Author";
 	public final static String whoIsPlayingTable = "WhoIsPlaying";
+	public final static String whoInGroupTable = "WhoInGroup";
 
 	// Notification json and map identifiers
 	public final static String ID_NOTIFICATION = "ID_NOTIFICATION";

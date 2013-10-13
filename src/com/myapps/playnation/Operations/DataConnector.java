@@ -306,10 +306,15 @@ public class DataConnector {
 	}
 
 	public void queryWhoIsPlaying(String playerID) {
-
 		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
-				Keys.whoIsPlayingTable, "0", 0);
+				Keys.whoIsPlayingTable, Configurations.CurrentPlayerID, 0);
 		sqlLinker.insertWhoIsPlaying(json, playerID);
+	}
+
+	public void queryWhoInGroup(String playerID) {
+		JSONArray json = getArrayFromQuerryWithPostVariable(playerID,
+				Keys.whoInGroupTable, Configurations.CurrentPlayerID, 0);
+		sqlLinker.insertWhoInGroup(json, playerID);
 	}
 
 	public void functionQuery(String ID_PLAYER, String Another, String phpName,

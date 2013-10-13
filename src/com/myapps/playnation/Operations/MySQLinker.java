@@ -674,6 +674,30 @@ public class MySQLinker extends SQLinker {
 		}
 	}
 
+	public void insertWhoInGroup(JSONArray json, String playerID) {
+		SQLiteDatabase sql = this.getWritableDatabase();
+		if (json != null) {
+			for (int i = 0; i < json.length(); i++) {
+
+				try {
+					String ID = json.getJSONObject(i).getString(Keys.ID_PLAYER);
+					if (!checkRowExist(Keys.whoInGroupTable, playerID, ID)) {
+						ContentValues map = ContentVBuilder
+								.putPlayerInContentV(json.getJSONObject(i));
+						map.put(Keys.ID_GROUP,
+								json.getJSONObject(i).getString(Keys.ID_GROUP));
+						map.put(Keys.Mutual,
+								json.getJSONObject(i).optString(Keys.Mutual));
+						sql.insertWithOnConflict(Keys.whoIsPlayingTable, null,
+								map, SQLiteDatabase.CONFLICT_REPLACE);
+					}
+				} catch (Exception e) {
+					Log.e("Fetching WhoISPlaying", "Error Friends" + e);
+				}
+			}
+		}
+	}
+
 	public void insertPGames(JSONArray json, String playerID) {
 		SQLiteDatabase sql = this.getWritableDatabase();
 		if (json != null)
@@ -1014,6 +1038,15 @@ public class MySQLinker extends SQLinker {
 				+ Keys.LastName + " TEXT," + Keys.Age + " TEXT);";
 		db.execSQL(cREATE_whoIsPlayingTable);
 
+		String cREATE_whoInGroupTable = "CREATE TABLE " + Keys.whoInGroupTable
+				+ " (" + Keys.ID_PLAYER + " INTEGER PRIMARY KEY,"
+				+ Keys.ID_GROUP + " TEXT," + Keys.CITY + " TEXT,"
+				+ Keys.COUNTRY + " TEXT," + Keys.PLAYERNICKNAME + " TEXT,"
+				+ Keys.Email + " TEXT," + Keys.PLAYERAVATAR + " TEXT,"
+				+ Keys.FirstName + " TEXT," + Keys.Mutual + " TEXT,"
+				+ Keys.LastName + " TEXT," + Keys.Age + " TEXT);";
+		db.execSQL(cREATE_whoIsPlayingTable);
+
 		String cREATE_HomeGroupTable = "CREATE TABLE " + Keys.HomeGroupTable
 				+ " (" + Keys.ID_GROUP + " INTEGER PRIMARY KEY,"
 				+ Keys.ID_PLAYER + " INTEGER," + Keys.ID_CREATOR + " INTEGER, "
@@ -1139,6 +1172,7 @@ public class MySQLinker extends SQLinker {
 		db.execSQL("DROP TABLE IF EXISTS " + Keys.HomeGamesTable);
 		db.execSQL("DROP TABLE IF EXISTS " + Keys.HomeSubscriptionTable);
 		db.execSQL("DROP TABLE IF EXISTS " + Keys.HomeNotificationTable);
+		db.execSQL("DROP TABLE IF EXISTS " + Keys.whoInGroupTable);
 		onCreate(db);
 	}
 }
